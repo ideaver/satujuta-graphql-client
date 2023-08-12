@@ -1,0 +1,11 @@
+mutation Mutation($userUpdateOneArgs: UserUpdateOneArgs!) {
+  userUpdateOne(userUpdateOneArgs: $userUpdateOneArgs) {
+    id
+    programsCreated {
+      id
+      name
+      description
+      createdAt
+    }
+  }
+}

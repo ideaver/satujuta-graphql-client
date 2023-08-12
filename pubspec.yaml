@@ -1,0 +1,19 @@
+name: satujuta_gql_client
+description: A sample command-line application.
+version: 1.0.0
+# repository: https://github.com/my_org/my_repo
+
+environment:
+  sdk: ^3.0.3
+
+# Add regular dependencies here.
+dependencies:
+  gql_http_link: ^1.0.1
+  ferry: ^0.14.2+1
+
+dev_dependencies:
+  lints: ^2.0.0
+  test: ^1.21.0
+  pedantic: ^1.9.0
+  build_runner: ^2.4.6
+  ferry_generator: ^0.8.1

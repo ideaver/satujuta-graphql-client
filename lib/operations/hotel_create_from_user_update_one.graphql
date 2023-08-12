@@ -1,0 +1,10 @@
+mutation UserUpdateOne($userUpdateOneArgs: UserUpdateOneArgs!) {
+  userUpdateOne(userUpdateOneArgs: $userUpdateOneArgs) {
+    id
+    hotelsCreated {
+      id
+      name
+      createdAt
+    }
+  }
+}

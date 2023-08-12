@@ -1,0 +1,21 @@
+query UserFindMany($userFindManyArgs: UserFindManyArgs!) {
+  userFindMany(userFindManyArgs: $userFindManyArgs) {
+    id
+    firstName
+    lastName
+    email
+    addressId
+    userRole
+    userType
+    avatarUrl
+    whatsappNumber
+    whatsappVerifiedAt
+    referredById
+    status
+    schoolId
+    createdAt
+    updatedAt
+    deletedAt
+    theme
+  }
+}

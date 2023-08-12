@@ -1,0 +1,35 @@
+mutation UserCreate($userCreateArgs: UserCreateArgs!) {
+  userCreate(userCreateArgs: $userCreateArgs) {
+    id
+    firstName
+    lastName
+    email
+    userRole
+    userType
+    avatarUrl
+    whatsappNumber
+    referralCode
+    status
+    schoolId
+    createdAt
+    updatedAt
+    theme
+    address {
+      id
+      name
+      cityId
+      districtId
+      postalCodeId
+    }
+    school {
+      id
+      name
+      addressId
+      createdAt
+      updatedAt
+    }
+    referredBy {
+      id
+    }
+  }
+}
