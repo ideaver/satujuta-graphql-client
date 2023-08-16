@@ -1,5 +1,5 @@
 mutation UserCreate($userCreateArgs: UserCreateArgs!) {
-  userCreate(userCreateArgs: $userCreateArgs) {
+  userCreateOne(userCreateArgs: $userCreateArgs) {
     id
     firstName
     lastName
@@ -30,6 +30,13 @@ mutation UserCreate($userCreateArgs: UserCreateArgs!) {
     }
     referredBy {
       id
+    }
+    accounts {
+      id
+      name
+      accountNumber
+      accountCategory
+      balance
     }
   }
 }

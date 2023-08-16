@@ -1,0 +1,5 @@
+query PointTransactionFindFirst($pointTransactionFindFirstArgs: PointTransactionFindFirstArgs!) {
+  pointTransactionFindFirst(pointTransactionFindFirstArgs: $pointTransactionFindFirstArgs) {
+    currentBalance
+  }
+}

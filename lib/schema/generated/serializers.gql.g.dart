@@ -9,23 +9,69 @@ part of 'serializers.gql.dart';
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(FetchPolicy.serializer)
       ..add(GAccountCategory.serializer)
+      ..add(GAccountCreateManyUserInput.serializer)
+      ..add(GAccountCreateManyUserInputEnvelope.serializer)
+      ..add(GAccountCreateNestedManyWithoutUserInput.serializer)
       ..add(GAccountCreateNestedOneWithoutProjectInput.serializer)
-      ..add(GAccountCreateNestedOneWithoutTransactionsInput.serializer)
+      ..add(
+          GAccountCreateNestedOneWithoutTransactionDestinationInput.serializer)
+      ..add(GAccountCreateNestedOneWithoutTransactionOriginsInput.serializer)
       ..add(GAccountCreateOrConnectWithoutProjectInput.serializer)
-      ..add(GAccountCreateOrConnectWithoutTransactionsInput.serializer)
+      ..add(
+          GAccountCreateOrConnectWithoutTransactionDestinationInput.serializer)
+      ..add(GAccountCreateOrConnectWithoutTransactionOriginsInput.serializer)
+      ..add(GAccountCreateOrConnectWithoutUserInput.serializer)
       ..add(GAccountCreateWithoutProjectInput.serializer)
-      ..add(GAccountCreateWithoutTransactionsInput.serializer)
+      ..add(GAccountCreateWithoutTransactionDestinationInput.serializer)
+      ..add(GAccountCreateWithoutTransactionOriginsInput.serializer)
+      ..add(GAccountCreateWithoutUserInput.serializer)
+      ..add(GAccountFindFirstArgs.serializer)
+      ..add(GAccountFindManyArgs.serializer)
+      ..add(GAccountFindManyData.serializer)
+      ..add(GAccountFindManyData_accountFindMany.serializer)
+      ..add(GAccountFindManyData_accountFindMany__count.serializer)
+      ..add(GAccountFindManyReq.serializer)
+      ..add(GAccountFindManyVars.serializer)
+      ..add(GAccountFindOneData.serializer)
+      ..add(GAccountFindOneData_accountFindOne.serializer)
+      ..add(GAccountFindOneReq.serializer)
+      ..add(GAccountFindOneVars.serializer)
+      ..add(GAccountFindUniqueArgs.serializer)
+      ..add(GAccountListRelationFilter.serializer)
+      ..add(GAccountMonthlyBalanceArgs.serializer)
+      ..add(GAccountOrderByRelationAggregateInput.serializer)
+      ..add(GAccountOrderByWithRelationInput.serializer)
       ..add(GAccountRelationFilter.serializer)
+      ..add(GAccountScalarFieldEnum.serializer)
+      ..add(GAccountScalarWhereInput.serializer)
+      ..add(GAccountUpdateInput.serializer)
+      ..add(GAccountUpdateManyMutationInput.serializer)
+      ..add(GAccountUpdateManyWithWhereWithoutUserInput.serializer)
+      ..add(GAccountUpdateManyWithoutUserNestedInput.serializer)
+      ..add(GAccountUpdateOneArgs.serializer)
       ..add(GAccountUpdateOneRequiredWithoutProjectNestedInput.serializer)
-      ..add(GAccountUpdateOneRequiredWithoutTransactionsNestedInput.serializer)
+      ..add(GAccountUpdateOneRequiredWithoutTransactionDestinationNestedInput
+          .serializer)
+      ..add(GAccountUpdateOneRequiredWithoutTransactionOriginsNestedInput
+          .serializer)
       ..add(GAccountUpdateToOneWithWhereWithoutProjectInput.serializer)
-      ..add(GAccountUpdateToOneWithWhereWithoutTransactionsInput.serializer)
+      ..add(GAccountUpdateToOneWithWhereWithoutTransactionDestinationInput
+          .serializer)
+      ..add(
+          GAccountUpdateToOneWithWhereWithoutTransactionOriginsInput.serializer)
+      ..add(GAccountUpdateWithWhereUniqueWithoutUserInput.serializer)
       ..add(GAccountUpdateWithoutProjectInput.serializer)
-      ..add(GAccountUpdateWithoutTransactionsInput.serializer)
+      ..add(GAccountUpdateWithoutTransactionDestinationInput.serializer)
+      ..add(GAccountUpdateWithoutTransactionOriginsInput.serializer)
+      ..add(GAccountUpdateWithoutUserInput.serializer)
+      ..add(GAccountUpsertWithWhereUniqueWithoutUserInput.serializer)
       ..add(GAccountUpsertWithoutProjectInput.serializer)
-      ..add(GAccountUpsertWithoutTransactionsInput.serializer)
+      ..add(GAccountUpsertWithoutTransactionDestinationInput.serializer)
+      ..add(GAccountUpsertWithoutTransactionOriginsInput.serializer)
       ..add(GAccountWhereInput.serializer)
       ..add(GAccountWhereUniqueInput.serializer)
+      ..add(GAddressCreateArgs.serializer)
+      ..add(GAddressCreateInput.serializer)
       ..add(GAddressCreateNestedOneWithoutHotelInput.serializer)
       ..add(GAddressCreateNestedOneWithoutSchoolInput.serializer)
       ..add(GAddressCreateNestedOneWithoutShippingInput.serializer)
@@ -38,10 +84,15 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GAddressCreateWithoutSchoolInput.serializer)
       ..add(GAddressCreateWithoutShippingInput.serializer)
       ..add(GAddressCreateWithoutUserInput.serializer)
+      ..add(GAddressFindManyArgs.serializer)
+      ..add(GAddressFindUniqueArgs.serializer)
       ..add(GAddressListRelationFilter.serializer)
       ..add(GAddressOrderByRelationAggregateInput.serializer)
       ..add(GAddressOrderByWithRelationInput.serializer)
       ..add(GAddressRelationFilter.serializer)
+      ..add(GAddressScalarFieldEnum.serializer)
+      ..add(GAddressUpdateInput.serializer)
+      ..add(GAddressUpdateOneArgs.serializer)
       ..add(GAddressUpdateOneRequiredWithoutHotelNestedInput.serializer)
       ..add(GAddressUpdateOneRequiredWithoutSchoolNestedInput.serializer)
       ..add(GAddressUpdateOneRequiredWithoutShippingNestedInput.serializer)
@@ -64,6 +115,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GBankCreateOrConnectWithoutAccountInput.serializer)
       ..add(GBankCreateWithoutAccountInput.serializer)
       ..add(GBankNullableRelationFilter.serializer)
+      ..add(GBankOrderByWithRelationInput.serializer)
       ..add(GBankUpdateOneWithoutAccountNestedInput.serializer)
       ..add(GBankUpdateToOneWithWhereWithoutAccountInput.serializer)
       ..add(GBankUpdateWithoutAccountInput.serializer)
@@ -72,6 +124,8 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GBankWhereUniqueInput.serializer)
       ..add(GBoolFieldUpdateOperationsInput.serializer)
       ..add(GBoolFilter.serializer)
+      ..add(GCheckInCreateArgs.serializer)
+      ..add(GCheckInCreateInput.serializer)
       ..add(GCheckInCreateManyHotelInput.serializer)
       ..add(GCheckInCreateManyHotelInputEnvelope.serializer)
       ..add(GCheckInCreateManyUserInput.serializer)
@@ -80,14 +134,20 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GCheckInCreateOrConnectWithoutUserInput.serializer)
       ..add(GCheckInCreateWithoutHotelInput.serializer)
       ..add(GCheckInCreateWithoutUserInput.serializer)
+      ..add(GCheckInFindManyArgs.serializer)
+      ..add(GCheckInFindUniqueArgs.serializer)
       ..add(GCheckInListRelationFilter.serializer)
       ..add(GCheckInOrderByRelationAggregateInput.serializer)
+      ..add(GCheckInOrderByWithRelationInput.serializer)
+      ..add(GCheckInScalarFieldEnum.serializer)
       ..add(GCheckInScalarWhereInput.serializer)
+      ..add(GCheckInUpdateInput.serializer)
       ..add(GCheckInUpdateManyMutationInput.serializer)
       ..add(GCheckInUpdateManyWithWhereWithoutHotelInput.serializer)
       ..add(GCheckInUpdateManyWithWhereWithoutUserInput.serializer)
       ..add(GCheckInUpdateManyWithoutHotelNestedInput.serializer)
       ..add(GCheckInUpdateManyWithoutUserNestedInput.serializer)
+      ..add(GCheckInUpdateOneArgs.serializer)
       ..add(GCheckInUpdateWithWhereUniqueWithoutHotelInput.serializer)
       ..add(GCheckInUpdateWithWhereUniqueWithoutUserInput.serializer)
       ..add(GCheckInUpdateWithoutHotelInput.serializer)
@@ -127,6 +187,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GEnumAccountCategoryFilter.serializer)
       ..add(GEnumFileTypeFieldUpdateOperationsInput.serializer)
       ..add(GEnumFileTypeFilter.serializer)
+      ..add(GEnumPointTypeFilter.serializer)
       ..add(GEnumProjectCategoryFieldUpdateOperationsInput.serializer)
       ..add(GEnumProjectCategoryFilter.serializer)
       ..add(GEnumShippingStatusFieldUpdateOperationsInput.serializer)
@@ -137,15 +198,37 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GEnumTransactionCategoryFilter.serializer)
       ..add(GEnumTransactionStatusFieldUpdateOperationsInput.serializer)
       ..add(GEnumTransactionStatusFilter.serializer)
-      ..add(GEnumTransactionTypeFieldUpdateOperationsInput.serializer)
       ..add(GEnumTransactionTypeFilter.serializer)
+      ..add(GEnumUserNotificationCategoryFieldUpdateOperationsInput.serializer)
+      ..add(GEnumUserNotificationCategoryFilter.serializer)
       ..add(GEnumUserRoleFieldUpdateOperationsInput.serializer)
       ..add(GEnumUserRoleFilter.serializer)
       ..add(GEnumUserTypeFieldUpdateOperationsInput.serializer)
       ..add(GEnumUserTypeFilter.serializer)
+      ..add(GFaqCreateArgs.serializer)
+      ..add(GFaqCreateInput.serializer)
+      ..add(GFaqFindManyArgs.serializer)
+      ..add(GFaqFindUniqueArgs.serializer)
+      ..add(GFaqOrderByWithRelationInput.serializer)
+      ..add(GFaqScalarFieldEnum.serializer)
+      ..add(GFaqUpdateInput.serializer)
+      ..add(GFaqUpdateOneArgs.serializer)
+      ..add(GFaqWhereInput.serializer)
+      ..add(GFaqWhereUniqueInput.serializer)
+      ..add(GFileCreateArgs.serializer)
+      ..add(GFileCreateInput.serializer)
+      ..add(GFileFindManyArgs.serializer)
+      ..add(GFileFindUniqueArgs.serializer)
+      ..add(GFileOrderByWithRelationInput.serializer)
+      ..add(GFileScalarFieldEnum.serializer)
       ..add(GFileType.serializer)
+      ..add(GFileUpdateInput.serializer)
+      ..add(GFileUpdateOneArgs.serializer)
+      ..add(GFileWhereInput.serializer)
+      ..add(GFileWhereUniqueInput.serializer)
       ..add(GFloatFieldUpdateOperationsInput.serializer)
       ..add(GFloatFilter.serializer)
+      ..add(GFloatNullableFilter.serializer)
       ..add(GHotelCreateArgs.serializer)
       ..add(GHotelCreateData.serializer)
       ..add(GHotelCreateData_hotelCreate.serializer)
@@ -212,15 +295,20 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GImagesCreateManyProgramImageInputEnvelope.serializer)
       ..add(GImagesCreateManyProjectImageInput.serializer)
       ..add(GImagesCreateManyProjectImageInputEnvelope.serializer)
+      ..add(GImagesCreateManyRewardImageInput.serializer)
+      ..add(GImagesCreateManyRewardImageInputEnvelope.serializer)
       ..add(GImagesCreateNestedManyWithoutHotelImageInput.serializer)
       ..add(GImagesCreateNestedManyWithoutProgramImageInput.serializer)
       ..add(GImagesCreateNestedManyWithoutProjectImageInput.serializer)
+      ..add(GImagesCreateNestedManyWithoutRewardImageInput.serializer)
       ..add(GImagesCreateOrConnectWithoutHotelImageInput.serializer)
       ..add(GImagesCreateOrConnectWithoutProgramImageInput.serializer)
       ..add(GImagesCreateOrConnectWithoutProjectImageInput.serializer)
+      ..add(GImagesCreateOrConnectWithoutRewardImageInput.serializer)
       ..add(GImagesCreateWithoutHotelImageInput.serializer)
       ..add(GImagesCreateWithoutProgramImageInput.serializer)
       ..add(GImagesCreateWithoutProjectImageInput.serializer)
+      ..add(GImagesCreateWithoutRewardImageInput.serializer)
       ..add(GImagesListRelationFilter.serializer)
       ..add(GImagesOrderByRelationAggregateInput.serializer)
       ..add(GImagesScalarWhereInput.serializer)
@@ -228,34 +316,47 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GImagesUpdateManyWithWhereWithoutHotelImageInput.serializer)
       ..add(GImagesUpdateManyWithWhereWithoutProgramImageInput.serializer)
       ..add(GImagesUpdateManyWithWhereWithoutProjectImageInput.serializer)
+      ..add(GImagesUpdateManyWithWhereWithoutRewardImageInput.serializer)
       ..add(GImagesUpdateManyWithoutHotelImageNestedInput.serializer)
       ..add(GImagesUpdateManyWithoutProgramImageNestedInput.serializer)
       ..add(GImagesUpdateManyWithoutProjectImageNestedInput.serializer)
+      ..add(GImagesUpdateManyWithoutRewardImageNestedInput.serializer)
       ..add(GImagesUpdateWithWhereUniqueWithoutHotelImageInput.serializer)
       ..add(GImagesUpdateWithWhereUniqueWithoutProgramImageInput.serializer)
       ..add(GImagesUpdateWithWhereUniqueWithoutProjectImageInput.serializer)
+      ..add(GImagesUpdateWithWhereUniqueWithoutRewardImageInput.serializer)
       ..add(GImagesUpdateWithoutHotelImageInput.serializer)
       ..add(GImagesUpdateWithoutProgramImageInput.serializer)
       ..add(GImagesUpdateWithoutProjectImageInput.serializer)
+      ..add(GImagesUpdateWithoutRewardImageInput.serializer)
       ..add(GImagesUpsertWithWhereUniqueWithoutHotelImageInput.serializer)
       ..add(GImagesUpsertWithWhereUniqueWithoutProgramImageInput.serializer)
       ..add(GImagesUpsertWithWhereUniqueWithoutProjectImageInput.serializer)
+      ..add(GImagesUpsertWithWhereUniqueWithoutRewardImageInput.serializer)
       ..add(GImagesWhereInput.serializer)
       ..add(GImagesWhereUniqueInput.serializer)
       ..add(GIntFieldUpdateOperationsInput.serializer)
       ..add(GIntFilter.serializer)
       ..add(GIntNullableFilter.serializer)
+      ..add(GItemCreateArgs.serializer)
+      ..add(GItemCreateInput.serializer)
       ..add(GItemCreateManyOrderInput.serializer)
       ..add(GItemCreateManyOrderInputEnvelope.serializer)
       ..add(GItemCreateNestedManyWithoutOrderInput.serializer)
       ..add(GItemCreateOrConnectWithoutOrderInput.serializer)
       ..add(GItemCreateWithoutOrderInput.serializer)
+      ..add(GItemFindManyArgs.serializer)
+      ..add(GItemFindUniqueArgs.serializer)
       ..add(GItemListRelationFilter.serializer)
       ..add(GItemOrderByRelationAggregateInput.serializer)
+      ..add(GItemOrderByWithRelationInput.serializer)
+      ..add(GItemScalarFieldEnum.serializer)
       ..add(GItemScalarWhereInput.serializer)
+      ..add(GItemUpdateInput.serializer)
       ..add(GItemUpdateManyMutationInput.serializer)
       ..add(GItemUpdateManyWithWhereWithoutOrderInput.serializer)
       ..add(GItemUpdateManyWithoutOrderNestedInput.serializer)
+      ..add(GItemUpdateOneArgs.serializer)
       ..add(GItemUpdateWithWhereUniqueWithoutOrderInput.serializer)
       ..add(GItemUpdateWithoutOrderInput.serializer)
       ..add(GItemUpsertWithWhereUniqueWithoutOrderInput.serializer)
@@ -271,45 +372,71 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GNestedDateTimeNullableFilter.serializer)
       ..add(GNestedEnumAccountCategoryFilter.serializer)
       ..add(GNestedEnumFileTypeFilter.serializer)
+      ..add(GNestedEnumPointTypeFilter.serializer)
       ..add(GNestedEnumProjectCategoryFilter.serializer)
       ..add(GNestedEnumShippingStatusFilter.serializer)
       ..add(GNestedEnumThemeFilter.serializer)
       ..add(GNestedEnumTransactionCategoryFilter.serializer)
       ..add(GNestedEnumTransactionStatusFilter.serializer)
       ..add(GNestedEnumTransactionTypeFilter.serializer)
+      ..add(GNestedEnumUserNotificationCategoryFilter.serializer)
       ..add(GNestedEnumUserRoleFilter.serializer)
       ..add(GNestedEnumUserTypeFilter.serializer)
       ..add(GNestedFloatFilter.serializer)
+      ..add(GNestedFloatNullableFilter.serializer)
       ..add(GNestedIntFilter.serializer)
       ..add(GNestedIntNullableFilter.serializer)
       ..add(GNestedStringFilter.serializer)
       ..add(GNestedStringNullableFilter.serializer)
       ..add(GNullableDateTimeFieldUpdateOperationsInput.serializer)
+      ..add(GNullableFloatFieldUpdateOperationsInput.serializer)
       ..add(GNullableIntFieldUpdateOperationsInput.serializer)
       ..add(GNullableStringFieldUpdateOperationsInput.serializer)
       ..add(GNullsOrder.serializer)
+      ..add(GOrderCreateArgs.serializer)
+      ..add(GOrderCreateInput.serializer)
+      ..add(GOrderCreateNestedOneWithoutItemsInput.serializer)
       ..add(GOrderCreateNestedOneWithoutPaymentsInput.serializer)
       ..add(GOrderCreateNestedOneWithoutShippingInput.serializer)
+      ..add(GOrderCreateOrConnectWithoutItemsInput.serializer)
       ..add(GOrderCreateOrConnectWithoutPaymentsInput.serializer)
       ..add(GOrderCreateOrConnectWithoutShippingInput.serializer)
+      ..add(GOrderCreateWithoutItemsInput.serializer)
       ..add(GOrderCreateWithoutPaymentsInput.serializer)
       ..add(GOrderCreateWithoutShippingInput.serializer)
+      ..add(GOrderFindManyArgs.serializer)
+      ..add(GOrderFindUniqueArgs.serializer)
       ..add(GOrderOrderByWithRelationInput.serializer)
       ..add(GOrderRelationFilter.serializer)
+      ..add(GOrderScalarFieldEnum.serializer)
+      ..add(GOrderUpdateInput.serializer)
+      ..add(GOrderUpdateOneArgs.serializer)
+      ..add(GOrderUpdateOneRequiredWithoutItemsNestedInput.serializer)
       ..add(GOrderUpdateOneRequiredWithoutPaymentsNestedInput.serializer)
       ..add(GOrderUpdateOneRequiredWithoutShippingNestedInput.serializer)
+      ..add(GOrderUpdateToOneWithWhereWithoutItemsInput.serializer)
       ..add(GOrderUpdateToOneWithWhereWithoutPaymentsInput.serializer)
       ..add(GOrderUpdateToOneWithWhereWithoutShippingInput.serializer)
+      ..add(GOrderUpdateWithoutItemsInput.serializer)
       ..add(GOrderUpdateWithoutPaymentsInput.serializer)
       ..add(GOrderUpdateWithoutShippingInput.serializer)
+      ..add(GOrderUpsertWithoutItemsInput.serializer)
       ..add(GOrderUpsertWithoutPaymentsInput.serializer)
       ..add(GOrderUpsertWithoutShippingInput.serializer)
       ..add(GOrderWhereInput.serializer)
       ..add(GOrderWhereUniqueInput.serializer)
+      ..add(GPaymentConfirmationCreateArgs.serializer)
+      ..add(GPaymentConfirmationCreateInput.serializer)
       ..add(GPaymentConfirmationCreateNestedOneWithoutPaymentInput.serializer)
       ..add(GPaymentConfirmationCreateOrConnectWithoutPaymentInput.serializer)
       ..add(GPaymentConfirmationCreateWithoutPaymentInput.serializer)
+      ..add(GPaymentConfirmationFindManyArgs.serializer)
+      ..add(GPaymentConfirmationFindUniqueArgs.serializer)
       ..add(GPaymentConfirmationNullableRelationFilter.serializer)
+      ..add(GPaymentConfirmationOrderByWithRelationInput.serializer)
+      ..add(GPaymentConfirmationScalarFieldEnum.serializer)
+      ..add(GPaymentConfirmationUpdateInput.serializer)
+      ..add(GPaymentConfirmationUpdateOneArgs.serializer)
       ..add(GPaymentConfirmationUpdateOneWithoutPaymentNestedInput.serializer)
       ..add(GPaymentConfirmationUpdateToOneWithWhereWithoutPaymentInput
           .serializer)
@@ -317,31 +444,61 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GPaymentConfirmationUpsertWithoutPaymentInput.serializer)
       ..add(GPaymentConfirmationWhereInput.serializer)
       ..add(GPaymentConfirmationWhereUniqueInput.serializer)
+      ..add(GPaymentCreateArgs.serializer)
+      ..add(GPaymentCreateInput.serializer)
       ..add(GPaymentCreateManyOrderInput.serializer)
       ..add(GPaymentCreateManyOrderInputEnvelope.serializer)
       ..add(GPaymentCreateNestedManyWithoutOrderInput.serializer)
+      ..add(GPaymentCreateNestedOneWithoutConfirmationInput.serializer)
       ..add(GPaymentCreateNestedOneWithoutTransactionInput.serializer)
+      ..add(GPaymentCreateOrConnectWithoutConfirmationInput.serializer)
       ..add(GPaymentCreateOrConnectWithoutOrderInput.serializer)
       ..add(GPaymentCreateOrConnectWithoutTransactionInput.serializer)
+      ..add(GPaymentCreateWithoutConfirmationInput.serializer)
       ..add(GPaymentCreateWithoutOrderInput.serializer)
       ..add(GPaymentCreateWithoutTransactionInput.serializer)
+      ..add(GPaymentFindManyArgs.serializer)
+      ..add(GPaymentFindUniqueArgs.serializer)
       ..add(GPaymentListRelationFilter.serializer)
       ..add(GPaymentNullableRelationFilter.serializer)
       ..add(GPaymentOrderByRelationAggregateInput.serializer)
+      ..add(GPaymentOrderByWithRelationInput.serializer)
       ..add(GPaymentRelationFilter.serializer)
+      ..add(GPaymentScalarFieldEnum.serializer)
       ..add(GPaymentScalarWhereInput.serializer)
+      ..add(GPaymentUpdateInput.serializer)
       ..add(GPaymentUpdateManyMutationInput.serializer)
       ..add(GPaymentUpdateManyWithWhereWithoutOrderInput.serializer)
       ..add(GPaymentUpdateManyWithoutOrderNestedInput.serializer)
+      ..add(GPaymentUpdateOneArgs.serializer)
+      ..add(GPaymentUpdateOneRequiredWithoutConfirmationNestedInput.serializer)
       ..add(GPaymentUpdateOneWithoutTransactionNestedInput.serializer)
+      ..add(GPaymentUpdateToOneWithWhereWithoutConfirmationInput.serializer)
       ..add(GPaymentUpdateToOneWithWhereWithoutTransactionInput.serializer)
       ..add(GPaymentUpdateWithWhereUniqueWithoutOrderInput.serializer)
+      ..add(GPaymentUpdateWithoutConfirmationInput.serializer)
       ..add(GPaymentUpdateWithoutOrderInput.serializer)
       ..add(GPaymentUpdateWithoutTransactionInput.serializer)
       ..add(GPaymentUpsertWithWhereUniqueWithoutOrderInput.serializer)
+      ..add(GPaymentUpsertWithoutConfirmationInput.serializer)
       ..add(GPaymentUpsertWithoutTransactionInput.serializer)
       ..add(GPaymentWhereInput.serializer)
       ..add(GPaymentWhereUniqueInput.serializer)
+      ..add(GPointTransactionCreateArgs.serializer)
+      ..add(GPointTransactionCreateInput.serializer)
+      ..add(GPointTransactionFindFirstArgs.serializer)
+      ..add(GPointTransactionFindFirstData.serializer)
+      ..add(GPointTransactionFindFirstData_pointTransactionFindFirst.serializer)
+      ..add(GPointTransactionFindFirstData_rewardFindMany.serializer)
+      ..add(GPointTransactionFindFirstData_rewardFindMany_images.serializer)
+      ..add(GPointTransactionFindFirstReq.serializer)
+      ..add(GPointTransactionFindFirstVars.serializer)
+      ..add(GPointTransactionFindManyArgs.serializer)
+      ..add(GPointTransactionFindUniqueArgs.serializer)
+      ..add(GPointTransactionOrderByWithRelationInput.serializer)
+      ..add(GPointTransactionScalarFieldEnum.serializer)
+      ..add(GPointTransactionWhereInput.serializer)
+      ..add(GPointTransactionWhereUniqueInput.serializer)
       ..add(GPointType.serializer)
       ..add(GPostalCodeCreateNestedOneWithoutAddressInput.serializer)
       ..add(GPostalCodeCreateOrConnectWithoutAddressInput.serializer)
@@ -354,10 +511,18 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GPostalCodeUpsertWithoutAddressInput.serializer)
       ..add(GPostalCodeWhereInput.serializer)
       ..add(GPostalCodeWhereUniqueInput.serializer)
+      ..add(GProgramCategoryCreateArgs.serializer)
+      ..add(GProgramCategoryCreateInput.serializer)
       ..add(GProgramCategoryCreateNestedOneWithoutProgramsInput.serializer)
       ..add(GProgramCategoryCreateOrConnectWithoutProgramsInput.serializer)
       ..add(GProgramCategoryCreateWithoutProgramsInput.serializer)
+      ..add(GProgramCategoryFindManyArgs.serializer)
+      ..add(GProgramCategoryFindUniqueArgs.serializer)
+      ..add(GProgramCategoryOrderByWithRelationInput.serializer)
       ..add(GProgramCategoryRelationFilter.serializer)
+      ..add(GProgramCategoryScalarFieldEnum.serializer)
+      ..add(GProgramCategoryUpdateInput.serializer)
+      ..add(GProgramCategoryUpdateOneArgs.serializer)
       ..add(GProgramCategoryUpdateOneRequiredWithoutProgramsNestedInput
           .serializer)
       ..add(GProgramCategoryUpdateToOneWithWhereWithoutProgramsInput.serializer)
@@ -365,35 +530,82 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GProgramCategoryUpsertWithoutProgramsInput.serializer)
       ..add(GProgramCategoryWhereInput.serializer)
       ..add(GProgramCategoryWhereUniqueInput.serializer)
+      ..add(GProgramCreateArgs.serializer)
+      ..add(GProgramCreateData.serializer)
+      ..add(GProgramCreateData_programCreateOne.serializer)
+      ..add(GProgramCreateData_programCreateOne_Images.serializer)
+      ..add(GProgramCreateData_programCreateOne_category.serializer)
+      ..add(GProgramCreateData_programCreateOne_createdBy.serializer)
+      ..add(GProgramCreateData_programCreateOne_createdBy_address.serializer)
+      ..add(GProgramCreateInput.serializer)
+      ..add(GProgramCreateManyCategoryInput.serializer)
+      ..add(GProgramCreateManyCategoryInputEnvelope.serializer)
       ..add(GProgramCreateManyCreatedByInput.serializer)
       ..add(GProgramCreateManyCreatedByInputEnvelope.serializer)
+      ..add(GProgramCreateNestedManyWithoutCategoryInput.serializer)
+      ..add(GProgramCreateOrConnectWithoutCategoryInput.serializer)
       ..add(GProgramCreateOrConnectWithoutCreatedByInput.serializer)
       ..add(GProgramCreateOrConnectWithoutImagesInput.serializer)
+      ..add(GProgramCreateReq.serializer)
+      ..add(GProgramCreateVars.serializer)
+      ..add(GProgramCreateWithoutCategoryInput.serializer)
       ..add(GProgramCreateWithoutCreatedByInput.serializer)
       ..add(GProgramCreateWithoutImagesInput.serializer)
+      ..add(GProgramFindManyArgs.serializer)
+      ..add(GProgramFindManyData.serializer)
+      ..add(GProgramFindManyData_programFindMany.serializer)
+      ..add(GProgramFindManyData_programFindMany_Images.serializer)
+      ..add(GProgramFindManyData_programFindMany__count.serializer)
+      ..add(GProgramFindManyData_programFindMany_category.serializer)
+      ..add(GProgramFindManyReq.serializer)
+      ..add(GProgramFindManyVars.serializer)
+      ..add(GProgramFindUniqueArgs.serializer)
       ..add(GProgramListRelationFilter.serializer)
       ..add(GProgramNullableRelationFilter.serializer)
       ..add(GProgramOrderByRelationAggregateInput.serializer)
+      ..add(GProgramOrderByWithRelationInput.serializer)
+      ..add(GProgramRemoveData.serializer)
+      ..add(GProgramRemoveReq.serializer)
+      ..add(GProgramRemoveVars.serializer)
+      ..add(GProgramScalarFieldEnum.serializer)
       ..add(GProgramScalarWhereInput.serializer)
+      ..add(GProgramUpdateInput.serializer)
       ..add(GProgramUpdateManyMutationInput.serializer)
+      ..add(GProgramUpdateManyWithWhereWithoutCategoryInput.serializer)
       ..add(GProgramUpdateManyWithWhereWithoutCreatedByInput.serializer)
+      ..add(GProgramUpdateManyWithoutCategoryNestedInput.serializer)
       ..add(GProgramUpdateManyWithoutCreatedByNestedInput.serializer)
+      ..add(GProgramUpdateOneArgs.serializer)
+      ..add(GProgramUpdateOneData.serializer)
+      ..add(GProgramUpdateOneReq.serializer)
+      ..add(GProgramUpdateOneVars.serializer)
       ..add(GProgramUpdateOneWithoutImagesNestedInput.serializer)
       ..add(GProgramUpdateToOneWithWhereWithoutImagesInput.serializer)
+      ..add(GProgramUpdateWithWhereUniqueWithoutCategoryInput.serializer)
       ..add(GProgramUpdateWithWhereUniqueWithoutCreatedByInput.serializer)
+      ..add(GProgramUpdateWithoutCategoryInput.serializer)
       ..add(GProgramUpdateWithoutCreatedByInput.serializer)
       ..add(GProgramUpdateWithoutImagesInput.serializer)
+      ..add(GProgramUpsertWithWhereUniqueWithoutCategoryInput.serializer)
       ..add(GProgramUpsertWithWhereUniqueWithoutCreatedByInput.serializer)
       ..add(GProgramUpsertWithoutImagesInput.serializer)
       ..add(GProgramWhereInput.serializer)
       ..add(GProgramWhereUniqueInput.serializer)
       ..add(GProjectCategory.serializer)
+      ..add(GProjectCreateArgs.serializer)
+      ..add(GProjectCreateInput.serializer)
       ..add(GProjectCreateNestedOneWithoutAccountInput.serializer)
       ..add(GProjectCreateOrConnectWithoutAccountInput.serializer)
       ..add(GProjectCreateOrConnectWithoutImagesInput.serializer)
       ..add(GProjectCreateWithoutAccountInput.serializer)
       ..add(GProjectCreateWithoutImagesInput.serializer)
+      ..add(GProjectFindManyArgs.serializer)
+      ..add(GProjectFindUniqueArgs.serializer)
       ..add(GProjectNullableRelationFilter.serializer)
+      ..add(GProjectOrderByWithRelationInput.serializer)
+      ..add(GProjectScalarFieldEnum.serializer)
+      ..add(GProjectUpdateInput.serializer)
+      ..add(GProjectUpdateOneArgs.serializer)
       ..add(GProjectUpdateOneWithoutAccountNestedInput.serializer)
       ..add(GProjectUpdateOneWithoutImagesNestedInput.serializer)
       ..add(GProjectUpdateToOneWithWhereWithoutAccountInput.serializer)
@@ -404,26 +616,51 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GProjectUpsertWithoutImagesInput.serializer)
       ..add(GProjectWhereInput.serializer)
       ..add(GProjectWhereUniqueInput.serializer)
+      ..add(GQueryData.serializer)
+      ..add(GQueryData_accountFindOne.serializer)
+      ..add(GQueryData_accountFindOne__count.serializer)
+      ..add(GQueryReq.serializer)
+      ..add(GQueryVars.serializer)
       ..add(GResetPasswordData.serializer)
       ..add(GResetPasswordData_resetPassword.serializer)
       ..add(GResetPasswordReq.serializer)
       ..add(GResetPasswordVars.serializer)
+      ..add(GRewardCreateArgs.serializer)
+      ..add(GRewardCreateInput.serializer)
       ..add(GRewardCreateOrConnectWithoutImagesInput.serializer)
       ..add(GRewardCreateWithoutImagesInput.serializer)
+      ..add(GRewardFindManyArgs.serializer)
+      ..add(GRewardFindUniqueArgs.serializer)
       ..add(GRewardNullableRelationFilter.serializer)
+      ..add(GRewardOrderByWithRelationInput.serializer)
+      ..add(GRewardScalarFieldEnum.serializer)
+      ..add(GRewardUpdateInput.serializer)
+      ..add(GRewardUpdateOneArgs.serializer)
+      ..add(GRewardUpdateOneData.serializer)
+      ..add(GRewardUpdateOneData_rewardUpdateOne.serializer)
+      ..add(GRewardUpdateOneData_rewardUpdateOne__count.serializer)
+      ..add(GRewardUpdateOneReq.serializer)
+      ..add(GRewardUpdateOneVars.serializer)
       ..add(GRewardUpdateOneWithoutImagesNestedInput.serializer)
       ..add(GRewardUpdateToOneWithWhereWithoutImagesInput.serializer)
       ..add(GRewardUpdateWithoutImagesInput.serializer)
       ..add(GRewardUpsertWithoutImagesInput.serializer)
       ..add(GRewardWhereInput.serializer)
       ..add(GRewardWhereUniqueInput.serializer)
+      ..add(GSchoolCreateArgs.serializer)
+      ..add(GSchoolCreateInput.serializer)
       ..add(GSchoolCreateNestedOneWithoutStudentsInput.serializer)
       ..add(GSchoolCreateOrConnectWithoutAddressInput.serializer)
       ..add(GSchoolCreateOrConnectWithoutStudentsInput.serializer)
       ..add(GSchoolCreateWithoutAddressInput.serializer)
       ..add(GSchoolCreateWithoutStudentsInput.serializer)
+      ..add(GSchoolFindManyArgs.serializer)
+      ..add(GSchoolFindUniqueArgs.serializer)
       ..add(GSchoolNullableRelationFilter.serializer)
       ..add(GSchoolOrderByWithRelationInput.serializer)
+      ..add(GSchoolScalarFieldEnum.serializer)
+      ..add(GSchoolUpdateInput.serializer)
+      ..add(GSchoolUpdateOneArgs.serializer)
       ..add(GSchoolUpdateOneWithoutAddressNestedInput.serializer)
       ..add(GSchoolUpdateOneWithoutStudentsNestedInput.serializer)
       ..add(GSchoolUpdateToOneWithWhereWithoutAddressInput.serializer)
@@ -434,14 +671,27 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GSchoolUpsertWithoutStudentsInput.serializer)
       ..add(GSchoolWhereInput.serializer)
       ..add(GSchoolWhereUniqueInput.serializer)
+      ..add(GSessionFindManyArgs.serializer)
+      ..add(GSessionFindUniqueArgs.serializer)
+      ..add(GSessionOrderByWithRelationInput.serializer)
+      ..add(GSessionScalarFieldEnum.serializer)
+      ..add(GSessionWhereInput.serializer)
+      ..add(GSessionWhereUniqueInput.serializer)
+      ..add(GShippingCreateArgs.serializer)
+      ..add(GShippingCreateInput.serializer)
       ..add(GShippingCreateNestedOneWithoutOrderInput.serializer)
       ..add(GShippingCreateOrConnectWithoutAddressInput.serializer)
       ..add(GShippingCreateOrConnectWithoutOrderInput.serializer)
       ..add(GShippingCreateWithoutAddressInput.serializer)
       ..add(GShippingCreateWithoutOrderInput.serializer)
+      ..add(GShippingFindManyArgs.serializer)
+      ..add(GShippingFindUniqueArgs.serializer)
       ..add(GShippingNullableRelationFilter.serializer)
       ..add(GShippingOrderByWithRelationInput.serializer)
+      ..add(GShippingScalarFieldEnum.serializer)
       ..add(GShippingStatus.serializer)
+      ..add(GShippingUpdateInput.serializer)
+      ..add(GShippingUpdateOneArgs.serializer)
       ..add(GShippingUpdateOneWithoutAddressNestedInput.serializer)
       ..add(GShippingUpdateOneWithoutOrderNestedInput.serializer)
       ..add(GShippingUpdateToOneWithWhereWithoutAddressInput.serializer)
@@ -459,37 +709,57 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GStringNullableFilter.serializer)
       ..add(GTheme.serializer)
       ..add(GTransactionCategory.serializer)
-      ..add(GTransactionCreateManyAccountInput.serializer)
-      ..add(GTransactionCreateManyAccountInputEnvelope.serializer)
-      ..add(GTransactionCreateNestedManyWithoutAccountInput.serializer)
+      ..add(GTransactionCreateManyFromAccountInput.serializer)
+      ..add(GTransactionCreateManyFromAccountInputEnvelope.serializer)
+      ..add(GTransactionCreateManyToAccountInput.serializer)
+      ..add(GTransactionCreateManyToAccountInputEnvelope.serializer)
+      ..add(GTransactionCreateNestedManyWithoutFromAccountInput.serializer)
+      ..add(GTransactionCreateNestedManyWithoutToAccountInput.serializer)
       ..add(GTransactionCreateNestedOneWithoutPaymentInput.serializer)
-      ..add(GTransactionCreateOrConnectWithoutAccountInput.serializer)
+      ..add(GTransactionCreateOrConnectWithoutFromAccountInput.serializer)
       ..add(GTransactionCreateOrConnectWithoutPaymentInput.serializer)
-      ..add(GTransactionCreateWithoutAccountInput.serializer)
+      ..add(GTransactionCreateOrConnectWithoutToAccountInput.serializer)
+      ..add(GTransactionCreateWithoutFromAccountInput.serializer)
       ..add(GTransactionCreateWithoutPaymentInput.serializer)
+      ..add(GTransactionCreateWithoutToAccountInput.serializer)
+      ..add(GTransactionFindManyArgs.serializer)
+      ..add(GTransactionFindManyData.serializer)
+      ..add(GTransactionFindManyData_transactionFindMany.serializer)
+      ..add(GTransactionFindManyReq.serializer)
+      ..add(GTransactionFindManyVars.serializer)
+      ..add(GTransactionFindUniqueArgs.serializer)
       ..add(GTransactionListRelationFilter.serializer)
+      ..add(GTransactionOrderByRelationAggregateInput.serializer)
+      ..add(GTransactionOrderByWithRelationInput.serializer)
       ..add(GTransactionRelationFilter.serializer)
+      ..add(GTransactionScalarFieldEnum.serializer)
       ..add(GTransactionScalarWhereInput.serializer)
       ..add(GTransactionStatus.serializer)
       ..add(GTransactionType.serializer)
       ..add(GTransactionUpdateManyMutationInput.serializer)
-      ..add(GTransactionUpdateManyWithWhereWithoutAccountInput.serializer)
-      ..add(GTransactionUpdateManyWithoutAccountNestedInput.serializer)
+      ..add(GTransactionUpdateManyWithWhereWithoutFromAccountInput.serializer)
+      ..add(GTransactionUpdateManyWithWhereWithoutToAccountInput.serializer)
+      ..add(GTransactionUpdateManyWithoutFromAccountNestedInput.serializer)
+      ..add(GTransactionUpdateManyWithoutToAccountNestedInput.serializer)
       ..add(GTransactionUpdateOneRequiredWithoutPaymentNestedInput.serializer)
       ..add(GTransactionUpdateToOneWithWhereWithoutPaymentInput.serializer)
-      ..add(GTransactionUpdateWithWhereUniqueWithoutAccountInput.serializer)
-      ..add(GTransactionUpdateWithoutAccountInput.serializer)
+      ..add(GTransactionUpdateWithWhereUniqueWithoutFromAccountInput.serializer)
+      ..add(GTransactionUpdateWithWhereUniqueWithoutToAccountInput.serializer)
+      ..add(GTransactionUpdateWithoutFromAccountInput.serializer)
       ..add(GTransactionUpdateWithoutPaymentInput.serializer)
-      ..add(GTransactionUpsertWithWhereUniqueWithoutAccountInput.serializer)
+      ..add(GTransactionUpdateWithoutToAccountInput.serializer)
+      ..add(GTransactionUpsertWithWhereUniqueWithoutFromAccountInput.serializer)
+      ..add(GTransactionUpsertWithWhereUniqueWithoutToAccountInput.serializer)
       ..add(GTransactionUpsertWithoutPaymentInput.serializer)
       ..add(GTransactionWhereInput.serializer)
       ..add(GTransactionWhereUniqueInput.serializer)
       ..add(GUserCreateArgs.serializer)
       ..add(GUserCreateData.serializer)
-      ..add(GUserCreateData_userCreate.serializer)
-      ..add(GUserCreateData_userCreate_address.serializer)
-      ..add(GUserCreateData_userCreate_referredBy.serializer)
-      ..add(GUserCreateData_userCreate_school.serializer)
+      ..add(GUserCreateData_userCreateOne.serializer)
+      ..add(GUserCreateData_userCreateOne_accounts.serializer)
+      ..add(GUserCreateData_userCreateOne_address.serializer)
+      ..add(GUserCreateData_userCreateOne_referredBy.serializer)
+      ..add(GUserCreateData_userCreateOne_school.serializer)
       ..add(GUserCreateInput.serializer)
       ..add(GUserCreateManyReferredByInput.serializer)
       ..add(GUserCreateManyReferredByInputEnvelope.serializer)
@@ -497,37 +767,43 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GUserCreateNestedManyWithoutProjectsInvestmentInput.serializer)
       ..add(GUserCreateNestedOneWithoutAccountsInput.serializer)
       ..add(GUserCreateNestedOneWithoutCheckInsInput.serializer)
+      ..add(GUserCreateNestedOneWithoutFilesCreatedInput.serializer)
       ..add(GUserCreateNestedOneWithoutHotelsCreatedInput.serializer)
       ..add(GUserCreateNestedOneWithoutOrdersInput.serializer)
+      ..add(GUserCreateNestedOneWithoutPointTransactionsInput.serializer)
       ..add(GUserCreateNestedOneWithoutProgramsCreatedInput.serializer)
       ..add(GUserCreateNestedOneWithoutReferredUsersInput.serializer)
-      ..add(GUserCreateNestedOneWithoutTransactionsInput.serializer)
+      ..add(GUserCreateNestedOneWithoutUserNotificationsInput.serializer)
       ..add(GUserCreateOrConnectWithoutAccountsInput.serializer)
       ..add(GUserCreateOrConnectWithoutAddressInput.serializer)
       ..add(GUserCreateOrConnectWithoutCheckInsInput.serializer)
       ..add(GUserCreateOrConnectWithoutClaimedRewardsInput.serializer)
+      ..add(GUserCreateOrConnectWithoutFilesCreatedInput.serializer)
       ..add(GUserCreateOrConnectWithoutHotelsCreatedInput.serializer)
       ..add(GUserCreateOrConnectWithoutOrdersInput.serializer)
+      ..add(GUserCreateOrConnectWithoutPointTransactionsInput.serializer)
       ..add(GUserCreateOrConnectWithoutProgramsCreatedInput.serializer)
       ..add(GUserCreateOrConnectWithoutProgramsParticipationInput.serializer)
       ..add(GUserCreateOrConnectWithoutProjectsInvestmentInput.serializer)
       ..add(GUserCreateOrConnectWithoutReferredByInput.serializer)
       ..add(GUserCreateOrConnectWithoutReferredUsersInput.serializer)
-      ..add(GUserCreateOrConnectWithoutTransactionsInput.serializer)
+      ..add(GUserCreateOrConnectWithoutUserNotificationsInput.serializer)
       ..add(GUserCreateReq.serializer)
       ..add(GUserCreateVars.serializer)
       ..add(GUserCreateWithoutAccountsInput.serializer)
       ..add(GUserCreateWithoutAddressInput.serializer)
       ..add(GUserCreateWithoutCheckInsInput.serializer)
       ..add(GUserCreateWithoutClaimedRewardsInput.serializer)
+      ..add(GUserCreateWithoutFilesCreatedInput.serializer)
       ..add(GUserCreateWithoutHotelsCreatedInput.serializer)
       ..add(GUserCreateWithoutOrdersInput.serializer)
+      ..add(GUserCreateWithoutPointTransactionsInput.serializer)
       ..add(GUserCreateWithoutProgramsCreatedInput.serializer)
       ..add(GUserCreateWithoutProgramsParticipationInput.serializer)
       ..add(GUserCreateWithoutProjectsInvestmentInput.serializer)
       ..add(GUserCreateWithoutReferredByInput.serializer)
       ..add(GUserCreateWithoutReferredUsersInput.serializer)
-      ..add(GUserCreateWithoutTransactionsInput.serializer)
+      ..add(GUserCreateWithoutUserNotificationsInput.serializer)
       ..add(GUserFindManyArgs.serializer)
       ..add(GUserFindManyData.serializer)
       ..add(GUserFindManyData_userFindMany.serializer)
@@ -536,6 +812,16 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GUserFindUniqueArgs.serializer)
       ..add(GUserListRelationFilter.serializer)
       ..add(GUserNotificationCategory.serializer)
+      ..add(GUserNotificationCreateArgs.serializer)
+      ..add(GUserNotificationCreateInput.serializer)
+      ..add(GUserNotificationFindManyArgs.serializer)
+      ..add(GUserNotificationFindUniqueArgs.serializer)
+      ..add(GUserNotificationOrderByWithRelationInput.serializer)
+      ..add(GUserNotificationScalarFieldEnum.serializer)
+      ..add(GUserNotificationUpdateInput.serializer)
+      ..add(GUserNotificationUpdateOneArgs.serializer)
+      ..add(GUserNotificationWhereInput.serializer)
+      ..add(GUserNotificationWhereUniqueInput.serializer)
       ..add(GUserNullableRelationFilter.serializer)
       ..add(GUserOrderByRelationAggregateInput.serializer)
       ..add(GUserOrderByWithRelationInput.serializer)
@@ -565,21 +851,24 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GUserUpdateOneReq.serializer)
       ..add(GUserUpdateOneRequiredWithoutAccountsNestedInput.serializer)
       ..add(GUserUpdateOneRequiredWithoutCheckInsNestedInput.serializer)
+      ..add(GUserUpdateOneRequiredWithoutFilesCreatedNestedInput.serializer)
       ..add(GUserUpdateOneRequiredWithoutHotelsCreatedNestedInput.serializer)
       ..add(GUserUpdateOneRequiredWithoutOrdersNestedInput.serializer)
       ..add(GUserUpdateOneRequiredWithoutProgramsCreatedNestedInput.serializer)
-      ..add(GUserUpdateOneRequiredWithoutTransactionsNestedInput.serializer)
+      ..add(
+          GUserUpdateOneRequiredWithoutUserNotificationsNestedInput.serializer)
       ..add(GUserUpdateOneVars.serializer)
       ..add(GUserUpdateOneWithoutAddressNestedInput.serializer)
       ..add(GUserUpdateOneWithoutReferredUsersNestedInput.serializer)
       ..add(GUserUpdateToOneWithWhereWithoutAccountsInput.serializer)
       ..add(GUserUpdateToOneWithWhereWithoutAddressInput.serializer)
       ..add(GUserUpdateToOneWithWhereWithoutCheckInsInput.serializer)
+      ..add(GUserUpdateToOneWithWhereWithoutFilesCreatedInput.serializer)
       ..add(GUserUpdateToOneWithWhereWithoutHotelsCreatedInput.serializer)
       ..add(GUserUpdateToOneWithWhereWithoutOrdersInput.serializer)
       ..add(GUserUpdateToOneWithWhereWithoutProgramsCreatedInput.serializer)
       ..add(GUserUpdateToOneWithWhereWithoutReferredUsersInput.serializer)
-      ..add(GUserUpdateToOneWithWhereWithoutTransactionsInput.serializer)
+      ..add(GUserUpdateToOneWithWhereWithoutUserNotificationsInput.serializer)
       ..add(GUserUpdateWithWhereUniqueWithoutClaimedRewardsInput.serializer)
       ..add(GUserUpdateWithWhereUniqueWithoutProgramsParticipationInput
           .serializer)
@@ -589,6 +878,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GUserUpdateWithoutAddressInput.serializer)
       ..add(GUserUpdateWithoutCheckInsInput.serializer)
       ..add(GUserUpdateWithoutClaimedRewardsInput.serializer)
+      ..add(GUserUpdateWithoutFilesCreatedInput.serializer)
       ..add(GUserUpdateWithoutHotelsCreatedInput.serializer)
       ..add(GUserUpdateWithoutOrdersInput.serializer)
       ..add(GUserUpdateWithoutProgramsCreatedInput.serializer)
@@ -596,7 +886,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GUserUpdateWithoutProjectsInvestmentInput.serializer)
       ..add(GUserUpdateWithoutReferredByInput.serializer)
       ..add(GUserUpdateWithoutReferredUsersInput.serializer)
-      ..add(GUserUpdateWithoutTransactionsInput.serializer)
+      ..add(GUserUpdateWithoutUserNotificationsInput.serializer)
       ..add(GUserUpsertWithWhereUniqueWithoutClaimedRewardsInput.serializer)
       ..add(GUserUpsertWithWhereUniqueWithoutProgramsParticipationInput
           .serializer)
@@ -605,13 +895,19 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GUserUpsertWithoutAccountsInput.serializer)
       ..add(GUserUpsertWithoutAddressInput.serializer)
       ..add(GUserUpsertWithoutCheckInsInput.serializer)
+      ..add(GUserUpsertWithoutFilesCreatedInput.serializer)
       ..add(GUserUpsertWithoutHotelsCreatedInput.serializer)
       ..add(GUserUpsertWithoutOrdersInput.serializer)
       ..add(GUserUpsertWithoutProgramsCreatedInput.serializer)
       ..add(GUserUpsertWithoutReferredUsersInput.serializer)
-      ..add(GUserUpsertWithoutTransactionsInput.serializer)
+      ..add(GUserUpsertWithoutUserNotificationsInput.serializer)
       ..add(GUserWhereInput.serializer)
       ..add(GUserWhereUniqueInput.serializer)
+      ..add(G_countData.serializer)
+      ..add(G_countData_userFindOne.serializer)
+      ..add(G_countData_userFindOne__count.serializer)
+      ..add(G_countReq.serializer)
+      ..add(G_countVars.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GAccountCategory)]),
           () => new ListBuilder<GAccountCategory>())
@@ -625,8 +921,98 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(GAccountCategory)]),
           () => new ListBuilder<GAccountCategory>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(GAccountWhereInput)]),
-          () => new ListBuilder<GAccountWhereInput>())
+          const FullType(
+              BuiltList, const [const FullType(GAccountCreateManyUserInput)]),
+          () => new ListBuilder<GAccountCreateManyUserInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GAccountCreateWithoutUserInput)]),
+          () => new ListBuilder<GAccountCreateWithoutUserInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GAccountCreateOrConnectWithoutUserInput)]),
+          () => new ListBuilder<GAccountCreateOrConnectWithoutUserInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GAccountUpsertWithWhereUniqueWithoutUserInput)
+          ]),
+          () =>
+              new ListBuilder<GAccountUpsertWithWhereUniqueWithoutUserInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GAccountWhereUniqueInput)]),
+          () => new ListBuilder<GAccountWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GAccountWhereUniqueInput)]),
+          () => new ListBuilder<GAccountWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GAccountWhereUniqueInput)]),
+          () => new ListBuilder<GAccountWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GAccountWhereUniqueInput)]),
+          () => new ListBuilder<GAccountWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GAccountUpdateWithWhereUniqueWithoutUserInput)
+          ]),
+          () =>
+              new ListBuilder<GAccountUpdateWithWhereUniqueWithoutUserInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GAccountUpdateManyWithWhereWithoutUserInput)
+          ]),
+          () => new ListBuilder<GAccountUpdateManyWithWhereWithoutUserInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GAccountScalarWhereInput)]),
+          () => new ListBuilder<GAccountScalarWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GAccountCreateWithoutUserInput)]),
+          () => new ListBuilder<GAccountCreateWithoutUserInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GAccountCreateOrConnectWithoutUserInput)]),
+          () => new ListBuilder<GAccountCreateOrConnectWithoutUserInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GAccountWhereUniqueInput)]),
+          () => new ListBuilder<GAccountWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GAccountFindManyData_accountFindMany)]),
+          () => new ListBuilder<GAccountFindManyData_accountFindMany>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GAccountOrderByWithRelationInput)]),
+          () => new ListBuilder<GAccountOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GAccountScalarFieldEnum)]),
+          () => new ListBuilder<GAccountScalarFieldEnum>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GAccountOrderByWithRelationInput)]),
+          () => new ListBuilder<GAccountOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GAccountScalarFieldEnum)]),
+          () => new ListBuilder<GAccountScalarFieldEnum>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GAccountScalarWhereInput)]),
+          () => new ListBuilder<GAccountScalarWhereInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GAccountScalarWhereInput)]),
+          () => new ListBuilder<GAccountScalarWhereInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GAccountScalarWhereInput)]),
+          () => new ListBuilder<GAccountScalarWhereInput>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GAccountWhereInput)]),
           () => new ListBuilder<GAccountWhereInput>())
@@ -642,6 +1028,17 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GAccountWhereInput)]),
           () => new ListBuilder<GAccountWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GAccountWhereInput)]),
+          () => new ListBuilder<GAccountWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GAddressOrderByWithRelationInput)]),
+          () => new ListBuilder<GAddressOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GAddressScalarFieldEnum)]),
+          () => new ListBuilder<GAddressScalarFieldEnum>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GAddressWhereInput)]),
           () => new ListBuilder<GAddressWhereInput>())
@@ -777,6 +1174,14 @@ Serializers _$serializers = (new Serializers().toBuilder()
               BuiltList, const [const FullType(GCheckInScalarWhereInput)]),
           () => new ListBuilder<GCheckInScalarWhereInput>())
       ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GCheckInOrderByWithRelationInput)]),
+          () => new ListBuilder<GCheckInOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GCheckInScalarFieldEnum)]),
+          () => new ListBuilder<GCheckInScalarFieldEnum>())
+      ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(GCheckInScalarWhereInput)]),
           () => new ListBuilder<GCheckInScalarWhereInput>())
@@ -873,8 +1278,39 @@ Serializers _$serializers = (new Serializers().toBuilder()
               BuiltList, const [const FullType(GDistrictWhereInput)]),
           () => new ListBuilder<GDistrictWhereInput>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(GFileType)]),
-          () => new ListBuilder<GFileType>())
+          const FullType(
+              BuiltList, const [const FullType(GFaqOrderByWithRelationInput)]),
+          () => new ListBuilder<GFaqOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GFaqScalarFieldEnum)]),
+          () => new ListBuilder<GFaqScalarFieldEnum>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GFaqWhereInput)]),
+          () => new ListBuilder<GFaqWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GFaqWhereInput)]),
+          () => new ListBuilder<GFaqWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GFaqWhereInput)]),
+          () => new ListBuilder<GFaqWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GFaqWhereInput)]),
+          () => new ListBuilder<GFaqWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GFaqWhereInput)]),
+          () => new ListBuilder<GFaqWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GFaqWhereInput)]),
+          () => new ListBuilder<GFaqWhereInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GFileOrderByWithRelationInput)]),
+          () => new ListBuilder<GFileOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GFileScalarFieldEnum)]),
+          () => new ListBuilder<GFileScalarFieldEnum>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GFileType)]),
           () => new ListBuilder<GFileType>())
@@ -884,6 +1320,27 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GFileType)]),
           () => new ListBuilder<GFileType>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GFileType)]),
+          () => new ListBuilder<GFileType>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GFileWhereInput)]),
+          () => new ListBuilder<GFileWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GFileWhereInput)]),
+          () => new ListBuilder<GFileWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GFileWhereInput)]),
+          () => new ListBuilder<GFileWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GFileWhereInput)]),
+          () => new ListBuilder<GFileWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GFileWhereInput)]),
+          () => new ListBuilder<GFileWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GFileWhereInput)]),
+          () => new ListBuilder<GFileWhereInput>())
       ..addBuilderFactory(
           const FullType(BuiltList,
               const [const FullType(GHotelCreateManyCreatedByInput)]),
@@ -993,6 +1450,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList,
               const [const FullType(GImagesCreateManyProjectImageInput)]),
           () => new ListBuilder<GImagesCreateManyProjectImageInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GImagesCreateManyRewardImageInput)]),
+          () => new ListBuilder<GImagesCreateManyRewardImageInput>())
       ..addBuilderFactory(
           const FullType(BuiltList,
               const [const FullType(GImagesCreateWithoutHotelImageInput)]),
@@ -1178,6 +1639,68 @@ Serializers _$serializers = (new Serializers().toBuilder()
               BuiltList, const [const FullType(GImagesWhereUniqueInput)]),
           () => new ListBuilder<GImagesWhereUniqueInput>())
       ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GImagesCreateWithoutRewardImageInput)]),
+          () => new ListBuilder<GImagesCreateWithoutRewardImageInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GImagesCreateOrConnectWithoutRewardImageInput)
+          ]),
+          () =>
+              new ListBuilder<GImagesCreateOrConnectWithoutRewardImageInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GImagesUpsertWithWhereUniqueWithoutRewardImageInput)
+          ]),
+          () => new ListBuilder<
+              GImagesUpsertWithWhereUniqueWithoutRewardImageInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GImagesWhereUniqueInput)]),
+          () => new ListBuilder<GImagesWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GImagesWhereUniqueInput)]),
+          () => new ListBuilder<GImagesWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GImagesWhereUniqueInput)]),
+          () => new ListBuilder<GImagesWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GImagesWhereUniqueInput)]),
+          () => new ListBuilder<GImagesWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GImagesUpdateWithWhereUniqueWithoutRewardImageInput)
+          ]),
+          () => new ListBuilder<
+              GImagesUpdateWithWhereUniqueWithoutRewardImageInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GImagesUpdateManyWithWhereWithoutRewardImageInput)
+          ]),
+          () => new ListBuilder<
+              GImagesUpdateManyWithWhereWithoutRewardImageInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GImagesScalarWhereInput)]),
+          () => new ListBuilder<GImagesScalarWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GImagesCreateWithoutRewardImageInput)]),
+          () => new ListBuilder<GImagesCreateWithoutRewardImageInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GImagesCreateOrConnectWithoutRewardImageInput)
+          ]),
+          () =>
+              new ListBuilder<GImagesCreateOrConnectWithoutRewardImageInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GImagesWhereUniqueInput)]),
+          () => new ListBuilder<GImagesWhereUniqueInput>())
+      ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(GImagesScalarWhereInput)]),
           () => new ListBuilder<GImagesScalarWhereInput>())
@@ -1268,6 +1791,14 @@ Serializers _$serializers = (new Serializers().toBuilder()
           () => new ListBuilder<GItemWhereUniqueInput>())
       ..addBuilderFactory(
           const FullType(
+              BuiltList, const [const FullType(GItemOrderByWithRelationInput)]),
+          () => new ListBuilder<GItemOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GItemScalarFieldEnum)]),
+          () => new ListBuilder<GItemScalarFieldEnum>())
+      ..addBuilderFactory(
+          const FullType(
               BuiltList, const [const FullType(GItemScalarWhereInput)]),
           () => new ListBuilder<GItemScalarWhereInput>())
       ..addBuilderFactory(
@@ -1302,8 +1833,13 @@ Serializers _$serializers = (new Serializers().toBuilder()
           ]),
           () => new ListBuilder<GMutationData_userUpdateOne_programsCreated>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(GOrderWhereInput)]),
-          () => new ListBuilder<GOrderWhereInput>())
+          const FullType(BuiltList,
+              const [const FullType(GOrderOrderByWithRelationInput)]),
+          () => new ListBuilder<GOrderOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GOrderScalarFieldEnum)]),
+          () => new ListBuilder<GOrderScalarFieldEnum>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GOrderWhereInput)]),
           () => new ListBuilder<GOrderWhereInput>())
@@ -1319,6 +1855,18 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GOrderWhereInput)]),
           () => new ListBuilder<GOrderWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GOrderWhereInput)]),
+          () => new ListBuilder<GOrderWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GPaymentConfirmationOrderByWithRelationInput)
+          ]),
+          () => new ListBuilder<GPaymentConfirmationOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GPaymentConfirmationScalarFieldEnum)]),
+          () => new ListBuilder<GPaymentConfirmationScalarFieldEnum>())
       ..addBuilderFactory(
           const FullType(BuiltList,
               const [const FullType(GPaymentConfirmationWhereInput)]),
@@ -1405,6 +1953,14 @@ Serializers _$serializers = (new Serializers().toBuilder()
               BuiltList, const [const FullType(GPaymentWhereUniqueInput)]),
           () => new ListBuilder<GPaymentWhereUniqueInput>())
       ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GPaymentOrderByWithRelationInput)]),
+          () => new ListBuilder<GPaymentOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GPaymentScalarFieldEnum)]),
+          () => new ListBuilder<GPaymentScalarFieldEnum>())
+      ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(GPaymentScalarWhereInput)]),
           () => new ListBuilder<GPaymentScalarWhereInput>())
@@ -1435,9 +1991,65 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(GPaymentWhereInput)]),
           () => new ListBuilder<GPaymentWhereInput>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GPointTransactionFindFirstData_rewardFindMany_images)
+          ]),
+          () => new ListBuilder<
+              GPointTransactionFindFirstData_rewardFindMany_images>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GPointTransactionOrderByWithRelationInput)
+          ]),
+          () => new ListBuilder<GPointTransactionOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GPointTransactionScalarFieldEnum)]),
+          () => new ListBuilder<GPointTransactionScalarFieldEnum>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GPointTransactionOrderByWithRelationInput)
+          ]),
+          () => new ListBuilder<GPointTransactionOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GPointTransactionScalarFieldEnum)]),
+          () => new ListBuilder<GPointTransactionScalarFieldEnum>())
+      ..addBuilderFactory(
           const FullType(
-              BuiltList, const [const FullType(GPostalCodeWhereInput)]),
-          () => new ListBuilder<GPostalCodeWhereInput>())
+              BuiltList, const [const FullType(GPointTransactionWhereInput)]),
+          () => new ListBuilder<GPointTransactionWhereInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GPointTransactionWhereInput)]),
+          () => new ListBuilder<GPointTransactionWhereInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GPointTransactionWhereInput)]),
+          () => new ListBuilder<GPointTransactionWhereInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GPointTransactionWhereInput)]),
+          () => new ListBuilder<GPointTransactionWhereInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GPointTransactionWhereInput)]),
+          () => new ListBuilder<GPointTransactionWhereInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GPointTransactionWhereInput)]),
+          () => new ListBuilder<GPointTransactionWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GPointType)]),
+          () => new ListBuilder<GPointType>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GPointType)]),
+          () => new ListBuilder<GPointType>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GPointType)]),
+          () => new ListBuilder<GPointType>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GPointType)]),
+          () => new ListBuilder<GPointType>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(GPostalCodeWhereInput)]),
@@ -1458,6 +2070,18 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(
               BuiltList, const [const FullType(GPostalCodeWhereInput)]),
           () => new ListBuilder<GPostalCodeWhereInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GPostalCodeWhereInput)]),
+          () => new ListBuilder<GPostalCodeWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GProgramCategoryOrderByWithRelationInput)]),
+          () => new ListBuilder<GProgramCategoryOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GProgramCategoryScalarFieldEnum)]),
+          () => new ListBuilder<GProgramCategoryScalarFieldEnum>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(GProgramCategoryWhereInput)]),
@@ -1482,10 +2106,79 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(
               BuiltList, const [const FullType(GProgramCategoryWhereInput)]),
           () => new ListBuilder<GProgramCategoryWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GProgramCreateData_programCreateOne_Images)
+          ]),
+          () => new ListBuilder<GProgramCreateData_programCreateOne_Images>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GProgramCreateManyCategoryInput)]),
+          () => new ListBuilder<GProgramCreateManyCategoryInput>())
       ..addBuilderFactory(
           const FullType(BuiltList,
               const [const FullType(GProgramCreateManyCreatedByInput)]),
           () => new ListBuilder<GProgramCreateManyCreatedByInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GProgramCreateWithoutCategoryInput)]),
+          () => new ListBuilder<GProgramCreateWithoutCategoryInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GProgramCreateOrConnectWithoutCategoryInput)
+          ]),
+          () => new ListBuilder<GProgramCreateOrConnectWithoutCategoryInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GProgramUpsertWithWhereUniqueWithoutCategoryInput)
+          ]),
+          () => new ListBuilder<
+              GProgramUpsertWithWhereUniqueWithoutCategoryInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GProgramWhereUniqueInput)]),
+          () => new ListBuilder<GProgramWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GProgramWhereUniqueInput)]),
+          () => new ListBuilder<GProgramWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GProgramWhereUniqueInput)]),
+          () => new ListBuilder<GProgramWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GProgramWhereUniqueInput)]),
+          () => new ListBuilder<GProgramWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GProgramUpdateWithWhereUniqueWithoutCategoryInput)
+          ]),
+          () => new ListBuilder<
+              GProgramUpdateWithWhereUniqueWithoutCategoryInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GProgramUpdateManyWithWhereWithoutCategoryInput)
+          ]),
+          () => new ListBuilder<
+              GProgramUpdateManyWithWhereWithoutCategoryInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GProgramScalarWhereInput)]),
+          () => new ListBuilder<GProgramScalarWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GProgramCreateWithoutCategoryInput)]),
+          () => new ListBuilder<GProgramCreateWithoutCategoryInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GProgramCreateOrConnectWithoutCategoryInput)
+          ]),
+          () => new ListBuilder<GProgramCreateOrConnectWithoutCategoryInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GProgramWhereUniqueInput)]),
+          () => new ListBuilder<GProgramWhereUniqueInput>())
       ..addBuilderFactory(
           const FullType(BuiltList,
               const [const FullType(GProgramCreateWithoutCreatedByInput)]),
@@ -1534,6 +2227,23 @@ Serializers _$serializers = (new Serializers().toBuilder()
               BuiltList, const [const FullType(GProgramScalarWhereInput)]),
           () => new ListBuilder<GProgramScalarWhereInput>())
       ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GProgramFindManyData_programFindMany)]),
+          () => new ListBuilder<GProgramFindManyData_programFindMany>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GProgramFindManyData_programFindMany_Images)
+          ]),
+          () => new ListBuilder<GProgramFindManyData_programFindMany_Images>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GProgramOrderByWithRelationInput)]),
+          () => new ListBuilder<GProgramOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GProgramScalarFieldEnum)]),
+          () => new ListBuilder<GProgramScalarFieldEnum>())
+      ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(GProgramScalarWhereInput)]),
           () => new ListBuilder<GProgramScalarWhereInput>())
@@ -1576,8 +2286,13 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(GProjectCategory)]),
           () => new ListBuilder<GProjectCategory>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(GProjectWhereInput)]),
-          () => new ListBuilder<GProjectWhereInput>())
+          const FullType(BuiltList,
+              const [const FullType(GProjectOrderByWithRelationInput)]),
+          () => new ListBuilder<GProjectOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GProjectScalarFieldEnum)]),
+          () => new ListBuilder<GProjectScalarFieldEnum>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GProjectWhereInput)]),
           () => new ListBuilder<GProjectWhereInput>())
@@ -1593,6 +2308,17 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GProjectWhereInput)]),
           () => new ListBuilder<GProjectWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GProjectWhereInput)]),
+          () => new ListBuilder<GProjectWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GRewardOrderByWithRelationInput)]),
+          () => new ListBuilder<GRewardOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GRewardScalarFieldEnum)]),
+          () => new ListBuilder<GRewardScalarFieldEnum>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GRewardWhereInput)]),
           () => new ListBuilder<GRewardWhereInput>())
@@ -1612,8 +2338,13 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(GRewardWhereInput)]),
           () => new ListBuilder<GRewardWhereInput>())
       ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(GSchoolWhereInput)]),
-          () => new ListBuilder<GSchoolWhereInput>())
+          const FullType(BuiltList,
+              const [const FullType(GSchoolOrderByWithRelationInput)]),
+          () => new ListBuilder<GSchoolOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GSchoolScalarFieldEnum)]),
+          () => new ListBuilder<GSchoolScalarFieldEnum>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GSchoolWhereInput)]),
           () => new ListBuilder<GSchoolWhereInput>())
@@ -1629,6 +2360,43 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GSchoolWhereInput)]),
           () => new ListBuilder<GSchoolWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GSchoolWhereInput)]),
+          () => new ListBuilder<GSchoolWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GSessionOrderByWithRelationInput)]),
+          () => new ListBuilder<GSessionOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GSessionScalarFieldEnum)]),
+          () => new ListBuilder<GSessionScalarFieldEnum>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GSessionWhereInput)]),
+          () => new ListBuilder<GSessionWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GSessionWhereInput)]),
+          () => new ListBuilder<GSessionWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GSessionWhereInput)]),
+          () => new ListBuilder<GSessionWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GSessionWhereInput)]),
+          () => new ListBuilder<GSessionWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GSessionWhereInput)]),
+          () => new ListBuilder<GSessionWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(GSessionWhereInput)]),
+          () => new ListBuilder<GSessionWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GShippingOrderByWithRelationInput)]),
+          () => new ListBuilder<GShippingOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GShippingScalarFieldEnum)]),
+          () => new ListBuilder<GShippingScalarFieldEnum>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(GShippingStatus)]),
           () => new ListBuilder<GShippingStatus>())
@@ -1695,71 +2463,157 @@ Serializers _$serializers = (new Serializers().toBuilder()
           () => new ListBuilder<GTransactionCategory>())
       ..addBuilderFactory(
           const FullType(BuiltList,
-              const [const FullType(GTransactionCreateManyAccountInput)]),
-          () => new ListBuilder<GTransactionCreateManyAccountInput>())
+              const [const FullType(GTransactionCreateManyFromAccountInput)]),
+          () => new ListBuilder<GTransactionCreateManyFromAccountInput>())
       ..addBuilderFactory(
           const FullType(BuiltList,
-              const [const FullType(GTransactionCreateWithoutAccountInput)]),
-          () => new ListBuilder<GTransactionCreateWithoutAccountInput>())
+              const [const FullType(GTransactionCreateManyToAccountInput)]),
+          () => new ListBuilder<GTransactionCreateManyToAccountInput>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [
-            const FullType(GTransactionCreateOrConnectWithoutAccountInput)
+            const FullType(GTransactionCreateWithoutFromAccountInput)
           ]),
-          () =>
-              new ListBuilder<GTransactionCreateOrConnectWithoutAccountInput>())
+          () => new ListBuilder<GTransactionCreateWithoutFromAccountInput>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [
-            const FullType(GTransactionUpsertWithWhereUniqueWithoutAccountInput)
-          ]),
-          () => new ListBuilder<
-              GTransactionUpsertWithWhereUniqueWithoutAccountInput>())
-      ..addBuilderFactory(
-          const FullType(
-              BuiltList, const [const FullType(GTransactionWhereUniqueInput)]),
-          () => new ListBuilder<GTransactionWhereUniqueInput>())
-      ..addBuilderFactory(
-          const FullType(
-              BuiltList, const [const FullType(GTransactionWhereUniqueInput)]),
-          () => new ListBuilder<GTransactionWhereUniqueInput>())
-      ..addBuilderFactory(
-          const FullType(
-              BuiltList, const [const FullType(GTransactionWhereUniqueInput)]),
-          () => new ListBuilder<GTransactionWhereUniqueInput>())
-      ..addBuilderFactory(
-          const FullType(
-              BuiltList, const [const FullType(GTransactionWhereUniqueInput)]),
-          () => new ListBuilder<GTransactionWhereUniqueInput>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [
-            const FullType(GTransactionUpdateWithWhereUniqueWithoutAccountInput)
+            const FullType(GTransactionCreateOrConnectWithoutFromAccountInput)
           ]),
           () => new ListBuilder<
-              GTransactionUpdateWithWhereUniqueWithoutAccountInput>())
+              GTransactionCreateOrConnectWithoutFromAccountInput>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [
-            const FullType(GTransactionUpdateManyWithWhereWithoutAccountInput)
+            const FullType(
+                GTransactionUpsertWithWhereUniqueWithoutFromAccountInput)
           ]),
           () => new ListBuilder<
-              GTransactionUpdateManyWithWhereWithoutAccountInput>())
+              GTransactionUpsertWithWhereUniqueWithoutFromAccountInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GTransactionWhereUniqueInput)]),
+          () => new ListBuilder<GTransactionWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GTransactionWhereUniqueInput)]),
+          () => new ListBuilder<GTransactionWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GTransactionWhereUniqueInput)]),
+          () => new ListBuilder<GTransactionWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GTransactionWhereUniqueInput)]),
+          () => new ListBuilder<GTransactionWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(
+                GTransactionUpdateWithWhereUniqueWithoutFromAccountInput)
+          ]),
+          () => new ListBuilder<
+              GTransactionUpdateWithWhereUniqueWithoutFromAccountInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(
+                GTransactionUpdateManyWithWhereWithoutFromAccountInput)
+          ]),
+          () => new ListBuilder<
+              GTransactionUpdateManyWithWhereWithoutFromAccountInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GTransactionScalarWhereInput)]),
+          () => new ListBuilder<GTransactionScalarWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GTransactionCreateWithoutFromAccountInput)
+          ]),
+          () => new ListBuilder<GTransactionCreateWithoutFromAccountInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GTransactionCreateOrConnectWithoutFromAccountInput)
+          ]),
+          () => new ListBuilder<
+              GTransactionCreateOrConnectWithoutFromAccountInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GTransactionWhereUniqueInput)]),
+          () => new ListBuilder<GTransactionWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GTransactionCreateWithoutToAccountInput)]),
+          () => new ListBuilder<GTransactionCreateWithoutToAccountInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GTransactionCreateOrConnectWithoutToAccountInput)
+          ]),
+          () => new ListBuilder<
+              GTransactionCreateOrConnectWithoutToAccountInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(
+                GTransactionUpsertWithWhereUniqueWithoutToAccountInput)
+          ]),
+          () => new ListBuilder<
+              GTransactionUpsertWithWhereUniqueWithoutToAccountInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GTransactionWhereUniqueInput)]),
+          () => new ListBuilder<GTransactionWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GTransactionWhereUniqueInput)]),
+          () => new ListBuilder<GTransactionWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GTransactionWhereUniqueInput)]),
+          () => new ListBuilder<GTransactionWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GTransactionWhereUniqueInput)]),
+          () => new ListBuilder<GTransactionWhereUniqueInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(
+                GTransactionUpdateWithWhereUniqueWithoutToAccountInput)
+          ]),
+          () => new ListBuilder<
+              GTransactionUpdateWithWhereUniqueWithoutToAccountInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GTransactionUpdateManyWithWhereWithoutToAccountInput)
+          ]),
+          () => new ListBuilder<
+              GTransactionUpdateManyWithWhereWithoutToAccountInput>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(GTransactionScalarWhereInput)]),
           () => new ListBuilder<GTransactionScalarWhereInput>())
       ..addBuilderFactory(
           const FullType(BuiltList,
-              const [const FullType(GTransactionCreateWithoutAccountInput)]),
-          () => new ListBuilder<GTransactionCreateWithoutAccountInput>())
+              const [const FullType(GTransactionCreateWithoutToAccountInput)]),
+          () => new ListBuilder<GTransactionCreateWithoutToAccountInput>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [
-            const FullType(GTransactionCreateOrConnectWithoutAccountInput)
+            const FullType(GTransactionCreateOrConnectWithoutToAccountInput)
           ]),
-          () =>
-              new ListBuilder<GTransactionCreateOrConnectWithoutAccountInput>())
+          () => new ListBuilder<
+              GTransactionCreateOrConnectWithoutToAccountInput>())
       ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(GTransactionWhereUniqueInput)]),
           () => new ListBuilder<GTransactionWhereUniqueInput>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GTransactionFindManyData_transactionFindMany)
+          ]),
+          () => new ListBuilder<GTransactionFindManyData_transactionFindMany>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GTransactionOrderByWithRelationInput)]),
+          () => new ListBuilder<GTransactionOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GTransactionScalarFieldEnum)]),
+          () => new ListBuilder<GTransactionScalarFieldEnum>())
+      ..addBuilderFactory(
           const FullType(
               BuiltList, const [const FullType(GTransactionScalarWhereInput)]),
           () => new ListBuilder<GTransactionScalarWhereInput>())
@@ -1819,6 +2673,10 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(
               BuiltList, const [const FullType(GTransactionWhereInput)]),
           () => new ListBuilder<GTransactionWhereInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GUserCreateData_userCreateOne_accounts)]),
+          () => new ListBuilder<GUserCreateData_userCreateOne_accounts>())
       ..addBuilderFactory(
           const FullType(BuiltList,
               const [const FullType(GUserCreateManyReferredByInput)]),
@@ -2058,6 +2916,55 @@ Serializers _$serializers = (new Serializers().toBuilder()
           () => new ListBuilder<GUserFindManyData_userFindMany>())
       ..addBuilderFactory(
           const FullType(
+              BuiltList, const [const FullType(GUserNotificationCategory)]),
+          () => new ListBuilder<GUserNotificationCategory>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GUserNotificationCategory)]),
+          () => new ListBuilder<GUserNotificationCategory>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GUserNotificationCategory)]),
+          () => new ListBuilder<GUserNotificationCategory>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GUserNotificationCategory)]),
+          () => new ListBuilder<GUserNotificationCategory>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [
+            const FullType(GUserNotificationOrderByWithRelationInput)
+          ]),
+          () => new ListBuilder<GUserNotificationOrderByWithRelationInput>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(GUserNotificationScalarFieldEnum)]),
+          () => new ListBuilder<GUserNotificationScalarFieldEnum>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GUserNotificationWhereInput)]),
+          () => new ListBuilder<GUserNotificationWhereInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GUserNotificationWhereInput)]),
+          () => new ListBuilder<GUserNotificationWhereInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GUserNotificationWhereInput)]),
+          () => new ListBuilder<GUserNotificationWhereInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GUserNotificationWhereInput)]),
+          () => new ListBuilder<GUserNotificationWhereInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GUserNotificationWhereInput)]),
+          () => new ListBuilder<GUserNotificationWhereInput>())
+      ..addBuilderFactory(
+          const FullType(
+              BuiltList, const [const FullType(GUserNotificationWhereInput)]),
+          () => new ListBuilder<GUserNotificationWhereInput>())
+      ..addBuilderFactory(
+          const FullType(
               BuiltList, const [const FullType(GUserOrderByWithRelationInput)]),
           () => new ListBuilder<GUserOrderByWithRelationInput>())
       ..addBuilderFactory(
@@ -2147,6 +3054,18 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(double)]),
+          () => new ListBuilder<double>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(double)]),
+          () => new ListBuilder<double>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(double)]),
+          () => new ListBuilder<double>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(double)]),
+          () => new ListBuilder<double>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(double)]),
           () => new ListBuilder<double>())

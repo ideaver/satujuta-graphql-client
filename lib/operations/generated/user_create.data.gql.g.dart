@@ -8,17 +8,21 @@ part of 'user_create.data.gql.dart';
 
 Serializer<GUserCreateData> _$gUserCreateDataSerializer =
     new _$GUserCreateDataSerializer();
-Serializer<GUserCreateData_userCreate> _$gUserCreateDataUserCreateSerializer =
-    new _$GUserCreateData_userCreateSerializer();
-Serializer<GUserCreateData_userCreate_address>
-    _$gUserCreateDataUserCreateAddressSerializer =
-    new _$GUserCreateData_userCreate_addressSerializer();
-Serializer<GUserCreateData_userCreate_school>
-    _$gUserCreateDataUserCreateSchoolSerializer =
-    new _$GUserCreateData_userCreate_schoolSerializer();
-Serializer<GUserCreateData_userCreate_referredBy>
-    _$gUserCreateDataUserCreateReferredBySerializer =
-    new _$GUserCreateData_userCreate_referredBySerializer();
+Serializer<GUserCreateData_userCreateOne>
+    _$gUserCreateDataUserCreateOneSerializer =
+    new _$GUserCreateData_userCreateOneSerializer();
+Serializer<GUserCreateData_userCreateOne_address>
+    _$gUserCreateDataUserCreateOneAddressSerializer =
+    new _$GUserCreateData_userCreateOne_addressSerializer();
+Serializer<GUserCreateData_userCreateOne_school>
+    _$gUserCreateDataUserCreateOneSchoolSerializer =
+    new _$GUserCreateData_userCreateOne_schoolSerializer();
+Serializer<GUserCreateData_userCreateOne_referredBy>
+    _$gUserCreateDataUserCreateOneReferredBySerializer =
+    new _$GUserCreateData_userCreateOne_referredBySerializer();
+Serializer<GUserCreateData_userCreateOne_accounts>
+    _$gUserCreateDataUserCreateOneAccountsSerializer =
+    new _$GUserCreateData_userCreateOne_accountsSerializer();
 
 class _$GUserCreateDataSerializer
     implements StructuredSerializer<GUserCreateData> {
@@ -36,12 +40,12 @@ class _$GUserCreateDataSerializer
           specifiedType: const FullType(String)),
     ];
     Object? value;
-    value = object.userCreate;
+    value = object.userCreateOne;
     if (value != null) {
       result
-        ..add('userCreate')
+        ..add('userCreateOne')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GUserCreateData_userCreate)));
+            specifiedType: const FullType(GUserCreateData_userCreateOne)));
     }
     return result;
   }
@@ -62,10 +66,10 @@ class _$GUserCreateDataSerializer
           result.G__typename = serializers.deserialize(value,
               specifiedType: const FullType(String))! as String;
           break;
-        case 'userCreate':
-          result.userCreate.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GUserCreateData_userCreate))!
-              as GUserCreateData_userCreate);
+        case 'userCreateOne':
+          result.userCreateOne.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(GUserCreateData_userCreateOne))!
+              as GUserCreateData_userCreateOne);
           break;
       }
     }
@@ -74,19 +78,19 @@ class _$GUserCreateDataSerializer
   }
 }
 
-class _$GUserCreateData_userCreateSerializer
-    implements StructuredSerializer<GUserCreateData_userCreate> {
+class _$GUserCreateData_userCreateOneSerializer
+    implements StructuredSerializer<GUserCreateData_userCreateOne> {
   @override
   final Iterable<Type> types = const [
-    GUserCreateData_userCreate,
-    _$GUserCreateData_userCreate
+    GUserCreateData_userCreateOne,
+    _$GUserCreateData_userCreateOne
   ];
   @override
-  final String wireName = 'GUserCreateData_userCreate';
+  final String wireName = 'GUserCreateData_userCreateOne';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, GUserCreateData_userCreate object,
+      Serializers serializers, GUserCreateData_userCreateOne object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       '__typename',
@@ -126,7 +130,7 @@ class _$GUserCreateData_userCreateSerializer
           specifiedType: const FullType(_i2.GTheme)),
       'address',
       serializers.serialize(object.address,
-          specifiedType: const FullType(GUserCreateData_userCreate_address)),
+          specifiedType: const FullType(GUserCreateData_userCreateOne_address)),
     ];
     Object? value;
     value = object.lastName;
@@ -154,7 +158,8 @@ class _$GUserCreateData_userCreateSerializer
       result
         ..add('school')
         ..add(serializers.serialize(value,
-            specifiedType: const FullType(GUserCreateData_userCreate_school)));
+            specifiedType:
+                const FullType(GUserCreateData_userCreateOne_school)));
     }
     value = object.referredBy;
     if (value != null) {
@@ -162,16 +167,25 @@ class _$GUserCreateData_userCreateSerializer
         ..add('referredBy')
         ..add(serializers.serialize(value,
             specifiedType:
-                const FullType(GUserCreateData_userCreate_referredBy)));
+                const FullType(GUserCreateData_userCreateOne_referredBy)));
+    }
+    value = object.accounts;
+    if (value != null) {
+      result
+        ..add('accounts')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(BuiltList, const [
+              const FullType(GUserCreateData_userCreateOne_accounts)
+            ])));
     }
     return result;
   }
 
   @override
-  GUserCreateData_userCreate deserialize(
+  GUserCreateData_userCreateOne deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GUserCreateData_userCreateBuilder();
+    final result = new GUserCreateData_userCreateOneBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -243,20 +257,26 @@ class _$GUserCreateData_userCreateSerializer
         case 'address':
           result.address.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(GUserCreateData_userCreate_address))!
-              as GUserCreateData_userCreate_address);
+                      const FullType(GUserCreateData_userCreateOne_address))!
+              as GUserCreateData_userCreateOne_address);
           break;
         case 'school':
           result.school.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(GUserCreateData_userCreate_school))!
-              as GUserCreateData_userCreate_school);
+                      const FullType(GUserCreateData_userCreateOne_school))!
+              as GUserCreateData_userCreateOne_school);
           break;
         case 'referredBy':
           result.referredBy.replace(serializers.deserialize(value,
                   specifiedType:
-                      const FullType(GUserCreateData_userCreate_referredBy))!
-              as GUserCreateData_userCreate_referredBy);
+                      const FullType(GUserCreateData_userCreateOne_referredBy))!
+              as GUserCreateData_userCreateOne_referredBy);
+          break;
+        case 'accounts':
+          result.accounts.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltList, const [
+                const FullType(GUserCreateData_userCreateOne_accounts)
+              ]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -265,19 +285,19 @@ class _$GUserCreateData_userCreateSerializer
   }
 }
 
-class _$GUserCreateData_userCreate_addressSerializer
-    implements StructuredSerializer<GUserCreateData_userCreate_address> {
+class _$GUserCreateData_userCreateOne_addressSerializer
+    implements StructuredSerializer<GUserCreateData_userCreateOne_address> {
   @override
   final Iterable<Type> types = const [
-    GUserCreateData_userCreate_address,
-    _$GUserCreateData_userCreate_address
+    GUserCreateData_userCreateOne_address,
+    _$GUserCreateData_userCreateOne_address
   ];
   @override
-  final String wireName = 'GUserCreateData_userCreate_address';
+  final String wireName = 'GUserCreateData_userCreateOne_address';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, GUserCreateData_userCreate_address object,
+      Serializers serializers, GUserCreateData_userCreateOne_address object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       '__typename',
@@ -301,10 +321,10 @@ class _$GUserCreateData_userCreate_addressSerializer
   }
 
   @override
-  GUserCreateData_userCreate_address deserialize(
+  GUserCreateData_userCreateOne_address deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GUserCreateData_userCreate_addressBuilder();
+    final result = new GUserCreateData_userCreateOne_addressBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -343,19 +363,19 @@ class _$GUserCreateData_userCreate_addressSerializer
   }
 }
 
-class _$GUserCreateData_userCreate_schoolSerializer
-    implements StructuredSerializer<GUserCreateData_userCreate_school> {
+class _$GUserCreateData_userCreateOne_schoolSerializer
+    implements StructuredSerializer<GUserCreateData_userCreateOne_school> {
   @override
   final Iterable<Type> types = const [
-    GUserCreateData_userCreate_school,
-    _$GUserCreateData_userCreate_school
+    GUserCreateData_userCreateOne_school,
+    _$GUserCreateData_userCreateOne_school
   ];
   @override
-  final String wireName = 'GUserCreateData_userCreate_school';
+  final String wireName = 'GUserCreateData_userCreateOne_school';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, GUserCreateData_userCreate_school object,
+      Serializers serializers, GUserCreateData_userCreateOne_school object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       '__typename',
@@ -380,10 +400,10 @@ class _$GUserCreateData_userCreate_schoolSerializer
   }
 
   @override
-  GUserCreateData_userCreate_school deserialize(
+  GUserCreateData_userCreateOne_school deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GUserCreateData_userCreate_schoolBuilder();
+    final result = new GUserCreateData_userCreateOne_schoolBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -422,19 +442,19 @@ class _$GUserCreateData_userCreate_schoolSerializer
   }
 }
 
-class _$GUserCreateData_userCreate_referredBySerializer
-    implements StructuredSerializer<GUserCreateData_userCreate_referredBy> {
+class _$GUserCreateData_userCreateOne_referredBySerializer
+    implements StructuredSerializer<GUserCreateData_userCreateOne_referredBy> {
   @override
   final Iterable<Type> types = const [
-    GUserCreateData_userCreate_referredBy,
-    _$GUserCreateData_userCreate_referredBy
+    GUserCreateData_userCreateOne_referredBy,
+    _$GUserCreateData_userCreateOne_referredBy
   ];
   @override
-  final String wireName = 'GUserCreateData_userCreate_referredBy';
+  final String wireName = 'GUserCreateData_userCreateOne_referredBy';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, GUserCreateData_userCreate_referredBy object,
+      Serializers serializers, GUserCreateData_userCreateOne_referredBy object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[
       '__typename',
@@ -448,10 +468,10 @@ class _$GUserCreateData_userCreate_referredBySerializer
   }
 
   @override
-  GUserCreateData_userCreate_referredBy deserialize(
+  GUserCreateData_userCreateOne_referredBy deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new GUserCreateData_userCreate_referredByBuilder();
+    final result = new GUserCreateData_userCreateOne_referredByBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -474,16 +494,100 @@ class _$GUserCreateData_userCreate_referredBySerializer
   }
 }
 
+class _$GUserCreateData_userCreateOne_accountsSerializer
+    implements StructuredSerializer<GUserCreateData_userCreateOne_accounts> {
+  @override
+  final Iterable<Type> types = const [
+    GUserCreateData_userCreateOne_accounts,
+    _$GUserCreateData_userCreateOne_accounts
+  ];
+  @override
+  final String wireName = 'GUserCreateData_userCreateOne_accounts';
+
+  @override
+  Iterable<Object?> serialize(
+      Serializers serializers, GUserCreateData_userCreateOne_accounts object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object?>[
+      '__typename',
+      serializers.serialize(object.G__typename,
+          specifiedType: const FullType(String)),
+      'id',
+      serializers.serialize(object.id, specifiedType: const FullType(int)),
+      'name',
+      serializers.serialize(object.name, specifiedType: const FullType(String)),
+      'accountCategory',
+      serializers.serialize(object.accountCategory,
+          specifiedType: const FullType(_i2.GAccountCategory)),
+      'balance',
+      serializers.serialize(object.balance,
+          specifiedType: const FullType(double)),
+    ];
+    Object? value;
+    value = object.accountNumber;
+    if (value != null) {
+      result
+        ..add('accountNumber')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(double)));
+    }
+    return result;
+  }
+
+  @override
+  GUserCreateData_userCreateOne_accounts deserialize(
+      Serializers serializers, Iterable<Object?> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new GUserCreateData_userCreateOne_accountsBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current! as String;
+      iterator.moveNext();
+      final Object? value = iterator.current;
+      switch (key) {
+        case '__typename':
+          result.G__typename = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'id':
+          result.id = serializers.deserialize(value,
+              specifiedType: const FullType(int))! as int;
+          break;
+        case 'name':
+          result.name = serializers.deserialize(value,
+              specifiedType: const FullType(String))! as String;
+          break;
+        case 'accountNumber':
+          result.accountNumber = serializers.deserialize(value,
+              specifiedType: const FullType(double)) as double?;
+          break;
+        case 'accountCategory':
+          result.accountCategory = serializers.deserialize(value,
+                  specifiedType: const FullType(_i2.GAccountCategory))!
+              as _i2.GAccountCategory;
+          break;
+        case 'balance':
+          result.balance = serializers.deserialize(value,
+              specifiedType: const FullType(double))! as double;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
 class _$GUserCreateData extends GUserCreateData {
   @override
   final String G__typename;
   @override
-  final GUserCreateData_userCreate? userCreate;
+  final GUserCreateData_userCreateOne? userCreateOne;
 
   factory _$GUserCreateData([void Function(GUserCreateDataBuilder)? updates]) =>
       (new GUserCreateDataBuilder()..update(updates))._build();
 
-  _$GUserCreateData._({required this.G__typename, this.userCreate})
+  _$GUserCreateData._({required this.G__typename, this.userCreateOne})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         G__typename, r'GUserCreateData', 'G__typename');
@@ -502,14 +606,14 @@ class _$GUserCreateData extends GUserCreateData {
     if (identical(other, this)) return true;
     return other is GUserCreateData &&
         G__typename == other.G__typename &&
-        userCreate == other.userCreate;
+        userCreateOne == other.userCreateOne;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, G__typename.hashCode);
-    _$hash = $jc(_$hash, userCreate.hashCode);
+    _$hash = $jc(_$hash, userCreateOne.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -518,7 +622,7 @@ class _$GUserCreateData extends GUserCreateData {
   String toString() {
     return (newBuiltValueToStringHelper(r'GUserCreateData')
           ..add('G__typename', G__typename)
-          ..add('userCreate', userCreate))
+          ..add('userCreateOne', userCreateOne))
         .toString();
   }
 }
@@ -531,11 +635,11 @@ class GUserCreateDataBuilder
   String? get G__typename => _$this._G__typename;
   set G__typename(String? G__typename) => _$this._G__typename = G__typename;
 
-  GUserCreateData_userCreateBuilder? _userCreate;
-  GUserCreateData_userCreateBuilder get userCreate =>
-      _$this._userCreate ??= new GUserCreateData_userCreateBuilder();
-  set userCreate(GUserCreateData_userCreateBuilder? userCreate) =>
-      _$this._userCreate = userCreate;
+  GUserCreateData_userCreateOneBuilder? _userCreateOne;
+  GUserCreateData_userCreateOneBuilder get userCreateOne =>
+      _$this._userCreateOne ??= new GUserCreateData_userCreateOneBuilder();
+  set userCreateOne(GUserCreateData_userCreateOneBuilder? userCreateOne) =>
+      _$this._userCreateOne = userCreateOne;
 
   GUserCreateDataBuilder() {
     GUserCreateData._initializeBuilder(this);
@@ -545,7 +649,7 @@ class GUserCreateDataBuilder
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
-      _userCreate = $v.userCreate?.toBuilder();
+      _userCreateOne = $v.userCreateOne?.toBuilder();
       _$v = null;
     }
     return this;
@@ -572,12 +676,12 @@ class GUserCreateDataBuilder
           new _$GUserCreateData._(
               G__typename: BuiltValueNullFieldError.checkNotNull(
                   G__typename, r'GUserCreateData', 'G__typename'),
-              userCreate: _userCreate?.build());
+              userCreateOne: _userCreateOne?.build());
     } catch (_) {
       late String _$failedField;
       try {
-        _$failedField = 'userCreate';
-        _userCreate?.build();
+        _$failedField = 'userCreateOne';
+        _userCreateOne?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             r'GUserCreateData', _$failedField, e.toString());
@@ -589,7 +693,7 @@ class GUserCreateDataBuilder
   }
 }
 
-class _$GUserCreateData_userCreate extends GUserCreateData_userCreate {
+class _$GUserCreateData_userCreateOne extends GUserCreateData_userCreateOne {
   @override
   final String G__typename;
   @override
@@ -621,17 +725,19 @@ class _$GUserCreateData_userCreate extends GUserCreateData_userCreate {
   @override
   final _i2.GTheme theme;
   @override
-  final GUserCreateData_userCreate_address address;
+  final GUserCreateData_userCreateOne_address address;
   @override
-  final GUserCreateData_userCreate_school? school;
+  final GUserCreateData_userCreateOne_school? school;
   @override
-  final GUserCreateData_userCreate_referredBy? referredBy;
+  final GUserCreateData_userCreateOne_referredBy? referredBy;
+  @override
+  final BuiltList<GUserCreateData_userCreateOne_accounts>? accounts;
 
-  factory _$GUserCreateData_userCreate(
-          [void Function(GUserCreateData_userCreateBuilder)? updates]) =>
-      (new GUserCreateData_userCreateBuilder()..update(updates))._build();
+  factory _$GUserCreateData_userCreateOne(
+          [void Function(GUserCreateData_userCreateOneBuilder)? updates]) =>
+      (new GUserCreateData_userCreateOneBuilder()..update(updates))._build();
 
-  _$GUserCreateData_userCreate._(
+  _$GUserCreateData_userCreateOne._(
       {required this.G__typename,
       required this.id,
       required this.firstName,
@@ -649,49 +755,50 @@ class _$GUserCreateData_userCreate extends GUserCreateData_userCreate {
       required this.theme,
       required this.address,
       this.school,
-      this.referredBy})
+      this.referredBy,
+      this.accounts})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        G__typename, r'GUserCreateData_userCreate', 'G__typename');
+        G__typename, r'GUserCreateData_userCreateOne', 'G__typename');
     BuiltValueNullFieldError.checkNotNull(
-        id, r'GUserCreateData_userCreate', 'id');
+        id, r'GUserCreateData_userCreateOne', 'id');
     BuiltValueNullFieldError.checkNotNull(
-        firstName, r'GUserCreateData_userCreate', 'firstName');
+        firstName, r'GUserCreateData_userCreateOne', 'firstName');
     BuiltValueNullFieldError.checkNotNull(
-        email, r'GUserCreateData_userCreate', 'email');
+        email, r'GUserCreateData_userCreateOne', 'email');
     BuiltValueNullFieldError.checkNotNull(
-        userRole, r'GUserCreateData_userCreate', 'userRole');
+        userRole, r'GUserCreateData_userCreateOne', 'userRole');
     BuiltValueNullFieldError.checkNotNull(
-        userType, r'GUserCreateData_userCreate', 'userType');
+        userType, r'GUserCreateData_userCreateOne', 'userType');
     BuiltValueNullFieldError.checkNotNull(
-        whatsappNumber, r'GUserCreateData_userCreate', 'whatsappNumber');
+        whatsappNumber, r'GUserCreateData_userCreateOne', 'whatsappNumber');
     BuiltValueNullFieldError.checkNotNull(
-        referralCode, r'GUserCreateData_userCreate', 'referralCode');
+        referralCode, r'GUserCreateData_userCreateOne', 'referralCode');
     BuiltValueNullFieldError.checkNotNull(
-        status, r'GUserCreateData_userCreate', 'status');
+        status, r'GUserCreateData_userCreateOne', 'status');
     BuiltValueNullFieldError.checkNotNull(
-        createdAt, r'GUserCreateData_userCreate', 'createdAt');
+        createdAt, r'GUserCreateData_userCreateOne', 'createdAt');
     BuiltValueNullFieldError.checkNotNull(
-        updatedAt, r'GUserCreateData_userCreate', 'updatedAt');
+        updatedAt, r'GUserCreateData_userCreateOne', 'updatedAt');
     BuiltValueNullFieldError.checkNotNull(
-        theme, r'GUserCreateData_userCreate', 'theme');
+        theme, r'GUserCreateData_userCreateOne', 'theme');
     BuiltValueNullFieldError.checkNotNull(
-        address, r'GUserCreateData_userCreate', 'address');
+        address, r'GUserCreateData_userCreateOne', 'address');
   }
 
   @override
-  GUserCreateData_userCreate rebuild(
-          void Function(GUserCreateData_userCreateBuilder) updates) =>
+  GUserCreateData_userCreateOne rebuild(
+          void Function(GUserCreateData_userCreateOneBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GUserCreateData_userCreateBuilder toBuilder() =>
-      new GUserCreateData_userCreateBuilder()..replace(this);
+  GUserCreateData_userCreateOneBuilder toBuilder() =>
+      new GUserCreateData_userCreateOneBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GUserCreateData_userCreate &&
+    return other is GUserCreateData_userCreateOne &&
         G__typename == other.G__typename &&
         id == other.id &&
         firstName == other.firstName &&
@@ -709,7 +816,8 @@ class _$GUserCreateData_userCreate extends GUserCreateData_userCreate {
         theme == other.theme &&
         address == other.address &&
         school == other.school &&
-        referredBy == other.referredBy;
+        referredBy == other.referredBy &&
+        accounts == other.accounts;
   }
 
   @override
@@ -733,13 +841,14 @@ class _$GUserCreateData_userCreate extends GUserCreateData_userCreate {
     _$hash = $jc(_$hash, address.hashCode);
     _$hash = $jc(_$hash, school.hashCode);
     _$hash = $jc(_$hash, referredBy.hashCode);
+    _$hash = $jc(_$hash, accounts.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GUserCreateData_userCreate')
+    return (newBuiltValueToStringHelper(r'GUserCreateData_userCreateOne')
           ..add('G__typename', G__typename)
           ..add('id', id)
           ..add('firstName', firstName)
@@ -757,15 +866,17 @@ class _$GUserCreateData_userCreate extends GUserCreateData_userCreate {
           ..add('theme', theme)
           ..add('address', address)
           ..add('school', school)
-          ..add('referredBy', referredBy))
+          ..add('referredBy', referredBy)
+          ..add('accounts', accounts))
         .toString();
   }
 }
 
-class GUserCreateData_userCreateBuilder
+class GUserCreateData_userCreateOneBuilder
     implements
-        Builder<GUserCreateData_userCreate, GUserCreateData_userCreateBuilder> {
-  _$GUserCreateData_userCreate? _$v;
+        Builder<GUserCreateData_userCreateOne,
+            GUserCreateData_userCreateOneBuilder> {
+  _$GUserCreateData_userCreateOne? _$v;
 
   String? _G__typename;
   String? get G__typename => _$this._G__typename;
@@ -832,29 +943,37 @@ class GUserCreateData_userCreateBuilder
   _i2.GTheme? get theme => _$this._theme;
   set theme(_i2.GTheme? theme) => _$this._theme = theme;
 
-  GUserCreateData_userCreate_addressBuilder? _address;
-  GUserCreateData_userCreate_addressBuilder get address =>
-      _$this._address ??= new GUserCreateData_userCreate_addressBuilder();
-  set address(GUserCreateData_userCreate_addressBuilder? address) =>
+  GUserCreateData_userCreateOne_addressBuilder? _address;
+  GUserCreateData_userCreateOne_addressBuilder get address =>
+      _$this._address ??= new GUserCreateData_userCreateOne_addressBuilder();
+  set address(GUserCreateData_userCreateOne_addressBuilder? address) =>
       _$this._address = address;
 
-  GUserCreateData_userCreate_schoolBuilder? _school;
-  GUserCreateData_userCreate_schoolBuilder get school =>
-      _$this._school ??= new GUserCreateData_userCreate_schoolBuilder();
-  set school(GUserCreateData_userCreate_schoolBuilder? school) =>
+  GUserCreateData_userCreateOne_schoolBuilder? _school;
+  GUserCreateData_userCreateOne_schoolBuilder get school =>
+      _$this._school ??= new GUserCreateData_userCreateOne_schoolBuilder();
+  set school(GUserCreateData_userCreateOne_schoolBuilder? school) =>
       _$this._school = school;
 
-  GUserCreateData_userCreate_referredByBuilder? _referredBy;
-  GUserCreateData_userCreate_referredByBuilder get referredBy =>
-      _$this._referredBy ??= new GUserCreateData_userCreate_referredByBuilder();
-  set referredBy(GUserCreateData_userCreate_referredByBuilder? referredBy) =>
+  GUserCreateData_userCreateOne_referredByBuilder? _referredBy;
+  GUserCreateData_userCreateOne_referredByBuilder get referredBy =>
+      _$this._referredBy ??=
+          new GUserCreateData_userCreateOne_referredByBuilder();
+  set referredBy(GUserCreateData_userCreateOne_referredByBuilder? referredBy) =>
       _$this._referredBy = referredBy;
 
-  GUserCreateData_userCreateBuilder() {
-    GUserCreateData_userCreate._initializeBuilder(this);
+  ListBuilder<GUserCreateData_userCreateOne_accounts>? _accounts;
+  ListBuilder<GUserCreateData_userCreateOne_accounts> get accounts =>
+      _$this._accounts ??=
+          new ListBuilder<GUserCreateData_userCreateOne_accounts>();
+  set accounts(ListBuilder<GUserCreateData_userCreateOne_accounts>? accounts) =>
+      _$this._accounts = accounts;
+
+  GUserCreateData_userCreateOneBuilder() {
+    GUserCreateData_userCreateOne._initializeBuilder(this);
   }
 
-  GUserCreateData_userCreateBuilder get _$this {
+  GUserCreateData_userCreateOneBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
@@ -875,56 +994,58 @@ class GUserCreateData_userCreateBuilder
       _address = $v.address.toBuilder();
       _school = $v.school?.toBuilder();
       _referredBy = $v.referredBy?.toBuilder();
+      _accounts = $v.accounts?.toBuilder();
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(GUserCreateData_userCreate other) {
+  void replace(GUserCreateData_userCreateOne other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GUserCreateData_userCreate;
+    _$v = other as _$GUserCreateData_userCreateOne;
   }
 
   @override
-  void update(void Function(GUserCreateData_userCreateBuilder)? updates) {
+  void update(void Function(GUserCreateData_userCreateOneBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  GUserCreateData_userCreate build() => _build();
+  GUserCreateData_userCreateOne build() => _build();
 
-  _$GUserCreateData_userCreate _build() {
-    _$GUserCreateData_userCreate _$result;
+  _$GUserCreateData_userCreateOne _build() {
+    _$GUserCreateData_userCreateOne _$result;
     try {
       _$result = _$v ??
-          new _$GUserCreateData_userCreate._(
+          new _$GUserCreateData_userCreateOne._(
               G__typename: BuiltValueNullFieldError.checkNotNull(
-                  G__typename, r'GUserCreateData_userCreate', 'G__typename'),
+                  G__typename, r'GUserCreateData_userCreateOne', 'G__typename'),
               id: BuiltValueNullFieldError.checkNotNull(
-                  id, r'GUserCreateData_userCreate', 'id'),
+                  id, r'GUserCreateData_userCreateOne', 'id'),
               firstName: BuiltValueNullFieldError.checkNotNull(
-                  firstName, r'GUserCreateData_userCreate', 'firstName'),
+                  firstName, r'GUserCreateData_userCreateOne', 'firstName'),
               lastName: lastName,
               email: BuiltValueNullFieldError.checkNotNull(
-                  email, r'GUserCreateData_userCreate', 'email'),
+                  email, r'GUserCreateData_userCreateOne', 'email'),
               userRole: BuiltValueNullFieldError.checkNotNull(
-                  userRole, r'GUserCreateData_userCreate', 'userRole'),
+                  userRole, r'GUserCreateData_userCreateOne', 'userRole'),
               userType: BuiltValueNullFieldError.checkNotNull(
-                  userType, r'GUserCreateData_userCreate', 'userType'),
+                  userType, r'GUserCreateData_userCreateOne', 'userType'),
               avatarUrl: avatarUrl,
               whatsappNumber: BuiltValueNullFieldError.checkNotNull(
-                  whatsappNumber, r'GUserCreateData_userCreate', 'whatsappNumber'),
+                  whatsappNumber, r'GUserCreateData_userCreateOne', 'whatsappNumber'),
               referralCode: BuiltValueNullFieldError.checkNotNull(
-                  referralCode, r'GUserCreateData_userCreate', 'referralCode'),
-              status: BuiltValueNullFieldError.checkNotNull(status, r'GUserCreateData_userCreate', 'status'),
+                  referralCode, r'GUserCreateData_userCreateOne', 'referralCode'),
+              status: BuiltValueNullFieldError.checkNotNull(status, r'GUserCreateData_userCreateOne', 'status'),
               schoolId: schoolId,
               createdAt: createdAt.build(),
               updatedAt: updatedAt.build(),
-              theme: BuiltValueNullFieldError.checkNotNull(theme, r'GUserCreateData_userCreate', 'theme'),
+              theme: BuiltValueNullFieldError.checkNotNull(theme, r'GUserCreateData_userCreateOne', 'theme'),
               address: address.build(),
               school: _school?.build(),
-              referredBy: _referredBy?.build());
+              referredBy: _referredBy?.build(),
+              accounts: _accounts?.build());
     } catch (_) {
       late String _$failedField;
       try {
@@ -939,9 +1060,11 @@ class GUserCreateData_userCreateBuilder
         _school?.build();
         _$failedField = 'referredBy';
         _referredBy?.build();
+        _$failedField = 'accounts';
+        _accounts?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'GUserCreateData_userCreate', _$failedField, e.toString());
+            r'GUserCreateData_userCreateOne', _$failedField, e.toString());
       }
       rethrow;
     }
@@ -950,8 +1073,8 @@ class GUserCreateData_userCreateBuilder
   }
 }
 
-class _$GUserCreateData_userCreate_address
-    extends GUserCreateData_userCreate_address {
+class _$GUserCreateData_userCreateOne_address
+    extends GUserCreateData_userCreateOne_address {
   @override
   final String G__typename;
   @override
@@ -965,13 +1088,13 @@ class _$GUserCreateData_userCreate_address
   @override
   final int postalCodeId;
 
-  factory _$GUserCreateData_userCreate_address(
-          [void Function(GUserCreateData_userCreate_addressBuilder)?
+  factory _$GUserCreateData_userCreateOne_address(
+          [void Function(GUserCreateData_userCreateOne_addressBuilder)?
               updates]) =>
-      (new GUserCreateData_userCreate_addressBuilder()..update(updates))
+      (new GUserCreateData_userCreateOne_addressBuilder()..update(updates))
           ._build();
 
-  _$GUserCreateData_userCreate_address._(
+  _$GUserCreateData_userCreateOne_address._(
       {required this.G__typename,
       required this.id,
       required this.name,
@@ -980,32 +1103,33 @@ class _$GUserCreateData_userCreate_address
       required this.postalCodeId})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        G__typename, r'GUserCreateData_userCreate_address', 'G__typename');
+        G__typename, r'GUserCreateData_userCreateOne_address', 'G__typename');
     BuiltValueNullFieldError.checkNotNull(
-        id, r'GUserCreateData_userCreate_address', 'id');
+        id, r'GUserCreateData_userCreateOne_address', 'id');
     BuiltValueNullFieldError.checkNotNull(
-        name, r'GUserCreateData_userCreate_address', 'name');
+        name, r'GUserCreateData_userCreateOne_address', 'name');
     BuiltValueNullFieldError.checkNotNull(
-        cityId, r'GUserCreateData_userCreate_address', 'cityId');
+        cityId, r'GUserCreateData_userCreateOne_address', 'cityId');
     BuiltValueNullFieldError.checkNotNull(
-        districtId, r'GUserCreateData_userCreate_address', 'districtId');
+        districtId, r'GUserCreateData_userCreateOne_address', 'districtId');
     BuiltValueNullFieldError.checkNotNull(
-        postalCodeId, r'GUserCreateData_userCreate_address', 'postalCodeId');
+        postalCodeId, r'GUserCreateData_userCreateOne_address', 'postalCodeId');
   }
 
   @override
-  GUserCreateData_userCreate_address rebuild(
-          void Function(GUserCreateData_userCreate_addressBuilder) updates) =>
+  GUserCreateData_userCreateOne_address rebuild(
+          void Function(GUserCreateData_userCreateOne_addressBuilder)
+              updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GUserCreateData_userCreate_addressBuilder toBuilder() =>
-      new GUserCreateData_userCreate_addressBuilder()..replace(this);
+  GUserCreateData_userCreateOne_addressBuilder toBuilder() =>
+      new GUserCreateData_userCreateOne_addressBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GUserCreateData_userCreate_address &&
+    return other is GUserCreateData_userCreateOne_address &&
         G__typename == other.G__typename &&
         id == other.id &&
         name == other.name &&
@@ -1029,7 +1153,8 @@ class _$GUserCreateData_userCreate_address
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GUserCreateData_userCreate_address')
+    return (newBuiltValueToStringHelper(
+            r'GUserCreateData_userCreateOne_address')
           ..add('G__typename', G__typename)
           ..add('id', id)
           ..add('name', name)
@@ -1040,11 +1165,11 @@ class _$GUserCreateData_userCreate_address
   }
 }
 
-class GUserCreateData_userCreate_addressBuilder
+class GUserCreateData_userCreateOne_addressBuilder
     implements
-        Builder<GUserCreateData_userCreate_address,
-            GUserCreateData_userCreate_addressBuilder> {
-  _$GUserCreateData_userCreate_address? _$v;
+        Builder<GUserCreateData_userCreateOne_address,
+            GUserCreateData_userCreateOne_addressBuilder> {
+  _$GUserCreateData_userCreateOne_address? _$v;
 
   String? _G__typename;
   String? get G__typename => _$this._G__typename;
@@ -1070,11 +1195,11 @@ class GUserCreateData_userCreate_addressBuilder
   int? get postalCodeId => _$this._postalCodeId;
   set postalCodeId(int? postalCodeId) => _$this._postalCodeId = postalCodeId;
 
-  GUserCreateData_userCreate_addressBuilder() {
-    GUserCreateData_userCreate_address._initializeBuilder(this);
+  GUserCreateData_userCreateOne_addressBuilder() {
+    GUserCreateData_userCreateOne_address._initializeBuilder(this);
   }
 
-  GUserCreateData_userCreate_addressBuilder get _$this {
+  GUserCreateData_userCreateOne_addressBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
@@ -1089,42 +1214,42 @@ class GUserCreateData_userCreate_addressBuilder
   }
 
   @override
-  void replace(GUserCreateData_userCreate_address other) {
+  void replace(GUserCreateData_userCreateOne_address other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GUserCreateData_userCreate_address;
+    _$v = other as _$GUserCreateData_userCreateOne_address;
   }
 
   @override
   void update(
-      void Function(GUserCreateData_userCreate_addressBuilder)? updates) {
+      void Function(GUserCreateData_userCreateOne_addressBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  GUserCreateData_userCreate_address build() => _build();
+  GUserCreateData_userCreateOne_address build() => _build();
 
-  _$GUserCreateData_userCreate_address _build() {
+  _$GUserCreateData_userCreateOne_address _build() {
     final _$result = _$v ??
-        new _$GUserCreateData_userCreate_address._(
+        new _$GUserCreateData_userCreateOne_address._(
             G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
-                r'GUserCreateData_userCreate_address', 'G__typename'),
+                r'GUserCreateData_userCreateOne_address', 'G__typename'),
             id: BuiltValueNullFieldError.checkNotNull(
-                id, r'GUserCreateData_userCreate_address', 'id'),
+                id, r'GUserCreateData_userCreateOne_address', 'id'),
             name: BuiltValueNullFieldError.checkNotNull(
-                name, r'GUserCreateData_userCreate_address', 'name'),
+                name, r'GUserCreateData_userCreateOne_address', 'name'),
             cityId: BuiltValueNullFieldError.checkNotNull(
-                cityId, r'GUserCreateData_userCreate_address', 'cityId'),
+                cityId, r'GUserCreateData_userCreateOne_address', 'cityId'),
             districtId: BuiltValueNullFieldError.checkNotNull(districtId,
-                r'GUserCreateData_userCreate_address', 'districtId'),
+                r'GUserCreateData_userCreateOne_address', 'districtId'),
             postalCodeId: BuiltValueNullFieldError.checkNotNull(postalCodeId,
-                r'GUserCreateData_userCreate_address', 'postalCodeId'));
+                r'GUserCreateData_userCreateOne_address', 'postalCodeId'));
     replace(_$result);
     return _$result;
   }
 }
 
-class _$GUserCreateData_userCreate_school
-    extends GUserCreateData_userCreate_school {
+class _$GUserCreateData_userCreateOne_school
+    extends GUserCreateData_userCreateOne_school {
   @override
   final String G__typename;
   @override
@@ -1138,12 +1263,13 @@ class _$GUserCreateData_userCreate_school
   @override
   final _i2.GDateTime updatedAt;
 
-  factory _$GUserCreateData_userCreate_school(
-          [void Function(GUserCreateData_userCreate_schoolBuilder)? updates]) =>
-      (new GUserCreateData_userCreate_schoolBuilder()..update(updates))
+  factory _$GUserCreateData_userCreateOne_school(
+          [void Function(GUserCreateData_userCreateOne_schoolBuilder)?
+              updates]) =>
+      (new GUserCreateData_userCreateOne_schoolBuilder()..update(updates))
           ._build();
 
-  _$GUserCreateData_userCreate_school._(
+  _$GUserCreateData_userCreateOne_school._(
       {required this.G__typename,
       required this.id,
       required this.name,
@@ -1152,32 +1278,32 @@ class _$GUserCreateData_userCreate_school
       required this.updatedAt})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        G__typename, r'GUserCreateData_userCreate_school', 'G__typename');
+        G__typename, r'GUserCreateData_userCreateOne_school', 'G__typename');
     BuiltValueNullFieldError.checkNotNull(
-        id, r'GUserCreateData_userCreate_school', 'id');
+        id, r'GUserCreateData_userCreateOne_school', 'id');
     BuiltValueNullFieldError.checkNotNull(
-        name, r'GUserCreateData_userCreate_school', 'name');
+        name, r'GUserCreateData_userCreateOne_school', 'name');
     BuiltValueNullFieldError.checkNotNull(
-        addressId, r'GUserCreateData_userCreate_school', 'addressId');
+        addressId, r'GUserCreateData_userCreateOne_school', 'addressId');
     BuiltValueNullFieldError.checkNotNull(
-        createdAt, r'GUserCreateData_userCreate_school', 'createdAt');
+        createdAt, r'GUserCreateData_userCreateOne_school', 'createdAt');
     BuiltValueNullFieldError.checkNotNull(
-        updatedAt, r'GUserCreateData_userCreate_school', 'updatedAt');
+        updatedAt, r'GUserCreateData_userCreateOne_school', 'updatedAt');
   }
 
   @override
-  GUserCreateData_userCreate_school rebuild(
-          void Function(GUserCreateData_userCreate_schoolBuilder) updates) =>
+  GUserCreateData_userCreateOne_school rebuild(
+          void Function(GUserCreateData_userCreateOne_schoolBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GUserCreateData_userCreate_schoolBuilder toBuilder() =>
-      new GUserCreateData_userCreate_schoolBuilder()..replace(this);
+  GUserCreateData_userCreateOne_schoolBuilder toBuilder() =>
+      new GUserCreateData_userCreateOne_schoolBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GUserCreateData_userCreate_school &&
+    return other is GUserCreateData_userCreateOne_school &&
         G__typename == other.G__typename &&
         id == other.id &&
         name == other.name &&
@@ -1201,7 +1327,7 @@ class _$GUserCreateData_userCreate_school
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'GUserCreateData_userCreate_school')
+    return (newBuiltValueToStringHelper(r'GUserCreateData_userCreateOne_school')
           ..add('G__typename', G__typename)
           ..add('id', id)
           ..add('name', name)
@@ -1212,11 +1338,11 @@ class _$GUserCreateData_userCreate_school
   }
 }
 
-class GUserCreateData_userCreate_schoolBuilder
+class GUserCreateData_userCreateOne_schoolBuilder
     implements
-        Builder<GUserCreateData_userCreate_school,
-            GUserCreateData_userCreate_schoolBuilder> {
-  _$GUserCreateData_userCreate_school? _$v;
+        Builder<GUserCreateData_userCreateOne_school,
+            GUserCreateData_userCreateOne_schoolBuilder> {
+  _$GUserCreateData_userCreateOne_school? _$v;
 
   String? _G__typename;
   String? get G__typename => _$this._G__typename;
@@ -1246,11 +1372,11 @@ class GUserCreateData_userCreate_schoolBuilder
   set updatedAt(_i2.GDateTimeBuilder? updatedAt) =>
       _$this._updatedAt = updatedAt;
 
-  GUserCreateData_userCreate_schoolBuilder() {
-    GUserCreateData_userCreate_school._initializeBuilder(this);
+  GUserCreateData_userCreateOne_schoolBuilder() {
+    GUserCreateData_userCreateOne_school._initializeBuilder(this);
   }
 
-  GUserCreateData_userCreate_schoolBuilder get _$this {
+  GUserCreateData_userCreateOne_schoolBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
@@ -1265,33 +1391,33 @@ class GUserCreateData_userCreate_schoolBuilder
   }
 
   @override
-  void replace(GUserCreateData_userCreate_school other) {
+  void replace(GUserCreateData_userCreateOne_school other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GUserCreateData_userCreate_school;
+    _$v = other as _$GUserCreateData_userCreateOne_school;
   }
 
   @override
   void update(
-      void Function(GUserCreateData_userCreate_schoolBuilder)? updates) {
+      void Function(GUserCreateData_userCreateOne_schoolBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  GUserCreateData_userCreate_school build() => _build();
+  GUserCreateData_userCreateOne_school build() => _build();
 
-  _$GUserCreateData_userCreate_school _build() {
-    _$GUserCreateData_userCreate_school _$result;
+  _$GUserCreateData_userCreateOne_school _build() {
+    _$GUserCreateData_userCreateOne_school _$result;
     try {
       _$result = _$v ??
-          new _$GUserCreateData_userCreate_school._(
+          new _$GUserCreateData_userCreateOne_school._(
               G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
-                  r'GUserCreateData_userCreate_school', 'G__typename'),
+                  r'GUserCreateData_userCreateOne_school', 'G__typename'),
               id: BuiltValueNullFieldError.checkNotNull(
-                  id, r'GUserCreateData_userCreate_school', 'id'),
+                  id, r'GUserCreateData_userCreateOne_school', 'id'),
               name: BuiltValueNullFieldError.checkNotNull(
-                  name, r'GUserCreateData_userCreate_school', 'name'),
-              addressId: BuiltValueNullFieldError.checkNotNull(
-                  addressId, r'GUserCreateData_userCreate_school', 'addressId'),
+                  name, r'GUserCreateData_userCreateOne_school', 'name'),
+              addressId: BuiltValueNullFieldError.checkNotNull(addressId,
+                  r'GUserCreateData_userCreateOne_school', 'addressId'),
               createdAt: createdAt.build(),
               updatedAt: updatedAt.build());
     } catch (_) {
@@ -1303,7 +1429,9 @@ class GUserCreateData_userCreate_schoolBuilder
         updatedAt.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'GUserCreateData_userCreate_school', _$failedField, e.toString());
+            r'GUserCreateData_userCreateOne_school',
+            _$failedField,
+            e.toString());
       }
       rethrow;
     }
@@ -1312,42 +1440,42 @@ class GUserCreateData_userCreate_schoolBuilder
   }
 }
 
-class _$GUserCreateData_userCreate_referredBy
-    extends GUserCreateData_userCreate_referredBy {
+class _$GUserCreateData_userCreateOne_referredBy
+    extends GUserCreateData_userCreateOne_referredBy {
   @override
   final String G__typename;
   @override
   final String id;
 
-  factory _$GUserCreateData_userCreate_referredBy(
-          [void Function(GUserCreateData_userCreate_referredByBuilder)?
+  factory _$GUserCreateData_userCreateOne_referredBy(
+          [void Function(GUserCreateData_userCreateOne_referredByBuilder)?
               updates]) =>
-      (new GUserCreateData_userCreate_referredByBuilder()..update(updates))
+      (new GUserCreateData_userCreateOne_referredByBuilder()..update(updates))
           ._build();
 
-  _$GUserCreateData_userCreate_referredBy._(
+  _$GUserCreateData_userCreateOne_referredBy._(
       {required this.G__typename, required this.id})
       : super._() {
+    BuiltValueNullFieldError.checkNotNull(G__typename,
+        r'GUserCreateData_userCreateOne_referredBy', 'G__typename');
     BuiltValueNullFieldError.checkNotNull(
-        G__typename, r'GUserCreateData_userCreate_referredBy', 'G__typename');
-    BuiltValueNullFieldError.checkNotNull(
-        id, r'GUserCreateData_userCreate_referredBy', 'id');
+        id, r'GUserCreateData_userCreateOne_referredBy', 'id');
   }
 
   @override
-  GUserCreateData_userCreate_referredBy rebuild(
-          void Function(GUserCreateData_userCreate_referredByBuilder)
+  GUserCreateData_userCreateOne_referredBy rebuild(
+          void Function(GUserCreateData_userCreateOne_referredByBuilder)
               updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GUserCreateData_userCreate_referredByBuilder toBuilder() =>
-      new GUserCreateData_userCreate_referredByBuilder()..replace(this);
+  GUserCreateData_userCreateOne_referredByBuilder toBuilder() =>
+      new GUserCreateData_userCreateOne_referredByBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is GUserCreateData_userCreate_referredBy &&
+    return other is GUserCreateData_userCreateOne_referredBy &&
         G__typename == other.G__typename &&
         id == other.id;
   }
@@ -1364,18 +1492,18 @@ class _$GUserCreateData_userCreate_referredBy
   @override
   String toString() {
     return (newBuiltValueToStringHelper(
-            r'GUserCreateData_userCreate_referredBy')
+            r'GUserCreateData_userCreateOne_referredBy')
           ..add('G__typename', G__typename)
           ..add('id', id))
         .toString();
   }
 }
 
-class GUserCreateData_userCreate_referredByBuilder
+class GUserCreateData_userCreateOne_referredByBuilder
     implements
-        Builder<GUserCreateData_userCreate_referredBy,
-            GUserCreateData_userCreate_referredByBuilder> {
-  _$GUserCreateData_userCreate_referredBy? _$v;
+        Builder<GUserCreateData_userCreateOne_referredBy,
+            GUserCreateData_userCreateOne_referredByBuilder> {
+  _$GUserCreateData_userCreateOne_referredBy? _$v;
 
   String? _G__typename;
   String? get G__typename => _$this._G__typename;
@@ -1385,11 +1513,11 @@ class GUserCreateData_userCreate_referredByBuilder
   String? get id => _$this._id;
   set id(String? id) => _$this._id = id;
 
-  GUserCreateData_userCreate_referredByBuilder() {
-    GUserCreateData_userCreate_referredBy._initializeBuilder(this);
+  GUserCreateData_userCreateOne_referredByBuilder() {
+    GUserCreateData_userCreateOne_referredBy._initializeBuilder(this);
   }
 
-  GUserCreateData_userCreate_referredByBuilder get _$this {
+  GUserCreateData_userCreateOne_referredByBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _G__typename = $v.G__typename;
@@ -1400,27 +1528,203 @@ class GUserCreateData_userCreate_referredByBuilder
   }
 
   @override
-  void replace(GUserCreateData_userCreate_referredBy other) {
+  void replace(GUserCreateData_userCreateOne_referredBy other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$GUserCreateData_userCreate_referredBy;
+    _$v = other as _$GUserCreateData_userCreateOne_referredBy;
   }
 
   @override
   void update(
-      void Function(GUserCreateData_userCreate_referredByBuilder)? updates) {
+      void Function(GUserCreateData_userCreateOne_referredByBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  GUserCreateData_userCreate_referredBy build() => _build();
+  GUserCreateData_userCreateOne_referredBy build() => _build();
 
-  _$GUserCreateData_userCreate_referredBy _build() {
+  _$GUserCreateData_userCreateOne_referredBy _build() {
     final _$result = _$v ??
-        new _$GUserCreateData_userCreate_referredBy._(
+        new _$GUserCreateData_userCreateOne_referredBy._(
             G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
-                r'GUserCreateData_userCreate_referredBy', 'G__typename'),
+                r'GUserCreateData_userCreateOne_referredBy', 'G__typename'),
             id: BuiltValueNullFieldError.checkNotNull(
-                id, r'GUserCreateData_userCreate_referredBy', 'id'));
+                id, r'GUserCreateData_userCreateOne_referredBy', 'id'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$GUserCreateData_userCreateOne_accounts
+    extends GUserCreateData_userCreateOne_accounts {
+  @override
+  final String G__typename;
+  @override
+  final int id;
+  @override
+  final String name;
+  @override
+  final double? accountNumber;
+  @override
+  final _i2.GAccountCategory accountCategory;
+  @override
+  final double balance;
+
+  factory _$GUserCreateData_userCreateOne_accounts(
+          [void Function(GUserCreateData_userCreateOne_accountsBuilder)?
+              updates]) =>
+      (new GUserCreateData_userCreateOne_accountsBuilder()..update(updates))
+          ._build();
+
+  _$GUserCreateData_userCreateOne_accounts._(
+      {required this.G__typename,
+      required this.id,
+      required this.name,
+      this.accountNumber,
+      required this.accountCategory,
+      required this.balance})
+      : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        G__typename, r'GUserCreateData_userCreateOne_accounts', 'G__typename');
+    BuiltValueNullFieldError.checkNotNull(
+        id, r'GUserCreateData_userCreateOne_accounts', 'id');
+    BuiltValueNullFieldError.checkNotNull(
+        name, r'GUserCreateData_userCreateOne_accounts', 'name');
+    BuiltValueNullFieldError.checkNotNull(accountCategory,
+        r'GUserCreateData_userCreateOne_accounts', 'accountCategory');
+    BuiltValueNullFieldError.checkNotNull(
+        balance, r'GUserCreateData_userCreateOne_accounts', 'balance');
+  }
+
+  @override
+  GUserCreateData_userCreateOne_accounts rebuild(
+          void Function(GUserCreateData_userCreateOne_accountsBuilder)
+              updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  GUserCreateData_userCreateOne_accountsBuilder toBuilder() =>
+      new GUserCreateData_userCreateOne_accountsBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is GUserCreateData_userCreateOne_accounts &&
+        G__typename == other.G__typename &&
+        id == other.id &&
+        name == other.name &&
+        accountNumber == other.accountNumber &&
+        accountCategory == other.accountCategory &&
+        balance == other.balance;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, G__typename.hashCode);
+    _$hash = $jc(_$hash, id.hashCode);
+    _$hash = $jc(_$hash, name.hashCode);
+    _$hash = $jc(_$hash, accountNumber.hashCode);
+    _$hash = $jc(_$hash, accountCategory.hashCode);
+    _$hash = $jc(_$hash, balance.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(
+            r'GUserCreateData_userCreateOne_accounts')
+          ..add('G__typename', G__typename)
+          ..add('id', id)
+          ..add('name', name)
+          ..add('accountNumber', accountNumber)
+          ..add('accountCategory', accountCategory)
+          ..add('balance', balance))
+        .toString();
+  }
+}
+
+class GUserCreateData_userCreateOne_accountsBuilder
+    implements
+        Builder<GUserCreateData_userCreateOne_accounts,
+            GUserCreateData_userCreateOne_accountsBuilder> {
+  _$GUserCreateData_userCreateOne_accounts? _$v;
+
+  String? _G__typename;
+  String? get G__typename => _$this._G__typename;
+  set G__typename(String? G__typename) => _$this._G__typename = G__typename;
+
+  int? _id;
+  int? get id => _$this._id;
+  set id(int? id) => _$this._id = id;
+
+  String? _name;
+  String? get name => _$this._name;
+  set name(String? name) => _$this._name = name;
+
+  double? _accountNumber;
+  double? get accountNumber => _$this._accountNumber;
+  set accountNumber(double? accountNumber) =>
+      _$this._accountNumber = accountNumber;
+
+  _i2.GAccountCategory? _accountCategory;
+  _i2.GAccountCategory? get accountCategory => _$this._accountCategory;
+  set accountCategory(_i2.GAccountCategory? accountCategory) =>
+      _$this._accountCategory = accountCategory;
+
+  double? _balance;
+  double? get balance => _$this._balance;
+  set balance(double? balance) => _$this._balance = balance;
+
+  GUserCreateData_userCreateOne_accountsBuilder() {
+    GUserCreateData_userCreateOne_accounts._initializeBuilder(this);
+  }
+
+  GUserCreateData_userCreateOne_accountsBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _G__typename = $v.G__typename;
+      _id = $v.id;
+      _name = $v.name;
+      _accountNumber = $v.accountNumber;
+      _accountCategory = $v.accountCategory;
+      _balance = $v.balance;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(GUserCreateData_userCreateOne_accounts other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$GUserCreateData_userCreateOne_accounts;
+  }
+
+  @override
+  void update(
+      void Function(GUserCreateData_userCreateOne_accountsBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  GUserCreateData_userCreateOne_accounts build() => _build();
+
+  _$GUserCreateData_userCreateOne_accounts _build() {
+    final _$result = _$v ??
+        new _$GUserCreateData_userCreateOne_accounts._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+                r'GUserCreateData_userCreateOne_accounts', 'G__typename'),
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, r'GUserCreateData_userCreateOne_accounts', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'GUserCreateData_userCreateOne_accounts', 'name'),
+            accountNumber: accountNumber,
+            accountCategory: BuiltValueNullFieldError.checkNotNull(
+                accountCategory,
+                r'GUserCreateData_userCreateOne_accounts',
+                'accountCategory'),
+            balance: BuiltValueNullFieldError.checkNotNull(
+                balance, r'GUserCreateData_userCreateOne_accounts', 'balance'));
     replace(_$result);
     return _$result;
   }

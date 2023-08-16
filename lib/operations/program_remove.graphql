@@ -1,0 +1,3 @@
+mutation ProgramRemove($programId: Float!) {
+  programRemove(programId: $programId)
+}

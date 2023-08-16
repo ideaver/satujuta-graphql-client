@@ -6,10 +6,14 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:ferry_exec/ferry_exec.dart' as _i1;
 import 'package:gql_exec/gql_exec.dart' as _i4;
-import 'package:satujuta_gql_client/operations/generated/hotel_create.ast.gql.dart' as _i5;
-import 'package:satujuta_gql_client/operations/generated/hotel_create.data.gql.dart' as _i2;
-import 'package:satujuta_gql_client/operations/generated/hotel_create.var.gql.dart' as _i3;
-import 'package:satujuta_gql_client/schema/generated/serializers.gql.dart' as _i6;
+import 'package:satujuta_gql_client/operations/generated/hotel_create.ast.gql.dart'
+    as _i5;
+import 'package:satujuta_gql_client/operations/generated/hotel_create.data.gql.dart'
+    as _i2;
+import 'package:satujuta_gql_client/operations/generated/hotel_create.var.gql.dart'
+    as _i3;
+import 'package:satujuta_gql_client/schema/generated/serializers.gql.dart'
+    as _i6;
 
 part 'hotel_create.req.gql.g.dart';
 
@@ -19,7 +23,8 @@ abstract class GHotelCreateReq
         _i1.OperationRequest<_i2.GHotelCreateData, _i3.GHotelCreateVars> {
   GHotelCreateReq._();
 
-  factory GHotelCreateReq([Function(GHotelCreateReqBuilder b) updates]) = _$GHotelCreateReq;
+  factory GHotelCreateReq([Function(GHotelCreateReqBuilder b) updates]) =
+      _$GHotelCreateReq;
 
   static void _initializeBuilder(GHotelCreateReqBuilder b) => b
     ..operation = _i4.Operation(
@@ -55,13 +60,16 @@ abstract class GHotelCreateReq
   @override
   bool get executeOnListen;
   @override
-  _i2.GHotelCreateData? parseData(Map<String, dynamic> json) => _i2.GHotelCreateData.fromJson(json);
-  static Serializer<GHotelCreateReq> get serializer => _$gHotelCreateReqSerializer;
+  _i2.GHotelCreateData? parseData(Map<String, dynamic> json) =>
+      _i2.GHotelCreateData.fromJson(json);
+  static Serializer<GHotelCreateReq> get serializer =>
+      _$gHotelCreateReqSerializer;
   Map<String, dynamic> toJson() => (_i6.serializers.serializeWith(
         GHotelCreateReq.serializer,
         this,
       ) as Map<String, dynamic>);
-  static GHotelCreateReq? fromJson(Map<String, dynamic> json) => _i6.serializers.deserializeWith(
+  static GHotelCreateReq? fromJson(Map<String, dynamic> json) =>
+      _i6.serializers.deserializeWith(
         GHotelCreateReq.serializer,
         json,
       );

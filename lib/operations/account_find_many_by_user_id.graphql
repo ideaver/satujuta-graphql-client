@@ -1,0 +1,15 @@
+query AccountFindMany($accountFindManyArgs: AccountFindManyArgs!) {
+  accountFindMany(accountFindManyArgs: $accountFindManyArgs) {
+    id
+    accountNumber
+    name
+    balance
+    createdAt
+    updatedAt
+    accountCategory
+    _count {
+      transactionDestination
+      transactionOrigins
+    }
+  }
+}

@@ -1,0 +1,26 @@
+mutation ProgramCreate($programCreateArgs: ProgramCreateArgs!) {
+  programCreateOne(programCreateArgs: $programCreateArgs) {
+    id
+    name
+    startDate
+    dueDate
+    description
+    createdAt
+    category {
+      id
+      name
+      createdAt
+    }
+    createdBy {
+      id
+      firstName
+      lastName
+      address {
+        name
+      }
+    }
+    Images {
+      url
+    }
+  }
+}

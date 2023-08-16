@@ -2,41 +2,53 @@
 // ignore_for_file: type=lint
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
-import 'package:satujuta_gql_client/schema/generated/schema.schema.gql.dart' as _i2;
-import 'package:satujuta_gql_client/schema/generated/serializers.gql.dart' as _i1;
+import 'package:satujuta_gql_client/schema/generated/schema.schema.gql.dart'
+    as _i2;
+import 'package:satujuta_gql_client/schema/generated/serializers.gql.dart'
+    as _i1;
 
 part 'user_create.data.gql.g.dart';
 
-abstract class GUserCreateData implements Built<GUserCreateData, GUserCreateDataBuilder> {
+abstract class GUserCreateData
+    implements Built<GUserCreateData, GUserCreateDataBuilder> {
   GUserCreateData._();
 
-  factory GUserCreateData([Function(GUserCreateDataBuilder b) updates]) = _$GUserCreateData;
+  factory GUserCreateData([Function(GUserCreateDataBuilder b) updates]) =
+      _$GUserCreateData;
 
-  static void _initializeBuilder(GUserCreateDataBuilder b) => b..G__typename = 'Mutation';
+  static void _initializeBuilder(GUserCreateDataBuilder b) =>
+      b..G__typename = 'Mutation';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
-  GUserCreateData_userCreate? get userCreate;
-  static Serializer<GUserCreateData> get serializer => _$gUserCreateDataSerializer;
+  GUserCreateData_userCreateOne? get userCreateOne;
+  static Serializer<GUserCreateData> get serializer =>
+      _$gUserCreateDataSerializer;
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GUserCreateData.serializer,
         this,
       ) as Map<String, dynamic>);
-  static GUserCreateData? fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
+  static GUserCreateData? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
         GUserCreateData.serializer,
         json,
       );
 }
 
-abstract class GUserCreateData_userCreate
-    implements Built<GUserCreateData_userCreate, GUserCreateData_userCreateBuilder> {
-  GUserCreateData_userCreate._();
+abstract class GUserCreateData_userCreateOne
+    implements
+        Built<GUserCreateData_userCreateOne,
+            GUserCreateData_userCreateOneBuilder> {
+  GUserCreateData_userCreateOne._();
 
-  factory GUserCreateData_userCreate([Function(GUserCreateData_userCreateBuilder b) updates]) =
-      _$GUserCreateData_userCreate;
+  factory GUserCreateData_userCreateOne(
+          [Function(GUserCreateData_userCreateOneBuilder b) updates]) =
+      _$GUserCreateData_userCreateOne;
 
-  static void _initializeBuilder(GUserCreateData_userCreateBuilder b) => b..G__typename = 'User';
+  static void _initializeBuilder(GUserCreateData_userCreateOneBuilder b) =>
+      b..G__typename = 'User';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   String get id;
@@ -53,28 +65,36 @@ abstract class GUserCreateData_userCreate
   _i2.GDateTime get createdAt;
   _i2.GDateTime get updatedAt;
   _i2.GTheme get theme;
-  GUserCreateData_userCreate_address get address;
-  GUserCreateData_userCreate_school? get school;
-  GUserCreateData_userCreate_referredBy? get referredBy;
-  static Serializer<GUserCreateData_userCreate> get serializer => _$gUserCreateDataUserCreateSerializer;
+  GUserCreateData_userCreateOne_address get address;
+  GUserCreateData_userCreateOne_school? get school;
+  GUserCreateData_userCreateOne_referredBy? get referredBy;
+  BuiltList<GUserCreateData_userCreateOne_accounts>? get accounts;
+  static Serializer<GUserCreateData_userCreateOne> get serializer =>
+      _$gUserCreateDataUserCreateOneSerializer;
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GUserCreateData_userCreate.serializer,
+        GUserCreateData_userCreateOne.serializer,
         this,
       ) as Map<String, dynamic>);
-  static GUserCreateData_userCreate? fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-        GUserCreateData_userCreate.serializer,
+  static GUserCreateData_userCreateOne? fromJson(Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GUserCreateData_userCreateOne.serializer,
         json,
       );
 }
 
-abstract class GUserCreateData_userCreate_address
-    implements Built<GUserCreateData_userCreate_address, GUserCreateData_userCreate_addressBuilder> {
-  GUserCreateData_userCreate_address._();
+abstract class GUserCreateData_userCreateOne_address
+    implements
+        Built<GUserCreateData_userCreateOne_address,
+            GUserCreateData_userCreateOne_addressBuilder> {
+  GUserCreateData_userCreateOne_address._();
 
-  factory GUserCreateData_userCreate_address([Function(GUserCreateData_userCreate_addressBuilder b) updates]) =
-      _$GUserCreateData_userCreate_address;
+  factory GUserCreateData_userCreateOne_address(
+          [Function(GUserCreateData_userCreateOne_addressBuilder b) updates]) =
+      _$GUserCreateData_userCreateOne_address;
 
-  static void _initializeBuilder(GUserCreateData_userCreate_addressBuilder b) => b..G__typename = 'Address';
+  static void _initializeBuilder(
+          GUserCreateData_userCreateOne_addressBuilder b) =>
+      b..G__typename = 'Address';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   int get id;
@@ -82,25 +102,33 @@ abstract class GUserCreateData_userCreate_address
   int get cityId;
   int get districtId;
   int get postalCodeId;
-  static Serializer<GUserCreateData_userCreate_address> get serializer => _$gUserCreateDataUserCreateAddressSerializer;
+  static Serializer<GUserCreateData_userCreateOne_address> get serializer =>
+      _$gUserCreateDataUserCreateOneAddressSerializer;
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GUserCreateData_userCreate_address.serializer,
+        GUserCreateData_userCreateOne_address.serializer,
         this,
       ) as Map<String, dynamic>);
-  static GUserCreateData_userCreate_address? fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-        GUserCreateData_userCreate_address.serializer,
+  static GUserCreateData_userCreateOne_address? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GUserCreateData_userCreateOne_address.serializer,
         json,
       );
 }
 
-abstract class GUserCreateData_userCreate_school
-    implements Built<GUserCreateData_userCreate_school, GUserCreateData_userCreate_schoolBuilder> {
-  GUserCreateData_userCreate_school._();
+abstract class GUserCreateData_userCreateOne_school
+    implements
+        Built<GUserCreateData_userCreateOne_school,
+            GUserCreateData_userCreateOne_schoolBuilder> {
+  GUserCreateData_userCreateOne_school._();
 
-  factory GUserCreateData_userCreate_school([Function(GUserCreateData_userCreate_schoolBuilder b) updates]) =
-      _$GUserCreateData_userCreate_school;
+  factory GUserCreateData_userCreateOne_school(
+          [Function(GUserCreateData_userCreateOne_schoolBuilder b) updates]) =
+      _$GUserCreateData_userCreateOne_school;
 
-  static void _initializeBuilder(GUserCreateData_userCreate_schoolBuilder b) => b..G__typename = 'School';
+  static void _initializeBuilder(
+          GUserCreateData_userCreateOne_schoolBuilder b) =>
+      b..G__typename = 'School';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   int get id;
@@ -108,36 +136,80 @@ abstract class GUserCreateData_userCreate_school
   int get addressId;
   _i2.GDateTime get createdAt;
   _i2.GDateTime get updatedAt;
-  static Serializer<GUserCreateData_userCreate_school> get serializer => _$gUserCreateDataUserCreateSchoolSerializer;
+  static Serializer<GUserCreateData_userCreateOne_school> get serializer =>
+      _$gUserCreateDataUserCreateOneSchoolSerializer;
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GUserCreateData_userCreate_school.serializer,
+        GUserCreateData_userCreateOne_school.serializer,
         this,
       ) as Map<String, dynamic>);
-  static GUserCreateData_userCreate_school? fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-        GUserCreateData_userCreate_school.serializer,
+  static GUserCreateData_userCreateOne_school? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GUserCreateData_userCreateOne_school.serializer,
         json,
       );
 }
 
-abstract class GUserCreateData_userCreate_referredBy
-    implements Built<GUserCreateData_userCreate_referredBy, GUserCreateData_userCreate_referredByBuilder> {
-  GUserCreateData_userCreate_referredBy._();
+abstract class GUserCreateData_userCreateOne_referredBy
+    implements
+        Built<GUserCreateData_userCreateOne_referredBy,
+            GUserCreateData_userCreateOne_referredByBuilder> {
+  GUserCreateData_userCreateOne_referredBy._();
 
-  factory GUserCreateData_userCreate_referredBy([Function(GUserCreateData_userCreate_referredByBuilder b) updates]) =
-      _$GUserCreateData_userCreate_referredBy;
+  factory GUserCreateData_userCreateOne_referredBy(
+      [Function(GUserCreateData_userCreateOne_referredByBuilder b)
+          updates]) = _$GUserCreateData_userCreateOne_referredBy;
 
-  static void _initializeBuilder(GUserCreateData_userCreate_referredByBuilder b) => b..G__typename = 'UserAbstract';
+  static void _initializeBuilder(
+          GUserCreateData_userCreateOne_referredByBuilder b) =>
+      b..G__typename = 'UserAbstract';
   @BuiltValueField(wireName: '__typename')
   String get G__typename;
   String get id;
-  static Serializer<GUserCreateData_userCreate_referredBy> get serializer =>
-      _$gUserCreateDataUserCreateReferredBySerializer;
+  static Serializer<GUserCreateData_userCreateOne_referredBy> get serializer =>
+      _$gUserCreateDataUserCreateOneReferredBySerializer;
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
-        GUserCreateData_userCreate_referredBy.serializer,
+        GUserCreateData_userCreateOne_referredBy.serializer,
         this,
       ) as Map<String, dynamic>);
-  static GUserCreateData_userCreate_referredBy? fromJson(Map<String, dynamic> json) => _i1.serializers.deserializeWith(
-        GUserCreateData_userCreate_referredBy.serializer,
+  static GUserCreateData_userCreateOne_referredBy? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GUserCreateData_userCreateOne_referredBy.serializer,
+        json,
+      );
+}
+
+abstract class GUserCreateData_userCreateOne_accounts
+    implements
+        Built<GUserCreateData_userCreateOne_accounts,
+            GUserCreateData_userCreateOne_accountsBuilder> {
+  GUserCreateData_userCreateOne_accounts._();
+
+  factory GUserCreateData_userCreateOne_accounts(
+          [Function(GUserCreateData_userCreateOne_accountsBuilder b) updates]) =
+      _$GUserCreateData_userCreateOne_accounts;
+
+  static void _initializeBuilder(
+          GUserCreateData_userCreateOne_accountsBuilder b) =>
+      b..G__typename = 'Account';
+  @BuiltValueField(wireName: '__typename')
+  String get G__typename;
+  int get id;
+  String get name;
+  double? get accountNumber;
+  _i2.GAccountCategory get accountCategory;
+  double get balance;
+  static Serializer<GUserCreateData_userCreateOne_accounts> get serializer =>
+      _$gUserCreateDataUserCreateOneAccountsSerializer;
+  Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
+        GUserCreateData_userCreateOne_accounts.serializer,
+        this,
+      ) as Map<String, dynamic>);
+  static GUserCreateData_userCreateOne_accounts? fromJson(
+          Map<String, dynamic> json) =>
+      _i1.serializers.deserializeWith(
+        GUserCreateData_userCreateOne_accounts.serializer,
         json,
       );
 }

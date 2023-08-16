@@ -1,0 +1,14 @@
+query PointTransactionFindFirst($pointTransactionFindFirstArgs: PointTransactionFindFirstArgs!, $rewardFindManyArgs: RewardFindManyArgs!) {
+  pointTransactionFindFirst(pointTransactionFindFirstArgs: $pointTransactionFindFirstArgs) {
+    amount
+  }
+  rewardFindMany(rewardFindManyArgs: $rewardFindManyArgs) {
+    id
+    name
+    images {
+      url
+    }
+    description
+    pointCost
+  }
+}

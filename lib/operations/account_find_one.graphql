@@ -1,0 +1,16 @@
+query Query($accountFindUniqueArgs: AccountFindUniqueArgs!) {
+  accountFindOne(accountFindUniqueArgs: $accountFindUniqueArgs) {
+    id
+    accountNumber
+    name
+    balance
+    createdAt
+    updatedAt
+    userId
+    accountCategory
+    _count {
+      transactionOrigins
+      transactionDestination
+    }
+  }
+}

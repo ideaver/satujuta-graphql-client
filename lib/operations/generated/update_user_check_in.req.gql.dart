@@ -6,10 +6,14 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:ferry_exec/ferry_exec.dart' as _i1;
 import 'package:gql_exec/gql_exec.dart' as _i4;
-import 'package:satujuta_gql_client/operations/generated/update_user_check_in.ast.gql.dart' as _i5;
-import 'package:satujuta_gql_client/operations/generated/update_user_check_in.data.gql.dart' as _i2;
-import 'package:satujuta_gql_client/operations/generated/update_user_check_in.var.gql.dart' as _i3;
-import 'package:satujuta_gql_client/schema/generated/serializers.gql.dart' as _i6;
+import 'package:satujuta_gql_client/operations/generated/update_user_check_in.ast.gql.dart'
+    as _i5;
+import 'package:satujuta_gql_client/operations/generated/update_user_check_in.data.gql.dart'
+    as _i2;
+import 'package:satujuta_gql_client/operations/generated/update_user_check_in.var.gql.dart'
+    as _i3;
+import 'package:satujuta_gql_client/schema/generated/serializers.gql.dart'
+    as _i6;
 
 part 'update_user_check_in.req.gql.g.dart';
 
@@ -19,7 +23,8 @@ abstract class GUserUpdateOneReq
         _i1.OperationRequest<_i2.GUserUpdateOneData, _i3.GUserUpdateOneVars> {
   GUserUpdateOneReq._();
 
-  factory GUserUpdateOneReq([Function(GUserUpdateOneReqBuilder b) updates]) = _$GUserUpdateOneReq;
+  factory GUserUpdateOneReq([Function(GUserUpdateOneReqBuilder b) updates]) =
+      _$GUserUpdateOneReq;
 
   static void _initializeBuilder(GUserUpdateOneReqBuilder b) => b
     ..operation = _i4.Operation(
@@ -55,13 +60,16 @@ abstract class GUserUpdateOneReq
   @override
   bool get executeOnListen;
   @override
-  _i2.GUserUpdateOneData? parseData(Map<String, dynamic> json) => _i2.GUserUpdateOneData.fromJson(json);
-  static Serializer<GUserUpdateOneReq> get serializer => _$gUserUpdateOneReqSerializer;
+  _i2.GUserUpdateOneData? parseData(Map<String, dynamic> json) =>
+      _i2.GUserUpdateOneData.fromJson(json);
+  static Serializer<GUserUpdateOneReq> get serializer =>
+      _$gUserUpdateOneReqSerializer;
   Map<String, dynamic> toJson() => (_i6.serializers.serializeWith(
         GUserUpdateOneReq.serializer,
         this,
       ) as Map<String, dynamic>);
-  static GUserUpdateOneReq? fromJson(Map<String, dynamic> json) => _i6.serializers.deserializeWith(
+  static GUserUpdateOneReq? fromJson(Map<String, dynamic> json) =>
+      _i6.serializers.deserializeWith(
         GUserUpdateOneReq.serializer,
         json,
       );
