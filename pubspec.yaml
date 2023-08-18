@@ -9,11 +9,17 @@ environment:
 # Add regular dependencies here.
 dependencies:
   gql_http_link: ^1.0.1
-  ferry: ^0.14.2+1
+  # ferry: ^0.14.2+1
+  graphql_flutter: ^5.1.2
 
 dev_dependencies:
   lints: ^2.0.0
   test: ^1.21.0
-  pedantic: ^1.9.0
+  # pedantic: ^1.9.0
   build_runner: ^2.4.6
-  ferry_generator: ^0.8.1
+  # ferry_generator: ^0.8.1
+  flutter_gen: ^5.2.0
+  graphql_codegen: ^0.13.5
+
+flutter:
+  generate: true
