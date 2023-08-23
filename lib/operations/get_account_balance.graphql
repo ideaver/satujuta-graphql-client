@@ -1,5 +1,0 @@
-query AccountFindOne($accountFindUniqueArgs: AccountFindUniqueArgs!) {
-  accountFindOne(accountFindUniqueArgs: $accountFindUniqueArgs) {
-    balance
-  }
-}

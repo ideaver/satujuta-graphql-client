@@ -1,7 +1,0 @@
-query _count($userFindUniqueArgs: UserFindUniqueArgs!) {
-  userFindOne(userFindUniqueArgs: $userFindUniqueArgs) {
-    _count {
-      referredUsers
-    }
-  }
-}

@@ -1,20 +1,7 @@
-query HotelFindOne($hotelFindUniqueArgs: HotelFindUniqueArgs!) {
-  hotelFindOne(hotelFindUniqueArgs: $hotelFindUniqueArgs) {
+query HotelFindMany($hotelFindManyArgs: HotelFindManyArgs!) {
+  hotelFindMany(hotelFindManyArgs: $hotelFindManyArgs) {
     id
     name
-    description
-    rating
-    startDate
-    quota
-    createdById
-    createdAt
-    updatedAt
-    _count {
-      checkIns
-    }
-    images {
-      url
-    }
     address {
       id
       name
@@ -24,19 +11,38 @@ query HotelFindOne($hotelFindUniqueArgs: HotelFindUniqueArgs!) {
       district {
         name
       }
-      postalCode {
-        code
-      }
+      # postalCode {
+      #   code
+      # }
     }
-    checkIns {
-      user {
-        id
-        firstName
-        lastName
-        avatarUrl
-      }
-      checkInAt
-      createdAt
+    description
+    rating
+    startDate
+    quota
+    createdBy {
+      id
+      firstName
+      lastName
+      email
+      avatarUrl
     }
+    createdAt
+    updatedAt
+    images {
+      url
+    }
+    _count {
+      checkIns
+    }
+    # checkIns {
+    #   user {
+    #     id
+    #     firstName
+    #     lastName
+    #     avatarUrl
+    #   }
+    #   checkInAt
+    #   createdAt
+    # }
   }
 }

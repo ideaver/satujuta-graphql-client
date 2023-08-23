@@ -1,7 +1,0 @@
-mutation RewardUpdateOne($rewardUpdateOneArgs: RewardUpdateOneArgs!) {
-  rewardUpdateOne(rewardUpdateOneArgs: $rewardUpdateOneArgs) {
-    _count {
-      claimers
-    }
-  }
-}

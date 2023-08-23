@@ -1,9 +1,0 @@
-mutation UserUpdateOne($userUpdateOneArgs: UserUpdateOneArgs!) {
-  userUpdateOne(userUpdateOneArgs: $userUpdateOneArgs) {
-    checkIns {
-      id
-      checkInAt
-      createdAt
-    }
-  }
-}

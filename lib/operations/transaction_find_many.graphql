@@ -1,0 +1,14 @@
+query TransactionFindMany($transactionFindManyArgs: TransactionFindManyArgs!) {
+  transactionFindMany(transactionFindManyArgs: $transactionFindManyArgs) {
+    id
+    amount
+    status
+    transactionCategory
+    createdAt
+    fromAccountId
+    toAccountId
+    # payment {
+    #   id
+    # }
+  }
+}

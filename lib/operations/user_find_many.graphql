@@ -1,6 +1,7 @@
 query UserFindMany($userFindManyArgs: UserFindManyArgs!) {
   userFindMany(userFindManyArgs: $userFindManyArgs) {
     id
+    avatarUrl
     firstName
     lastName
     email
@@ -10,12 +11,32 @@ query UserFindMany($userFindManyArgs: UserFindManyArgs!) {
     avatarUrl
     whatsappNumber
     whatsappVerifiedAt
-    referredById
+    referralCode
     status
     schoolId
+    theme
     createdAt
     updatedAt
-    deletedAt
-    theme
+    referredById
+    referredBy {
+      id
+      firstName
+      lastName
+    }
+    _count {
+      referredUsers
+      claimedRewards
+    }
+    PointTransactions {
+      id
+      transactionType
+      createdAt
+      amount
+    }
+    # claimedRewards {
+    #   id
+    #   name
+    #   createdAt
+    # }
   }
 }
