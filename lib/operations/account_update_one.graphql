@@ -1,0 +1,9 @@
+mutation AccountUpdateOne($accountUpdateOneArgs: AccountUpdateOneArgs!) {
+  accountUpdateOne(accountUpdateOneArgs: $accountUpdateOneArgs) {
+    id
+    name
+    accountNumber
+    accountCategory
+    updatedAt
+  }
+}

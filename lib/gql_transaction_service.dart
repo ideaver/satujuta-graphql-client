@@ -22,24 +22,16 @@ class GqlTransactionService {
             "where": {
               "OR": [
                 {
-                  "fromAccountId": {
-                    "equals": accountId,
-                  }
+                  "fromAccountId": {"equals": accountId}
                 },
                 {
-                  "toAccountId": {
-                    "equals": accountId,
-                  }
+                  "toAccountId": {"equals": accountId}
                 }
               ],
-              "status": {
-                "equals": "COMPLETED",
-              }
+              "status": {"equals": "COMPLETED"}
             },
             "orderBy": [
-              {
-                "createdAt": "asc",
-              }
+              {"createdAt": "asc"}
             ]
           }
         },

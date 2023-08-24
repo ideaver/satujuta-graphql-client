@@ -19,16 +19,12 @@ class GqlUserService {
         variables: {
           "userFindManyArgs": {
             "orderBy": [
-              {
-                "firstName": "asc",
-              }
+              {"firstName": "asc"}
             ],
             "skip": skip,
             "take": 10,
             "where": {
-              "deletedAt": {
-                "equals": null,
-              }
+              "deletedAt": {"equals": null}
             }
           }
         },
@@ -49,16 +45,12 @@ class GqlUserService {
             "skip": skip,
             "take": 10,
             "orderBy": [
-              {
-                "firstName": "asc",
-              }
+              {"firstName": "asc"}
             ],
             "where": {
               "referredBy": {
                 "is": {
-                  "id": {
-                    "equals": refererId,
-                  }
+                  "id": {"equals": refererId}
                 }
               },
               "deletedAt": {"equals": null}
@@ -76,9 +68,7 @@ class GqlUserService {
         parserFn: (data) => Query$UserFindOne.fromJson(data),
         variables: {
           "userFindUniqueArgs": {
-            "where": {
-              "id": id,
-            }
+            "where": {"id": id}
           },
         },
       ),
@@ -118,10 +108,30 @@ class GqlUserService {
               "whatsappNumber": {"set": user.whatsappNumber},
               "whatsappVerifiedAt": {"set": null},
               "password": {"set": null},
-              "theme": {"set": null},
-              "userType": {"set": null},
+              "theme": {"set": user.theme.name},
+              "userType": {"set": user.userType.name},
               "avatarUrl": {"set": user.avatarUrl},
-            }
+              "status": {"set": user.status.name},
+              "address": {
+                "update": {
+                  "data": {
+                    "name": {"set": user.address.name},
+                    "province": {
+                      "connect": {"id": user.address.province.id}
+                    },
+                    "city": {
+                      "connect": {"id": user.address.city.id}
+                    },
+                    "district": {
+                      "connect": {"id": user.address.district.id}
+                    },
+                    "subdistrict": {
+                      "connect": {"id": user.address.subdistrict.id}
+                    },
+                  }
+                }
+              }
+            },
           }
         },
       ),
@@ -141,14 +151,10 @@ class GqlUserService {
           "userUpdateOneArgs": {
             "where": {
               "id": userId,
-              "password": {
-                "equals": currentPassword,
-              }
+              "password": {"equals": currentPassword}
             },
             "data": {
-              "password": {
-                "set": newPassword,
-              }
+              "password": {"set": newPassword}
             }
           }
         },

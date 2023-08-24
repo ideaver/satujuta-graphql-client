@@ -277,13 +277,6 @@ const documentNodeQueryUserFindOne = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
-            name: NameNode(value: 'avatarUrl'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
             name: NameNode(value: 'firstName'),
             alias: null,
             arguments: [],
@@ -299,13 +292,6 @@ const documentNodeQueryUserFindOne = DocumentNode(definitions: [
           ),
           FieldNode(
             name: NameNode(value: 'email'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'addressId'),
             alias: null,
             arguments: [],
             directives: [],
@@ -340,28 +326,7 @@ const documentNodeQueryUserFindOne = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
-            name: NameNode(value: 'whatsappVerifiedAt'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'referralCode'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
             name: NameNode(value: 'status'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'schoolId'),
             alias: null,
             arguments: [],
             directives: [],
@@ -375,25 +340,33 @@ const documentNodeQueryUserFindOne = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
-            name: NameNode(value: 'createdAt'),
+            name: NameNode(value: 'school'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'updatedAt'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'referredById'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
           ),
           FieldNode(
             name: NameNode(value: 'referredBy'),
@@ -432,61 +405,11 @@ const documentNodeQueryUserFindOne = DocumentNode(definitions: [
             ]),
           ),
           FieldNode(
-            name: NameNode(value: '_count'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'referredUsers'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'claimedRewards'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
-          ),
-          FieldNode(
             name: NameNode(value: 'PointTransactions'),
             alias: null,
             arguments: [],
             directives: [],
             selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'transactionType'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'createdAt'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
               FieldNode(
                 name: NameNode(value: 'amount'),
                 alias: null,
@@ -504,7 +427,7 @@ const documentNodeQueryUserFindOne = DocumentNode(definitions: [
             ]),
           ),
           FieldNode(
-            name: NameNode(value: 'claimedRewards'),
+            name: NameNode(value: 'address'),
             alias: null,
             arguments: [],
             directives: [],
@@ -524,11 +447,127 @@ const documentNodeQueryUserFindOne = DocumentNode(definitions: [
                 selectionSet: null,
               ),
               FieldNode(
-                name: NameNode(value: 'createdAt'),
+                name: NameNode(value: 'province'),
                 alias: null,
                 arguments: [],
                 directives: [],
-                selectionSet: null,
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'name'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: 'city'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'name'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: 'district'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'name'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: 'subdistrict'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'name'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'postalCode'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
               ),
               FieldNode(
                 name: NameNode(value: '__typename'),
@@ -538,6 +577,120 @@ const documentNodeQueryUserFindOne = DocumentNode(definitions: [
                 selectionSet: null,
               ),
             ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'referralCode'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'accounts'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'accountCategory'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'accountNumber'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'bankAccount'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'name'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'logoUrl'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'accountId'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'accountNumber'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'createdAt'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'updatedAt'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -712,91 +865,83 @@ class Query$UserFindOne$Widget
 class Query$UserFindOne$userFindOne {
   Query$UserFindOne$userFindOne({
     required this.id,
-    this.avatarUrl,
     required this.firstName,
     this.lastName,
     required this.email,
-    required this.addressId,
     required this.userRole,
     required this.userType,
+    this.avatarUrl,
     required this.whatsappNumber,
-    this.whatsappVerifiedAt,
-    required this.referralCode,
     required this.status,
-    this.schoolId,
     required this.theme,
+    this.school,
+    this.referredBy,
+    this.PointTransactions,
+    required this.address,
+    required this.referralCode,
+    this.accounts,
     required this.createdAt,
     required this.updatedAt,
-    this.referredById,
-    this.referredBy,
-    required this.$_count,
-    this.PointTransactions,
-    this.claimedRewards,
     this.$__typename = 'User',
   });
 
   factory Query$UserFindOne$userFindOne.fromJson(Map<String, dynamic> json) {
     final l$id = json['id'];
-    final l$avatarUrl = json['avatarUrl'];
     final l$firstName = json['firstName'];
     final l$lastName = json['lastName'];
     final l$email = json['email'];
-    final l$addressId = json['addressId'];
     final l$userRole = json['userRole'];
     final l$userType = json['userType'];
+    final l$avatarUrl = json['avatarUrl'];
     final l$whatsappNumber = json['whatsappNumber'];
-    final l$whatsappVerifiedAt = json['whatsappVerifiedAt'];
-    final l$referralCode = json['referralCode'];
     final l$status = json['status'];
-    final l$schoolId = json['schoolId'];
     final l$theme = json['theme'];
+    final l$school = json['school'];
+    final l$referredBy = json['referredBy'];
+    final l$PointTransactions = json['PointTransactions'];
+    final l$address = json['address'];
+    final l$referralCode = json['referralCode'];
+    final l$accounts = json['accounts'];
     final l$createdAt = json['createdAt'];
     final l$updatedAt = json['updatedAt'];
-    final l$referredById = json['referredById'];
-    final l$referredBy = json['referredBy'];
-    final l$$_count = json['_count'];
-    final l$PointTransactions = json['PointTransactions'];
-    final l$claimedRewards = json['claimedRewards'];
     final l$$__typename = json['__typename'];
     return Query$UserFindOne$userFindOne(
       id: (l$id as String),
-      avatarUrl: (l$avatarUrl as String?),
       firstName: (l$firstName as String),
       lastName: (l$lastName as String?),
       email: (l$email as String),
-      addressId: (l$addressId as int),
       userRole: fromJson$Enum$UserRole((l$userRole as String)),
       userType: fromJson$Enum$UserType((l$userType as String)),
+      avatarUrl: (l$avatarUrl as String?),
       whatsappNumber: (l$whatsappNumber as String),
-      whatsappVerifiedAt: (l$whatsappVerifiedAt as String?),
-      referralCode: (l$referralCode as String),
       status: fromJson$Enum$UserStatus((l$status as String)),
-      schoolId: (l$schoolId as int?),
       theme: fromJson$Enum$Theme((l$theme as String)),
-      createdAt: (l$createdAt as String),
-      updatedAt: (l$updatedAt as String),
-      referredById: (l$referredById as String?),
+      school: l$school == null
+          ? null
+          : Query$UserFindOne$userFindOne$school.fromJson(
+              (l$school as Map<String, dynamic>)),
       referredBy: l$referredBy == null
           ? null
           : Query$UserFindOne$userFindOne$referredBy.fromJson(
               (l$referredBy as Map<String, dynamic>)),
-      $_count: Query$UserFindOne$userFindOne$_count.fromJson(
-          (l$$_count as Map<String, dynamic>)),
       PointTransactions: (l$PointTransactions as List<dynamic>?)
           ?.map((e) => Query$UserFindOne$userFindOne$PointTransactions.fromJson(
               (e as Map<String, dynamic>)))
           .toList(),
-      claimedRewards: (l$claimedRewards as List<dynamic>?)
-          ?.map((e) => Query$UserFindOne$userFindOne$claimedRewards.fromJson(
+      address: Query$UserFindOne$userFindOne$address.fromJson(
+          (l$address as Map<String, dynamic>)),
+      referralCode: (l$referralCode as String),
+      accounts: (l$accounts as List<dynamic>?)
+          ?.map((e) => Query$UserFindOne$userFindOne$accounts.fromJson(
               (e as Map<String, dynamic>)))
           .toList(),
+      createdAt: (l$createdAt as String),
+      updatedAt: (l$updatedAt as String),
       $__typename: (l$$__typename as String),
     );
   }
 
   final String id;
-
-  final String? avatarUrl;
 
   final String firstName;
 
@@ -804,38 +949,34 @@ class Query$UserFindOne$userFindOne {
 
   final String email;
 
-  final int addressId;
-
   final Enum$UserRole userRole;
 
   final Enum$UserType userType;
 
+  final String? avatarUrl;
+
   final String whatsappNumber;
-
-  final String? whatsappVerifiedAt;
-
-  final String referralCode;
 
   final Enum$UserStatus status;
 
-  final int? schoolId;
-
   final Enum$Theme theme;
 
-  final String createdAt;
-
-  final String updatedAt;
-
-  final String? referredById;
+  final Query$UserFindOne$userFindOne$school? school;
 
   final Query$UserFindOne$userFindOne$referredBy? referredBy;
-
-  final Query$UserFindOne$userFindOne$_count $_count;
 
   final List<Query$UserFindOne$userFindOne$PointTransactions>?
       PointTransactions;
 
-  final List<Query$UserFindOne$userFindOne$claimedRewards>? claimedRewards;
+  final Query$UserFindOne$userFindOne$address address;
+
+  final String referralCode;
+
+  final List<Query$UserFindOne$userFindOne$accounts>? accounts;
+
+  final String createdAt;
+
+  final String updatedAt;
 
   final String $__typename;
 
@@ -843,48 +984,41 @@ class Query$UserFindOne$userFindOne {
     final _resultData = <String, dynamic>{};
     final l$id = id;
     _resultData['id'] = l$id;
-    final l$avatarUrl = avatarUrl;
-    _resultData['avatarUrl'] = l$avatarUrl;
     final l$firstName = firstName;
     _resultData['firstName'] = l$firstName;
     final l$lastName = lastName;
     _resultData['lastName'] = l$lastName;
     final l$email = email;
     _resultData['email'] = l$email;
-    final l$addressId = addressId;
-    _resultData['addressId'] = l$addressId;
     final l$userRole = userRole;
     _resultData['userRole'] = toJson$Enum$UserRole(l$userRole);
     final l$userType = userType;
     _resultData['userType'] = toJson$Enum$UserType(l$userType);
+    final l$avatarUrl = avatarUrl;
+    _resultData['avatarUrl'] = l$avatarUrl;
     final l$whatsappNumber = whatsappNumber;
     _resultData['whatsappNumber'] = l$whatsappNumber;
-    final l$whatsappVerifiedAt = whatsappVerifiedAt;
-    _resultData['whatsappVerifiedAt'] = l$whatsappVerifiedAt;
-    final l$referralCode = referralCode;
-    _resultData['referralCode'] = l$referralCode;
     final l$status = status;
     _resultData['status'] = toJson$Enum$UserStatus(l$status);
-    final l$schoolId = schoolId;
-    _resultData['schoolId'] = l$schoolId;
     final l$theme = theme;
     _resultData['theme'] = toJson$Enum$Theme(l$theme);
+    final l$school = school;
+    _resultData['school'] = l$school?.toJson();
+    final l$referredBy = referredBy;
+    _resultData['referredBy'] = l$referredBy?.toJson();
+    final l$PointTransactions = PointTransactions;
+    _resultData['PointTransactions'] =
+        l$PointTransactions?.map((e) => e.toJson()).toList();
+    final l$address = address;
+    _resultData['address'] = l$address.toJson();
+    final l$referralCode = referralCode;
+    _resultData['referralCode'] = l$referralCode;
+    final l$accounts = accounts;
+    _resultData['accounts'] = l$accounts?.map((e) => e.toJson()).toList();
     final l$createdAt = createdAt;
     _resultData['createdAt'] = l$createdAt;
     final l$updatedAt = updatedAt;
     _resultData['updatedAt'] = l$updatedAt;
-    final l$referredById = referredById;
-    _resultData['referredById'] = l$referredById;
-    final l$referredBy = referredBy;
-    _resultData['referredBy'] = l$referredBy?.toJson();
-    final l$$_count = $_count;
-    _resultData['_count'] = l$$_count.toJson();
-    final l$PointTransactions = PointTransactions;
-    _resultData['PointTransactions'] =
-        l$PointTransactions?.map((e) => e.toJson()).toList();
-    final l$claimedRewards = claimedRewards;
-    _resultData['claimedRewards'] =
-        l$claimedRewards?.map((e) => e.toJson()).toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -893,53 +1027,45 @@ class Query$UserFindOne$userFindOne {
   @override
   int get hashCode {
     final l$id = id;
-    final l$avatarUrl = avatarUrl;
     final l$firstName = firstName;
     final l$lastName = lastName;
     final l$email = email;
-    final l$addressId = addressId;
     final l$userRole = userRole;
     final l$userType = userType;
+    final l$avatarUrl = avatarUrl;
     final l$whatsappNumber = whatsappNumber;
-    final l$whatsappVerifiedAt = whatsappVerifiedAt;
-    final l$referralCode = referralCode;
     final l$status = status;
-    final l$schoolId = schoolId;
     final l$theme = theme;
+    final l$school = school;
+    final l$referredBy = referredBy;
+    final l$PointTransactions = PointTransactions;
+    final l$address = address;
+    final l$referralCode = referralCode;
+    final l$accounts = accounts;
     final l$createdAt = createdAt;
     final l$updatedAt = updatedAt;
-    final l$referredById = referredById;
-    final l$referredBy = referredBy;
-    final l$$_count = $_count;
-    final l$PointTransactions = PointTransactions;
-    final l$claimedRewards = claimedRewards;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
-      l$avatarUrl,
       l$firstName,
       l$lastName,
       l$email,
-      l$addressId,
       l$userRole,
       l$userType,
+      l$avatarUrl,
       l$whatsappNumber,
-      l$whatsappVerifiedAt,
-      l$referralCode,
       l$status,
-      l$schoolId,
       l$theme,
-      l$createdAt,
-      l$updatedAt,
-      l$referredById,
+      l$school,
       l$referredBy,
-      l$$_count,
       l$PointTransactions == null
           ? null
           : Object.hashAll(l$PointTransactions.map((v) => v)),
-      l$claimedRewards == null
-          ? null
-          : Object.hashAll(l$claimedRewards.map((v) => v)),
+      l$address,
+      l$referralCode,
+      l$accounts == null ? null : Object.hashAll(l$accounts.map((v) => v)),
+      l$createdAt,
+      l$updatedAt,
       l$$__typename,
     ]);
   }
@@ -958,11 +1084,6 @@ class Query$UserFindOne$userFindOne {
     if (l$id != lOther$id) {
       return false;
     }
-    final l$avatarUrl = avatarUrl;
-    final lOther$avatarUrl = other.avatarUrl;
-    if (l$avatarUrl != lOther$avatarUrl) {
-      return false;
-    }
     final l$firstName = firstName;
     final lOther$firstName = other.firstName;
     if (l$firstName != lOther$firstName) {
@@ -978,11 +1099,6 @@ class Query$UserFindOne$userFindOne {
     if (l$email != lOther$email) {
       return false;
     }
-    final l$addressId = addressId;
-    final lOther$addressId = other.addressId;
-    if (l$addressId != lOther$addressId) {
-      return false;
-    }
     final l$userRole = userRole;
     final lOther$userRole = other.userRole;
     if (l$userRole != lOther$userRole) {
@@ -993,19 +1109,14 @@ class Query$UserFindOne$userFindOne {
     if (l$userType != lOther$userType) {
       return false;
     }
+    final l$avatarUrl = avatarUrl;
+    final lOther$avatarUrl = other.avatarUrl;
+    if (l$avatarUrl != lOther$avatarUrl) {
+      return false;
+    }
     final l$whatsappNumber = whatsappNumber;
     final lOther$whatsappNumber = other.whatsappNumber;
     if (l$whatsappNumber != lOther$whatsappNumber) {
-      return false;
-    }
-    final l$whatsappVerifiedAt = whatsappVerifiedAt;
-    final lOther$whatsappVerifiedAt = other.whatsappVerifiedAt;
-    if (l$whatsappVerifiedAt != lOther$whatsappVerifiedAt) {
-      return false;
-    }
-    final l$referralCode = referralCode;
-    final lOther$referralCode = other.referralCode;
-    if (l$referralCode != lOther$referralCode) {
       return false;
     }
     final l$status = status;
@@ -1013,39 +1124,19 @@ class Query$UserFindOne$userFindOne {
     if (l$status != lOther$status) {
       return false;
     }
-    final l$schoolId = schoolId;
-    final lOther$schoolId = other.schoolId;
-    if (l$schoolId != lOther$schoolId) {
-      return false;
-    }
     final l$theme = theme;
     final lOther$theme = other.theme;
     if (l$theme != lOther$theme) {
       return false;
     }
-    final l$createdAt = createdAt;
-    final lOther$createdAt = other.createdAt;
-    if (l$createdAt != lOther$createdAt) {
-      return false;
-    }
-    final l$updatedAt = updatedAt;
-    final lOther$updatedAt = other.updatedAt;
-    if (l$updatedAt != lOther$updatedAt) {
-      return false;
-    }
-    final l$referredById = referredById;
-    final lOther$referredById = other.referredById;
-    if (l$referredById != lOther$referredById) {
+    final l$school = school;
+    final lOther$school = other.school;
+    if (l$school != lOther$school) {
       return false;
     }
     final l$referredBy = referredBy;
     final lOther$referredBy = other.referredBy;
     if (l$referredBy != lOther$referredBy) {
-      return false;
-    }
-    final l$$_count = $_count;
-    final lOther$$_count = other.$_count;
-    if (l$$_count != lOther$$_count) {
       return false;
     }
     final l$PointTransactions = PointTransactions;
@@ -1064,20 +1155,40 @@ class Query$UserFindOne$userFindOne {
     } else if (l$PointTransactions != lOther$PointTransactions) {
       return false;
     }
-    final l$claimedRewards = claimedRewards;
-    final lOther$claimedRewards = other.claimedRewards;
-    if (l$claimedRewards != null && lOther$claimedRewards != null) {
-      if (l$claimedRewards.length != lOther$claimedRewards.length) {
+    final l$address = address;
+    final lOther$address = other.address;
+    if (l$address != lOther$address) {
+      return false;
+    }
+    final l$referralCode = referralCode;
+    final lOther$referralCode = other.referralCode;
+    if (l$referralCode != lOther$referralCode) {
+      return false;
+    }
+    final l$accounts = accounts;
+    final lOther$accounts = other.accounts;
+    if (l$accounts != null && lOther$accounts != null) {
+      if (l$accounts.length != lOther$accounts.length) {
         return false;
       }
-      for (int i = 0; i < l$claimedRewards.length; i++) {
-        final l$claimedRewards$entry = l$claimedRewards[i];
-        final lOther$claimedRewards$entry = lOther$claimedRewards[i];
-        if (l$claimedRewards$entry != lOther$claimedRewards$entry) {
+      for (int i = 0; i < l$accounts.length; i++) {
+        final l$accounts$entry = l$accounts[i];
+        final lOther$accounts$entry = lOther$accounts[i];
+        if (l$accounts$entry != lOther$accounts$entry) {
           return false;
         }
       }
-    } else if (l$claimedRewards != lOther$claimedRewards) {
+    } else if (l$accounts != lOther$accounts) {
+      return false;
+    }
+    final l$createdAt = createdAt;
+    final lOther$createdAt = other.createdAt;
+    if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$updatedAt = updatedAt;
+    final lOther$updatedAt = other.updatedAt;
+    if (l$updatedAt != lOther$updatedAt) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -1109,41 +1220,39 @@ abstract class CopyWith$Query$UserFindOne$userFindOne<TRes> {
 
   TRes call({
     String? id,
-    String? avatarUrl,
     String? firstName,
     String? lastName,
     String? email,
-    int? addressId,
     Enum$UserRole? userRole,
     Enum$UserType? userType,
+    String? avatarUrl,
     String? whatsappNumber,
-    String? whatsappVerifiedAt,
-    String? referralCode,
     Enum$UserStatus? status,
-    int? schoolId,
     Enum$Theme? theme,
+    Query$UserFindOne$userFindOne$school? school,
+    Query$UserFindOne$userFindOne$referredBy? referredBy,
+    List<Query$UserFindOne$userFindOne$PointTransactions>? PointTransactions,
+    Query$UserFindOne$userFindOne$address? address,
+    String? referralCode,
+    List<Query$UserFindOne$userFindOne$accounts>? accounts,
     String? createdAt,
     String? updatedAt,
-    String? referredById,
-    Query$UserFindOne$userFindOne$referredBy? referredBy,
-    Query$UserFindOne$userFindOne$_count? $_count,
-    List<Query$UserFindOne$userFindOne$PointTransactions>? PointTransactions,
-    List<Query$UserFindOne$userFindOne$claimedRewards>? claimedRewards,
     String? $__typename,
   });
+  CopyWith$Query$UserFindOne$userFindOne$school<TRes> get school;
   CopyWith$Query$UserFindOne$userFindOne$referredBy<TRes> get referredBy;
-  CopyWith$Query$UserFindOne$userFindOne$_count<TRes> get $_count;
   TRes PointTransactions(
       Iterable<Query$UserFindOne$userFindOne$PointTransactions>? Function(
               Iterable<
                   CopyWith$Query$UserFindOne$userFindOne$PointTransactions<
                       Query$UserFindOne$userFindOne$PointTransactions>>?)
           _fn);
-  TRes claimedRewards(
-      Iterable<Query$UserFindOne$userFindOne$claimedRewards>? Function(
+  CopyWith$Query$UserFindOne$userFindOne$address<TRes> get address;
+  TRes accounts(
+      Iterable<Query$UserFindOne$userFindOne$accounts>? Function(
               Iterable<
-                  CopyWith$Query$UserFindOne$userFindOne$claimedRewards<
-                      Query$UserFindOne$userFindOne$claimedRewards>>?)
+                  CopyWith$Query$UserFindOne$userFindOne$accounts<
+                      Query$UserFindOne$userFindOne$accounts>>?)
           _fn);
 }
 
@@ -1162,33 +1271,27 @@ class _CopyWithImpl$Query$UserFindOne$userFindOne<TRes>
 
   TRes call({
     Object? id = _undefined,
-    Object? avatarUrl = _undefined,
     Object? firstName = _undefined,
     Object? lastName = _undefined,
     Object? email = _undefined,
-    Object? addressId = _undefined,
     Object? userRole = _undefined,
     Object? userType = _undefined,
+    Object? avatarUrl = _undefined,
     Object? whatsappNumber = _undefined,
-    Object? whatsappVerifiedAt = _undefined,
-    Object? referralCode = _undefined,
     Object? status = _undefined,
-    Object? schoolId = _undefined,
     Object? theme = _undefined,
+    Object? school = _undefined,
+    Object? referredBy = _undefined,
+    Object? PointTransactions = _undefined,
+    Object? address = _undefined,
+    Object? referralCode = _undefined,
+    Object? accounts = _undefined,
     Object? createdAt = _undefined,
     Object? updatedAt = _undefined,
-    Object? referredById = _undefined,
-    Object? referredBy = _undefined,
-    Object? $_count = _undefined,
-    Object? PointTransactions = _undefined,
-    Object? claimedRewards = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Query$UserFindOne$userFindOne(
         id: id == _undefined || id == null ? _instance.id : (id as String),
-        avatarUrl: avatarUrl == _undefined
-            ? _instance.avatarUrl
-            : (avatarUrl as String?),
         firstName: firstName == _undefined || firstName == null
             ? _instance.firstName
             : (firstName as String),
@@ -1197,59 +1300,61 @@ class _CopyWithImpl$Query$UserFindOne$userFindOne<TRes>
         email: email == _undefined || email == null
             ? _instance.email
             : (email as String),
-        addressId: addressId == _undefined || addressId == null
-            ? _instance.addressId
-            : (addressId as int),
         userRole: userRole == _undefined || userRole == null
             ? _instance.userRole
             : (userRole as Enum$UserRole),
         userType: userType == _undefined || userType == null
             ? _instance.userType
             : (userType as Enum$UserType),
+        avatarUrl: avatarUrl == _undefined
+            ? _instance.avatarUrl
+            : (avatarUrl as String?),
         whatsappNumber: whatsappNumber == _undefined || whatsappNumber == null
             ? _instance.whatsappNumber
             : (whatsappNumber as String),
-        whatsappVerifiedAt: whatsappVerifiedAt == _undefined
-            ? _instance.whatsappVerifiedAt
-            : (whatsappVerifiedAt as String?),
-        referralCode: referralCode == _undefined || referralCode == null
-            ? _instance.referralCode
-            : (referralCode as String),
         status: status == _undefined || status == null
             ? _instance.status
             : (status as Enum$UserStatus),
-        schoolId:
-            schoolId == _undefined ? _instance.schoolId : (schoolId as int?),
         theme: theme == _undefined || theme == null
             ? _instance.theme
             : (theme as Enum$Theme),
+        school: school == _undefined
+            ? _instance.school
+            : (school as Query$UserFindOne$userFindOne$school?),
+        referredBy: referredBy == _undefined
+            ? _instance.referredBy
+            : (referredBy as Query$UserFindOne$userFindOne$referredBy?),
+        PointTransactions: PointTransactions == _undefined
+            ? _instance.PointTransactions
+            : (PointTransactions
+                as List<Query$UserFindOne$userFindOne$PointTransactions>?),
+        address: address == _undefined || address == null
+            ? _instance.address
+            : (address as Query$UserFindOne$userFindOne$address),
+        referralCode: referralCode == _undefined || referralCode == null
+            ? _instance.referralCode
+            : (referralCode as String),
+        accounts: accounts == _undefined
+            ? _instance.accounts
+            : (accounts as List<Query$UserFindOne$userFindOne$accounts>?),
         createdAt: createdAt == _undefined || createdAt == null
             ? _instance.createdAt
             : (createdAt as String),
         updatedAt: updatedAt == _undefined || updatedAt == null
             ? _instance.updatedAt
             : (updatedAt as String),
-        referredById: referredById == _undefined
-            ? _instance.referredById
-            : (referredById as String?),
-        referredBy: referredBy == _undefined
-            ? _instance.referredBy
-            : (referredBy as Query$UserFindOne$userFindOne$referredBy?),
-        $_count: $_count == _undefined || $_count == null
-            ? _instance.$_count
-            : ($_count as Query$UserFindOne$userFindOne$_count),
-        PointTransactions: PointTransactions == _undefined
-            ? _instance.PointTransactions
-            : (PointTransactions
-                as List<Query$UserFindOne$userFindOne$PointTransactions>?),
-        claimedRewards: claimedRewards == _undefined
-            ? _instance.claimedRewards
-            : (claimedRewards
-                as List<Query$UserFindOne$userFindOne$claimedRewards>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
+  CopyWith$Query$UserFindOne$userFindOne$school<TRes> get school {
+    final local$school = _instance.school;
+    return local$school == null
+        ? CopyWith$Query$UserFindOne$userFindOne$school.stub(_then(_instance))
+        : CopyWith$Query$UserFindOne$userFindOne$school(
+            local$school, (e) => call(school: e));
+  }
+
   CopyWith$Query$UserFindOne$userFindOne$referredBy<TRes> get referredBy {
     final local$referredBy = _instance.referredBy;
     return local$referredBy == null
@@ -1257,12 +1362,6 @@ class _CopyWithImpl$Query$UserFindOne$userFindOne<TRes>
             _then(_instance))
         : CopyWith$Query$UserFindOne$userFindOne$referredBy(
             local$referredBy, (e) => call(referredBy: e));
-  }
-
-  CopyWith$Query$UserFindOne$userFindOne$_count<TRes> get $_count {
-    final local$$_count = _instance.$_count;
-    return CopyWith$Query$UserFindOne$userFindOne$_count(
-        local$$_count, (e) => call($_count: e));
   }
 
   TRes PointTransactions(
@@ -1277,15 +1376,21 @@ class _CopyWithImpl$Query$UserFindOne$userFindOne<TRes>
                     e,
                     (i) => i,
                   )))?.toList());
-  TRes claimedRewards(
-          Iterable<Query$UserFindOne$userFindOne$claimedRewards>? Function(
+  CopyWith$Query$UserFindOne$userFindOne$address<TRes> get address {
+    final local$address = _instance.address;
+    return CopyWith$Query$UserFindOne$userFindOne$address(
+        local$address, (e) => call(address: e));
+  }
+
+  TRes accounts(
+          Iterable<Query$UserFindOne$userFindOne$accounts>? Function(
                   Iterable<
-                      CopyWith$Query$UserFindOne$userFindOne$claimedRewards<
-                          Query$UserFindOne$userFindOne$claimedRewards>>?)
+                      CopyWith$Query$UserFindOne$userFindOne$accounts<
+                          Query$UserFindOne$userFindOne$accounts>>?)
               _fn) =>
       call(
-          claimedRewards: _fn(_instance.claimedRewards?.map(
-              (e) => CopyWith$Query$UserFindOne$userFindOne$claimedRewards(
+          accounts: _fn(_instance.accounts
+              ?.map((e) => CopyWith$Query$UserFindOne$userFindOne$accounts(
                     e,
                     (i) => i,
                   )))?.toList());
@@ -1299,35 +1404,179 @@ class _CopyWithStubImpl$Query$UserFindOne$userFindOne<TRes>
 
   call({
     String? id,
-    String? avatarUrl,
     String? firstName,
     String? lastName,
     String? email,
-    int? addressId,
     Enum$UserRole? userRole,
     Enum$UserType? userType,
+    String? avatarUrl,
     String? whatsappNumber,
-    String? whatsappVerifiedAt,
-    String? referralCode,
     Enum$UserStatus? status,
-    int? schoolId,
     Enum$Theme? theme,
+    Query$UserFindOne$userFindOne$school? school,
+    Query$UserFindOne$userFindOne$referredBy? referredBy,
+    List<Query$UserFindOne$userFindOne$PointTransactions>? PointTransactions,
+    Query$UserFindOne$userFindOne$address? address,
+    String? referralCode,
+    List<Query$UserFindOne$userFindOne$accounts>? accounts,
     String? createdAt,
     String? updatedAt,
-    String? referredById,
-    Query$UserFindOne$userFindOne$referredBy? referredBy,
-    Query$UserFindOne$userFindOne$_count? $_count,
-    List<Query$UserFindOne$userFindOne$PointTransactions>? PointTransactions,
-    List<Query$UserFindOne$userFindOne$claimedRewards>? claimedRewards,
     String? $__typename,
   }) =>
       _res;
+  CopyWith$Query$UserFindOne$userFindOne$school<TRes> get school =>
+      CopyWith$Query$UserFindOne$userFindOne$school.stub(_res);
   CopyWith$Query$UserFindOne$userFindOne$referredBy<TRes> get referredBy =>
       CopyWith$Query$UserFindOne$userFindOne$referredBy.stub(_res);
-  CopyWith$Query$UserFindOne$userFindOne$_count<TRes> get $_count =>
-      CopyWith$Query$UserFindOne$userFindOne$_count.stub(_res);
   PointTransactions(_fn) => _res;
-  claimedRewards(_fn) => _res;
+  CopyWith$Query$UserFindOne$userFindOne$address<TRes> get address =>
+      CopyWith$Query$UserFindOne$userFindOne$address.stub(_res);
+  accounts(_fn) => _res;
+}
+
+class Query$UserFindOne$userFindOne$school {
+  Query$UserFindOne$userFindOne$school({
+    required this.id,
+    required this.name,
+    this.$__typename = 'School',
+  });
+
+  factory Query$UserFindOne$userFindOne$school.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Query$UserFindOne$userFindOne$school(
+      id: (l$id as int),
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$UserFindOne$userFindOne$school) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$UserFindOne$userFindOne$school
+    on Query$UserFindOne$userFindOne$school {
+  CopyWith$Query$UserFindOne$userFindOne$school<
+          Query$UserFindOne$userFindOne$school>
+      get copyWith => CopyWith$Query$UserFindOne$userFindOne$school(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$UserFindOne$userFindOne$school<TRes> {
+  factory CopyWith$Query$UserFindOne$userFindOne$school(
+    Query$UserFindOne$userFindOne$school instance,
+    TRes Function(Query$UserFindOne$userFindOne$school) then,
+  ) = _CopyWithImpl$Query$UserFindOne$userFindOne$school;
+
+  factory CopyWith$Query$UserFindOne$userFindOne$school.stub(TRes res) =
+      _CopyWithStubImpl$Query$UserFindOne$userFindOne$school;
+
+  TRes call({
+    int? id,
+    String? name,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$UserFindOne$userFindOne$school<TRes>
+    implements CopyWith$Query$UserFindOne$userFindOne$school<TRes> {
+  _CopyWithImpl$Query$UserFindOne$userFindOne$school(
+    this._instance,
+    this._then,
+  );
+
+  final Query$UserFindOne$userFindOne$school _instance;
+
+  final TRes Function(Query$UserFindOne$userFindOne$school) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$UserFindOne$userFindOne$school(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$UserFindOne$userFindOne$school<TRes>
+    implements CopyWith$Query$UserFindOne$userFindOne$school<TRes> {
+  _CopyWithStubImpl$Query$UserFindOne$userFindOne$school(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    String? $__typename,
+  }) =>
+      _res;
 }
 
 class Query$UserFindOne$userFindOne$referredBy {
@@ -1494,184 +1743,21 @@ class _CopyWithStubImpl$Query$UserFindOne$userFindOne$referredBy<TRes>
       _res;
 }
 
-class Query$UserFindOne$userFindOne$_count {
-  Query$UserFindOne$userFindOne$_count({
-    required this.referredUsers,
-    required this.claimedRewards,
-    this.$__typename = 'UserCount',
-  });
-
-  factory Query$UserFindOne$userFindOne$_count.fromJson(
-      Map<String, dynamic> json) {
-    final l$referredUsers = json['referredUsers'];
-    final l$claimedRewards = json['claimedRewards'];
-    final l$$__typename = json['__typename'];
-    return Query$UserFindOne$userFindOne$_count(
-      referredUsers: (l$referredUsers as int),
-      claimedRewards: (l$claimedRewards as int),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int referredUsers;
-
-  final int claimedRewards;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$referredUsers = referredUsers;
-    _resultData['referredUsers'] = l$referredUsers;
-    final l$claimedRewards = claimedRewards;
-    _resultData['claimedRewards'] = l$claimedRewards;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$referredUsers = referredUsers;
-    final l$claimedRewards = claimedRewards;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$referredUsers,
-      l$claimedRewards,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Query$UserFindOne$userFindOne$_count) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$referredUsers = referredUsers;
-    final lOther$referredUsers = other.referredUsers;
-    if (l$referredUsers != lOther$referredUsers) {
-      return false;
-    }
-    final l$claimedRewards = claimedRewards;
-    final lOther$claimedRewards = other.claimedRewards;
-    if (l$claimedRewards != lOther$claimedRewards) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$UserFindOne$userFindOne$_count
-    on Query$UserFindOne$userFindOne$_count {
-  CopyWith$Query$UserFindOne$userFindOne$_count<
-          Query$UserFindOne$userFindOne$_count>
-      get copyWith => CopyWith$Query$UserFindOne$userFindOne$_count(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$UserFindOne$userFindOne$_count<TRes> {
-  factory CopyWith$Query$UserFindOne$userFindOne$_count(
-    Query$UserFindOne$userFindOne$_count instance,
-    TRes Function(Query$UserFindOne$userFindOne$_count) then,
-  ) = _CopyWithImpl$Query$UserFindOne$userFindOne$_count;
-
-  factory CopyWith$Query$UserFindOne$userFindOne$_count.stub(TRes res) =
-      _CopyWithStubImpl$Query$UserFindOne$userFindOne$_count;
-
-  TRes call({
-    int? referredUsers,
-    int? claimedRewards,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImpl$Query$UserFindOne$userFindOne$_count<TRes>
-    implements CopyWith$Query$UserFindOne$userFindOne$_count<TRes> {
-  _CopyWithImpl$Query$UserFindOne$userFindOne$_count(
-    this._instance,
-    this._then,
-  );
-
-  final Query$UserFindOne$userFindOne$_count _instance;
-
-  final TRes Function(Query$UserFindOne$userFindOne$_count) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? referredUsers = _undefined,
-    Object? claimedRewards = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserFindOne$userFindOne$_count(
-        referredUsers: referredUsers == _undefined || referredUsers == null
-            ? _instance.referredUsers
-            : (referredUsers as int),
-        claimedRewards: claimedRewards == _undefined || claimedRewards == null
-            ? _instance.claimedRewards
-            : (claimedRewards as int),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImpl$Query$UserFindOne$userFindOne$_count<TRes>
-    implements CopyWith$Query$UserFindOne$userFindOne$_count<TRes> {
-  _CopyWithStubImpl$Query$UserFindOne$userFindOne$_count(this._res);
-
-  TRes _res;
-
-  call({
-    int? referredUsers,
-    int? claimedRewards,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
 class Query$UserFindOne$userFindOne$PointTransactions {
   Query$UserFindOne$userFindOne$PointTransactions({
-    required this.id,
-    required this.transactionType,
-    required this.createdAt,
     required this.amount,
     this.$__typename = 'PointTransaction',
   });
 
   factory Query$UserFindOne$userFindOne$PointTransactions.fromJson(
       Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$transactionType = json['transactionType'];
-    final l$createdAt = json['createdAt'];
     final l$amount = json['amount'];
     final l$$__typename = json['__typename'];
     return Query$UserFindOne$userFindOne$PointTransactions(
-      id: (l$id as int),
-      transactionType:
-          fromJson$Enum$TransactionType((l$transactionType as String)),
-      createdAt: (l$createdAt as String),
       amount: (l$amount as num).toDouble(),
       $__typename: (l$$__typename as String),
     );
   }
-
-  final int id;
-
-  final Enum$TransactionType transactionType;
-
-  final String createdAt;
 
   final double amount;
 
@@ -1679,13 +1765,6 @@ class Query$UserFindOne$userFindOne$PointTransactions {
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$transactionType = transactionType;
-    _resultData['transactionType'] =
-        toJson$Enum$TransactionType(l$transactionType);
-    final l$createdAt = createdAt;
-    _resultData['createdAt'] = l$createdAt;
     final l$amount = amount;
     _resultData['amount'] = l$amount;
     final l$$__typename = $__typename;
@@ -1695,15 +1774,9 @@ class Query$UserFindOne$userFindOne$PointTransactions {
 
   @override
   int get hashCode {
-    final l$id = id;
-    final l$transactionType = transactionType;
-    final l$createdAt = createdAt;
     final l$amount = amount;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$id,
-      l$transactionType,
-      l$createdAt,
       l$amount,
       l$$__typename,
     ]);
@@ -1716,21 +1789,6 @@ class Query$UserFindOne$userFindOne$PointTransactions {
     }
     if (!(other is Query$UserFindOne$userFindOne$PointTransactions) ||
         runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$transactionType = transactionType;
-    final lOther$transactionType = other.transactionType;
-    if (l$transactionType != lOther$transactionType) {
-      return false;
-    }
-    final l$createdAt = createdAt;
-    final lOther$createdAt = other.createdAt;
-    if (l$createdAt != lOther$createdAt) {
       return false;
     }
     final l$amount = amount;
@@ -1768,9 +1826,6 @@ abstract class CopyWith$Query$UserFindOne$userFindOne$PointTransactions<TRes> {
       _CopyWithStubImpl$Query$UserFindOne$userFindOne$PointTransactions;
 
   TRes call({
-    int? id,
-    Enum$TransactionType? transactionType,
-    String? createdAt,
     double? amount,
     String? $__typename,
   });
@@ -1790,21 +1845,10 @@ class _CopyWithImpl$Query$UserFindOne$userFindOne$PointTransactions<TRes>
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
-    Object? id = _undefined,
-    Object? transactionType = _undefined,
-    Object? createdAt = _undefined,
     Object? amount = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Query$UserFindOne$userFindOne$PointTransactions(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        transactionType:
-            transactionType == _undefined || transactionType == null
-                ? _instance.transactionType
-                : (transactionType as Enum$TransactionType),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as String),
         amount: amount == _undefined || amount == null
             ? _instance.amount
             : (amount as double),
@@ -1821,33 +1865,43 @@ class _CopyWithStubImpl$Query$UserFindOne$userFindOne$PointTransactions<TRes>
   TRes _res;
 
   call({
-    int? id,
-    Enum$TransactionType? transactionType,
-    String? createdAt,
     double? amount,
     String? $__typename,
   }) =>
       _res;
 }
 
-class Query$UserFindOne$userFindOne$claimedRewards {
-  Query$UserFindOne$userFindOne$claimedRewards({
+class Query$UserFindOne$userFindOne$address {
+  Query$UserFindOne$userFindOne$address({
     required this.id,
     required this.name,
-    required this.createdAt,
-    this.$__typename = 'Reward',
+    required this.province,
+    required this.city,
+    required this.district,
+    required this.subdistrict,
+    this.$__typename = 'Address',
   });
 
-  factory Query$UserFindOne$userFindOne$claimedRewards.fromJson(
+  factory Query$UserFindOne$userFindOne$address.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
-    final l$createdAt = json['createdAt'];
+    final l$province = json['province'];
+    final l$city = json['city'];
+    final l$district = json['district'];
+    final l$subdistrict = json['subdistrict'];
     final l$$__typename = json['__typename'];
-    return Query$UserFindOne$userFindOne$claimedRewards(
+    return Query$UserFindOne$userFindOne$address(
       id: (l$id as int),
       name: (l$name as String),
-      createdAt: (l$createdAt as String),
+      province: Query$UserFindOne$userFindOne$address$province.fromJson(
+          (l$province as Map<String, dynamic>)),
+      city: Query$UserFindOne$userFindOne$address$city.fromJson(
+          (l$city as Map<String, dynamic>)),
+      district: Query$UserFindOne$userFindOne$address$district.fromJson(
+          (l$district as Map<String, dynamic>)),
+      subdistrict: Query$UserFindOne$userFindOne$address$subdistrict.fromJson(
+          (l$subdistrict as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1856,7 +1910,13 @@ class Query$UserFindOne$userFindOne$claimedRewards {
 
   final String name;
 
-  final String createdAt;
+  final Query$UserFindOne$userFindOne$address$province province;
+
+  final Query$UserFindOne$userFindOne$address$city city;
+
+  final Query$UserFindOne$userFindOne$address$district district;
+
+  final Query$UserFindOne$userFindOne$address$subdistrict subdistrict;
 
   final String $__typename;
 
@@ -1866,8 +1926,14 @@ class Query$UserFindOne$userFindOne$claimedRewards {
     _resultData['id'] = l$id;
     final l$name = name;
     _resultData['name'] = l$name;
-    final l$createdAt = createdAt;
-    _resultData['createdAt'] = l$createdAt;
+    final l$province = province;
+    _resultData['province'] = l$province.toJson();
+    final l$city = city;
+    _resultData['city'] = l$city.toJson();
+    final l$district = district;
+    _resultData['district'] = l$district.toJson();
+    final l$subdistrict = subdistrict;
+    _resultData['subdistrict'] = l$subdistrict.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -1877,12 +1943,18 @@ class Query$UserFindOne$userFindOne$claimedRewards {
   int get hashCode {
     final l$id = id;
     final l$name = name;
-    final l$createdAt = createdAt;
+    final l$province = province;
+    final l$city = city;
+    final l$district = district;
+    final l$subdistrict = subdistrict;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
       l$name,
-      l$createdAt,
+      l$province,
+      l$city,
+      l$district,
+      l$subdistrict,
       l$$__typename,
     ]);
   }
@@ -1892,7 +1964,7 @@ class Query$UserFindOne$userFindOne$claimedRewards {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$UserFindOne$userFindOne$claimedRewards) ||
+    if (!(other is Query$UserFindOne$userFindOne$address) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1906,9 +1978,24 @@ class Query$UserFindOne$userFindOne$claimedRewards {
     if (l$name != lOther$name) {
       return false;
     }
-    final l$createdAt = createdAt;
-    final lOther$createdAt = other.createdAt;
-    if (l$createdAt != lOther$createdAt) {
+    final l$province = province;
+    final lOther$province = other.province;
+    if (l$province != lOther$province) {
+      return false;
+    }
+    final l$city = city;
+    final lOther$city = other.city;
+    if (l$city != lOther$city) {
+      return false;
+    }
+    final l$district = district;
+    final lOther$district = other.district;
+    if (l$district != lOther$district) {
+      return false;
+    }
+    final l$subdistrict = subdistrict;
+    final lOther$subdistrict = other.subdistrict;
+    if (l$subdistrict != lOther$subdistrict) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -1920,76 +2007,1179 @@ class Query$UserFindOne$userFindOne$claimedRewards {
   }
 }
 
-extension UtilityExtension$Query$UserFindOne$userFindOne$claimedRewards
-    on Query$UserFindOne$userFindOne$claimedRewards {
-  CopyWith$Query$UserFindOne$userFindOne$claimedRewards<
-          Query$UserFindOne$userFindOne$claimedRewards>
-      get copyWith => CopyWith$Query$UserFindOne$userFindOne$claimedRewards(
+extension UtilityExtension$Query$UserFindOne$userFindOne$address
+    on Query$UserFindOne$userFindOne$address {
+  CopyWith$Query$UserFindOne$userFindOne$address<
+          Query$UserFindOne$userFindOne$address>
+      get copyWith => CopyWith$Query$UserFindOne$userFindOne$address(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$UserFindOne$userFindOne$claimedRewards<TRes> {
-  factory CopyWith$Query$UserFindOne$userFindOne$claimedRewards(
-    Query$UserFindOne$userFindOne$claimedRewards instance,
-    TRes Function(Query$UserFindOne$userFindOne$claimedRewards) then,
-  ) = _CopyWithImpl$Query$UserFindOne$userFindOne$claimedRewards;
+abstract class CopyWith$Query$UserFindOne$userFindOne$address<TRes> {
+  factory CopyWith$Query$UserFindOne$userFindOne$address(
+    Query$UserFindOne$userFindOne$address instance,
+    TRes Function(Query$UserFindOne$userFindOne$address) then,
+  ) = _CopyWithImpl$Query$UserFindOne$userFindOne$address;
 
-  factory CopyWith$Query$UserFindOne$userFindOne$claimedRewards.stub(TRes res) =
-      _CopyWithStubImpl$Query$UserFindOne$userFindOne$claimedRewards;
+  factory CopyWith$Query$UserFindOne$userFindOne$address.stub(TRes res) =
+      _CopyWithStubImpl$Query$UserFindOne$userFindOne$address;
 
   TRes call({
     int? id,
     String? name,
-    String? createdAt,
+    Query$UserFindOne$userFindOne$address$province? province,
+    Query$UserFindOne$userFindOne$address$city? city,
+    Query$UserFindOne$userFindOne$address$district? district,
+    Query$UserFindOne$userFindOne$address$subdistrict? subdistrict,
     String? $__typename,
   });
+  CopyWith$Query$UserFindOne$userFindOne$address$province<TRes> get province;
+  CopyWith$Query$UserFindOne$userFindOne$address$city<TRes> get city;
+  CopyWith$Query$UserFindOne$userFindOne$address$district<TRes> get district;
+  CopyWith$Query$UserFindOne$userFindOne$address$subdistrict<TRes>
+      get subdistrict;
 }
 
-class _CopyWithImpl$Query$UserFindOne$userFindOne$claimedRewards<TRes>
-    implements CopyWith$Query$UserFindOne$userFindOne$claimedRewards<TRes> {
-  _CopyWithImpl$Query$UserFindOne$userFindOne$claimedRewards(
+class _CopyWithImpl$Query$UserFindOne$userFindOne$address<TRes>
+    implements CopyWith$Query$UserFindOne$userFindOne$address<TRes> {
+  _CopyWithImpl$Query$UserFindOne$userFindOne$address(
     this._instance,
     this._then,
   );
 
-  final Query$UserFindOne$userFindOne$claimedRewards _instance;
+  final Query$UserFindOne$userFindOne$address _instance;
 
-  final TRes Function(Query$UserFindOne$userFindOne$claimedRewards) _then;
+  final TRes Function(Query$UserFindOne$userFindOne$address) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
     Object? name = _undefined,
-    Object? createdAt = _undefined,
+    Object? province = _undefined,
+    Object? city = _undefined,
+    Object? district = _undefined,
+    Object? subdistrict = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$UserFindOne$userFindOne$claimedRewards(
+      _then(Query$UserFindOne$userFindOne$address(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         name: name == _undefined || name == null
             ? _instance.name
             : (name as String),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as String),
+        province: province == _undefined || province == null
+            ? _instance.province
+            : (province as Query$UserFindOne$userFindOne$address$province),
+        city: city == _undefined || city == null
+            ? _instance.city
+            : (city as Query$UserFindOne$userFindOne$address$city),
+        district: district == _undefined || district == null
+            ? _instance.district
+            : (district as Query$UserFindOne$userFindOne$address$district),
+        subdistrict: subdistrict == _undefined || subdistrict == null
+            ? _instance.subdistrict
+            : (subdistrict
+                as Query$UserFindOne$userFindOne$address$subdistrict),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
+  CopyWith$Query$UserFindOne$userFindOne$address$province<TRes> get province {
+    final local$province = _instance.province;
+    return CopyWith$Query$UserFindOne$userFindOne$address$province(
+        local$province, (e) => call(province: e));
+  }
+
+  CopyWith$Query$UserFindOne$userFindOne$address$city<TRes> get city {
+    final local$city = _instance.city;
+    return CopyWith$Query$UserFindOne$userFindOne$address$city(
+        local$city, (e) => call(city: e));
+  }
+
+  CopyWith$Query$UserFindOne$userFindOne$address$district<TRes> get district {
+    final local$district = _instance.district;
+    return CopyWith$Query$UserFindOne$userFindOne$address$district(
+        local$district, (e) => call(district: e));
+  }
+
+  CopyWith$Query$UserFindOne$userFindOne$address$subdistrict<TRes>
+      get subdistrict {
+    final local$subdistrict = _instance.subdistrict;
+    return CopyWith$Query$UserFindOne$userFindOne$address$subdistrict(
+        local$subdistrict, (e) => call(subdistrict: e));
+  }
 }
 
-class _CopyWithStubImpl$Query$UserFindOne$userFindOne$claimedRewards<TRes>
-    implements CopyWith$Query$UserFindOne$userFindOne$claimedRewards<TRes> {
-  _CopyWithStubImpl$Query$UserFindOne$userFindOne$claimedRewards(this._res);
+class _CopyWithStubImpl$Query$UserFindOne$userFindOne$address<TRes>
+    implements CopyWith$Query$UserFindOne$userFindOne$address<TRes> {
+  _CopyWithStubImpl$Query$UserFindOne$userFindOne$address(this._res);
 
   TRes _res;
 
   call({
     int? id,
     String? name,
-    String? createdAt,
+    Query$UserFindOne$userFindOne$address$province? province,
+    Query$UserFindOne$userFindOne$address$city? city,
+    Query$UserFindOne$userFindOne$address$district? district,
+    Query$UserFindOne$userFindOne$address$subdistrict? subdistrict,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$UserFindOne$userFindOne$address$province<TRes> get province =>
+      CopyWith$Query$UserFindOne$userFindOne$address$province.stub(_res);
+  CopyWith$Query$UserFindOne$userFindOne$address$city<TRes> get city =>
+      CopyWith$Query$UserFindOne$userFindOne$address$city.stub(_res);
+  CopyWith$Query$UserFindOne$userFindOne$address$district<TRes> get district =>
+      CopyWith$Query$UserFindOne$userFindOne$address$district.stub(_res);
+  CopyWith$Query$UserFindOne$userFindOne$address$subdistrict<TRes>
+      get subdistrict =>
+          CopyWith$Query$UserFindOne$userFindOne$address$subdistrict.stub(_res);
+}
+
+class Query$UserFindOne$userFindOne$address$province {
+  Query$UserFindOne$userFindOne$address$province({
+    required this.id,
+    required this.name,
+    this.$__typename = 'Province',
+  });
+
+  factory Query$UserFindOne$userFindOne$address$province.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Query$UserFindOne$userFindOne$address$province(
+      id: (l$id as int),
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$UserFindOne$userFindOne$address$province) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$UserFindOne$userFindOne$address$province
+    on Query$UserFindOne$userFindOne$address$province {
+  CopyWith$Query$UserFindOne$userFindOne$address$province<
+          Query$UserFindOne$userFindOne$address$province>
+      get copyWith => CopyWith$Query$UserFindOne$userFindOne$address$province(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$UserFindOne$userFindOne$address$province<TRes> {
+  factory CopyWith$Query$UserFindOne$userFindOne$address$province(
+    Query$UserFindOne$userFindOne$address$province instance,
+    TRes Function(Query$UserFindOne$userFindOne$address$province) then,
+  ) = _CopyWithImpl$Query$UserFindOne$userFindOne$address$province;
+
+  factory CopyWith$Query$UserFindOne$userFindOne$address$province.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$UserFindOne$userFindOne$address$province;
+
+  TRes call({
+    int? id,
+    String? name,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$UserFindOne$userFindOne$address$province<TRes>
+    implements CopyWith$Query$UserFindOne$userFindOne$address$province<TRes> {
+  _CopyWithImpl$Query$UserFindOne$userFindOne$address$province(
+    this._instance,
+    this._then,
+  );
+
+  final Query$UserFindOne$userFindOne$address$province _instance;
+
+  final TRes Function(Query$UserFindOne$userFindOne$address$province) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$UserFindOne$userFindOne$address$province(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$UserFindOne$userFindOne$address$province<TRes>
+    implements CopyWith$Query$UserFindOne$userFindOne$address$province<TRes> {
+  _CopyWithStubImpl$Query$UserFindOne$userFindOne$address$province(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Query$UserFindOne$userFindOne$address$city {
+  Query$UserFindOne$userFindOne$address$city({
+    required this.id,
+    required this.name,
+    this.$__typename = 'City',
+  });
+
+  factory Query$UserFindOne$userFindOne$address$city.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Query$UserFindOne$userFindOne$address$city(
+      id: (l$id as int),
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$UserFindOne$userFindOne$address$city) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$UserFindOne$userFindOne$address$city
+    on Query$UserFindOne$userFindOne$address$city {
+  CopyWith$Query$UserFindOne$userFindOne$address$city<
+          Query$UserFindOne$userFindOne$address$city>
+      get copyWith => CopyWith$Query$UserFindOne$userFindOne$address$city(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$UserFindOne$userFindOne$address$city<TRes> {
+  factory CopyWith$Query$UserFindOne$userFindOne$address$city(
+    Query$UserFindOne$userFindOne$address$city instance,
+    TRes Function(Query$UserFindOne$userFindOne$address$city) then,
+  ) = _CopyWithImpl$Query$UserFindOne$userFindOne$address$city;
+
+  factory CopyWith$Query$UserFindOne$userFindOne$address$city.stub(TRes res) =
+      _CopyWithStubImpl$Query$UserFindOne$userFindOne$address$city;
+
+  TRes call({
+    int? id,
+    String? name,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$UserFindOne$userFindOne$address$city<TRes>
+    implements CopyWith$Query$UserFindOne$userFindOne$address$city<TRes> {
+  _CopyWithImpl$Query$UserFindOne$userFindOne$address$city(
+    this._instance,
+    this._then,
+  );
+
+  final Query$UserFindOne$userFindOne$address$city _instance;
+
+  final TRes Function(Query$UserFindOne$userFindOne$address$city) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$UserFindOne$userFindOne$address$city(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$UserFindOne$userFindOne$address$city<TRes>
+    implements CopyWith$Query$UserFindOne$userFindOne$address$city<TRes> {
+  _CopyWithStubImpl$Query$UserFindOne$userFindOne$address$city(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Query$UserFindOne$userFindOne$address$district {
+  Query$UserFindOne$userFindOne$address$district({
+    required this.id,
+    required this.name,
+    this.$__typename = 'District',
+  });
+
+  factory Query$UserFindOne$userFindOne$address$district.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Query$UserFindOne$userFindOne$address$district(
+      id: (l$id as int),
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$UserFindOne$userFindOne$address$district) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$UserFindOne$userFindOne$address$district
+    on Query$UserFindOne$userFindOne$address$district {
+  CopyWith$Query$UserFindOne$userFindOne$address$district<
+          Query$UserFindOne$userFindOne$address$district>
+      get copyWith => CopyWith$Query$UserFindOne$userFindOne$address$district(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$UserFindOne$userFindOne$address$district<TRes> {
+  factory CopyWith$Query$UserFindOne$userFindOne$address$district(
+    Query$UserFindOne$userFindOne$address$district instance,
+    TRes Function(Query$UserFindOne$userFindOne$address$district) then,
+  ) = _CopyWithImpl$Query$UserFindOne$userFindOne$address$district;
+
+  factory CopyWith$Query$UserFindOne$userFindOne$address$district.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$UserFindOne$userFindOne$address$district;
+
+  TRes call({
+    int? id,
+    String? name,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$UserFindOne$userFindOne$address$district<TRes>
+    implements CopyWith$Query$UserFindOne$userFindOne$address$district<TRes> {
+  _CopyWithImpl$Query$UserFindOne$userFindOne$address$district(
+    this._instance,
+    this._then,
+  );
+
+  final Query$UserFindOne$userFindOne$address$district _instance;
+
+  final TRes Function(Query$UserFindOne$userFindOne$address$district) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$UserFindOne$userFindOne$address$district(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$UserFindOne$userFindOne$address$district<TRes>
+    implements CopyWith$Query$UserFindOne$userFindOne$address$district<TRes> {
+  _CopyWithStubImpl$Query$UserFindOne$userFindOne$address$district(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Query$UserFindOne$userFindOne$address$subdistrict {
+  Query$UserFindOne$userFindOne$address$subdistrict({
+    required this.id,
+    required this.name,
+    required this.postalCode,
+    this.$__typename = 'Subdistrict',
+  });
+
+  factory Query$UserFindOne$userFindOne$address$subdistrict.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$postalCode = json['postalCode'];
+    final l$$__typename = json['__typename'];
+    return Query$UserFindOne$userFindOne$address$subdistrict(
+      id: (l$id as int),
+      name: (l$name as String),
+      postalCode: (l$postalCode as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final String postalCode;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$postalCode = postalCode;
+    _resultData['postalCode'] = l$postalCode;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$postalCode = postalCode;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$postalCode,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$UserFindOne$userFindOne$address$subdistrict) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$postalCode = postalCode;
+    final lOther$postalCode = other.postalCode;
+    if (l$postalCode != lOther$postalCode) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$UserFindOne$userFindOne$address$subdistrict
+    on Query$UserFindOne$userFindOne$address$subdistrict {
+  CopyWith$Query$UserFindOne$userFindOne$address$subdistrict<
+          Query$UserFindOne$userFindOne$address$subdistrict>
+      get copyWith =>
+          CopyWith$Query$UserFindOne$userFindOne$address$subdistrict(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$UserFindOne$userFindOne$address$subdistrict<
+    TRes> {
+  factory CopyWith$Query$UserFindOne$userFindOne$address$subdistrict(
+    Query$UserFindOne$userFindOne$address$subdistrict instance,
+    TRes Function(Query$UserFindOne$userFindOne$address$subdistrict) then,
+  ) = _CopyWithImpl$Query$UserFindOne$userFindOne$address$subdistrict;
+
+  factory CopyWith$Query$UserFindOne$userFindOne$address$subdistrict.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$UserFindOne$userFindOne$address$subdistrict;
+
+  TRes call({
+    int? id,
+    String? name,
+    String? postalCode,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$UserFindOne$userFindOne$address$subdistrict<TRes>
+    implements
+        CopyWith$Query$UserFindOne$userFindOne$address$subdistrict<TRes> {
+  _CopyWithImpl$Query$UserFindOne$userFindOne$address$subdistrict(
+    this._instance,
+    this._then,
+  );
+
+  final Query$UserFindOne$userFindOne$address$subdistrict _instance;
+
+  final TRes Function(Query$UserFindOne$userFindOne$address$subdistrict) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? postalCode = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$UserFindOne$userFindOne$address$subdistrict(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        postalCode: postalCode == _undefined || postalCode == null
+            ? _instance.postalCode
+            : (postalCode as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$UserFindOne$userFindOne$address$subdistrict<TRes>
+    implements
+        CopyWith$Query$UserFindOne$userFindOne$address$subdistrict<TRes> {
+  _CopyWithStubImpl$Query$UserFindOne$userFindOne$address$subdistrict(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    String? postalCode,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Query$UserFindOne$userFindOne$accounts {
+  Query$UserFindOne$userFindOne$accounts({
+    required this.id,
+    required this.name,
+    required this.accountCategory,
+    this.accountNumber,
+    this.bankAccount,
+    this.$__typename = 'Account',
+  });
+
+  factory Query$UserFindOne$userFindOne$accounts.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$accountCategory = json['accountCategory'];
+    final l$accountNumber = json['accountNumber'];
+    final l$bankAccount = json['bankAccount'];
+    final l$$__typename = json['__typename'];
+    return Query$UserFindOne$userFindOne$accounts(
+      id: (l$id as int),
+      name: (l$name as String),
+      accountCategory:
+          fromJson$Enum$AccountCategory((l$accountCategory as String)),
+      accountNumber: (l$accountNumber as num?)?.toDouble(),
+      bankAccount: l$bankAccount == null
+          ? null
+          : Query$UserFindOne$userFindOne$accounts$bankAccount.fromJson(
+              (l$bankAccount as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final Enum$AccountCategory accountCategory;
+
+  final double? accountNumber;
+
+  final Query$UserFindOne$userFindOne$accounts$bankAccount? bankAccount;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$accountCategory = accountCategory;
+    _resultData['accountCategory'] =
+        toJson$Enum$AccountCategory(l$accountCategory);
+    final l$accountNumber = accountNumber;
+    _resultData['accountNumber'] = l$accountNumber;
+    final l$bankAccount = bankAccount;
+    _resultData['bankAccount'] = l$bankAccount?.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$accountCategory = accountCategory;
+    final l$accountNumber = accountNumber;
+    final l$bankAccount = bankAccount;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$accountCategory,
+      l$accountNumber,
+      l$bankAccount,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$UserFindOne$userFindOne$accounts) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$accountCategory = accountCategory;
+    final lOther$accountCategory = other.accountCategory;
+    if (l$accountCategory != lOther$accountCategory) {
+      return false;
+    }
+    final l$accountNumber = accountNumber;
+    final lOther$accountNumber = other.accountNumber;
+    if (l$accountNumber != lOther$accountNumber) {
+      return false;
+    }
+    final l$bankAccount = bankAccount;
+    final lOther$bankAccount = other.bankAccount;
+    if (l$bankAccount != lOther$bankAccount) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$UserFindOne$userFindOne$accounts
+    on Query$UserFindOne$userFindOne$accounts {
+  CopyWith$Query$UserFindOne$userFindOne$accounts<
+          Query$UserFindOne$userFindOne$accounts>
+      get copyWith => CopyWith$Query$UserFindOne$userFindOne$accounts(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$UserFindOne$userFindOne$accounts<TRes> {
+  factory CopyWith$Query$UserFindOne$userFindOne$accounts(
+    Query$UserFindOne$userFindOne$accounts instance,
+    TRes Function(Query$UserFindOne$userFindOne$accounts) then,
+  ) = _CopyWithImpl$Query$UserFindOne$userFindOne$accounts;
+
+  factory CopyWith$Query$UserFindOne$userFindOne$accounts.stub(TRes res) =
+      _CopyWithStubImpl$Query$UserFindOne$userFindOne$accounts;
+
+  TRes call({
+    int? id,
+    String? name,
+    Enum$AccountCategory? accountCategory,
+    double? accountNumber,
+    Query$UserFindOne$userFindOne$accounts$bankAccount? bankAccount,
+    String? $__typename,
+  });
+  CopyWith$Query$UserFindOne$userFindOne$accounts$bankAccount<TRes>
+      get bankAccount;
+}
+
+class _CopyWithImpl$Query$UserFindOne$userFindOne$accounts<TRes>
+    implements CopyWith$Query$UserFindOne$userFindOne$accounts<TRes> {
+  _CopyWithImpl$Query$UserFindOne$userFindOne$accounts(
+    this._instance,
+    this._then,
+  );
+
+  final Query$UserFindOne$userFindOne$accounts _instance;
+
+  final TRes Function(Query$UserFindOne$userFindOne$accounts) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? accountCategory = _undefined,
+    Object? accountNumber = _undefined,
+    Object? bankAccount = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$UserFindOne$userFindOne$accounts(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        accountCategory:
+            accountCategory == _undefined || accountCategory == null
+                ? _instance.accountCategory
+                : (accountCategory as Enum$AccountCategory),
+        accountNumber: accountNumber == _undefined
+            ? _instance.accountNumber
+            : (accountNumber as double?),
+        bankAccount: bankAccount == _undefined
+            ? _instance.bankAccount
+            : (bankAccount
+                as Query$UserFindOne$userFindOne$accounts$bankAccount?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$UserFindOne$userFindOne$accounts$bankAccount<TRes>
+      get bankAccount {
+    final local$bankAccount = _instance.bankAccount;
+    return local$bankAccount == null
+        ? CopyWith$Query$UserFindOne$userFindOne$accounts$bankAccount.stub(
+            _then(_instance))
+        : CopyWith$Query$UserFindOne$userFindOne$accounts$bankAccount(
+            local$bankAccount, (e) => call(bankAccount: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$UserFindOne$userFindOne$accounts<TRes>
+    implements CopyWith$Query$UserFindOne$userFindOne$accounts<TRes> {
+  _CopyWithStubImpl$Query$UserFindOne$userFindOne$accounts(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    Enum$AccountCategory? accountCategory,
+    double? accountNumber,
+    Query$UserFindOne$userFindOne$accounts$bankAccount? bankAccount,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$UserFindOne$userFindOne$accounts$bankAccount<TRes>
+      get bankAccount =>
+          CopyWith$Query$UserFindOne$userFindOne$accounts$bankAccount.stub(
+              _res);
+}
+
+class Query$UserFindOne$userFindOne$accounts$bankAccount {
+  Query$UserFindOne$userFindOne$accounts$bankAccount({
+    required this.id,
+    required this.name,
+    required this.logoUrl,
+    required this.accountId,
+    required this.accountNumber,
+    this.$__typename = 'Bank',
+  });
+
+  factory Query$UserFindOne$userFindOne$accounts$bankAccount.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$logoUrl = json['logoUrl'];
+    final l$accountId = json['accountId'];
+    final l$accountNumber = json['accountNumber'];
+    final l$$__typename = json['__typename'];
+    return Query$UserFindOne$userFindOne$accounts$bankAccount(
+      id: (l$id as int),
+      name: (l$name as String),
+      logoUrl: (l$logoUrl as String),
+      accountId: (l$accountId as int),
+      accountNumber: (l$accountNumber as num).toDouble(),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final String logoUrl;
+
+  final int accountId;
+
+  final double accountNumber;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$logoUrl = logoUrl;
+    _resultData['logoUrl'] = l$logoUrl;
+    final l$accountId = accountId;
+    _resultData['accountId'] = l$accountId;
+    final l$accountNumber = accountNumber;
+    _resultData['accountNumber'] = l$accountNumber;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$logoUrl = logoUrl;
+    final l$accountId = accountId;
+    final l$accountNumber = accountNumber;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$logoUrl,
+      l$accountId,
+      l$accountNumber,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$UserFindOne$userFindOne$accounts$bankAccount) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$logoUrl = logoUrl;
+    final lOther$logoUrl = other.logoUrl;
+    if (l$logoUrl != lOther$logoUrl) {
+      return false;
+    }
+    final l$accountId = accountId;
+    final lOther$accountId = other.accountId;
+    if (l$accountId != lOther$accountId) {
+      return false;
+    }
+    final l$accountNumber = accountNumber;
+    final lOther$accountNumber = other.accountNumber;
+    if (l$accountNumber != lOther$accountNumber) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$UserFindOne$userFindOne$accounts$bankAccount
+    on Query$UserFindOne$userFindOne$accounts$bankAccount {
+  CopyWith$Query$UserFindOne$userFindOne$accounts$bankAccount<
+          Query$UserFindOne$userFindOne$accounts$bankAccount>
+      get copyWith =>
+          CopyWith$Query$UserFindOne$userFindOne$accounts$bankAccount(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$UserFindOne$userFindOne$accounts$bankAccount<
+    TRes> {
+  factory CopyWith$Query$UserFindOne$userFindOne$accounts$bankAccount(
+    Query$UserFindOne$userFindOne$accounts$bankAccount instance,
+    TRes Function(Query$UserFindOne$userFindOne$accounts$bankAccount) then,
+  ) = _CopyWithImpl$Query$UserFindOne$userFindOne$accounts$bankAccount;
+
+  factory CopyWith$Query$UserFindOne$userFindOne$accounts$bankAccount.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$UserFindOne$userFindOne$accounts$bankAccount;
+
+  TRes call({
+    int? id,
+    String? name,
+    String? logoUrl,
+    int? accountId,
+    double? accountNumber,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$UserFindOne$userFindOne$accounts$bankAccount<TRes>
+    implements
+        CopyWith$Query$UserFindOne$userFindOne$accounts$bankAccount<TRes> {
+  _CopyWithImpl$Query$UserFindOne$userFindOne$accounts$bankAccount(
+    this._instance,
+    this._then,
+  );
+
+  final Query$UserFindOne$userFindOne$accounts$bankAccount _instance;
+
+  final TRes Function(Query$UserFindOne$userFindOne$accounts$bankAccount) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? logoUrl = _undefined,
+    Object? accountId = _undefined,
+    Object? accountNumber = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$UserFindOne$userFindOne$accounts$bankAccount(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        logoUrl: logoUrl == _undefined || logoUrl == null
+            ? _instance.logoUrl
+            : (logoUrl as String),
+        accountId: accountId == _undefined || accountId == null
+            ? _instance.accountId
+            : (accountId as int),
+        accountNumber: accountNumber == _undefined || accountNumber == null
+            ? _instance.accountNumber
+            : (accountNumber as double),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$UserFindOne$userFindOne$accounts$bankAccount<TRes>
+    implements
+        CopyWith$Query$UserFindOne$userFindOne$accounts$bankAccount<TRes> {
+  _CopyWithStubImpl$Query$UserFindOne$userFindOne$accounts$bankAccount(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    String? logoUrl,
+    int? accountId,
+    double? accountNumber,
     String? $__typename,
   }) =>
       _res;

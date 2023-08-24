@@ -16,9 +16,7 @@ class GqlProgramService {
           "programFindManyArgs": {
             "orderBy": [
               {
-                "dueDate": {
-                  "sort": "asc",
-                }
+                "dueDate": {"sort": "asc"}
               }
             ],
             "skip": skip,
