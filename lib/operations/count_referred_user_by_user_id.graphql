@@ -1,0 +1,7 @@
+query countReferredUserByUserId($userFindUniqueArgs: UserFindUniqueArgs!) {
+  userFindOne(userFindUniqueArgs: $userFindUniqueArgs) {
+    _count {
+      referredUsers
+    }
+  }
+}

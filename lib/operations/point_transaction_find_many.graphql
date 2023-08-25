@@ -1,0 +1,10 @@
+query PointTransactionFindMany($pointTransactionFindManyArgs: PointTransactionFindManyArgs!) {
+  pointTransactionFindMany(pointTransactionFindManyArgs: $pointTransactionFindManyArgs) {
+    id
+    transactionType
+    pointType
+    amount
+    currentBalance
+    createdAt
+  }
+}

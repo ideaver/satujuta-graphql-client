@@ -1,0 +1,10 @@
+query RewardClaimFindManyByUserId($rewardClaimFindManyArgs: RewardClaimFindManyArgs) {
+  rewardClaimFindMany(rewardClaimFindManyArgs: $rewardClaimFindManyArgs) {
+    id
+    reward {
+      id
+    }
+    createdAt
+    processedAt
+  }
+}

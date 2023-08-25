@@ -1,0 +1,3 @@
+query CountUserOfStudentWithinReferredId($userFindManyArgs: UserFindManyArgs) {
+  userCount(userFindManyArgs: $userFindManyArgs)
+}

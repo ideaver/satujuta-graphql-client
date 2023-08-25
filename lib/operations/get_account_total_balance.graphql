@@ -1,0 +1,3 @@
+query GetAccountTotalBalance($accountId: Float!) {
+  getAccountTotalBalance(accountId: $accountId)
+}
