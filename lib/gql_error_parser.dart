@@ -1,4 +1,3 @@
-import 'package:collection/collection.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
 
 String gqlErrorParser(QueryResult res) {

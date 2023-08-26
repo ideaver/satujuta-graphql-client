@@ -19,14 +19,13 @@ query HotelFindOne($hotelFindUniqueArgs: HotelFindUniqueArgs!) {
       id
       name
       city {
+        id
         name
       }
       district {
+        id
         name
       }
-      # postalCode {
-      #   code
-      # }
     }
     checkIns {
       user {
@@ -37,6 +36,9 @@ query HotelFindOne($hotelFindUniqueArgs: HotelFindUniqueArgs!) {
       }
       checkInAt
       createdAt
+    }
+    _count {
+      checkIns
     }
   }
 }

@@ -43,6 +43,7 @@ class GqlUserService {
   static Future<QueryResult<Query$UserFindMany>> referredUserFindManyByReferrerId(
     String refererId, {
     int? skip = 0,
+    String contains = "",
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -61,6 +62,11 @@ class GqlUserService {
                   "id": {"equals": refererId}
                 }
               },
+              "OR": [
+                {
+                  "firstName": {"contains": contains},
+                }
+              ],
               "deletedAt": {"equals": null}
             }
           }
