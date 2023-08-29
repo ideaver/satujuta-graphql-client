@@ -299,13 +299,6 @@ const documentNodeQueryUserFindMany = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
-            name: NameNode(value: 'avatarUrl'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
             name: NameNode(value: 'firstName'),
             alias: null,
             arguments: [],
@@ -369,7 +362,7 @@ const documentNodeQueryUserFindMany = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
-            name: NameNode(value: 'referralCode'),
+            name: NameNode(value: 'referredById'),
             alias: null,
             arguments: [],
             directives: [],
@@ -383,35 +376,7 @@ const documentNodeQueryUserFindMany = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
-            name: NameNode(value: 'schoolId'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
             name: NameNode(value: 'theme'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'createdAt'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'updatedAt'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
-            name: NameNode(value: 'referredById'),
             alias: null,
             arguments: [],
             directives: [],
@@ -439,6 +404,35 @@ const documentNodeQueryUserFindMany = DocumentNode(definitions: [
               ),
               FieldNode(
                 name: NameNode(value: 'lastName'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'school'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'name'),
                 alias: null,
                 arguments: [],
                 directives: [],
@@ -483,47 +477,18 @@ const documentNodeQueryUserFindMany = DocumentNode(definitions: [
             ]),
           ),
           FieldNode(
-            name: NameNode(value: 'PointTransactions'),
+            name: NameNode(value: 'createdAt'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: SelectionSetNode(selections: [
-              FieldNode(
-                name: NameNode(value: 'id'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'transactionType'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'createdAt'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: 'amount'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-              FieldNode(
-                name: NameNode(value: '__typename'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: null,
-              ),
-            ]),
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'updatedAt'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -698,86 +663,77 @@ class Query$UserFindMany$Widget
 class Query$UserFindMany$userFindMany {
   Query$UserFindMany$userFindMany({
     required this.id,
-    this.avatarUrl,
     required this.firstName,
     this.lastName,
     required this.email,
     required this.addressId,
     required this.userRole,
     required this.userType,
+    this.avatarUrl,
     required this.whatsappNumber,
     this.whatsappVerifiedAt,
-    required this.referralCode,
+    this.referredById,
     required this.status,
-    this.schoolId,
     required this.theme,
+    this.referredBy,
+    this.school,
+    required this.$_count,
     required this.createdAt,
     required this.updatedAt,
-    this.referredById,
-    this.referredBy,
-    required this.$_count,
-    this.PointTransactions,
     this.$__typename = 'User',
   });
 
   factory Query$UserFindMany$userFindMany.fromJson(Map<String, dynamic> json) {
     final l$id = json['id'];
-    final l$avatarUrl = json['avatarUrl'];
     final l$firstName = json['firstName'];
     final l$lastName = json['lastName'];
     final l$email = json['email'];
     final l$addressId = json['addressId'];
     final l$userRole = json['userRole'];
     final l$userType = json['userType'];
+    final l$avatarUrl = json['avatarUrl'];
     final l$whatsappNumber = json['whatsappNumber'];
     final l$whatsappVerifiedAt = json['whatsappVerifiedAt'];
-    final l$referralCode = json['referralCode'];
+    final l$referredById = json['referredById'];
     final l$status = json['status'];
-    final l$schoolId = json['schoolId'];
     final l$theme = json['theme'];
+    final l$referredBy = json['referredBy'];
+    final l$school = json['school'];
+    final l$$_count = json['_count'];
     final l$createdAt = json['createdAt'];
     final l$updatedAt = json['updatedAt'];
-    final l$referredById = json['referredById'];
-    final l$referredBy = json['referredBy'];
-    final l$$_count = json['_count'];
-    final l$PointTransactions = json['PointTransactions'];
     final l$$__typename = json['__typename'];
     return Query$UserFindMany$userFindMany(
       id: (l$id as String),
-      avatarUrl: (l$avatarUrl as String?),
       firstName: (l$firstName as String),
       lastName: (l$lastName as String?),
       email: (l$email as String),
       addressId: (l$addressId as int),
       userRole: fromJson$Enum$UserRole((l$userRole as String)),
       userType: fromJson$Enum$UserType((l$userType as String)),
+      avatarUrl: (l$avatarUrl as String?),
       whatsappNumber: (l$whatsappNumber as String),
       whatsappVerifiedAt: (l$whatsappVerifiedAt as String?),
-      referralCode: (l$referralCode as String),
-      status: fromJson$Enum$UserStatus((l$status as String)),
-      schoolId: (l$schoolId as int?),
-      theme: fromJson$Enum$Theme((l$theme as String)),
-      createdAt: (l$createdAt as String),
-      updatedAt: (l$updatedAt as String),
       referredById: (l$referredById as String?),
+      status: fromJson$Enum$UserStatus((l$status as String)),
+      theme: fromJson$Enum$Theme((l$theme as String)),
       referredBy: l$referredBy == null
           ? null
           : Query$UserFindMany$userFindMany$referredBy.fromJson(
               (l$referredBy as Map<String, dynamic>)),
+      school: l$school == null
+          ? null
+          : Query$UserFindMany$userFindMany$school.fromJson(
+              (l$school as Map<String, dynamic>)),
       $_count: Query$UserFindMany$userFindMany$_count.fromJson(
           (l$$_count as Map<String, dynamic>)),
-      PointTransactions: (l$PointTransactions as List<dynamic>?)
-          ?.map((e) =>
-              Query$UserFindMany$userFindMany$PointTransactions.fromJson(
-                  (e as Map<String, dynamic>)))
-          .toList(),
+      createdAt: (l$createdAt as String),
+      updatedAt: (l$updatedAt as String),
       $__typename: (l$$__typename as String),
     );
   }
 
   final String id;
-
-  final String? avatarUrl;
 
   final String firstName;
 
@@ -791,30 +747,27 @@ class Query$UserFindMany$userFindMany {
 
   final Enum$UserType userType;
 
+  final String? avatarUrl;
+
   final String whatsappNumber;
 
   final String? whatsappVerifiedAt;
 
-  final String referralCode;
+  final String? referredById;
 
   final Enum$UserStatus status;
 
-  final int? schoolId;
-
   final Enum$Theme theme;
+
+  final Query$UserFindMany$userFindMany$referredBy? referredBy;
+
+  final Query$UserFindMany$userFindMany$school? school;
+
+  final Query$UserFindMany$userFindMany$_count $_count;
 
   final String createdAt;
 
   final String updatedAt;
-
-  final String? referredById;
-
-  final Query$UserFindMany$userFindMany$referredBy? referredBy;
-
-  final Query$UserFindMany$userFindMany$_count $_count;
-
-  final List<Query$UserFindMany$userFindMany$PointTransactions>?
-      PointTransactions;
 
   final String $__typename;
 
@@ -822,8 +775,6 @@ class Query$UserFindMany$userFindMany {
     final _resultData = <String, dynamic>{};
     final l$id = id;
     _resultData['id'] = l$id;
-    final l$avatarUrl = avatarUrl;
-    _resultData['avatarUrl'] = l$avatarUrl;
     final l$firstName = firstName;
     _resultData['firstName'] = l$firstName;
     final l$lastName = lastName;
@@ -836,31 +787,28 @@ class Query$UserFindMany$userFindMany {
     _resultData['userRole'] = toJson$Enum$UserRole(l$userRole);
     final l$userType = userType;
     _resultData['userType'] = toJson$Enum$UserType(l$userType);
+    final l$avatarUrl = avatarUrl;
+    _resultData['avatarUrl'] = l$avatarUrl;
     final l$whatsappNumber = whatsappNumber;
     _resultData['whatsappNumber'] = l$whatsappNumber;
     final l$whatsappVerifiedAt = whatsappVerifiedAt;
     _resultData['whatsappVerifiedAt'] = l$whatsappVerifiedAt;
-    final l$referralCode = referralCode;
-    _resultData['referralCode'] = l$referralCode;
+    final l$referredById = referredById;
+    _resultData['referredById'] = l$referredById;
     final l$status = status;
     _resultData['status'] = toJson$Enum$UserStatus(l$status);
-    final l$schoolId = schoolId;
-    _resultData['schoolId'] = l$schoolId;
     final l$theme = theme;
     _resultData['theme'] = toJson$Enum$Theme(l$theme);
+    final l$referredBy = referredBy;
+    _resultData['referredBy'] = l$referredBy?.toJson();
+    final l$school = school;
+    _resultData['school'] = l$school?.toJson();
+    final l$$_count = $_count;
+    _resultData['_count'] = l$$_count.toJson();
     final l$createdAt = createdAt;
     _resultData['createdAt'] = l$createdAt;
     final l$updatedAt = updatedAt;
     _resultData['updatedAt'] = l$updatedAt;
-    final l$referredById = referredById;
-    _resultData['referredById'] = l$referredById;
-    final l$referredBy = referredBy;
-    _resultData['referredBy'] = l$referredBy?.toJson();
-    final l$$_count = $_count;
-    _resultData['_count'] = l$$_count.toJson();
-    final l$PointTransactions = PointTransactions;
-    _resultData['PointTransactions'] =
-        l$PointTransactions?.map((e) => e.toJson()).toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -869,49 +817,43 @@ class Query$UserFindMany$userFindMany {
   @override
   int get hashCode {
     final l$id = id;
-    final l$avatarUrl = avatarUrl;
     final l$firstName = firstName;
     final l$lastName = lastName;
     final l$email = email;
     final l$addressId = addressId;
     final l$userRole = userRole;
     final l$userType = userType;
+    final l$avatarUrl = avatarUrl;
     final l$whatsappNumber = whatsappNumber;
     final l$whatsappVerifiedAt = whatsappVerifiedAt;
-    final l$referralCode = referralCode;
+    final l$referredById = referredById;
     final l$status = status;
-    final l$schoolId = schoolId;
     final l$theme = theme;
+    final l$referredBy = referredBy;
+    final l$school = school;
+    final l$$_count = $_count;
     final l$createdAt = createdAt;
     final l$updatedAt = updatedAt;
-    final l$referredById = referredById;
-    final l$referredBy = referredBy;
-    final l$$_count = $_count;
-    final l$PointTransactions = PointTransactions;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
-      l$avatarUrl,
       l$firstName,
       l$lastName,
       l$email,
       l$addressId,
       l$userRole,
       l$userType,
+      l$avatarUrl,
       l$whatsappNumber,
       l$whatsappVerifiedAt,
-      l$referralCode,
+      l$referredById,
       l$status,
-      l$schoolId,
       l$theme,
+      l$referredBy,
+      l$school,
+      l$$_count,
       l$createdAt,
       l$updatedAt,
-      l$referredById,
-      l$referredBy,
-      l$$_count,
-      l$PointTransactions == null
-          ? null
-          : Object.hashAll(l$PointTransactions.map((v) => v)),
       l$$__typename,
     ]);
   }
@@ -928,11 +870,6 @@ class Query$UserFindMany$userFindMany {
     final l$id = id;
     final lOther$id = other.id;
     if (l$id != lOther$id) {
-      return false;
-    }
-    final l$avatarUrl = avatarUrl;
-    final lOther$avatarUrl = other.avatarUrl;
-    if (l$avatarUrl != lOther$avatarUrl) {
       return false;
     }
     final l$firstName = firstName;
@@ -965,6 +902,11 @@ class Query$UserFindMany$userFindMany {
     if (l$userType != lOther$userType) {
       return false;
     }
+    final l$avatarUrl = avatarUrl;
+    final lOther$avatarUrl = other.avatarUrl;
+    if (l$avatarUrl != lOther$avatarUrl) {
+      return false;
+    }
     final l$whatsappNumber = whatsappNumber;
     final lOther$whatsappNumber = other.whatsappNumber;
     if (l$whatsappNumber != lOther$whatsappNumber) {
@@ -975,9 +917,9 @@ class Query$UserFindMany$userFindMany {
     if (l$whatsappVerifiedAt != lOther$whatsappVerifiedAt) {
       return false;
     }
-    final l$referralCode = referralCode;
-    final lOther$referralCode = other.referralCode;
-    if (l$referralCode != lOther$referralCode) {
+    final l$referredById = referredById;
+    final lOther$referredById = other.referredById;
+    if (l$referredById != lOther$referredById) {
       return false;
     }
     final l$status = status;
@@ -985,14 +927,24 @@ class Query$UserFindMany$userFindMany {
     if (l$status != lOther$status) {
       return false;
     }
-    final l$schoolId = schoolId;
-    final lOther$schoolId = other.schoolId;
-    if (l$schoolId != lOther$schoolId) {
-      return false;
-    }
     final l$theme = theme;
     final lOther$theme = other.theme;
     if (l$theme != lOther$theme) {
+      return false;
+    }
+    final l$referredBy = referredBy;
+    final lOther$referredBy = other.referredBy;
+    if (l$referredBy != lOther$referredBy) {
+      return false;
+    }
+    final l$school = school;
+    final lOther$school = other.school;
+    if (l$school != lOther$school) {
+      return false;
+    }
+    final l$$_count = $_count;
+    final lOther$$_count = other.$_count;
+    if (l$$_count != lOther$$_count) {
       return false;
     }
     final l$createdAt = createdAt;
@@ -1003,37 +955,6 @@ class Query$UserFindMany$userFindMany {
     final l$updatedAt = updatedAt;
     final lOther$updatedAt = other.updatedAt;
     if (l$updatedAt != lOther$updatedAt) {
-      return false;
-    }
-    final l$referredById = referredById;
-    final lOther$referredById = other.referredById;
-    if (l$referredById != lOther$referredById) {
-      return false;
-    }
-    final l$referredBy = referredBy;
-    final lOther$referredBy = other.referredBy;
-    if (l$referredBy != lOther$referredBy) {
-      return false;
-    }
-    final l$$_count = $_count;
-    final lOther$$_count = other.$_count;
-    if (l$$_count != lOther$$_count) {
-      return false;
-    }
-    final l$PointTransactions = PointTransactions;
-    final lOther$PointTransactions = other.PointTransactions;
-    if (l$PointTransactions != null && lOther$PointTransactions != null) {
-      if (l$PointTransactions.length != lOther$PointTransactions.length) {
-        return false;
-      }
-      for (int i = 0; i < l$PointTransactions.length; i++) {
-        final l$PointTransactions$entry = l$PointTransactions[i];
-        final lOther$PointTransactions$entry = lOther$PointTransactions[i];
-        if (l$PointTransactions$entry != lOther$PointTransactions$entry) {
-          return false;
-        }
-      }
-    } else if (l$PointTransactions != lOther$PointTransactions) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -1065,35 +986,28 @@ abstract class CopyWith$Query$UserFindMany$userFindMany<TRes> {
 
   TRes call({
     String? id,
-    String? avatarUrl,
     String? firstName,
     String? lastName,
     String? email,
     int? addressId,
     Enum$UserRole? userRole,
     Enum$UserType? userType,
+    String? avatarUrl,
     String? whatsappNumber,
     String? whatsappVerifiedAt,
-    String? referralCode,
+    String? referredById,
     Enum$UserStatus? status,
-    int? schoolId,
     Enum$Theme? theme,
+    Query$UserFindMany$userFindMany$referredBy? referredBy,
+    Query$UserFindMany$userFindMany$school? school,
+    Query$UserFindMany$userFindMany$_count? $_count,
     String? createdAt,
     String? updatedAt,
-    String? referredById,
-    Query$UserFindMany$userFindMany$referredBy? referredBy,
-    Query$UserFindMany$userFindMany$_count? $_count,
-    List<Query$UserFindMany$userFindMany$PointTransactions>? PointTransactions,
     String? $__typename,
   });
   CopyWith$Query$UserFindMany$userFindMany$referredBy<TRes> get referredBy;
+  CopyWith$Query$UserFindMany$userFindMany$school<TRes> get school;
   CopyWith$Query$UserFindMany$userFindMany$_count<TRes> get $_count;
-  TRes PointTransactions(
-      Iterable<Query$UserFindMany$userFindMany$PointTransactions>? Function(
-              Iterable<
-                  CopyWith$Query$UserFindMany$userFindMany$PointTransactions<
-                      Query$UserFindMany$userFindMany$PointTransactions>>?)
-          _fn);
 }
 
 class _CopyWithImpl$Query$UserFindMany$userFindMany<TRes>
@@ -1111,32 +1025,27 @@ class _CopyWithImpl$Query$UserFindMany$userFindMany<TRes>
 
   TRes call({
     Object? id = _undefined,
-    Object? avatarUrl = _undefined,
     Object? firstName = _undefined,
     Object? lastName = _undefined,
     Object? email = _undefined,
     Object? addressId = _undefined,
     Object? userRole = _undefined,
     Object? userType = _undefined,
+    Object? avatarUrl = _undefined,
     Object? whatsappNumber = _undefined,
     Object? whatsappVerifiedAt = _undefined,
-    Object? referralCode = _undefined,
+    Object? referredById = _undefined,
     Object? status = _undefined,
-    Object? schoolId = _undefined,
     Object? theme = _undefined,
+    Object? referredBy = _undefined,
+    Object? school = _undefined,
+    Object? $_count = _undefined,
     Object? createdAt = _undefined,
     Object? updatedAt = _undefined,
-    Object? referredById = _undefined,
-    Object? referredBy = _undefined,
-    Object? $_count = _undefined,
-    Object? PointTransactions = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Query$UserFindMany$userFindMany(
         id: id == _undefined || id == null ? _instance.id : (id as String),
-        avatarUrl: avatarUrl == _undefined
-            ? _instance.avatarUrl
-            : (avatarUrl as String?),
         firstName: firstName == _undefined || firstName == null
             ? _instance.firstName
             : (firstName as String),
@@ -1154,42 +1063,39 @@ class _CopyWithImpl$Query$UserFindMany$userFindMany<TRes>
         userType: userType == _undefined || userType == null
             ? _instance.userType
             : (userType as Enum$UserType),
+        avatarUrl: avatarUrl == _undefined
+            ? _instance.avatarUrl
+            : (avatarUrl as String?),
         whatsappNumber: whatsappNumber == _undefined || whatsappNumber == null
             ? _instance.whatsappNumber
             : (whatsappNumber as String),
         whatsappVerifiedAt: whatsappVerifiedAt == _undefined
             ? _instance.whatsappVerifiedAt
             : (whatsappVerifiedAt as String?),
-        referralCode: referralCode == _undefined || referralCode == null
-            ? _instance.referralCode
-            : (referralCode as String),
+        referredById: referredById == _undefined
+            ? _instance.referredById
+            : (referredById as String?),
         status: status == _undefined || status == null
             ? _instance.status
             : (status as Enum$UserStatus),
-        schoolId:
-            schoolId == _undefined ? _instance.schoolId : (schoolId as int?),
         theme: theme == _undefined || theme == null
             ? _instance.theme
             : (theme as Enum$Theme),
+        referredBy: referredBy == _undefined
+            ? _instance.referredBy
+            : (referredBy as Query$UserFindMany$userFindMany$referredBy?),
+        school: school == _undefined
+            ? _instance.school
+            : (school as Query$UserFindMany$userFindMany$school?),
+        $_count: $_count == _undefined || $_count == null
+            ? _instance.$_count
+            : ($_count as Query$UserFindMany$userFindMany$_count),
         createdAt: createdAt == _undefined || createdAt == null
             ? _instance.createdAt
             : (createdAt as String),
         updatedAt: updatedAt == _undefined || updatedAt == null
             ? _instance.updatedAt
             : (updatedAt as String),
-        referredById: referredById == _undefined
-            ? _instance.referredById
-            : (referredById as String?),
-        referredBy: referredBy == _undefined
-            ? _instance.referredBy
-            : (referredBy as Query$UserFindMany$userFindMany$referredBy?),
-        $_count: $_count == _undefined || $_count == null
-            ? _instance.$_count
-            : ($_count as Query$UserFindMany$userFindMany$_count),
-        PointTransactions: PointTransactions == _undefined
-            ? _instance.PointTransactions
-            : (PointTransactions
-                as List<Query$UserFindMany$userFindMany$PointTransactions>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -1203,24 +1109,19 @@ class _CopyWithImpl$Query$UserFindMany$userFindMany<TRes>
             local$referredBy, (e) => call(referredBy: e));
   }
 
+  CopyWith$Query$UserFindMany$userFindMany$school<TRes> get school {
+    final local$school = _instance.school;
+    return local$school == null
+        ? CopyWith$Query$UserFindMany$userFindMany$school.stub(_then(_instance))
+        : CopyWith$Query$UserFindMany$userFindMany$school(
+            local$school, (e) => call(school: e));
+  }
+
   CopyWith$Query$UserFindMany$userFindMany$_count<TRes> get $_count {
     final local$$_count = _instance.$_count;
     return CopyWith$Query$UserFindMany$userFindMany$_count(
         local$$_count, (e) => call($_count: e));
   }
-
-  TRes PointTransactions(
-          Iterable<Query$UserFindMany$userFindMany$PointTransactions>? Function(
-                  Iterable<
-                      CopyWith$Query$UserFindMany$userFindMany$PointTransactions<
-                          Query$UserFindMany$userFindMany$PointTransactions>>?)
-              _fn) =>
-      call(
-          PointTransactions: _fn(_instance.PointTransactions?.map(
-              (e) => CopyWith$Query$UserFindMany$userFindMany$PointTransactions(
-                    e,
-                    (i) => i,
-                  )))?.toList());
 }
 
 class _CopyWithStubImpl$Query$UserFindMany$userFindMany<TRes>
@@ -1231,33 +1132,32 @@ class _CopyWithStubImpl$Query$UserFindMany$userFindMany<TRes>
 
   call({
     String? id,
-    String? avatarUrl,
     String? firstName,
     String? lastName,
     String? email,
     int? addressId,
     Enum$UserRole? userRole,
     Enum$UserType? userType,
+    String? avatarUrl,
     String? whatsappNumber,
     String? whatsappVerifiedAt,
-    String? referralCode,
+    String? referredById,
     Enum$UserStatus? status,
-    int? schoolId,
     Enum$Theme? theme,
+    Query$UserFindMany$userFindMany$referredBy? referredBy,
+    Query$UserFindMany$userFindMany$school? school,
+    Query$UserFindMany$userFindMany$_count? $_count,
     String? createdAt,
     String? updatedAt,
-    String? referredById,
-    Query$UserFindMany$userFindMany$referredBy? referredBy,
-    Query$UserFindMany$userFindMany$_count? $_count,
-    List<Query$UserFindMany$userFindMany$PointTransactions>? PointTransactions,
     String? $__typename,
   }) =>
       _res;
   CopyWith$Query$UserFindMany$userFindMany$referredBy<TRes> get referredBy =>
       CopyWith$Query$UserFindMany$userFindMany$referredBy.stub(_res);
+  CopyWith$Query$UserFindMany$userFindMany$school<TRes> get school =>
+      CopyWith$Query$UserFindMany$userFindMany$school.stub(_res);
   CopyWith$Query$UserFindMany$userFindMany$_count<TRes> get $_count =>
       CopyWith$Query$UserFindMany$userFindMany$_count.stub(_res);
-  PointTransactions(_fn) => _res;
 }
 
 class Query$UserFindMany$userFindMany$referredBy {
@@ -1265,7 +1165,7 @@ class Query$UserFindMany$userFindMany$referredBy {
     required this.id,
     required this.firstName,
     this.lastName,
-    this.$__typename = 'UserAbstract',
+    this.$__typename = 'User',
   });
 
   factory Query$UserFindMany$userFindMany$referredBy.fromJson(
@@ -1424,6 +1324,151 @@ class _CopyWithStubImpl$Query$UserFindMany$userFindMany$referredBy<TRes>
       _res;
 }
 
+class Query$UserFindMany$userFindMany$school {
+  Query$UserFindMany$userFindMany$school({
+    required this.id,
+    required this.name,
+    this.$__typename = 'School',
+  });
+
+  factory Query$UserFindMany$userFindMany$school.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Query$UserFindMany$userFindMany$school(
+      id: (l$id as int),
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$UserFindMany$userFindMany$school) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$UserFindMany$userFindMany$school
+    on Query$UserFindMany$userFindMany$school {
+  CopyWith$Query$UserFindMany$userFindMany$school<
+          Query$UserFindMany$userFindMany$school>
+      get copyWith => CopyWith$Query$UserFindMany$userFindMany$school(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$UserFindMany$userFindMany$school<TRes> {
+  factory CopyWith$Query$UserFindMany$userFindMany$school(
+    Query$UserFindMany$userFindMany$school instance,
+    TRes Function(Query$UserFindMany$userFindMany$school) then,
+  ) = _CopyWithImpl$Query$UserFindMany$userFindMany$school;
+
+  factory CopyWith$Query$UserFindMany$userFindMany$school.stub(TRes res) =
+      _CopyWithStubImpl$Query$UserFindMany$userFindMany$school;
+
+  TRes call({
+    int? id,
+    String? name,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$UserFindMany$userFindMany$school<TRes>
+    implements CopyWith$Query$UserFindMany$userFindMany$school<TRes> {
+  _CopyWithImpl$Query$UserFindMany$userFindMany$school(
+    this._instance,
+    this._then,
+  );
+
+  final Query$UserFindMany$userFindMany$school _instance;
+
+  final TRes Function(Query$UserFindMany$userFindMany$school) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$UserFindMany$userFindMany$school(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$UserFindMany$userFindMany$school<TRes>
+    implements CopyWith$Query$UserFindMany$userFindMany$school<TRes> {
+  _CopyWithStubImpl$Query$UserFindMany$userFindMany$school(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
 class Query$UserFindMany$userFindMany$_count {
   Query$UserFindMany$userFindMany$_count({
     required this.referredUsers,
@@ -1566,200 +1611,6 @@ class _CopyWithStubImpl$Query$UserFindMany$userFindMany$_count<TRes>
   call({
     int? referredUsers,
     int? claimedRewards,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class Query$UserFindMany$userFindMany$PointTransactions {
-  Query$UserFindMany$userFindMany$PointTransactions({
-    required this.id,
-    required this.transactionType,
-    required this.createdAt,
-    required this.amount,
-    this.$__typename = 'PointTransaction',
-  });
-
-  factory Query$UserFindMany$userFindMany$PointTransactions.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$transactionType = json['transactionType'];
-    final l$createdAt = json['createdAt'];
-    final l$amount = json['amount'];
-    final l$$__typename = json['__typename'];
-    return Query$UserFindMany$userFindMany$PointTransactions(
-      id: (l$id as int),
-      transactionType:
-          fromJson$Enum$TransactionType((l$transactionType as String)),
-      createdAt: (l$createdAt as String),
-      amount: (l$amount as num).toDouble(),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final Enum$TransactionType transactionType;
-
-  final String createdAt;
-
-  final double amount;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$transactionType = transactionType;
-    _resultData['transactionType'] =
-        toJson$Enum$TransactionType(l$transactionType);
-    final l$createdAt = createdAt;
-    _resultData['createdAt'] = l$createdAt;
-    final l$amount = amount;
-    _resultData['amount'] = l$amount;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$transactionType = transactionType;
-    final l$createdAt = createdAt;
-    final l$amount = amount;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$transactionType,
-      l$createdAt,
-      l$amount,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Query$UserFindMany$userFindMany$PointTransactions) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$transactionType = transactionType;
-    final lOther$transactionType = other.transactionType;
-    if (l$transactionType != lOther$transactionType) {
-      return false;
-    }
-    final l$createdAt = createdAt;
-    final lOther$createdAt = other.createdAt;
-    if (l$createdAt != lOther$createdAt) {
-      return false;
-    }
-    final l$amount = amount;
-    final lOther$amount = other.amount;
-    if (l$amount != lOther$amount) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Query$UserFindMany$userFindMany$PointTransactions
-    on Query$UserFindMany$userFindMany$PointTransactions {
-  CopyWith$Query$UserFindMany$userFindMany$PointTransactions<
-          Query$UserFindMany$userFindMany$PointTransactions>
-      get copyWith =>
-          CopyWith$Query$UserFindMany$userFindMany$PointTransactions(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Query$UserFindMany$userFindMany$PointTransactions<
-    TRes> {
-  factory CopyWith$Query$UserFindMany$userFindMany$PointTransactions(
-    Query$UserFindMany$userFindMany$PointTransactions instance,
-    TRes Function(Query$UserFindMany$userFindMany$PointTransactions) then,
-  ) = _CopyWithImpl$Query$UserFindMany$userFindMany$PointTransactions;
-
-  factory CopyWith$Query$UserFindMany$userFindMany$PointTransactions.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$UserFindMany$userFindMany$PointTransactions;
-
-  TRes call({
-    int? id,
-    Enum$TransactionType? transactionType,
-    String? createdAt,
-    double? amount,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImpl$Query$UserFindMany$userFindMany$PointTransactions<TRes>
-    implements
-        CopyWith$Query$UserFindMany$userFindMany$PointTransactions<TRes> {
-  _CopyWithImpl$Query$UserFindMany$userFindMany$PointTransactions(
-    this._instance,
-    this._then,
-  );
-
-  final Query$UserFindMany$userFindMany$PointTransactions _instance;
-
-  final TRes Function(Query$UserFindMany$userFindMany$PointTransactions) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? transactionType = _undefined,
-    Object? createdAt = _undefined,
-    Object? amount = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Query$UserFindMany$userFindMany$PointTransactions(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        transactionType:
-            transactionType == _undefined || transactionType == null
-                ? _instance.transactionType
-                : (transactionType as Enum$TransactionType),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as String),
-        amount: amount == _undefined || amount == null
-            ? _instance.amount
-            : (amount as double),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImpl$Query$UserFindMany$userFindMany$PointTransactions<TRes>
-    implements
-        CopyWith$Query$UserFindMany$userFindMany$PointTransactions<TRes> {
-  _CopyWithStubImpl$Query$UserFindMany$userFindMany$PointTransactions(
-      this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    Enum$TransactionType? transactionType,
-    String? createdAt,
-    double? amount,
     String? $__typename,
   }) =>
       _res;

@@ -90,7 +90,7 @@ class GqlUserService {
   }
 
   static Future<QueryResult<Mutation$UserCreate>> userCreateOne(
-    Input$UserCreateInput user,
+    Mutation$UserCreate$userCreateOne user,
   ) async {
     return await GraphQLService.client.mutate(
       MutationOptions(
@@ -129,19 +129,19 @@ class GqlUserService {
               "address": {
                 "update": {
                   "data": {
-                    "name": {"set": user.address.name},
-                    "province": {
-                      "connect": {"id": user.address.province.id}
-                    },
-                    "city": {
-                      "connect": {"id": user.address.city.id}
-                    },
-                    "district": {
-                      "connect": {"id": user.address.district.id}
-                    },
-                    "subdistrict": {
-                      "connect": {"id": user.address.subdistrict.id}
-                    },
+                    // "name": {"set": user.address.name},
+                    // "province": {
+                    //   "connect": {"id": user.address.province.id}
+                    // },
+                    // "city": {
+                    //   "connect": {"id": user.address.city.id}
+                    // },
+                    // "district": {
+                    //   "connect": {"id": user.address.district.id}
+                    // },
+                    // "subdistrict": {
+                    //   "connect": {"id": user.address.subdistrict.id}
+                    // },
                   }
                 }
               }

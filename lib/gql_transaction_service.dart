@@ -1,5 +1,4 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:satujuta_gql_client/operations/generated/program_create_one.graphql.dart';
 import 'package:satujuta_gql_client/operations/generated/transaction_create_one.graphql.dart';
 import 'package:satujuta_gql_client/schema/generated/schema.graphql.dart';
 
@@ -44,7 +43,7 @@ class GqlTransactionService {
   ) async {
     return await GraphQLService.client.query(
       QueryOptions(
-        document: documentNodeMutationProgramCreate,
+        document: documentNodeMutationTransactionCreateOne,
         parserFn: (data) => Mutation$TransactionCreateOne.fromJson(data),
         variables: {
           "transactionCreateArgs": {

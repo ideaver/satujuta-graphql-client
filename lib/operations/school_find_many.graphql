@@ -2,6 +2,26 @@ query SchoolFindMany($schoolFindManyArgs: SchoolFindManyArgs!) {
   schoolFindMany(schoolFindManyArgs: $schoolFindManyArgs) {
     id
     name
-    addressId
+    address {
+      id
+      name
+      subdistrict {
+        id
+        name
+        postalCode
+        district {
+          id
+          name
+          city {
+            id
+            name
+            province {
+              id
+              name
+            }
+          }
+        }
+      }
+    }
   }
 }

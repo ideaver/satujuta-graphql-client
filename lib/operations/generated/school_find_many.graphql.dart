@@ -307,11 +307,156 @@ const documentNodeQuerySchoolFindMany = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
-            name: NameNode(value: 'addressId'),
+            name: NameNode(value: 'address'),
             alias: null,
             arguments: [],
             directives: [],
-            selectionSet: null,
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'subdistrict'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'name'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'postalCode'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'district'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'name'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'city'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(selections: [
+                          FieldNode(
+                            name: NameNode(value: 'id'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: 'name'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: 'province'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: SelectionSetNode(selections: [
+                              FieldNode(
+                                name: NameNode(value: 'id'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                              FieldNode(
+                                name: NameNode(value: 'name'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                              FieldNode(
+                                name: NameNode(value: '__typename'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                            ]),
+                          ),
+                          FieldNode(
+                            name: NameNode(value: '__typename'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                        ]),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ]),
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
           ),
           FieldNode(
             name: NameNode(value: '__typename'),
@@ -489,7 +634,7 @@ class Query$SchoolFindMany$schoolFindMany {
   Query$SchoolFindMany$schoolFindMany({
     required this.id,
     required this.name,
-    required this.addressId,
+    required this.address,
     this.$__typename = 'School',
   });
 
@@ -497,12 +642,13 @@ class Query$SchoolFindMany$schoolFindMany {
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
-    final l$addressId = json['addressId'];
+    final l$address = json['address'];
     final l$$__typename = json['__typename'];
     return Query$SchoolFindMany$schoolFindMany(
       id: (l$id as int),
       name: (l$name as String),
-      addressId: (l$addressId as int),
+      address: Query$SchoolFindMany$schoolFindMany$address.fromJson(
+          (l$address as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -511,7 +657,7 @@ class Query$SchoolFindMany$schoolFindMany {
 
   final String name;
 
-  final int addressId;
+  final Query$SchoolFindMany$schoolFindMany$address address;
 
   final String $__typename;
 
@@ -521,8 +667,8 @@ class Query$SchoolFindMany$schoolFindMany {
     _resultData['id'] = l$id;
     final l$name = name;
     _resultData['name'] = l$name;
-    final l$addressId = addressId;
-    _resultData['addressId'] = l$addressId;
+    final l$address = address;
+    _resultData['address'] = l$address.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -532,12 +678,12 @@ class Query$SchoolFindMany$schoolFindMany {
   int get hashCode {
     final l$id = id;
     final l$name = name;
-    final l$addressId = addressId;
+    final l$address = address;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
       l$name,
-      l$addressId,
+      l$address,
       l$$__typename,
     ]);
   }
@@ -561,9 +707,9 @@ class Query$SchoolFindMany$schoolFindMany {
     if (l$name != lOther$name) {
       return false;
     }
-    final l$addressId = addressId;
-    final lOther$addressId = other.addressId;
-    if (l$addressId != lOther$addressId) {
+    final l$address = address;
+    final lOther$address = other.address;
+    if (l$address != lOther$address) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -597,9 +743,10 @@ abstract class CopyWith$Query$SchoolFindMany$schoolFindMany<TRes> {
   TRes call({
     int? id,
     String? name,
-    int? addressId,
+    Query$SchoolFindMany$schoolFindMany$address? address,
     String? $__typename,
   });
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address<TRes> get address;
 }
 
 class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany<TRes>
@@ -618,7 +765,7 @@ class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany<TRes>
   TRes call({
     Object? id = _undefined,
     Object? name = _undefined,
-    Object? addressId = _undefined,
+    Object? address = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Query$SchoolFindMany$schoolFindMany(
@@ -626,13 +773,18 @@ class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany<TRes>
         name: name == _undefined || name == null
             ? _instance.name
             : (name as String),
-        addressId: addressId == _undefined || addressId == null
-            ? _instance.addressId
-            : (addressId as int),
+        address: address == _undefined || address == null
+            ? _instance.address
+            : (address as Query$SchoolFindMany$schoolFindMany$address),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address<TRes> get address {
+    final local$address = _instance.address;
+    return CopyWith$Query$SchoolFindMany$schoolFindMany$address(
+        local$address, (e) => call(address: e));
+  }
 }
 
 class _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany<TRes>
@@ -644,7 +796,961 @@ class _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany<TRes>
   call({
     int? id,
     String? name,
-    int? addressId,
+    Query$SchoolFindMany$schoolFindMany$address? address,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address<TRes> get address =>
+      CopyWith$Query$SchoolFindMany$schoolFindMany$address.stub(_res);
+}
+
+class Query$SchoolFindMany$schoolFindMany$address {
+  Query$SchoolFindMany$schoolFindMany$address({
+    required this.id,
+    required this.name,
+    required this.subdistrict,
+    this.$__typename = 'Address',
+  });
+
+  factory Query$SchoolFindMany$schoolFindMany$address.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$subdistrict = json['subdistrict'];
+    final l$$__typename = json['__typename'];
+    return Query$SchoolFindMany$schoolFindMany$address(
+      id: (l$id as int),
+      name: (l$name as String),
+      subdistrict:
+          Query$SchoolFindMany$schoolFindMany$address$subdistrict.fromJson(
+              (l$subdistrict as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final Query$SchoolFindMany$schoolFindMany$address$subdistrict subdistrict;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$subdistrict = subdistrict;
+    _resultData['subdistrict'] = l$subdistrict.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$subdistrict = subdistrict;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$subdistrict,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$SchoolFindMany$schoolFindMany$address) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$subdistrict = subdistrict;
+    final lOther$subdistrict = other.subdistrict;
+    if (l$subdistrict != lOther$subdistrict) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$SchoolFindMany$schoolFindMany$address
+    on Query$SchoolFindMany$schoolFindMany$address {
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address<
+          Query$SchoolFindMany$schoolFindMany$address>
+      get copyWith => CopyWith$Query$SchoolFindMany$schoolFindMany$address(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$SchoolFindMany$schoolFindMany$address<TRes> {
+  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address(
+    Query$SchoolFindMany$schoolFindMany$address instance,
+    TRes Function(Query$SchoolFindMany$schoolFindMany$address) then,
+  ) = _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address;
+
+  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address.stub(TRes res) =
+      _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address;
+
+  TRes call({
+    int? id,
+    String? name,
+    Query$SchoolFindMany$schoolFindMany$address$subdistrict? subdistrict,
+    String? $__typename,
+  });
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict<TRes>
+      get subdistrict;
+}
+
+class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address<TRes>
+    implements CopyWith$Query$SchoolFindMany$schoolFindMany$address<TRes> {
+  _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address(
+    this._instance,
+    this._then,
+  );
+
+  final Query$SchoolFindMany$schoolFindMany$address _instance;
+
+  final TRes Function(Query$SchoolFindMany$schoolFindMany$address) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? subdistrict = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$SchoolFindMany$schoolFindMany$address(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        subdistrict: subdistrict == _undefined || subdistrict == null
+            ? _instance.subdistrict
+            : (subdistrict
+                as Query$SchoolFindMany$schoolFindMany$address$subdistrict),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict<TRes>
+      get subdistrict {
+    final local$subdistrict = _instance.subdistrict;
+    return CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict(
+        local$subdistrict, (e) => call(subdistrict: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address<TRes>
+    implements CopyWith$Query$SchoolFindMany$schoolFindMany$address<TRes> {
+  _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    Query$SchoolFindMany$schoolFindMany$address$subdistrict? subdistrict,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict<TRes>
+      get subdistrict =>
+          CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict.stub(
+              _res);
+}
+
+class Query$SchoolFindMany$schoolFindMany$address$subdistrict {
+  Query$SchoolFindMany$schoolFindMany$address$subdistrict({
+    required this.id,
+    required this.name,
+    required this.postalCode,
+    required this.district,
+    this.$__typename = 'Subdistrict',
+  });
+
+  factory Query$SchoolFindMany$schoolFindMany$address$subdistrict.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$postalCode = json['postalCode'];
+    final l$district = json['district'];
+    final l$$__typename = json['__typename'];
+    return Query$SchoolFindMany$schoolFindMany$address$subdistrict(
+      id: (l$id as int),
+      name: (l$name as String),
+      postalCode: (l$postalCode as String),
+      district: Query$SchoolFindMany$schoolFindMany$address$subdistrict$district
+          .fromJson((l$district as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final String postalCode;
+
+  final Query$SchoolFindMany$schoolFindMany$address$subdistrict$district
+      district;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$postalCode = postalCode;
+    _resultData['postalCode'] = l$postalCode;
+    final l$district = district;
+    _resultData['district'] = l$district.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$postalCode = postalCode;
+    final l$district = district;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$postalCode,
+      l$district,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$SchoolFindMany$schoolFindMany$address$subdistrict) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$postalCode = postalCode;
+    final lOther$postalCode = other.postalCode;
+    if (l$postalCode != lOther$postalCode) {
+      return false;
+    }
+    final l$district = district;
+    final lOther$district = other.district;
+    if (l$district != lOther$district) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$SchoolFindMany$schoolFindMany$address$subdistrict
+    on Query$SchoolFindMany$schoolFindMany$address$subdistrict {
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict<
+          Query$SchoolFindMany$schoolFindMany$address$subdistrict>
+      get copyWith =>
+          CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict<
+    TRes> {
+  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict(
+    Query$SchoolFindMany$schoolFindMany$address$subdistrict instance,
+    TRes Function(Query$SchoolFindMany$schoolFindMany$address$subdistrict) then,
+  ) = _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict;
+
+  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict;
+
+  TRes call({
+    int? id,
+    String? name,
+    String? postalCode,
+    Query$SchoolFindMany$schoolFindMany$address$subdistrict$district? district,
+    String? $__typename,
+  });
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district<
+      TRes> get district;
+}
+
+class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict<
+        TRes>
+    implements
+        CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict<TRes> {
+  _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict(
+    this._instance,
+    this._then,
+  );
+
+  final Query$SchoolFindMany$schoolFindMany$address$subdistrict _instance;
+
+  final TRes Function(Query$SchoolFindMany$schoolFindMany$address$subdistrict)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? postalCode = _undefined,
+    Object? district = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$SchoolFindMany$schoolFindMany$address$subdistrict(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        postalCode: postalCode == _undefined || postalCode == null
+            ? _instance.postalCode
+            : (postalCode as String),
+        district: district == _undefined || district == null
+            ? _instance.district
+            : (district
+                as Query$SchoolFindMany$schoolFindMany$address$subdistrict$district),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district<
+      TRes> get district {
+    final local$district = _instance.district;
+    return CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district(
+        local$district, (e) => call(district: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict<
+        TRes>
+    implements
+        CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict<TRes> {
+  _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    String? postalCode,
+    Query$SchoolFindMany$schoolFindMany$address$subdistrict$district? district,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district<
+          TRes>
+      get district =>
+          CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district
+              .stub(_res);
+}
+
+class Query$SchoolFindMany$schoolFindMany$address$subdistrict$district {
+  Query$SchoolFindMany$schoolFindMany$address$subdistrict$district({
+    required this.id,
+    required this.name,
+    required this.city,
+    this.$__typename = 'District',
+  });
+
+  factory Query$SchoolFindMany$schoolFindMany$address$subdistrict$district.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$city = json['city'];
+    final l$$__typename = json['__typename'];
+    return Query$SchoolFindMany$schoolFindMany$address$subdistrict$district(
+      id: (l$id as int),
+      name: (l$name as String),
+      city:
+          Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city
+              .fromJson((l$city as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city
+      city;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$city = city;
+    _resultData['city'] = l$city.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$city = city;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$city,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Query$SchoolFindMany$schoolFindMany$address$subdistrict$district) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$city = city;
+    final lOther$city = other.city;
+    if (l$city != lOther$city) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district
+    on Query$SchoolFindMany$schoolFindMany$address$subdistrict$district {
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district<
+          Query$SchoolFindMany$schoolFindMany$address$subdistrict$district>
+      get copyWith =>
+          CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district<
+    TRes> {
+  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district(
+    Query$SchoolFindMany$schoolFindMany$address$subdistrict$district instance,
+    TRes Function(
+            Query$SchoolFindMany$schoolFindMany$address$subdistrict$district)
+        then,
+  ) = _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district;
+
+  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district;
+
+  TRes call({
+    int? id,
+    String? name,
+    Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city? city,
+    String? $__typename,
+  });
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city<
+      TRes> get city;
+}
+
+class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district<
+        TRes>
+    implements
+        CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district<
+            TRes> {
+  _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district(
+    this._instance,
+    this._then,
+  );
+
+  final Query$SchoolFindMany$schoolFindMany$address$subdistrict$district
+      _instance;
+
+  final TRes Function(
+      Query$SchoolFindMany$schoolFindMany$address$subdistrict$district) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? city = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$SchoolFindMany$schoolFindMany$address$subdistrict$district(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        city: city == _undefined || city == null
+            ? _instance.city
+            : (city
+                as Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city<
+      TRes> get city {
+    final local$city = _instance.city;
+    return CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city(
+        local$city, (e) => call(city: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district<
+        TRes>
+    implements
+        CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district<
+            TRes> {
+  _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city? city,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city<
+          TRes>
+      get city =>
+          CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city
+              .stub(_res);
+}
+
+class Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city {
+  Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city({
+    required this.id,
+    required this.name,
+    required this.province,
+    this.$__typename = 'City',
+  });
+
+  factory Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$province = json['province'];
+    final l$$__typename = json['__typename'];
+    return Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city(
+      id: (l$id as int),
+      name: (l$name as String),
+      province:
+          Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province
+              .fromJson((l$province as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province
+      province;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$province = province;
+    _resultData['province'] = l$province.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$province = province;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$province,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$province = province;
+    final lOther$province = other.province;
+    if (l$province != lOther$province) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city
+    on Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city {
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city<
+          Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city>
+      get copyWith =>
+          CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city<
+    TRes> {
+  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city(
+    Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city
+        instance,
+    TRes Function(
+            Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city)
+        then,
+  ) = _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city;
+
+  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city;
+
+  TRes call({
+    int? id,
+    String? name,
+    Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province?
+        province,
+    String? $__typename,
+  });
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province<
+      TRes> get province;
+}
+
+class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city<
+        TRes>
+    implements
+        CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city<
+            TRes> {
+  _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city(
+    this._instance,
+    this._then,
+  );
+
+  final Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city
+      _instance;
+
+  final TRes Function(
+          Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? province = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(
+          Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        province: province == _undefined || province == null
+            ? _instance.province
+            : (province
+                as Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province<
+      TRes> get province {
+    final local$province = _instance.province;
+    return CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province(
+        local$province, (e) => call(province: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city<
+        TRes>
+    implements
+        CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city<
+            TRes> {
+  _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province?
+        province,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province<
+          TRes>
+      get province =>
+          CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province
+              .stub(_res);
+}
+
+class Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province {
+  Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province({
+    required this.id,
+    required this.name,
+    this.$__typename = 'Province',
+  });
+
+  factory Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province(
+      id: (l$id as int),
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province
+    on Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province {
+  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province<
+          Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province>
+      get copyWith =>
+          CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province<
+    TRes> {
+  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province(
+    Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province
+        instance,
+    TRes Function(
+            Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province)
+        then,
+  ) = _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province;
+
+  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province;
+
+  TRes call({
+    int? id,
+    String? name,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province<
+        TRes>
+    implements
+        CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province<
+            TRes> {
+  _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province(
+    this._instance,
+    this._then,
+  );
+
+  final Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province
+      _instance;
+
+  final TRes Function(
+          Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(
+          Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province<
+        TRes>
+    implements
+        CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province<
+            TRes> {
+  _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
     String? $__typename,
   }) =>
       _res;

@@ -546,93 +546,6 @@ const documentNodeMutationUserCreate = DocumentNode(definitions: [
                 selectionSet: null,
               ),
               FieldNode(
-                name: NameNode(value: 'province'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'name'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'city'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'name'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'district'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: 'name'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                  FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
                 name: NameNode(value: 'subdistrict'),
                 alias: null,
                 arguments: [],
@@ -658,6 +571,93 @@ const documentNodeMutationUserCreate = DocumentNode(definitions: [
                     arguments: [],
                     directives: [],
                     selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'district'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'name'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'city'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(selections: [
+                          FieldNode(
+                            name: NameNode(value: 'id'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: 'name'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: 'province'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: SelectionSetNode(selections: [
+                              FieldNode(
+                                name: NameNode(value: 'id'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                              FieldNode(
+                                name: NameNode(value: 'name'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                              FieldNode(
+                                name: NameNode(value: '__typename'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                            ]),
+                          ),
+                          FieldNode(
+                            name: NameNode(value: '__typename'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                        ]),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ]),
                   ),
                   FieldNode(
                     name: NameNode(value: '__typename'),
@@ -1698,7 +1698,7 @@ class _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$school<TRes>
 class Mutation$UserCreate$userCreateOne$referredBy {
   Mutation$UserCreate$userCreateOne$referredBy({
     required this.id,
-    this.$__typename = 'UserAbstract',
+    this.$__typename = 'User',
   });
 
   factory Mutation$UserCreate$userCreateOne$referredBy.fromJson(
@@ -2292,9 +2292,6 @@ class Mutation$UserCreate$userCreateOne$address {
   Mutation$UserCreate$userCreateOne$address({
     required this.id,
     required this.name,
-    required this.province,
-    required this.city,
-    required this.district,
     required this.subdistrict,
     this.$__typename = 'Address',
   });
@@ -2303,20 +2300,11 @@ class Mutation$UserCreate$userCreateOne$address {
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
-    final l$province = json['province'];
-    final l$city = json['city'];
-    final l$district = json['district'];
     final l$subdistrict = json['subdistrict'];
     final l$$__typename = json['__typename'];
     return Mutation$UserCreate$userCreateOne$address(
       id: (l$id as int),
       name: (l$name as String),
-      province: Mutation$UserCreate$userCreateOne$address$province.fromJson(
-          (l$province as Map<String, dynamic>)),
-      city: Mutation$UserCreate$userCreateOne$address$city.fromJson(
-          (l$city as Map<String, dynamic>)),
-      district: Mutation$UserCreate$userCreateOne$address$district.fromJson(
-          (l$district as Map<String, dynamic>)),
       subdistrict:
           Mutation$UserCreate$userCreateOne$address$subdistrict.fromJson(
               (l$subdistrict as Map<String, dynamic>)),
@@ -2328,12 +2316,6 @@ class Mutation$UserCreate$userCreateOne$address {
 
   final String name;
 
-  final Mutation$UserCreate$userCreateOne$address$province province;
-
-  final Mutation$UserCreate$userCreateOne$address$city city;
-
-  final Mutation$UserCreate$userCreateOne$address$district district;
-
   final Mutation$UserCreate$userCreateOne$address$subdistrict subdistrict;
 
   final String $__typename;
@@ -2344,12 +2326,6 @@ class Mutation$UserCreate$userCreateOne$address {
     _resultData['id'] = l$id;
     final l$name = name;
     _resultData['name'] = l$name;
-    final l$province = province;
-    _resultData['province'] = l$province.toJson();
-    final l$city = city;
-    _resultData['city'] = l$city.toJson();
-    final l$district = district;
-    _resultData['district'] = l$district.toJson();
     final l$subdistrict = subdistrict;
     _resultData['subdistrict'] = l$subdistrict.toJson();
     final l$$__typename = $__typename;
@@ -2361,17 +2337,11 @@ class Mutation$UserCreate$userCreateOne$address {
   int get hashCode {
     final l$id = id;
     final l$name = name;
-    final l$province = province;
-    final l$city = city;
-    final l$district = district;
     final l$subdistrict = subdistrict;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
       l$name,
-      l$province,
-      l$city,
-      l$district,
       l$subdistrict,
       l$$__typename,
     ]);
@@ -2394,21 +2364,6 @@ class Mutation$UserCreate$userCreateOne$address {
     final l$name = name;
     final lOther$name = other.name;
     if (l$name != lOther$name) {
-      return false;
-    }
-    final l$province = province;
-    final lOther$province = other.province;
-    if (l$province != lOther$province) {
-      return false;
-    }
-    final l$city = city;
-    final lOther$city = other.city;
-    if (l$city != lOther$city) {
-      return false;
-    }
-    final l$district = district;
-    final lOther$district = other.district;
-    if (l$district != lOther$district) {
       return false;
     }
     final l$subdistrict = subdistrict;
@@ -2447,17 +2402,9 @@ abstract class CopyWith$Mutation$UserCreate$userCreateOne$address<TRes> {
   TRes call({
     int? id,
     String? name,
-    Mutation$UserCreate$userCreateOne$address$province? province,
-    Mutation$UserCreate$userCreateOne$address$city? city,
-    Mutation$UserCreate$userCreateOne$address$district? district,
     Mutation$UserCreate$userCreateOne$address$subdistrict? subdistrict,
     String? $__typename,
   });
-  CopyWith$Mutation$UserCreate$userCreateOne$address$province<TRes>
-      get province;
-  CopyWith$Mutation$UserCreate$userCreateOne$address$city<TRes> get city;
-  CopyWith$Mutation$UserCreate$userCreateOne$address$district<TRes>
-      get district;
   CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict<TRes>
       get subdistrict;
 }
@@ -2478,9 +2425,6 @@ class _CopyWithImpl$Mutation$UserCreate$userCreateOne$address<TRes>
   TRes call({
     Object? id = _undefined,
     Object? name = _undefined,
-    Object? province = _undefined,
-    Object? city = _undefined,
-    Object? district = _undefined,
     Object? subdistrict = _undefined,
     Object? $__typename = _undefined,
   }) =>
@@ -2489,15 +2433,6 @@ class _CopyWithImpl$Mutation$UserCreate$userCreateOne$address<TRes>
         name: name == _undefined || name == null
             ? _instance.name
             : (name as String),
-        province: province == _undefined || province == null
-            ? _instance.province
-            : (province as Mutation$UserCreate$userCreateOne$address$province),
-        city: city == _undefined || city == null
-            ? _instance.city
-            : (city as Mutation$UserCreate$userCreateOne$address$city),
-        district: district == _undefined || district == null
-            ? _instance.district
-            : (district as Mutation$UserCreate$userCreateOne$address$district),
         subdistrict: subdistrict == _undefined || subdistrict == null
             ? _instance.subdistrict
             : (subdistrict
@@ -2506,26 +2441,6 @@ class _CopyWithImpl$Mutation$UserCreate$userCreateOne$address<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Mutation$UserCreate$userCreateOne$address$province<TRes>
-      get province {
-    final local$province = _instance.province;
-    return CopyWith$Mutation$UserCreate$userCreateOne$address$province(
-        local$province, (e) => call(province: e));
-  }
-
-  CopyWith$Mutation$UserCreate$userCreateOne$address$city<TRes> get city {
-    final local$city = _instance.city;
-    return CopyWith$Mutation$UserCreate$userCreateOne$address$city(
-        local$city, (e) => call(city: e));
-  }
-
-  CopyWith$Mutation$UserCreate$userCreateOne$address$district<TRes>
-      get district {
-    final local$district = _instance.district;
-    return CopyWith$Mutation$UserCreate$userCreateOne$address$district(
-        local$district, (e) => call(district: e));
-  }
-
   CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict<TRes>
       get subdistrict {
     final local$subdistrict = _instance.subdistrict;
@@ -2543,475 +2458,14 @@ class _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address<TRes>
   call({
     int? id,
     String? name,
-    Mutation$UserCreate$userCreateOne$address$province? province,
-    Mutation$UserCreate$userCreateOne$address$city? city,
-    Mutation$UserCreate$userCreateOne$address$district? district,
     Mutation$UserCreate$userCreateOne$address$subdistrict? subdistrict,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Mutation$UserCreate$userCreateOne$address$province<TRes>
-      get province =>
-          CopyWith$Mutation$UserCreate$userCreateOne$address$province.stub(
-              _res);
-  CopyWith$Mutation$UserCreate$userCreateOne$address$city<TRes> get city =>
-      CopyWith$Mutation$UserCreate$userCreateOne$address$city.stub(_res);
-  CopyWith$Mutation$UserCreate$userCreateOne$address$district<TRes>
-      get district =>
-          CopyWith$Mutation$UserCreate$userCreateOne$address$district.stub(
-              _res);
   CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict<TRes>
       get subdistrict =>
           CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict.stub(
               _res);
-}
-
-class Mutation$UserCreate$userCreateOne$address$province {
-  Mutation$UserCreate$userCreateOne$address$province({
-    required this.id,
-    required this.name,
-    this.$__typename = 'Province',
-  });
-
-  factory Mutation$UserCreate$userCreateOne$address$province.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$name = json['name'];
-    final l$$__typename = json['__typename'];
-    return Mutation$UserCreate$userCreateOne$address$province(
-      id: (l$id as int),
-      name: (l$name as String),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final String name;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$name = name;
-    _resultData['name'] = l$name;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$name = name;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$name,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Mutation$UserCreate$userCreateOne$address$province) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Mutation$UserCreate$userCreateOne$address$province
-    on Mutation$UserCreate$userCreateOne$address$province {
-  CopyWith$Mutation$UserCreate$userCreateOne$address$province<
-          Mutation$UserCreate$userCreateOne$address$province>
-      get copyWith =>
-          CopyWith$Mutation$UserCreate$userCreateOne$address$province(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Mutation$UserCreate$userCreateOne$address$province<
-    TRes> {
-  factory CopyWith$Mutation$UserCreate$userCreateOne$address$province(
-    Mutation$UserCreate$userCreateOne$address$province instance,
-    TRes Function(Mutation$UserCreate$userCreateOne$address$province) then,
-  ) = _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$province;
-
-  factory CopyWith$Mutation$UserCreate$userCreateOne$address$province.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$province;
-
-  TRes call({
-    int? id,
-    String? name,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$province<TRes>
-    implements
-        CopyWith$Mutation$UserCreate$userCreateOne$address$province<TRes> {
-  _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$province(
-    this._instance,
-    this._then,
-  );
-
-  final Mutation$UserCreate$userCreateOne$address$province _instance;
-
-  final TRes Function(Mutation$UserCreate$userCreateOne$address$province) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? name = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$UserCreate$userCreateOne$address$province(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$province<TRes>
-    implements
-        CopyWith$Mutation$UserCreate$userCreateOne$address$province<TRes> {
-  _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$province(
-      this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    String? name,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class Mutation$UserCreate$userCreateOne$address$city {
-  Mutation$UserCreate$userCreateOne$address$city({
-    required this.id,
-    required this.name,
-    this.$__typename = 'City',
-  });
-
-  factory Mutation$UserCreate$userCreateOne$address$city.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$name = json['name'];
-    final l$$__typename = json['__typename'];
-    return Mutation$UserCreate$userCreateOne$address$city(
-      id: (l$id as int),
-      name: (l$name as String),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final String name;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$name = name;
-    _resultData['name'] = l$name;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$name = name;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$name,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Mutation$UserCreate$userCreateOne$address$city) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Mutation$UserCreate$userCreateOne$address$city
-    on Mutation$UserCreate$userCreateOne$address$city {
-  CopyWith$Mutation$UserCreate$userCreateOne$address$city<
-          Mutation$UserCreate$userCreateOne$address$city>
-      get copyWith => CopyWith$Mutation$UserCreate$userCreateOne$address$city(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Mutation$UserCreate$userCreateOne$address$city<TRes> {
-  factory CopyWith$Mutation$UserCreate$userCreateOne$address$city(
-    Mutation$UserCreate$userCreateOne$address$city instance,
-    TRes Function(Mutation$UserCreate$userCreateOne$address$city) then,
-  ) = _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$city;
-
-  factory CopyWith$Mutation$UserCreate$userCreateOne$address$city.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$city;
-
-  TRes call({
-    int? id,
-    String? name,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$city<TRes>
-    implements CopyWith$Mutation$UserCreate$userCreateOne$address$city<TRes> {
-  _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$city(
-    this._instance,
-    this._then,
-  );
-
-  final Mutation$UserCreate$userCreateOne$address$city _instance;
-
-  final TRes Function(Mutation$UserCreate$userCreateOne$address$city) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? name = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$UserCreate$userCreateOne$address$city(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$city<TRes>
-    implements CopyWith$Mutation$UserCreate$userCreateOne$address$city<TRes> {
-  _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$city(this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    String? name,
-    String? $__typename,
-  }) =>
-      _res;
-}
-
-class Mutation$UserCreate$userCreateOne$address$district {
-  Mutation$UserCreate$userCreateOne$address$district({
-    required this.id,
-    required this.name,
-    this.$__typename = 'District',
-  });
-
-  factory Mutation$UserCreate$userCreateOne$address$district.fromJson(
-      Map<String, dynamic> json) {
-    final l$id = json['id'];
-    final l$name = json['name'];
-    final l$$__typename = json['__typename'];
-    return Mutation$UserCreate$userCreateOne$address$district(
-      id: (l$id as int),
-      name: (l$name as String),
-      $__typename: (l$$__typename as String),
-    );
-  }
-
-  final int id;
-
-  final String name;
-
-  final String $__typename;
-
-  Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
-    final l$id = id;
-    _resultData['id'] = l$id;
-    final l$name = name;
-    _resultData['name'] = l$name;
-    final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
-  }
-
-  @override
-  int get hashCode {
-    final l$id = id;
-    final l$name = name;
-    final l$$__typename = $__typename;
-    return Object.hashAll([
-      l$id,
-      l$name,
-      l$$__typename,
-    ]);
-  }
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) {
-      return true;
-    }
-    if (!(other is Mutation$UserCreate$userCreateOne$address$district) ||
-        runtimeType != other.runtimeType) {
-      return false;
-    }
-    final l$id = id;
-    final lOther$id = other.id;
-    if (l$id != lOther$id) {
-      return false;
-    }
-    final l$name = name;
-    final lOther$name = other.name;
-    if (l$name != lOther$name) {
-      return false;
-    }
-    final l$$__typename = $__typename;
-    final lOther$$__typename = other.$__typename;
-    if (l$$__typename != lOther$$__typename) {
-      return false;
-    }
-    return true;
-  }
-}
-
-extension UtilityExtension$Mutation$UserCreate$userCreateOne$address$district
-    on Mutation$UserCreate$userCreateOne$address$district {
-  CopyWith$Mutation$UserCreate$userCreateOne$address$district<
-          Mutation$UserCreate$userCreateOne$address$district>
-      get copyWith =>
-          CopyWith$Mutation$UserCreate$userCreateOne$address$district(
-            this,
-            (i) => i,
-          );
-}
-
-abstract class CopyWith$Mutation$UserCreate$userCreateOne$address$district<
-    TRes> {
-  factory CopyWith$Mutation$UserCreate$userCreateOne$address$district(
-    Mutation$UserCreate$userCreateOne$address$district instance,
-    TRes Function(Mutation$UserCreate$userCreateOne$address$district) then,
-  ) = _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$district;
-
-  factory CopyWith$Mutation$UserCreate$userCreateOne$address$district.stub(
-          TRes res) =
-      _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$district;
-
-  TRes call({
-    int? id,
-    String? name,
-    String? $__typename,
-  });
-}
-
-class _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$district<TRes>
-    implements
-        CopyWith$Mutation$UserCreate$userCreateOne$address$district<TRes> {
-  _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$district(
-    this._instance,
-    this._then,
-  );
-
-  final Mutation$UserCreate$userCreateOne$address$district _instance;
-
-  final TRes Function(Mutation$UserCreate$userCreateOne$address$district) _then;
-
-  static const _undefined = <dynamic, dynamic>{};
-
-  TRes call({
-    Object? id = _undefined,
-    Object? name = _undefined,
-    Object? $__typename = _undefined,
-  }) =>
-      _then(Mutation$UserCreate$userCreateOne$address$district(
-        id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
-      ));
-}
-
-class _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$district<TRes>
-    implements
-        CopyWith$Mutation$UserCreate$userCreateOne$address$district<TRes> {
-  _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$district(
-      this._res);
-
-  TRes _res;
-
-  call({
-    int? id,
-    String? name,
-    String? $__typename,
-  }) =>
-      _res;
 }
 
 class Mutation$UserCreate$userCreateOne$address$subdistrict {
@@ -3019,6 +2473,7 @@ class Mutation$UserCreate$userCreateOne$address$subdistrict {
     required this.id,
     required this.name,
     required this.postalCode,
+    required this.district,
     this.$__typename = 'Subdistrict',
   });
 
@@ -3027,11 +2482,14 @@ class Mutation$UserCreate$userCreateOne$address$subdistrict {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$postalCode = json['postalCode'];
+    final l$district = json['district'];
     final l$$__typename = json['__typename'];
     return Mutation$UserCreate$userCreateOne$address$subdistrict(
       id: (l$id as int),
       name: (l$name as String),
       postalCode: (l$postalCode as String),
+      district: Mutation$UserCreate$userCreateOne$address$subdistrict$district
+          .fromJson((l$district as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -3041,6 +2499,8 @@ class Mutation$UserCreate$userCreateOne$address$subdistrict {
   final String name;
 
   final String postalCode;
+
+  final Mutation$UserCreate$userCreateOne$address$subdistrict$district district;
 
   final String $__typename;
 
@@ -3052,6 +2512,8 @@ class Mutation$UserCreate$userCreateOne$address$subdistrict {
     _resultData['name'] = l$name;
     final l$postalCode = postalCode;
     _resultData['postalCode'] = l$postalCode;
+    final l$district = district;
+    _resultData['district'] = l$district.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -3062,11 +2524,13 @@ class Mutation$UserCreate$userCreateOne$address$subdistrict {
     final l$id = id;
     final l$name = name;
     final l$postalCode = postalCode;
+    final l$district = district;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
       l$name,
       l$postalCode,
+      l$district,
       l$$__typename,
     ]);
   }
@@ -3093,6 +2557,11 @@ class Mutation$UserCreate$userCreateOne$address$subdistrict {
     final l$postalCode = postalCode;
     final lOther$postalCode = other.postalCode;
     if (l$postalCode != lOther$postalCode) {
+      return false;
+    }
+    final l$district = district;
+    final lOther$district = other.district;
+    if (l$district != lOther$district) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -3130,8 +2599,11 @@ abstract class CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict<
     int? id,
     String? name,
     String? postalCode,
+    Mutation$UserCreate$userCreateOne$address$subdistrict$district? district,
     String? $__typename,
   });
+  CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district<TRes>
+      get district;
 }
 
 class _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$subdistrict<TRes>
@@ -3153,6 +2625,7 @@ class _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$subdistrict<TRes>
     Object? id = _undefined,
     Object? name = _undefined,
     Object? postalCode = _undefined,
+    Object? district = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$UserCreate$userCreateOne$address$subdistrict(
@@ -3163,10 +2636,20 @@ class _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$subdistrict<TRes>
         postalCode: postalCode == _undefined || postalCode == null
             ? _instance.postalCode
             : (postalCode as String),
+        district: district == _undefined || district == null
+            ? _instance.district
+            : (district
+                as Mutation$UserCreate$userCreateOne$address$subdistrict$district),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
+  CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district<TRes>
+      get district {
+    final local$district = _instance.district;
+    return CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district(
+        local$district, (e) => call(district: e));
+  }
 }
 
 class _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$subdistrict<
@@ -3182,6 +2665,571 @@ class _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$subdistrict<
     int? id,
     String? name,
     String? postalCode,
+    Mutation$UserCreate$userCreateOne$address$subdistrict$district? district,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district<TRes>
+      get district =>
+          CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district
+              .stub(_res);
+}
+
+class Mutation$UserCreate$userCreateOne$address$subdistrict$district {
+  Mutation$UserCreate$userCreateOne$address$subdistrict$district({
+    required this.id,
+    required this.name,
+    required this.city,
+    this.$__typename = 'District',
+  });
+
+  factory Mutation$UserCreate$userCreateOne$address$subdistrict$district.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$city = json['city'];
+    final l$$__typename = json['__typename'];
+    return Mutation$UserCreate$userCreateOne$address$subdistrict$district(
+      id: (l$id as int),
+      name: (l$name as String),
+      city: Mutation$UserCreate$userCreateOne$address$subdistrict$district$city
+          .fromJson((l$city as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final Mutation$UserCreate$userCreateOne$address$subdistrict$district$city
+      city;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$city = city;
+    _resultData['city'] = l$city.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$city = city;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$city,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Mutation$UserCreate$userCreateOne$address$subdistrict$district) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$city = city;
+    final lOther$city = other.city;
+    if (l$city != lOther$city) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$UserCreate$userCreateOne$address$subdistrict$district
+    on Mutation$UserCreate$userCreateOne$address$subdistrict$district {
+  CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district<
+          Mutation$UserCreate$userCreateOne$address$subdistrict$district>
+      get copyWith =>
+          CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district<
+    TRes> {
+  factory CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district(
+    Mutation$UserCreate$userCreateOne$address$subdistrict$district instance,
+    TRes Function(
+            Mutation$UserCreate$userCreateOne$address$subdistrict$district)
+        then,
+  ) = _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$subdistrict$district;
+
+  factory CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$subdistrict$district;
+
+  TRes call({
+    int? id,
+    String? name,
+    Mutation$UserCreate$userCreateOne$address$subdistrict$district$city? city,
+    String? $__typename,
+  });
+  CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city<
+      TRes> get city;
+}
+
+class _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$subdistrict$district<
+        TRes>
+    implements
+        CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district<
+            TRes> {
+  _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$subdistrict$district(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$UserCreate$userCreateOne$address$subdistrict$district
+      _instance;
+
+  final TRes Function(
+      Mutation$UserCreate$userCreateOne$address$subdistrict$district) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? city = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$UserCreate$userCreateOne$address$subdistrict$district(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        city: city == _undefined || city == null
+            ? _instance.city
+            : (city
+                as Mutation$UserCreate$userCreateOne$address$subdistrict$district$city),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city<
+      TRes> get city {
+    final local$city = _instance.city;
+    return CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city(
+        local$city, (e) => call(city: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$subdistrict$district<
+        TRes>
+    implements
+        CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district<
+            TRes> {
+  _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$subdistrict$district(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    Mutation$UserCreate$userCreateOne$address$subdistrict$district$city? city,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city<
+          TRes>
+      get city =>
+          CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city
+              .stub(_res);
+}
+
+class Mutation$UserCreate$userCreateOne$address$subdistrict$district$city {
+  Mutation$UserCreate$userCreateOne$address$subdistrict$district$city({
+    required this.id,
+    required this.name,
+    required this.province,
+    this.$__typename = 'City',
+  });
+
+  factory Mutation$UserCreate$userCreateOne$address$subdistrict$district$city.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$province = json['province'];
+    final l$$__typename = json['__typename'];
+    return Mutation$UserCreate$userCreateOne$address$subdistrict$district$city(
+      id: (l$id as int),
+      name: (l$name as String),
+      province:
+          Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province
+              .fromJson((l$province as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province
+      province;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$province = province;
+    _resultData['province'] = l$province.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$province = province;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$province,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Mutation$UserCreate$userCreateOne$address$subdistrict$district$city) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$province = province;
+    final lOther$province = other.province;
+    if (l$province != lOther$province) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city
+    on Mutation$UserCreate$userCreateOne$address$subdistrict$district$city {
+  CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city<
+          Mutation$UserCreate$userCreateOne$address$subdistrict$district$city>
+      get copyWith =>
+          CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city<
+    TRes> {
+  factory CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city(
+    Mutation$UserCreate$userCreateOne$address$subdistrict$district$city
+        instance,
+    TRes Function(
+            Mutation$UserCreate$userCreateOne$address$subdistrict$district$city)
+        then,
+  ) = _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city;
+
+  factory CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city;
+
+  TRes call({
+    int? id,
+    String? name,
+    Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province?
+        province,
+    String? $__typename,
+  });
+  CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province<
+      TRes> get province;
+}
+
+class _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city<
+        TRes>
+    implements
+        CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city<
+            TRes> {
+  _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$UserCreate$userCreateOne$address$subdistrict$district$city
+      _instance;
+
+  final TRes Function(
+          Mutation$UserCreate$userCreateOne$address$subdistrict$district$city)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? province = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$UserCreate$userCreateOne$address$subdistrict$district$city(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        province: province == _undefined || province == null
+            ? _instance.province
+            : (province
+                as Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province<
+      TRes> get province {
+    final local$province = _instance.province;
+    return CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province(
+        local$province, (e) => call(province: e));
+  }
+}
+
+class _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city<
+        TRes>
+    implements
+        CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city<
+            TRes> {
+  _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province?
+        province,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province<
+          TRes>
+      get province =>
+          CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province
+              .stub(_res);
+}
+
+class Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province {
+  Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province({
+    required this.id,
+    required this.name,
+    this.$__typename = 'Province',
+  });
+
+  factory Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province(
+      id: (l$id as int),
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province
+    on Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province {
+  CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province<
+          Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province>
+      get copyWith =>
+          CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province<
+    TRes> {
+  factory CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province(
+    Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province
+        instance,
+    TRes Function(
+            Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province)
+        then,
+  ) = _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province;
+
+  factory CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province;
+
+  TRes call({
+    int? id,
+    String? name,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province<
+        TRes>
+    implements
+        CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province<
+            TRes> {
+  _CopyWithImpl$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province
+      _instance;
+
+  final TRes Function(
+          Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(
+          Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province<
+        TRes>
+    implements
+        CopyWith$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province<
+            TRes> {
+  _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$address$subdistrict$district$city$province(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
     String? $__typename,
   }) =>
       _res;

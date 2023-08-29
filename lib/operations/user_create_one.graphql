@@ -39,22 +39,22 @@ mutation UserCreate($userCreateArgs: UserCreateArgs!) {
     address {
       id
       name
-      province {
-        id
-        name
-      }
-      city {
-        id
-        name
-      }
-      district {
-        id
-        name
-      }
       subdistrict {
         id
         name
         postalCode
+        district {
+          id
+          name
+          city {
+            id
+            name
+            province {
+              id
+              name
+            }
+          }
+        }
       }
     }
   }

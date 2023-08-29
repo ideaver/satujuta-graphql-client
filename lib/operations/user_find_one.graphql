@@ -8,42 +8,40 @@ query UserFindOne($userFindUniqueArgs: UserFindUniqueArgs!) {
     userType
     avatarUrl
     whatsappNumber
+    whatsappVerifiedAt
     status
     theme
-    school {
-      id
-      name
-    }
+    referralCode
     referredBy {
       id
       firstName
       lastName
     }
-    PointTransactions {
-      amount
+    school {
+      id
+      name
     }
     address {
       id
       name
-      province {
-        id
-        name
-      }
-      city {
-        id
-        name
-      }
-      district {
-        id
-        name
-      }
       subdistrict {
         id
         name
         postalCode
+        district {
+          id
+          name
+          city {
+            id
+            name
+            province {
+              id
+              name
+            }
+          }
+        }
       }
     }
-    referralCode
     accounts {
       id
       name

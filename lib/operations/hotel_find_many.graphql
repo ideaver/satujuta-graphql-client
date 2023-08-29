@@ -10,9 +10,24 @@ query HotelFindMany($hotelFindManyArgs: HotelFindManyArgs!) {
     rating
     startDate
     address {
-      city {
+      id
+      name
+      subdistrict {
         id
         name
+        postalCode
+        district {
+          id
+          name
+          city {
+            id
+            name
+            province {
+              id
+              name
+            }
+          }
+        }
       }
     }
     _count {

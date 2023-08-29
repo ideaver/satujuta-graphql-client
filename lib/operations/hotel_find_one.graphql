@@ -18,13 +18,22 @@ query HotelFindOne($hotelFindUniqueArgs: HotelFindUniqueArgs!) {
     address {
       id
       name
-      city {
+      subdistrict {
         id
         name
-      }
-      district {
-        id
-        name
+        postalCode
+        district {
+          id
+          name
+          city {
+            id
+            name
+            province {
+              id
+              name
+            }
+          }
+        }
       }
     }
     checkIns {

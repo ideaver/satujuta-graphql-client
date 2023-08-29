@@ -397,7 +397,7 @@ const documentNodeQueryHotelFindOne = DocumentNode(definitions: [
                 selectionSet: null,
               ),
               FieldNode(
-                name: NameNode(value: 'city'),
+                name: NameNode(value: 'subdistrict'),
                 alias: null,
                 arguments: [],
                 directives: [],
@@ -417,33 +417,98 @@ const documentNodeQueryHotelFindOne = DocumentNode(definitions: [
                     selectionSet: null,
                   ),
                   FieldNode(
-                    name: NameNode(value: '__typename'),
-                    alias: null,
-                    arguments: [],
-                    directives: [],
-                    selectionSet: null,
-                  ),
-                ]),
-              ),
-              FieldNode(
-                name: NameNode(value: 'district'),
-                alias: null,
-                arguments: [],
-                directives: [],
-                selectionSet: SelectionSetNode(selections: [
-                  FieldNode(
-                    name: NameNode(value: 'id'),
+                    name: NameNode(value: 'postalCode'),
                     alias: null,
                     arguments: [],
                     directives: [],
                     selectionSet: null,
                   ),
                   FieldNode(
-                    name: NameNode(value: 'name'),
+                    name: NameNode(value: 'district'),
                     alias: null,
                     arguments: [],
                     directives: [],
-                    selectionSet: null,
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'name'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'city'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(selections: [
+                          FieldNode(
+                            name: NameNode(value: 'id'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: 'name'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: 'province'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: SelectionSetNode(selections: [
+                              FieldNode(
+                                name: NameNode(value: 'id'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                              FieldNode(
+                                name: NameNode(value: 'name'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                              FieldNode(
+                                name: NameNode(value: '__typename'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                            ]),
+                          ),
+                          FieldNode(
+                            name: NameNode(value: '__typename'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                        ]),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ]),
                   ),
                   FieldNode(
                     name: NameNode(value: '__typename'),
@@ -1432,8 +1497,7 @@ class Query$HotelFindOne$hotelFindOne$address {
   Query$HotelFindOne$hotelFindOne$address({
     required this.id,
     required this.name,
-    required this.city,
-    required this.district,
+    required this.subdistrict,
     this.$__typename = 'Address',
   });
 
@@ -1441,16 +1505,13 @@ class Query$HotelFindOne$hotelFindOne$address {
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
-    final l$city = json['city'];
-    final l$district = json['district'];
+    final l$subdistrict = json['subdistrict'];
     final l$$__typename = json['__typename'];
     return Query$HotelFindOne$hotelFindOne$address(
       id: (l$id as int),
       name: (l$name as String),
-      city: Query$HotelFindOne$hotelFindOne$address$city.fromJson(
-          (l$city as Map<String, dynamic>)),
-      district: Query$HotelFindOne$hotelFindOne$address$district.fromJson(
-          (l$district as Map<String, dynamic>)),
+      subdistrict: Query$HotelFindOne$hotelFindOne$address$subdistrict.fromJson(
+          (l$subdistrict as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1459,9 +1520,7 @@ class Query$HotelFindOne$hotelFindOne$address {
 
   final String name;
 
-  final Query$HotelFindOne$hotelFindOne$address$city city;
-
-  final Query$HotelFindOne$hotelFindOne$address$district district;
+  final Query$HotelFindOne$hotelFindOne$address$subdistrict subdistrict;
 
   final String $__typename;
 
@@ -1471,10 +1530,8 @@ class Query$HotelFindOne$hotelFindOne$address {
     _resultData['id'] = l$id;
     final l$name = name;
     _resultData['name'] = l$name;
-    final l$city = city;
-    _resultData['city'] = l$city.toJson();
-    final l$district = district;
-    _resultData['district'] = l$district.toJson();
+    final l$subdistrict = subdistrict;
+    _resultData['subdistrict'] = l$subdistrict.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -1484,14 +1541,12 @@ class Query$HotelFindOne$hotelFindOne$address {
   int get hashCode {
     final l$id = id;
     final l$name = name;
-    final l$city = city;
-    final l$district = district;
+    final l$subdistrict = subdistrict;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
       l$name,
-      l$city,
-      l$district,
+      l$subdistrict,
       l$$__typename,
     ]);
   }
@@ -1515,14 +1570,9 @@ class Query$HotelFindOne$hotelFindOne$address {
     if (l$name != lOther$name) {
       return false;
     }
-    final l$city = city;
-    final lOther$city = other.city;
-    if (l$city != lOther$city) {
-      return false;
-    }
-    final l$district = district;
-    final lOther$district = other.district;
-    if (l$district != lOther$district) {
+    final l$subdistrict = subdistrict;
+    final lOther$subdistrict = other.subdistrict;
+    if (l$subdistrict != lOther$subdistrict) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -1556,12 +1606,11 @@ abstract class CopyWith$Query$HotelFindOne$hotelFindOne$address<TRes> {
   TRes call({
     int? id,
     String? name,
-    Query$HotelFindOne$hotelFindOne$address$city? city,
-    Query$HotelFindOne$hotelFindOne$address$district? district,
+    Query$HotelFindOne$hotelFindOne$address$subdistrict? subdistrict,
     String? $__typename,
   });
-  CopyWith$Query$HotelFindOne$hotelFindOne$address$city<TRes> get city;
-  CopyWith$Query$HotelFindOne$hotelFindOne$address$district<TRes> get district;
+  CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict<TRes>
+      get subdistrict;
 }
 
 class _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address<TRes>
@@ -1580,8 +1629,7 @@ class _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address<TRes>
   TRes call({
     Object? id = _undefined,
     Object? name = _undefined,
-    Object? city = _undefined,
-    Object? district = _undefined,
+    Object? subdistrict = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Query$HotelFindOne$hotelFindOne$address(
@@ -1589,26 +1637,19 @@ class _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address<TRes>
         name: name == _undefined || name == null
             ? _instance.name
             : (name as String),
-        city: city == _undefined || city == null
-            ? _instance.city
-            : (city as Query$HotelFindOne$hotelFindOne$address$city),
-        district: district == _undefined || district == null
-            ? _instance.district
-            : (district as Query$HotelFindOne$hotelFindOne$address$district),
+        subdistrict: subdistrict == _undefined || subdistrict == null
+            ? _instance.subdistrict
+            : (subdistrict
+                as Query$HotelFindOne$hotelFindOne$address$subdistrict),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Query$HotelFindOne$hotelFindOne$address$city<TRes> get city {
-    final local$city = _instance.city;
-    return CopyWith$Query$HotelFindOne$hotelFindOne$address$city(
-        local$city, (e) => call(city: e));
-  }
-
-  CopyWith$Query$HotelFindOne$hotelFindOne$address$district<TRes> get district {
-    final local$district = _instance.district;
-    return CopyWith$Query$HotelFindOne$hotelFindOne$address$district(
-        local$district, (e) => call(district: e));
+  CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict<TRes>
+      get subdistrict {
+    final local$subdistrict = _instance.subdistrict;
+    return CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict(
+        local$subdistrict, (e) => call(subdistrict: e));
   }
 }
 
@@ -1621,33 +1662,39 @@ class _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address<TRes>
   call({
     int? id,
     String? name,
-    Query$HotelFindOne$hotelFindOne$address$city? city,
-    Query$HotelFindOne$hotelFindOne$address$district? district,
+    Query$HotelFindOne$hotelFindOne$address$subdistrict? subdistrict,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Query$HotelFindOne$hotelFindOne$address$city<TRes> get city =>
-      CopyWith$Query$HotelFindOne$hotelFindOne$address$city.stub(_res);
-  CopyWith$Query$HotelFindOne$hotelFindOne$address$district<TRes>
-      get district =>
-          CopyWith$Query$HotelFindOne$hotelFindOne$address$district.stub(_res);
+  CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict<TRes>
+      get subdistrict =>
+          CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict.stub(
+              _res);
 }
 
-class Query$HotelFindOne$hotelFindOne$address$city {
-  Query$HotelFindOne$hotelFindOne$address$city({
+class Query$HotelFindOne$hotelFindOne$address$subdistrict {
+  Query$HotelFindOne$hotelFindOne$address$subdistrict({
     required this.id,
     required this.name,
-    this.$__typename = 'City',
+    required this.postalCode,
+    required this.district,
+    this.$__typename = 'Subdistrict',
   });
 
-  factory Query$HotelFindOne$hotelFindOne$address$city.fromJson(
+  factory Query$HotelFindOne$hotelFindOne$address$subdistrict.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
+    final l$postalCode = json['postalCode'];
+    final l$district = json['district'];
     final l$$__typename = json['__typename'];
-    return Query$HotelFindOne$hotelFindOne$address$city(
+    return Query$HotelFindOne$hotelFindOne$address$subdistrict(
       id: (l$id as int),
       name: (l$name as String),
+      postalCode: (l$postalCode as String),
+      district:
+          Query$HotelFindOne$hotelFindOne$address$subdistrict$district.fromJson(
+              (l$district as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1655,6 +1702,10 @@ class Query$HotelFindOne$hotelFindOne$address$city {
   final int id;
 
   final String name;
+
+  final String postalCode;
+
+  final Query$HotelFindOne$hotelFindOne$address$subdistrict$district district;
 
   final String $__typename;
 
@@ -1664,6 +1715,10 @@ class Query$HotelFindOne$hotelFindOne$address$city {
     _resultData['id'] = l$id;
     final l$name = name;
     _resultData['name'] = l$name;
+    final l$postalCode = postalCode;
+    _resultData['postalCode'] = l$postalCode;
+    final l$district = district;
+    _resultData['district'] = l$district.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -1673,10 +1728,14 @@ class Query$HotelFindOne$hotelFindOne$address$city {
   int get hashCode {
     final l$id = id;
     final l$name = name;
+    final l$postalCode = postalCode;
+    final l$district = district;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
       l$name,
+      l$postalCode,
+      l$district,
       l$$__typename,
     ]);
   }
@@ -1686,7 +1745,7 @@ class Query$HotelFindOne$hotelFindOne$address$city {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$HotelFindOne$hotelFindOne$address$city) ||
+    if (!(other is Query$HotelFindOne$hotelFindOne$address$subdistrict) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1700,6 +1759,16 @@ class Query$HotelFindOne$hotelFindOne$address$city {
     if (l$name != lOther$name) {
       return false;
     }
+    final l$postalCode = postalCode;
+    final lOther$postalCode = other.postalCode;
+    if (l$postalCode != lOther$postalCode) {
+      return false;
+    }
+    final l$district = district;
+    final lOther$district = other.district;
+    if (l$district != lOther$district) {
+      return false;
+    }
     final l$$__typename = $__typename;
     final lOther$$__typename = other.$__typename;
     if (l$$__typename != lOther$$__typename) {
@@ -1709,88 +1778,513 @@ class Query$HotelFindOne$hotelFindOne$address$city {
   }
 }
 
-extension UtilityExtension$Query$HotelFindOne$hotelFindOne$address$city
-    on Query$HotelFindOne$hotelFindOne$address$city {
-  CopyWith$Query$HotelFindOne$hotelFindOne$address$city<
-          Query$HotelFindOne$hotelFindOne$address$city>
-      get copyWith => CopyWith$Query$HotelFindOne$hotelFindOne$address$city(
+extension UtilityExtension$Query$HotelFindOne$hotelFindOne$address$subdistrict
+    on Query$HotelFindOne$hotelFindOne$address$subdistrict {
+  CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict<
+          Query$HotelFindOne$hotelFindOne$address$subdistrict>
+      get copyWith =>
+          CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$HotelFindOne$hotelFindOne$address$city<TRes> {
-  factory CopyWith$Query$HotelFindOne$hotelFindOne$address$city(
-    Query$HotelFindOne$hotelFindOne$address$city instance,
-    TRes Function(Query$HotelFindOne$hotelFindOne$address$city) then,
-  ) = _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$city;
+abstract class CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict<
+    TRes> {
+  factory CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict(
+    Query$HotelFindOne$hotelFindOne$address$subdistrict instance,
+    TRes Function(Query$HotelFindOne$hotelFindOne$address$subdistrict) then,
+  ) = _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict;
 
-  factory CopyWith$Query$HotelFindOne$hotelFindOne$address$city.stub(TRes res) =
-      _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address$city;
+  factory CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict;
 
   TRes call({
     int? id,
     String? name,
+    String? postalCode,
+    Query$HotelFindOne$hotelFindOne$address$subdistrict$district? district,
     String? $__typename,
   });
+  CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district<TRes>
+      get district;
 }
 
-class _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$city<TRes>
-    implements CopyWith$Query$HotelFindOne$hotelFindOne$address$city<TRes> {
-  _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$city(
+class _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict<TRes>
+    implements
+        CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict<TRes> {
+  _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict(
     this._instance,
     this._then,
   );
 
-  final Query$HotelFindOne$hotelFindOne$address$city _instance;
+  final Query$HotelFindOne$hotelFindOne$address$subdistrict _instance;
 
-  final TRes Function(Query$HotelFindOne$hotelFindOne$address$city) _then;
+  final TRes Function(Query$HotelFindOne$hotelFindOne$address$subdistrict)
+      _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
   TRes call({
     Object? id = _undefined,
     Object? name = _undefined,
+    Object? postalCode = _undefined,
+    Object? district = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$HotelFindOne$hotelFindOne$address$city(
+      _then(Query$HotelFindOne$hotelFindOne$address$subdistrict(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         name: name == _undefined || name == null
             ? _instance.name
             : (name as String),
+        postalCode: postalCode == _undefined || postalCode == null
+            ? _instance.postalCode
+            : (postalCode as String),
+        district: district == _undefined || district == null
+            ? _instance.district
+            : (district
+                as Query$HotelFindOne$hotelFindOne$address$subdistrict$district),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
+  CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district<TRes>
+      get district {
+    final local$district = _instance.district;
+    return CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district(
+        local$district, (e) => call(district: e));
+  }
 }
 
-class _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address$city<TRes>
-    implements CopyWith$Query$HotelFindOne$hotelFindOne$address$city<TRes> {
-  _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address$city(this._res);
+class _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict<
+        TRes>
+    implements
+        CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict<TRes> {
+  _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict(
+      this._res);
 
   TRes _res;
 
   call({
     int? id,
     String? name,
+    String? postalCode,
+    Query$HotelFindOne$hotelFindOne$address$subdistrict$district? district,
     String? $__typename,
   }) =>
       _res;
+  CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district<TRes>
+      get district =>
+          CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district
+              .stub(_res);
 }
 
-class Query$HotelFindOne$hotelFindOne$address$district {
-  Query$HotelFindOne$hotelFindOne$address$district({
+class Query$HotelFindOne$hotelFindOne$address$subdistrict$district {
+  Query$HotelFindOne$hotelFindOne$address$subdistrict$district({
     required this.id,
     required this.name,
+    required this.city,
     this.$__typename = 'District',
   });
 
-  factory Query$HotelFindOne$hotelFindOne$address$district.fromJson(
+  factory Query$HotelFindOne$hotelFindOne$address$subdistrict$district.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$city = json['city'];
+    final l$$__typename = json['__typename'];
+    return Query$HotelFindOne$hotelFindOne$address$subdistrict$district(
+      id: (l$id as int),
+      name: (l$name as String),
+      city: Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city
+          .fromJson((l$city as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city city;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$city = city;
+    _resultData['city'] = l$city.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$city = city;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$city,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Query$HotelFindOne$hotelFindOne$address$subdistrict$district) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$city = city;
+    final lOther$city = other.city;
+    if (l$city != lOther$city) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$HotelFindOne$hotelFindOne$address$subdistrict$district
+    on Query$HotelFindOne$hotelFindOne$address$subdistrict$district {
+  CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district<
+          Query$HotelFindOne$hotelFindOne$address$subdistrict$district>
+      get copyWith =>
+          CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district<
+    TRes> {
+  factory CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district(
+    Query$HotelFindOne$hotelFindOne$address$subdistrict$district instance,
+    TRes Function(Query$HotelFindOne$hotelFindOne$address$subdistrict$district)
+        then,
+  ) = _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict$district;
+
+  factory CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict$district;
+
+  TRes call({
+    int? id,
+    String? name,
+    Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city? city,
+    String? $__typename,
+  });
+  CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city<
+      TRes> get city;
+}
+
+class _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict$district<
+        TRes>
+    implements
+        CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district<
+            TRes> {
+  _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict$district(
+    this._instance,
+    this._then,
+  );
+
+  final Query$HotelFindOne$hotelFindOne$address$subdistrict$district _instance;
+
+  final TRes Function(
+      Query$HotelFindOne$hotelFindOne$address$subdistrict$district) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? city = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$HotelFindOne$hotelFindOne$address$subdistrict$district(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        city: city == _undefined || city == null
+            ? _instance.city
+            : (city
+                as Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city<
+      TRes> get city {
+    final local$city = _instance.city;
+    return CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city(
+        local$city, (e) => call(city: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict$district<
+        TRes>
+    implements
+        CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district<
+            TRes> {
+  _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict$district(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city? city,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city<
+          TRes>
+      get city =>
+          CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city
+              .stub(_res);
+}
+
+class Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city {
+  Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city({
+    required this.id,
+    required this.name,
+    required this.province,
+    this.$__typename = 'City',
+  });
+
+  factory Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$province = json['province'];
+    final l$$__typename = json['__typename'];
+    return Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city(
+      id: (l$id as int),
+      name: (l$name as String),
+      province:
+          Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province
+              .fromJson((l$province as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province
+      province;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$province = province;
+    _resultData['province'] = l$province.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$province = province;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$province,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$province = province;
+    final lOther$province = other.province;
+    if (l$province != lOther$province) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city
+    on Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city {
+  CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city<
+          Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city>
+      get copyWith =>
+          CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city<
+    TRes> {
+  factory CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city(
+    Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city instance,
+    TRes Function(
+            Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city)
+        then,
+  ) = _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city;
+
+  factory CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city;
+
+  TRes call({
+    int? id,
+    String? name,
+    Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province?
+        province,
+    String? $__typename,
+  });
+  CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province<
+      TRes> get province;
+}
+
+class _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city<
+        TRes>
+    implements
+        CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city<
+            TRes> {
+  _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city(
+    this._instance,
+    this._then,
+  );
+
+  final Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city
+      _instance;
+
+  final TRes Function(
+      Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? province = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        province: province == _undefined || province == null
+            ? _instance.province
+            : (province
+                as Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province<
+      TRes> get province {
+    final local$province = _instance.province;
+    return CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province(
+        local$province, (e) => call(province: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city<
+        TRes>
+    implements
+        CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city<
+            TRes> {
+  _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province?
+        province,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province<
+          TRes>
+      get province =>
+          CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province
+              .stub(_res);
+}
+
+class Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province {
+  Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province({
+    required this.id,
+    required this.name,
+    this.$__typename = 'Province',
+  });
+
+  factory Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$$__typename = json['__typename'];
-    return Query$HotelFindOne$hotelFindOne$address$district(
+    return Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province(
       id: (l$id as int),
       name: (l$name as String),
       $__typename: (l$$__typename as String),
@@ -1831,7 +2325,8 @@ class Query$HotelFindOne$hotelFindOne$address$district {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$HotelFindOne$hotelFindOne$address$district) ||
+    if (!(other
+            is Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1854,25 +2349,30 @@ class Query$HotelFindOne$hotelFindOne$address$district {
   }
 }
 
-extension UtilityExtension$Query$HotelFindOne$hotelFindOne$address$district
-    on Query$HotelFindOne$hotelFindOne$address$district {
-  CopyWith$Query$HotelFindOne$hotelFindOne$address$district<
-          Query$HotelFindOne$hotelFindOne$address$district>
-      get copyWith => CopyWith$Query$HotelFindOne$hotelFindOne$address$district(
+extension UtilityExtension$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province
+    on Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province {
+  CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province<
+          Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province>
+      get copyWith =>
+          CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$HotelFindOne$hotelFindOne$address$district<TRes> {
-  factory CopyWith$Query$HotelFindOne$hotelFindOne$address$district(
-    Query$HotelFindOne$hotelFindOne$address$district instance,
-    TRes Function(Query$HotelFindOne$hotelFindOne$address$district) then,
-  ) = _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$district;
+abstract class CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province<
+    TRes> {
+  factory CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province(
+    Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province
+        instance,
+    TRes Function(
+            Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province)
+        then,
+  ) = _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province;
 
-  factory CopyWith$Query$HotelFindOne$hotelFindOne$address$district.stub(
+  factory CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address$district;
+      _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province;
 
   TRes call({
     int? id,
@@ -1881,16 +2381,22 @@ abstract class CopyWith$Query$HotelFindOne$hotelFindOne$address$district<TRes> {
   });
 }
 
-class _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$district<TRes>
-    implements CopyWith$Query$HotelFindOne$hotelFindOne$address$district<TRes> {
-  _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$district(
+class _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province<
+        TRes>
+    implements
+        CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province<
+            TRes> {
+  _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province(
     this._instance,
     this._then,
   );
 
-  final Query$HotelFindOne$hotelFindOne$address$district _instance;
+  final Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province
+      _instance;
 
-  final TRes Function(Query$HotelFindOne$hotelFindOne$address$district) _then;
+  final TRes Function(
+          Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province)
+      _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1899,7 +2405,8 @@ class _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$district<TRes>
     Object? name = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$HotelFindOne$hotelFindOne$address$district(
+      _then(
+          Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         name: name == _undefined || name == null
             ? _instance.name
@@ -1910,9 +2417,13 @@ class _CopyWithImpl$Query$HotelFindOne$hotelFindOne$address$district<TRes>
       ));
 }
 
-class _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address$district<TRes>
-    implements CopyWith$Query$HotelFindOne$hotelFindOne$address$district<TRes> {
-  _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address$district(this._res);
+class _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province<
+        TRes>
+    implements
+        CopyWith$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province<
+            TRes> {
+  _CopyWithStubImpl$Query$HotelFindOne$hotelFindOne$address$subdistrict$district$city$province(
+      this._res);
 
   TRes _res;
 
@@ -2106,7 +2617,7 @@ class Query$HotelFindOne$hotelFindOne$checkIns$user {
     required this.firstName,
     this.lastName,
     this.avatarUrl,
-    this.$__typename = 'UserAbstract',
+    this.$__typename = 'User',
   });
 
   factory Query$HotelFindOne$hotelFindOne$checkIns$user.fromJson(
