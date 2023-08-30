@@ -1,0 +1,10 @@
+query FaqFindMany($faqFindManyArgs: FaqFindManyArgs!) {
+  faqFindMany(faqFindManyArgs: $faqFindManyArgs) {
+    id
+    name
+    description
+    createdAt
+    updatedAt
+    type
+  }
+}

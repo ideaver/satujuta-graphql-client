@@ -17,12 +17,18 @@ mutation UserCreate($userCreateArgs: UserCreateArgs!) {
     school {
       id
       name
-      addressId
+      address {
+        name
+        subdistrictId
+      }
       createdAt
       updatedAt
     }
     referredBy {
       id
+      firstName
+      lastName
+      referralCode
     }
     accounts {
       id

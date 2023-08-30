@@ -387,11 +387,33 @@ const documentNodeMutationUserCreate = DocumentNode(definitions: [
                 selectionSet: null,
               ),
               FieldNode(
-                name: NameNode(value: 'addressId'),
+                name: NameNode(value: 'address'),
                 alias: null,
                 arguments: [],
                 directives: [],
-                selectionSet: null,
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'name'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'subdistrictId'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
               ),
               FieldNode(
                 name: NameNode(value: 'createdAt'),
@@ -424,6 +446,27 @@ const documentNodeMutationUserCreate = DocumentNode(definitions: [
             selectionSet: SelectionSetNode(selections: [
               FieldNode(
                 name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'firstName'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'lastName'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'referralCode'),
                 alias: null,
                 arguments: [],
                 directives: [],
@@ -1494,7 +1537,7 @@ class Mutation$UserCreate$userCreateOne$school {
   Mutation$UserCreate$userCreateOne$school({
     required this.id,
     required this.name,
-    required this.addressId,
+    required this.address,
     required this.createdAt,
     required this.updatedAt,
     this.$__typename = 'School',
@@ -1504,14 +1547,15 @@ class Mutation$UserCreate$userCreateOne$school {
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
-    final l$addressId = json['addressId'];
+    final l$address = json['address'];
     final l$createdAt = json['createdAt'];
     final l$updatedAt = json['updatedAt'];
     final l$$__typename = json['__typename'];
     return Mutation$UserCreate$userCreateOne$school(
       id: (l$id as int),
       name: (l$name as String),
-      addressId: (l$addressId as int),
+      address: Mutation$UserCreate$userCreateOne$school$address.fromJson(
+          (l$address as Map<String, dynamic>)),
       createdAt: (l$createdAt as String),
       updatedAt: (l$updatedAt as String),
       $__typename: (l$$__typename as String),
@@ -1522,7 +1566,7 @@ class Mutation$UserCreate$userCreateOne$school {
 
   final String name;
 
-  final int addressId;
+  final Mutation$UserCreate$userCreateOne$school$address address;
 
   final String createdAt;
 
@@ -1536,8 +1580,8 @@ class Mutation$UserCreate$userCreateOne$school {
     _resultData['id'] = l$id;
     final l$name = name;
     _resultData['name'] = l$name;
-    final l$addressId = addressId;
-    _resultData['addressId'] = l$addressId;
+    final l$address = address;
+    _resultData['address'] = l$address.toJson();
     final l$createdAt = createdAt;
     _resultData['createdAt'] = l$createdAt;
     final l$updatedAt = updatedAt;
@@ -1551,14 +1595,14 @@ class Mutation$UserCreate$userCreateOne$school {
   int get hashCode {
     final l$id = id;
     final l$name = name;
-    final l$addressId = addressId;
+    final l$address = address;
     final l$createdAt = createdAt;
     final l$updatedAt = updatedAt;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
       l$name,
-      l$addressId,
+      l$address,
       l$createdAt,
       l$updatedAt,
       l$$__typename,
@@ -1584,9 +1628,9 @@ class Mutation$UserCreate$userCreateOne$school {
     if (l$name != lOther$name) {
       return false;
     }
-    final l$addressId = addressId;
-    final lOther$addressId = other.addressId;
-    if (l$addressId != lOther$addressId) {
+    final l$address = address;
+    final lOther$address = other.address;
+    if (l$address != lOther$address) {
       return false;
     }
     final l$createdAt = createdAt;
@@ -1630,11 +1674,12 @@ abstract class CopyWith$Mutation$UserCreate$userCreateOne$school<TRes> {
   TRes call({
     int? id,
     String? name,
-    int? addressId,
+    Mutation$UserCreate$userCreateOne$school$address? address,
     String? createdAt,
     String? updatedAt,
     String? $__typename,
   });
+  CopyWith$Mutation$UserCreate$userCreateOne$school$address<TRes> get address;
 }
 
 class _CopyWithImpl$Mutation$UserCreate$userCreateOne$school<TRes>
@@ -1653,7 +1698,7 @@ class _CopyWithImpl$Mutation$UserCreate$userCreateOne$school<TRes>
   TRes call({
     Object? id = _undefined,
     Object? name = _undefined,
-    Object? addressId = _undefined,
+    Object? address = _undefined,
     Object? createdAt = _undefined,
     Object? updatedAt = _undefined,
     Object? $__typename = _undefined,
@@ -1663,9 +1708,9 @@ class _CopyWithImpl$Mutation$UserCreate$userCreateOne$school<TRes>
         name: name == _undefined || name == null
             ? _instance.name
             : (name as String),
-        addressId: addressId == _undefined || addressId == null
-            ? _instance.addressId
-            : (addressId as int),
+        address: address == _undefined || address == null
+            ? _instance.address
+            : (address as Mutation$UserCreate$userCreateOne$school$address),
         createdAt: createdAt == _undefined || createdAt == null
             ? _instance.createdAt
             : (createdAt as String),
@@ -1676,6 +1721,11 @@ class _CopyWithImpl$Mutation$UserCreate$userCreateOne$school<TRes>
             ? _instance.$__typename
             : ($__typename as String),
       ));
+  CopyWith$Mutation$UserCreate$userCreateOne$school$address<TRes> get address {
+    final local$address = _instance.address;
+    return CopyWith$Mutation$UserCreate$userCreateOne$school$address(
+        local$address, (e) => call(address: e));
+  }
 }
 
 class _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$school<TRes>
@@ -1687,9 +1737,159 @@ class _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$school<TRes>
   call({
     int? id,
     String? name,
-    int? addressId,
+    Mutation$UserCreate$userCreateOne$school$address? address,
     String? createdAt,
     String? updatedAt,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Mutation$UserCreate$userCreateOne$school$address<TRes> get address =>
+      CopyWith$Mutation$UserCreate$userCreateOne$school$address.stub(_res);
+}
+
+class Mutation$UserCreate$userCreateOne$school$address {
+  Mutation$UserCreate$userCreateOne$school$address({
+    required this.name,
+    required this.subdistrictId,
+    this.$__typename = 'Address',
+  });
+
+  factory Mutation$UserCreate$userCreateOne$school$address.fromJson(
+      Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$subdistrictId = json['subdistrictId'];
+    final l$$__typename = json['__typename'];
+    return Mutation$UserCreate$userCreateOne$school$address(
+      name: (l$name as String),
+      subdistrictId: (l$subdistrictId as int),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String name;
+
+  final int subdistrictId;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$subdistrictId = subdistrictId;
+    _resultData['subdistrictId'] = l$subdistrictId;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    final l$subdistrictId = subdistrictId;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$name,
+      l$subdistrictId,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Mutation$UserCreate$userCreateOne$school$address) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$subdistrictId = subdistrictId;
+    final lOther$subdistrictId = other.subdistrictId;
+    if (l$subdistrictId != lOther$subdistrictId) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Mutation$UserCreate$userCreateOne$school$address
+    on Mutation$UserCreate$userCreateOne$school$address {
+  CopyWith$Mutation$UserCreate$userCreateOne$school$address<
+          Mutation$UserCreate$userCreateOne$school$address>
+      get copyWith => CopyWith$Mutation$UserCreate$userCreateOne$school$address(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Mutation$UserCreate$userCreateOne$school$address<TRes> {
+  factory CopyWith$Mutation$UserCreate$userCreateOne$school$address(
+    Mutation$UserCreate$userCreateOne$school$address instance,
+    TRes Function(Mutation$UserCreate$userCreateOne$school$address) then,
+  ) = _CopyWithImpl$Mutation$UserCreate$userCreateOne$school$address;
+
+  factory CopyWith$Mutation$UserCreate$userCreateOne$school$address.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$school$address;
+
+  TRes call({
+    String? name,
+    int? subdistrictId,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Mutation$UserCreate$userCreateOne$school$address<TRes>
+    implements CopyWith$Mutation$UserCreate$userCreateOne$school$address<TRes> {
+  _CopyWithImpl$Mutation$UserCreate$userCreateOne$school$address(
+    this._instance,
+    this._then,
+  );
+
+  final Mutation$UserCreate$userCreateOne$school$address _instance;
+
+  final TRes Function(Mutation$UserCreate$userCreateOne$school$address) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? name = _undefined,
+    Object? subdistrictId = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Mutation$UserCreate$userCreateOne$school$address(
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        subdistrictId: subdistrictId == _undefined || subdistrictId == null
+            ? _instance.subdistrictId
+            : (subdistrictId as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$school$address<TRes>
+    implements CopyWith$Mutation$UserCreate$userCreateOne$school$address<TRes> {
+  _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$school$address(this._res);
+
+  TRes _res;
+
+  call({
+    String? name,
+    int? subdistrictId,
     String? $__typename,
   }) =>
       _res;
@@ -1698,20 +1898,35 @@ class _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$school<TRes>
 class Mutation$UserCreate$userCreateOne$referredBy {
   Mutation$UserCreate$userCreateOne$referredBy({
     required this.id,
+    required this.firstName,
+    this.lastName,
+    required this.referralCode,
     this.$__typename = 'User',
   });
 
   factory Mutation$UserCreate$userCreateOne$referredBy.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
+    final l$firstName = json['firstName'];
+    final l$lastName = json['lastName'];
+    final l$referralCode = json['referralCode'];
     final l$$__typename = json['__typename'];
     return Mutation$UserCreate$userCreateOne$referredBy(
       id: (l$id as String),
+      firstName: (l$firstName as String),
+      lastName: (l$lastName as String?),
+      referralCode: (l$referralCode as String),
       $__typename: (l$$__typename as String),
     );
   }
 
   final String id;
+
+  final String firstName;
+
+  final String? lastName;
+
+  final String referralCode;
 
   final String $__typename;
 
@@ -1719,6 +1934,12 @@ class Mutation$UserCreate$userCreateOne$referredBy {
     final _resultData = <String, dynamic>{};
     final l$id = id;
     _resultData['id'] = l$id;
+    final l$firstName = firstName;
+    _resultData['firstName'] = l$firstName;
+    final l$lastName = lastName;
+    _resultData['lastName'] = l$lastName;
+    final l$referralCode = referralCode;
+    _resultData['referralCode'] = l$referralCode;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -1727,9 +1948,15 @@ class Mutation$UserCreate$userCreateOne$referredBy {
   @override
   int get hashCode {
     final l$id = id;
+    final l$firstName = firstName;
+    final l$lastName = lastName;
+    final l$referralCode = referralCode;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
+      l$firstName,
+      l$lastName,
+      l$referralCode,
       l$$__typename,
     ]);
   }
@@ -1746,6 +1973,21 @@ class Mutation$UserCreate$userCreateOne$referredBy {
     final l$id = id;
     final lOther$id = other.id;
     if (l$id != lOther$id) {
+      return false;
+    }
+    final l$firstName = firstName;
+    final lOther$firstName = other.firstName;
+    if (l$firstName != lOther$firstName) {
+      return false;
+    }
+    final l$lastName = lastName;
+    final lOther$lastName = other.lastName;
+    if (l$lastName != lOther$lastName) {
+      return false;
+    }
+    final l$referralCode = referralCode;
+    final lOther$referralCode = other.referralCode;
+    if (l$referralCode != lOther$referralCode) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -1778,6 +2020,9 @@ abstract class CopyWith$Mutation$UserCreate$userCreateOne$referredBy<TRes> {
 
   TRes call({
     String? id,
+    String? firstName,
+    String? lastName,
+    String? referralCode,
     String? $__typename,
   });
 }
@@ -1797,10 +2042,21 @@ class _CopyWithImpl$Mutation$UserCreate$userCreateOne$referredBy<TRes>
 
   TRes call({
     Object? id = _undefined,
+    Object? firstName = _undefined,
+    Object? lastName = _undefined,
+    Object? referralCode = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$UserCreate$userCreateOne$referredBy(
         id: id == _undefined || id == null ? _instance.id : (id as String),
+        firstName: firstName == _undefined || firstName == null
+            ? _instance.firstName
+            : (firstName as String),
+        lastName:
+            lastName == _undefined ? _instance.lastName : (lastName as String?),
+        referralCode: referralCode == _undefined || referralCode == null
+            ? _instance.referralCode
+            : (referralCode as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -1815,6 +2071,9 @@ class _CopyWithStubImpl$Mutation$UserCreate$userCreateOne$referredBy<TRes>
 
   call({
     String? id,
+    String? firstName,
+    String? lastName,
+    String? referralCode,
     String? $__typename,
   }) =>
       _res;

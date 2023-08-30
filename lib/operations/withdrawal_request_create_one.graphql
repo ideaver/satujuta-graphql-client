@@ -1,0 +1,9 @@
+mutation WithdrawalRequestCreateOne($withdrawalRequestCreateArgs: WithdrawalRequestCreateArgs!) {
+  withdrawalRequestCreateOne(withdrawalRequestCreateArgs: $withdrawalRequestCreateArgs) {
+    id
+    userId
+    amount
+    status
+    createdAt
+  }
+}

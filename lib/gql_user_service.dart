@@ -91,6 +91,7 @@ class GqlUserService {
 
   static Future<QueryResult<Mutation$UserCreate>> userCreateOne(
     Mutation$UserCreate$userCreateOne user,
+    String userPassword,
   ) async {
     return await GraphQLService.client.mutate(
       MutationOptions(
@@ -98,7 +99,47 @@ class GqlUserService {
         parserFn: (data) => Mutation$UserCreate.fromJson(data),
         variables: {
           "userCreateArgs": {
-            "data": user.toJson(),
+            "data": {
+              "firstName": user.firstName,
+              "lastName": user.lastName,
+              "email": user.email,
+              "password": userPassword,
+              "theme": user.theme.name,
+              "userRole": user.userRole.name,
+              "userType": user.userType.name,
+              "whatsappNumber": user.whatsappNumber,
+              "avatarUrl": user.avatarUrl,
+              "address": {
+                "create": {
+                  "name": user.address.name,
+                  "subdistrict": {
+                    "connect": {"id": user.address.subdistrict.id}
+                  }
+                }
+              },
+              "referredBy": {
+                "connect": {"referralCode": user.referredBy?.referralCode}
+              },
+              "school": {
+                "connectOrCreate": {
+                  "where": {"id": user.schoolId ?? 0},
+                  "create": {
+                    "name": user.school?.name ?? "",
+                    "address": {
+                      "create": {
+                        "name": user.school?.address.name ?? "",
+                        "subdistrict": {
+                          "connect": {"id": user.school?.address.subdistrictId}
+                        }
+                      }
+                    }
+                  },
+                }
+              },
+              "accounts": {
+                "create": user.accounts?.map((e) => e.toJson()).toList(),
+              }
+            }
           }
         },
       ),
@@ -129,19 +170,10 @@ class GqlUserService {
               "address": {
                 "update": {
                   "data": {
-                    // "name": {"set": user.address.name},
-                    // "province": {
-                    //   "connect": {"id": user.address.province.id}
-                    // },
-                    // "city": {
-                    //   "connect": {"id": user.address.city.id}
-                    // },
-                    // "district": {
-                    //   "connect": {"id": user.address.district.id}
-                    // },
-                    // "subdistrict": {
-                    //   "connect": {"id": user.address.subdistrict.id}
-                    // },
+                    "name": {"set": user.address.name},
+                    "subdistrict": {
+                      "connect": {"id": user.address.subdistrict.id}
+                    },
                   }
                 }
               }
@@ -216,9 +248,9 @@ class GqlUserService {
         variables: {
           "userFindManyArgs": {
             "where": {
-              "deletedAt": {
-                "not": {"equals": null}
-              },
+              // "deletedAt": {
+              //   "not": {"equals": null}
+              // },
               "AND": [
                 {
                   "referredBy": {

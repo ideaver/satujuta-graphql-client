@@ -32,7 +32,6 @@ class GqlHotelService {
   static Future<QueryResult<Query$HotelFindMany>> hotelFindManyByCityId({
     required int cityId,
     int? skip = 0,
-    String contains = "",
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -46,12 +45,15 @@ class GqlHotelService {
               {"startDate": "desc"}
             ],
             "where": {
-              "name": {"contains": contains},
               "address": {
                 "is": {
-                  "city": {
+                  "subdistrict": {
                     "is": {
-                      "id": {"equals": cityId}
+                      "district": {
+                        "is": {
+                          "cityId": {"equals": cityId}
+                        }
+                      }
                     }
                   }
                 }
