@@ -560,11 +560,6 @@ type AggregateOrder {
   _max: OrderMaxAggregate
 }
 
-type Auth {
-  """Example field (placeholder)"""
-  message: String!
-}
-
 type Bank {
   id: Int!
   name: String!
@@ -1507,11 +1502,6 @@ input CityWhereUniqueInput {
   provinceId: IntFilter
   province: ProvinceRelationFilter
   districts: DistrictListRelationFilter
-}
-
-input CreateAuthInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
 }
 
 """
@@ -3552,6 +3542,20 @@ input ItemWhereUniqueInput {
   cart: CartListRelationFilter
 }
 
+input LoginArgs {
+  """Masukkan email"""
+  email: String!
+
+  """Masukkan password"""
+  password: String!
+}
+
+type LoginResponse {
+  """Akses token jwt"""
+  accessToken: String!
+  user: User!
+}
+
 type Mutation {
   """Deskripsinya ada disini loh"""
   userCreateOne(userCreateArgs: UserCreateArgs!): User
@@ -3585,9 +3589,7 @@ type Mutation {
 
   """Datanya benar2 terhapus dari db"""
   hotelRemove(hotelId: Float!): Boolean
-  createAuth(createAuthInput: CreateAuthInput!): Auth!
-  resetPassword(email: String!): Auth!
-  removeAuth(id: Int!): Auth!
+  authLogin(loginArgs: LoginArgs!): LoginResponse
 
   """Deskripsinya ada disini loh"""
   bankCreateOne(bankCreateArgs: BankCreateArgs!): Bank
@@ -5524,7 +5526,6 @@ type Query {
 
   """Deskripsinya ada disini loh"""
   hotelFindOne(hotelFindUniqueArgs: HotelFindUniqueArgs!): Hotel
-  auth(id: Int!): Auth!
 
   """Deskripsinya ada disini loh"""
   bankFindMany(bankFindManyArgs: BankFindManyArgs): [Bank!]

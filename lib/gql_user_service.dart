@@ -3,7 +3,6 @@ import 'package:satujuta_gql_client/operations/generated/count_referred_user_by_
 import 'package:satujuta_gql_client/operations/generated/count_user_of_student_within_referred_id.graphql.dart';
 import 'package:satujuta_gql_client/operations/generated/get_account_total_balance.graphql.dart';
 import 'package:satujuta_gql_client/operations/generated/get_current_user_point_balance_by_user_id_from_point_transaction_find_first.graphql.dart';
-import 'package:satujuta_gql_client/operations/generated/reset_password.graphql.dart';
 import 'package:satujuta_gql_client/operations/generated/user_create_one.graphql.dart';
 import 'package:satujuta_gql_client/schema/generated/schema.graphql.dart';
 
@@ -118,7 +117,7 @@ class GqlUserService {
                 }
               },
               "referredBy": {
-                "connect": {"referralCode": user.referredBy?.referralCode}
+                "connect": {"referralCode": user.referredBy?.referralCode != "" ? user.referredBy?.referralCode : null}
               },
               "school": {
                 "connectOrCreate": {
@@ -208,19 +207,19 @@ class GqlUserService {
     );
   }
 
-  static Future<QueryResult<Mutation$ResetPassword>> resetPassword(
-    String email,
-  ) async {
-    return await GraphQLService.client.mutate(
-      MutationOptions(
-        document: documentNodeMutationResetPassword,
-        parserFn: (data) => Mutation$ResetPassword.fromJson(data),
-        variables: {
-          "email": email,
-        },
-      ),
-    );
-  }
+  // static Future<QueryResult<Mutation$ResetPassword>> resetPassword(
+  //   String email,
+  // ) async {
+  //   return await GraphQLService.client.mutate(
+  //     MutationOptions(
+  //       document: documentNodeMutationResetPassword,
+  //       parserFn: (data) => Mutation$ResetPassword.fromJson(data),
+  //       variables: {
+  //         "email": email,
+  //       },
+  //     ),
+  //   );
+  // }
 
   static Future<QueryResult<Query$countReferredUserByUserId>> countReferredUserByUserId({
     required String userId,

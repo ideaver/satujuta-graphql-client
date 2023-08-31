@@ -320,13 +320,6 @@ const documentNodeQueryUserFindMany = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
-            name: NameNode(value: 'addressId'),
-            alias: null,
-            arguments: [],
-            directives: [],
-            selectionSet: null,
-          ),
-          FieldNode(
             name: NameNode(value: 'userRole'),
             alias: null,
             arguments: [],
@@ -437,6 +430,158 @@ const documentNodeQueryUserFindMany = DocumentNode(definitions: [
                 arguments: [],
                 directives: [],
                 selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'address'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'name'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'subdistrict'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'id'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'name'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'postalCode'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: 'district'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: SelectionSetNode(selections: [
+                      FieldNode(
+                        name: NameNode(value: 'id'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'name'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                      FieldNode(
+                        name: NameNode(value: 'city'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: SelectionSetNode(selections: [
+                          FieldNode(
+                            name: NameNode(value: 'id'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: 'name'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                          FieldNode(
+                            name: NameNode(value: 'province'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: SelectionSetNode(selections: [
+                              FieldNode(
+                                name: NameNode(value: 'id'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                              FieldNode(
+                                name: NameNode(value: 'name'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                              FieldNode(
+                                name: NameNode(value: '__typename'),
+                                alias: null,
+                                arguments: [],
+                                directives: [],
+                                selectionSet: null,
+                              ),
+                            ]),
+                          ),
+                          FieldNode(
+                            name: NameNode(value: '__typename'),
+                            alias: null,
+                            arguments: [],
+                            directives: [],
+                            selectionSet: null,
+                          ),
+                        ]),
+                      ),
+                      FieldNode(
+                        name: NameNode(value: '__typename'),
+                        alias: null,
+                        arguments: [],
+                        directives: [],
+                        selectionSet: null,
+                      ),
+                    ]),
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
               ),
               FieldNode(
                 name: NameNode(value: '__typename'),
@@ -666,7 +811,6 @@ class Query$UserFindMany$userFindMany {
     required this.firstName,
     this.lastName,
     required this.email,
-    required this.addressId,
     required this.userRole,
     required this.userType,
     this.avatarUrl,
@@ -677,6 +821,7 @@ class Query$UserFindMany$userFindMany {
     required this.theme,
     this.referredBy,
     this.school,
+    required this.address,
     required this.$_count,
     required this.createdAt,
     required this.updatedAt,
@@ -688,7 +833,6 @@ class Query$UserFindMany$userFindMany {
     final l$firstName = json['firstName'];
     final l$lastName = json['lastName'];
     final l$email = json['email'];
-    final l$addressId = json['addressId'];
     final l$userRole = json['userRole'];
     final l$userType = json['userType'];
     final l$avatarUrl = json['avatarUrl'];
@@ -699,6 +843,7 @@ class Query$UserFindMany$userFindMany {
     final l$theme = json['theme'];
     final l$referredBy = json['referredBy'];
     final l$school = json['school'];
+    final l$address = json['address'];
     final l$$_count = json['_count'];
     final l$createdAt = json['createdAt'];
     final l$updatedAt = json['updatedAt'];
@@ -708,7 +853,6 @@ class Query$UserFindMany$userFindMany {
       firstName: (l$firstName as String),
       lastName: (l$lastName as String?),
       email: (l$email as String),
-      addressId: (l$addressId as int),
       userRole: fromJson$Enum$UserRole((l$userRole as String)),
       userType: fromJson$Enum$UserType((l$userType as String)),
       avatarUrl: (l$avatarUrl as String?),
@@ -725,6 +869,8 @@ class Query$UserFindMany$userFindMany {
           ? null
           : Query$UserFindMany$userFindMany$school.fromJson(
               (l$school as Map<String, dynamic>)),
+      address: Query$UserFindMany$userFindMany$address.fromJson(
+          (l$address as Map<String, dynamic>)),
       $_count: Query$UserFindMany$userFindMany$_count.fromJson(
           (l$$_count as Map<String, dynamic>)),
       createdAt: (l$createdAt as String),
@@ -740,8 +886,6 @@ class Query$UserFindMany$userFindMany {
   final String? lastName;
 
   final String email;
-
-  final int addressId;
 
   final Enum$UserRole userRole;
 
@@ -763,6 +907,8 @@ class Query$UserFindMany$userFindMany {
 
   final Query$UserFindMany$userFindMany$school? school;
 
+  final Query$UserFindMany$userFindMany$address address;
+
   final Query$UserFindMany$userFindMany$_count $_count;
 
   final String createdAt;
@@ -781,8 +927,6 @@ class Query$UserFindMany$userFindMany {
     _resultData['lastName'] = l$lastName;
     final l$email = email;
     _resultData['email'] = l$email;
-    final l$addressId = addressId;
-    _resultData['addressId'] = l$addressId;
     final l$userRole = userRole;
     _resultData['userRole'] = toJson$Enum$UserRole(l$userRole);
     final l$userType = userType;
@@ -803,6 +947,8 @@ class Query$UserFindMany$userFindMany {
     _resultData['referredBy'] = l$referredBy?.toJson();
     final l$school = school;
     _resultData['school'] = l$school?.toJson();
+    final l$address = address;
+    _resultData['address'] = l$address.toJson();
     final l$$_count = $_count;
     _resultData['_count'] = l$$_count.toJson();
     final l$createdAt = createdAt;
@@ -820,7 +966,6 @@ class Query$UserFindMany$userFindMany {
     final l$firstName = firstName;
     final l$lastName = lastName;
     final l$email = email;
-    final l$addressId = addressId;
     final l$userRole = userRole;
     final l$userType = userType;
     final l$avatarUrl = avatarUrl;
@@ -831,6 +976,7 @@ class Query$UserFindMany$userFindMany {
     final l$theme = theme;
     final l$referredBy = referredBy;
     final l$school = school;
+    final l$address = address;
     final l$$_count = $_count;
     final l$createdAt = createdAt;
     final l$updatedAt = updatedAt;
@@ -840,7 +986,6 @@ class Query$UserFindMany$userFindMany {
       l$firstName,
       l$lastName,
       l$email,
-      l$addressId,
       l$userRole,
       l$userType,
       l$avatarUrl,
@@ -851,6 +996,7 @@ class Query$UserFindMany$userFindMany {
       l$theme,
       l$referredBy,
       l$school,
+      l$address,
       l$$_count,
       l$createdAt,
       l$updatedAt,
@@ -885,11 +1031,6 @@ class Query$UserFindMany$userFindMany {
     final l$email = email;
     final lOther$email = other.email;
     if (l$email != lOther$email) {
-      return false;
-    }
-    final l$addressId = addressId;
-    final lOther$addressId = other.addressId;
-    if (l$addressId != lOther$addressId) {
       return false;
     }
     final l$userRole = userRole;
@@ -942,6 +1083,11 @@ class Query$UserFindMany$userFindMany {
     if (l$school != lOther$school) {
       return false;
     }
+    final l$address = address;
+    final lOther$address = other.address;
+    if (l$address != lOther$address) {
+      return false;
+    }
     final l$$_count = $_count;
     final lOther$$_count = other.$_count;
     if (l$$_count != lOther$$_count) {
@@ -989,7 +1135,6 @@ abstract class CopyWith$Query$UserFindMany$userFindMany<TRes> {
     String? firstName,
     String? lastName,
     String? email,
-    int? addressId,
     Enum$UserRole? userRole,
     Enum$UserType? userType,
     String? avatarUrl,
@@ -1000,6 +1145,7 @@ abstract class CopyWith$Query$UserFindMany$userFindMany<TRes> {
     Enum$Theme? theme,
     Query$UserFindMany$userFindMany$referredBy? referredBy,
     Query$UserFindMany$userFindMany$school? school,
+    Query$UserFindMany$userFindMany$address? address,
     Query$UserFindMany$userFindMany$_count? $_count,
     String? createdAt,
     String? updatedAt,
@@ -1007,6 +1153,7 @@ abstract class CopyWith$Query$UserFindMany$userFindMany<TRes> {
   });
   CopyWith$Query$UserFindMany$userFindMany$referredBy<TRes> get referredBy;
   CopyWith$Query$UserFindMany$userFindMany$school<TRes> get school;
+  CopyWith$Query$UserFindMany$userFindMany$address<TRes> get address;
   CopyWith$Query$UserFindMany$userFindMany$_count<TRes> get $_count;
 }
 
@@ -1028,7 +1175,6 @@ class _CopyWithImpl$Query$UserFindMany$userFindMany<TRes>
     Object? firstName = _undefined,
     Object? lastName = _undefined,
     Object? email = _undefined,
-    Object? addressId = _undefined,
     Object? userRole = _undefined,
     Object? userType = _undefined,
     Object? avatarUrl = _undefined,
@@ -1039,6 +1185,7 @@ class _CopyWithImpl$Query$UserFindMany$userFindMany<TRes>
     Object? theme = _undefined,
     Object? referredBy = _undefined,
     Object? school = _undefined,
+    Object? address = _undefined,
     Object? $_count = _undefined,
     Object? createdAt = _undefined,
     Object? updatedAt = _undefined,
@@ -1054,9 +1201,6 @@ class _CopyWithImpl$Query$UserFindMany$userFindMany<TRes>
         email: email == _undefined || email == null
             ? _instance.email
             : (email as String),
-        addressId: addressId == _undefined || addressId == null
-            ? _instance.addressId
-            : (addressId as int),
         userRole: userRole == _undefined || userRole == null
             ? _instance.userRole
             : (userRole as Enum$UserRole),
@@ -1087,6 +1231,9 @@ class _CopyWithImpl$Query$UserFindMany$userFindMany<TRes>
         school: school == _undefined
             ? _instance.school
             : (school as Query$UserFindMany$userFindMany$school?),
+        address: address == _undefined || address == null
+            ? _instance.address
+            : (address as Query$UserFindMany$userFindMany$address),
         $_count: $_count == _undefined || $_count == null
             ? _instance.$_count
             : ($_count as Query$UserFindMany$userFindMany$_count),
@@ -1117,6 +1264,12 @@ class _CopyWithImpl$Query$UserFindMany$userFindMany<TRes>
             local$school, (e) => call(school: e));
   }
 
+  CopyWith$Query$UserFindMany$userFindMany$address<TRes> get address {
+    final local$address = _instance.address;
+    return CopyWith$Query$UserFindMany$userFindMany$address(
+        local$address, (e) => call(address: e));
+  }
+
   CopyWith$Query$UserFindMany$userFindMany$_count<TRes> get $_count {
     final local$$_count = _instance.$_count;
     return CopyWith$Query$UserFindMany$userFindMany$_count(
@@ -1135,7 +1288,6 @@ class _CopyWithStubImpl$Query$UserFindMany$userFindMany<TRes>
     String? firstName,
     String? lastName,
     String? email,
-    int? addressId,
     Enum$UserRole? userRole,
     Enum$UserType? userType,
     String? avatarUrl,
@@ -1146,6 +1298,7 @@ class _CopyWithStubImpl$Query$UserFindMany$userFindMany<TRes>
     Enum$Theme? theme,
     Query$UserFindMany$userFindMany$referredBy? referredBy,
     Query$UserFindMany$userFindMany$school? school,
+    Query$UserFindMany$userFindMany$address? address,
     Query$UserFindMany$userFindMany$_count? $_count,
     String? createdAt,
     String? updatedAt,
@@ -1156,6 +1309,8 @@ class _CopyWithStubImpl$Query$UserFindMany$userFindMany<TRes>
       CopyWith$Query$UserFindMany$userFindMany$referredBy.stub(_res);
   CopyWith$Query$UserFindMany$userFindMany$school<TRes> get school =>
       CopyWith$Query$UserFindMany$userFindMany$school.stub(_res);
+  CopyWith$Query$UserFindMany$userFindMany$address<TRes> get address =>
+      CopyWith$Query$UserFindMany$userFindMany$address.stub(_res);
   CopyWith$Query$UserFindMany$userFindMany$_count<TRes> get $_count =>
       CopyWith$Query$UserFindMany$userFindMany$_count.stub(_res);
 }
@@ -1458,6 +1613,948 @@ class _CopyWithImpl$Query$UserFindMany$userFindMany$school<TRes>
 class _CopyWithStubImpl$Query$UserFindMany$userFindMany$school<TRes>
     implements CopyWith$Query$UserFindMany$userFindMany$school<TRes> {
   _CopyWithStubImpl$Query$UserFindMany$userFindMany$school(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Query$UserFindMany$userFindMany$address {
+  Query$UserFindMany$userFindMany$address({
+    required this.id,
+    required this.name,
+    required this.subdistrict,
+    this.$__typename = 'Address',
+  });
+
+  factory Query$UserFindMany$userFindMany$address.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$subdistrict = json['subdistrict'];
+    final l$$__typename = json['__typename'];
+    return Query$UserFindMany$userFindMany$address(
+      id: (l$id as int),
+      name: (l$name as String),
+      subdistrict: Query$UserFindMany$userFindMany$address$subdistrict.fromJson(
+          (l$subdistrict as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final Query$UserFindMany$userFindMany$address$subdistrict subdistrict;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$subdistrict = subdistrict;
+    _resultData['subdistrict'] = l$subdistrict.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$subdistrict = subdistrict;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$subdistrict,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$UserFindMany$userFindMany$address) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$subdistrict = subdistrict;
+    final lOther$subdistrict = other.subdistrict;
+    if (l$subdistrict != lOther$subdistrict) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$UserFindMany$userFindMany$address
+    on Query$UserFindMany$userFindMany$address {
+  CopyWith$Query$UserFindMany$userFindMany$address<
+          Query$UserFindMany$userFindMany$address>
+      get copyWith => CopyWith$Query$UserFindMany$userFindMany$address(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$UserFindMany$userFindMany$address<TRes> {
+  factory CopyWith$Query$UserFindMany$userFindMany$address(
+    Query$UserFindMany$userFindMany$address instance,
+    TRes Function(Query$UserFindMany$userFindMany$address) then,
+  ) = _CopyWithImpl$Query$UserFindMany$userFindMany$address;
+
+  factory CopyWith$Query$UserFindMany$userFindMany$address.stub(TRes res) =
+      _CopyWithStubImpl$Query$UserFindMany$userFindMany$address;
+
+  TRes call({
+    int? id,
+    String? name,
+    Query$UserFindMany$userFindMany$address$subdistrict? subdistrict,
+    String? $__typename,
+  });
+  CopyWith$Query$UserFindMany$userFindMany$address$subdistrict<TRes>
+      get subdistrict;
+}
+
+class _CopyWithImpl$Query$UserFindMany$userFindMany$address<TRes>
+    implements CopyWith$Query$UserFindMany$userFindMany$address<TRes> {
+  _CopyWithImpl$Query$UserFindMany$userFindMany$address(
+    this._instance,
+    this._then,
+  );
+
+  final Query$UserFindMany$userFindMany$address _instance;
+
+  final TRes Function(Query$UserFindMany$userFindMany$address) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? subdistrict = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$UserFindMany$userFindMany$address(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        subdistrict: subdistrict == _undefined || subdistrict == null
+            ? _instance.subdistrict
+            : (subdistrict
+                as Query$UserFindMany$userFindMany$address$subdistrict),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$UserFindMany$userFindMany$address$subdistrict<TRes>
+      get subdistrict {
+    final local$subdistrict = _instance.subdistrict;
+    return CopyWith$Query$UserFindMany$userFindMany$address$subdistrict(
+        local$subdistrict, (e) => call(subdistrict: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$UserFindMany$userFindMany$address<TRes>
+    implements CopyWith$Query$UserFindMany$userFindMany$address<TRes> {
+  _CopyWithStubImpl$Query$UserFindMany$userFindMany$address(this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    Query$UserFindMany$userFindMany$address$subdistrict? subdistrict,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$UserFindMany$userFindMany$address$subdistrict<TRes>
+      get subdistrict =>
+          CopyWith$Query$UserFindMany$userFindMany$address$subdistrict.stub(
+              _res);
+}
+
+class Query$UserFindMany$userFindMany$address$subdistrict {
+  Query$UserFindMany$userFindMany$address$subdistrict({
+    required this.id,
+    required this.name,
+    required this.postalCode,
+    required this.district,
+    this.$__typename = 'Subdistrict',
+  });
+
+  factory Query$UserFindMany$userFindMany$address$subdistrict.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$postalCode = json['postalCode'];
+    final l$district = json['district'];
+    final l$$__typename = json['__typename'];
+    return Query$UserFindMany$userFindMany$address$subdistrict(
+      id: (l$id as int),
+      name: (l$name as String),
+      postalCode: (l$postalCode as String),
+      district:
+          Query$UserFindMany$userFindMany$address$subdistrict$district.fromJson(
+              (l$district as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final String postalCode;
+
+  final Query$UserFindMany$userFindMany$address$subdistrict$district district;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$postalCode = postalCode;
+    _resultData['postalCode'] = l$postalCode;
+    final l$district = district;
+    _resultData['district'] = l$district.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$postalCode = postalCode;
+    final l$district = district;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$postalCode,
+      l$district,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$UserFindMany$userFindMany$address$subdistrict) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$postalCode = postalCode;
+    final lOther$postalCode = other.postalCode;
+    if (l$postalCode != lOther$postalCode) {
+      return false;
+    }
+    final l$district = district;
+    final lOther$district = other.district;
+    if (l$district != lOther$district) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$UserFindMany$userFindMany$address$subdistrict
+    on Query$UserFindMany$userFindMany$address$subdistrict {
+  CopyWith$Query$UserFindMany$userFindMany$address$subdistrict<
+          Query$UserFindMany$userFindMany$address$subdistrict>
+      get copyWith =>
+          CopyWith$Query$UserFindMany$userFindMany$address$subdistrict(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$UserFindMany$userFindMany$address$subdistrict<
+    TRes> {
+  factory CopyWith$Query$UserFindMany$userFindMany$address$subdistrict(
+    Query$UserFindMany$userFindMany$address$subdistrict instance,
+    TRes Function(Query$UserFindMany$userFindMany$address$subdistrict) then,
+  ) = _CopyWithImpl$Query$UserFindMany$userFindMany$address$subdistrict;
+
+  factory CopyWith$Query$UserFindMany$userFindMany$address$subdistrict.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$UserFindMany$userFindMany$address$subdistrict;
+
+  TRes call({
+    int? id,
+    String? name,
+    String? postalCode,
+    Query$UserFindMany$userFindMany$address$subdistrict$district? district,
+    String? $__typename,
+  });
+  CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district<TRes>
+      get district;
+}
+
+class _CopyWithImpl$Query$UserFindMany$userFindMany$address$subdistrict<TRes>
+    implements
+        CopyWith$Query$UserFindMany$userFindMany$address$subdistrict<TRes> {
+  _CopyWithImpl$Query$UserFindMany$userFindMany$address$subdistrict(
+    this._instance,
+    this._then,
+  );
+
+  final Query$UserFindMany$userFindMany$address$subdistrict _instance;
+
+  final TRes Function(Query$UserFindMany$userFindMany$address$subdistrict)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? postalCode = _undefined,
+    Object? district = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$UserFindMany$userFindMany$address$subdistrict(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        postalCode: postalCode == _undefined || postalCode == null
+            ? _instance.postalCode
+            : (postalCode as String),
+        district: district == _undefined || district == null
+            ? _instance.district
+            : (district
+                as Query$UserFindMany$userFindMany$address$subdistrict$district),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district<TRes>
+      get district {
+    final local$district = _instance.district;
+    return CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district(
+        local$district, (e) => call(district: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$UserFindMany$userFindMany$address$subdistrict<
+        TRes>
+    implements
+        CopyWith$Query$UserFindMany$userFindMany$address$subdistrict<TRes> {
+  _CopyWithStubImpl$Query$UserFindMany$userFindMany$address$subdistrict(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    String? postalCode,
+    Query$UserFindMany$userFindMany$address$subdistrict$district? district,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district<TRes>
+      get district =>
+          CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district
+              .stub(_res);
+}
+
+class Query$UserFindMany$userFindMany$address$subdistrict$district {
+  Query$UserFindMany$userFindMany$address$subdistrict$district({
+    required this.id,
+    required this.name,
+    required this.city,
+    this.$__typename = 'District',
+  });
+
+  factory Query$UserFindMany$userFindMany$address$subdistrict$district.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$city = json['city'];
+    final l$$__typename = json['__typename'];
+    return Query$UserFindMany$userFindMany$address$subdistrict$district(
+      id: (l$id as int),
+      name: (l$name as String),
+      city: Query$UserFindMany$userFindMany$address$subdistrict$district$city
+          .fromJson((l$city as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final Query$UserFindMany$userFindMany$address$subdistrict$district$city city;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$city = city;
+    _resultData['city'] = l$city.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$city = city;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$city,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Query$UserFindMany$userFindMany$address$subdistrict$district) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$city = city;
+    final lOther$city = other.city;
+    if (l$city != lOther$city) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$UserFindMany$userFindMany$address$subdistrict$district
+    on Query$UserFindMany$userFindMany$address$subdistrict$district {
+  CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district<
+          Query$UserFindMany$userFindMany$address$subdistrict$district>
+      get copyWith =>
+          CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district<
+    TRes> {
+  factory CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district(
+    Query$UserFindMany$userFindMany$address$subdistrict$district instance,
+    TRes Function(Query$UserFindMany$userFindMany$address$subdistrict$district)
+        then,
+  ) = _CopyWithImpl$Query$UserFindMany$userFindMany$address$subdistrict$district;
+
+  factory CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$UserFindMany$userFindMany$address$subdistrict$district;
+
+  TRes call({
+    int? id,
+    String? name,
+    Query$UserFindMany$userFindMany$address$subdistrict$district$city? city,
+    String? $__typename,
+  });
+  CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city<
+      TRes> get city;
+}
+
+class _CopyWithImpl$Query$UserFindMany$userFindMany$address$subdistrict$district<
+        TRes>
+    implements
+        CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district<
+            TRes> {
+  _CopyWithImpl$Query$UserFindMany$userFindMany$address$subdistrict$district(
+    this._instance,
+    this._then,
+  );
+
+  final Query$UserFindMany$userFindMany$address$subdistrict$district _instance;
+
+  final TRes Function(
+      Query$UserFindMany$userFindMany$address$subdistrict$district) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? city = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$UserFindMany$userFindMany$address$subdistrict$district(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        city: city == _undefined || city == null
+            ? _instance.city
+            : (city
+                as Query$UserFindMany$userFindMany$address$subdistrict$district$city),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city<
+      TRes> get city {
+    final local$city = _instance.city;
+    return CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city(
+        local$city, (e) => call(city: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$UserFindMany$userFindMany$address$subdistrict$district<
+        TRes>
+    implements
+        CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district<
+            TRes> {
+  _CopyWithStubImpl$Query$UserFindMany$userFindMany$address$subdistrict$district(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    Query$UserFindMany$userFindMany$address$subdistrict$district$city? city,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city<
+          TRes>
+      get city =>
+          CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city
+              .stub(_res);
+}
+
+class Query$UserFindMany$userFindMany$address$subdistrict$district$city {
+  Query$UserFindMany$userFindMany$address$subdistrict$district$city({
+    required this.id,
+    required this.name,
+    required this.province,
+    this.$__typename = 'City',
+  });
+
+  factory Query$UserFindMany$userFindMany$address$subdistrict$district$city.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$province = json['province'];
+    final l$$__typename = json['__typename'];
+    return Query$UserFindMany$userFindMany$address$subdistrict$district$city(
+      id: (l$id as int),
+      name: (l$name as String),
+      province:
+          Query$UserFindMany$userFindMany$address$subdistrict$district$city$province
+              .fromJson((l$province as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final Query$UserFindMany$userFindMany$address$subdistrict$district$city$province
+      province;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$province = province;
+    _resultData['province'] = l$province.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$province = province;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$province,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Query$UserFindMany$userFindMany$address$subdistrict$district$city) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$province = province;
+    final lOther$province = other.province;
+    if (l$province != lOther$province) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$UserFindMany$userFindMany$address$subdistrict$district$city
+    on Query$UserFindMany$userFindMany$address$subdistrict$district$city {
+  CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city<
+          Query$UserFindMany$userFindMany$address$subdistrict$district$city>
+      get copyWith =>
+          CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city<
+    TRes> {
+  factory CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city(
+    Query$UserFindMany$userFindMany$address$subdistrict$district$city instance,
+    TRes Function(
+            Query$UserFindMany$userFindMany$address$subdistrict$district$city)
+        then,
+  ) = _CopyWithImpl$Query$UserFindMany$userFindMany$address$subdistrict$district$city;
+
+  factory CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$UserFindMany$userFindMany$address$subdistrict$district$city;
+
+  TRes call({
+    int? id,
+    String? name,
+    Query$UserFindMany$userFindMany$address$subdistrict$district$city$province?
+        province,
+    String? $__typename,
+  });
+  CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province<
+      TRes> get province;
+}
+
+class _CopyWithImpl$Query$UserFindMany$userFindMany$address$subdistrict$district$city<
+        TRes>
+    implements
+        CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city<
+            TRes> {
+  _CopyWithImpl$Query$UserFindMany$userFindMany$address$subdistrict$district$city(
+    this._instance,
+    this._then,
+  );
+
+  final Query$UserFindMany$userFindMany$address$subdistrict$district$city
+      _instance;
+
+  final TRes Function(
+      Query$UserFindMany$userFindMany$address$subdistrict$district$city) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? province = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$UserFindMany$userFindMany$address$subdistrict$district$city(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        province: province == _undefined || province == null
+            ? _instance.province
+            : (province
+                as Query$UserFindMany$userFindMany$address$subdistrict$district$city$province),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province<
+      TRes> get province {
+    final local$province = _instance.province;
+    return CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province(
+        local$province, (e) => call(province: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$UserFindMany$userFindMany$address$subdistrict$district$city<
+        TRes>
+    implements
+        CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city<
+            TRes> {
+  _CopyWithStubImpl$Query$UserFindMany$userFindMany$address$subdistrict$district$city(
+      this._res);
+
+  TRes _res;
+
+  call({
+    int? id,
+    String? name,
+    Query$UserFindMany$userFindMany$address$subdistrict$district$city$province?
+        province,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province<
+          TRes>
+      get province =>
+          CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province
+              .stub(_res);
+}
+
+class Query$UserFindMany$userFindMany$address$subdistrict$district$city$province {
+  Query$UserFindMany$userFindMany$address$subdistrict$district$city$province({
+    required this.id,
+    required this.name,
+    this.$__typename = 'Province',
+  });
+
+  factory Query$UserFindMany$userFindMany$address$subdistrict$district$city$province.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Query$UserFindMany$userFindMany$address$subdistrict$district$city$province(
+      id: (l$id as int),
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int id;
+
+  final String name;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$name,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other
+            is Query$UserFindMany$userFindMany$address$subdistrict$district$city$province) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province
+    on Query$UserFindMany$userFindMany$address$subdistrict$district$city$province {
+  CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province<
+          Query$UserFindMany$userFindMany$address$subdistrict$district$city$province>
+      get copyWith =>
+          CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province<
+    TRes> {
+  factory CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province(
+    Query$UserFindMany$userFindMany$address$subdistrict$district$city$province
+        instance,
+    TRes Function(
+            Query$UserFindMany$userFindMany$address$subdistrict$district$city$province)
+        then,
+  ) = _CopyWithImpl$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province;
+
+  factory CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province;
+
+  TRes call({
+    int? id,
+    String? name,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province<
+        TRes>
+    implements
+        CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province<
+            TRes> {
+  _CopyWithImpl$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province(
+    this._instance,
+    this._then,
+  );
+
+  final Query$UserFindMany$userFindMany$address$subdistrict$district$city$province
+      _instance;
+
+  final TRes Function(
+          Query$UserFindMany$userFindMany$address$subdistrict$district$city$province)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(
+          Query$UserFindMany$userFindMany$address$subdistrict$district$city$province(
+        id: id == _undefined || id == null ? _instance.id : (id as int),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province<
+        TRes>
+    implements
+        CopyWith$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province<
+            TRes> {
+  _CopyWithStubImpl$Query$UserFindMany$userFindMany$address$subdistrict$district$city$province(
+      this._res);
 
   TRes _res;
 

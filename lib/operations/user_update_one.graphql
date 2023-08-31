@@ -16,10 +16,17 @@ mutation UserUpdateOne($userUpdateOneArgs: UserUpdateOneArgs!) {
       id
       firstName
       lastName
+      referralCode
     }
     school {
       id
       name
+      address {
+        id
+        name
+        subdistrictId
+      }
+      updatedAt
     }
     address {
       id
@@ -55,7 +62,6 @@ mutation UserUpdateOne($userUpdateOneArgs: UserUpdateOneArgs!) {
         accountNumber
       }
     }
-    createdAt
     updatedAt
   }
 }

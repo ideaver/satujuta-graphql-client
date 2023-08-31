@@ -4,7 +4,6 @@ query UserFindMany($userFindManyArgs: UserFindManyArgs!) {
     firstName
     lastName
     email
-    addressId
     userRole
     userType
     avatarUrl
@@ -21,6 +20,27 @@ query UserFindMany($userFindManyArgs: UserFindManyArgs!) {
     school {
       id
       name
+    }
+    address {
+      id
+      name
+      subdistrict {
+        id
+        name
+        postalCode
+        district {
+          id
+          name
+          city {
+            id
+            name
+            province {
+              id
+              name
+            }
+          }
+        }
+      }
     }
     _count {
       referredUsers
