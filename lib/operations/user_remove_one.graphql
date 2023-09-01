@@ -1,0 +1,5 @@
+mutation UserRemove($userId: String!) {
+  userRemove(userId: $userId) {
+    updatedAt
+  }
+}

@@ -3733,6 +3733,7 @@ type Mutation {
 
   """Datanya benar2 terhapus dari db"""
   withdrawalRequestRemove(withdrawalRequestId: Float!): Boolean
+  authPasswordReset(email: String!): String!
 }
 
 input NestedBoolFilter {

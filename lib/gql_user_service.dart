@@ -13,6 +13,7 @@ import 'operations/generated/reward_claim_find_many.graphql.dart';
 import 'operations/generated/transaction_find_many.graphql.dart';
 import 'operations/generated/user_find_many.graphql.dart';
 import 'operations/generated/user_find_one.graphql.dart';
+import 'operations/generated/user_remove_one.graphql.dart';
 import 'operations/generated/user_update_one.graphql.dart';
 
 class GqlUserService {
@@ -183,6 +184,20 @@ class GqlUserService {
     );
   }
 
+  static Future<QueryResult<Mutation$UserRemove>> userRemoveOne(
+    String userId,
+  ) async {
+    return await GraphQLService.client.mutate(
+      MutationOptions(
+        document: documentNodeMutationUserRemove,
+        parserFn: (data) => Mutation$UserRemove.fromJson(data),
+        variables: {
+          "userId": userId,
+        },
+      ),
+    );
+  }
+
   static Future<QueryResult<Mutation$UserUpdateOne>> passwordUpdateFromUserUpdatedOne(
     String userId,
     String currentPassword,
@@ -206,20 +221,6 @@ class GqlUserService {
       ),
     );
   }
-
-  // static Future<QueryResult<Mutation$ResetPassword>> resetPassword(
-  //   String email,
-  // ) async {
-  //   return await GraphQLService.client.mutate(
-  //     MutationOptions(
-  //       document: documentNodeMutationResetPassword,
-  //       parserFn: (data) => Mutation$ResetPassword.fromJson(data),
-  //       variables: {
-  //         "email": email,
-  //       },
-  //     ),
-  //   );
-  // }
 
   static Future<QueryResult<Query$countReferredUserByUserId>> countReferredUserByUserId({
     required String userId,

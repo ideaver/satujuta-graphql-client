@@ -1,0 +1,6 @@
+query ProgramCategoryFindMany($programCategoryFindManyArgs: ProgramCategoryFindManyArgs!) {
+  programCategoryFindMany(programCategoryFindManyArgs: $programCategoryFindManyArgs) {
+    id
+    name
+  }
+}

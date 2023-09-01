@@ -29,9 +29,53 @@ class GqlHotelService {
     );
   }
 
+  static Future<QueryResult<Query$HotelFindMany>> hotelFindManyByProvinceId({
+    required int provinceId,
+    int? skip = 0,
+    String contains = "",
+  }) async {
+    return await GraphQLService.client.query(
+      QueryOptions(
+        document: documentNodeQueryHotelFindMany,
+        parserFn: (data) => Query$HotelFindMany.fromJson(data),
+        variables: {
+          "hotelFindManyArgs": {
+            "skip": skip,
+            "take": 10,
+            "orderBy": [
+              {"startDate": "desc"}
+            ],
+            "where": {
+              "address": {
+                "is": {
+                  "subdistrict": {
+                    "is": {
+                      "district": {
+                        "is": {
+                          "city": {
+                            "is": {
+                              "provinceId": {
+                                "equals": provinceId,
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+      ),
+    );
+  }
+
   static Future<QueryResult<Query$HotelFindMany>> hotelFindManyByCityId({
     required int cityId,
     int? skip = 0,
+    String contains = "",
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(

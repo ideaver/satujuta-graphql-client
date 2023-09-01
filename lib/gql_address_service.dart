@@ -87,6 +87,7 @@ class GqlAddressService {
             "skip": skip,
             // "take": 10,
             "where": {
+              "cityId": {"equals": cityId},
               "OR": [
                 {
                   "id": {"equals": null}
@@ -94,9 +95,6 @@ class GqlAddressService {
                 {
                   "name": {"contains": contains}
                 },
-                {
-                  "cityId": {"equals": cityId}
-                }
               ]
             },
             "orderBy": [
@@ -122,15 +120,13 @@ class GqlAddressService {
             "skip": skip,
             // "take": 10,
             "where": {
+              "districtId": {"equals": districtId},
               "OR": [
                 {
                   "id": {"equals": null}
                 },
                 {
                   "name": {"contains": contains}
-                },
-                {
-                  "districtId": {"equals": districtId}
                 }
               ]
             },

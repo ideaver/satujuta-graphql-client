@@ -1,0 +1,6 @@
+query ProvinceFindManyWhereHotelNotNull($provinceFindManyArgs: ProvinceFindManyArgs!) {
+  provinceFindMany(provinceFindManyArgs: $provinceFindManyArgs) {
+    id
+    name
+  }
+}
