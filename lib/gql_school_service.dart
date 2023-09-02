@@ -7,7 +7,7 @@ class GqlSchoolService {
   static Future<QueryResult<Query$SchoolFindMany>> schoolFindManyByName({
     required int cityId,
     int? skip = 0,
-    String contains = "",
+    String? contains,
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -18,7 +18,7 @@ class GqlSchoolService {
             "skip": skip,
             "take": 10,
             "where": {
-              "name": {"contains": contains},
+              "name": {"contains": contains ?? ""},
               "address": {
                 "is": {
                   "subdistrict": {
@@ -60,6 +60,25 @@ class GqlSchoolService {
   //           "orderBy": [
   //             {"name": "asc"}
   //           ]
+  //         }
+  //       },
+  //     ),
+  //   );
+  // }
+
+  // static Future<QueryResult<Query$SchoolCreateOne>> schoolCreateOne({
+  //   int? skip = 0,
+  //   String contains = "",
+  // }) async {
+  //   return await GraphQLService.client.query(
+  //     QueryOptions(
+  //       document: documentNodeQuerySchoolCreateOne,
+  //       parserFn: (data) => Query$SchoolCreateOne.fromJson(data),
+  //       variables: {
+  //         "schoolCreateOneArgs": {
+  //           "data": {
+  //             "name": {"contains": contains}
+  //           },
   //         }
   //       },
   //     ),

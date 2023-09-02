@@ -52,15 +52,13 @@ class GqlAddressService {
             "skip": skip,
             // "take": 10,
             "where": {
+              "provinceId": {"equals": provinceId},
               "OR": [
                 {
                   "id": {"equals": null}
                 },
                 {
-                  "name": {"contains": contains}
-                },
-                {
-                  "provinceId": {"equals": 1}
+                  "name": {"contains": contains ?? ""}
                 }
               ]
             },
@@ -93,7 +91,7 @@ class GqlAddressService {
                   "id": {"equals": null}
                 },
                 {
-                  "name": {"contains": contains}
+                  "name": {"contains": contains ?? ""}
                 },
               ]
             },
@@ -126,7 +124,7 @@ class GqlAddressService {
                   "id": {"equals": null}
                 },
                 {
-                  "name": {"contains": contains}
+                  "name": {"contains": contains ?? ""}
                 }
               ]
             },
