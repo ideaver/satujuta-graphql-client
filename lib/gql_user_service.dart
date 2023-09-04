@@ -1,4 +1,5 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:http/http.dart';
 import 'package:satujuta_gql_client/operations/generated/count_referred_user_by_user_id.graphql.dart';
 import 'package:satujuta_gql_client/operations/generated/count_user_of_student_within_referred_id.graphql.dart';
 import 'package:satujuta_gql_client/operations/generated/get_account_total_balance.graphql.dart';
@@ -15,6 +16,7 @@ import 'operations/generated/user_find_many.graphql.dart';
 import 'operations/generated/user_find_one.graphql.dart';
 import 'operations/generated/user_remove_one.graphql.dart';
 import 'operations/generated/user_update_one.graphql.dart';
+import 'operations/generated/user_update_one_avatar_url.graphql.dart';
 
 class GqlUserService {
   static Future<QueryResult<Query$UserFindMany>> userFindMany({
@@ -89,10 +91,11 @@ class GqlUserService {
     );
   }
 
-  static Future<QueryResult<Mutation$UserCreate>> userCreateOne(
-    Mutation$UserCreate$userCreateOne user,
-    String userPassword,
-  ) async {
+  static Future<QueryResult<Mutation$UserCreate>> userCreateOne({
+    required Mutation$UserCreate$userCreateOne user,
+    required String userPassword,
+    MultipartFile? avatarFile,
+  }) async {
     return await GraphQLService.client.mutate(
       MutationOptions(
         document: documentNodeMutationUserCreate,
@@ -140,7 +143,8 @@ class GqlUserService {
                 "create": user.accounts?.map((e) => e.toJson()).toList(),
               }
             }
-          }
+          },
+          "file": avatarFile,
         },
       ),
     );
@@ -179,6 +183,22 @@ class GqlUserService {
               }
             },
           }
+        },
+      ),
+    );
+  }
+
+  static Future<QueryResult<Mutation$UserUpdateOneAvatarUrl>> userUpdateOneAvatarUrlAvatarUrl({
+    required String userId,
+    required MultipartFile multipartFile,
+  }) async {
+    return await GraphQLService.client.mutate(
+      MutationOptions(
+        document: documentNodeMutationUserUpdateOneAvatarUrl,
+        parserFn: (data) => Mutation$UserUpdateOneAvatarUrl.fromJson(data),
+        variables: {
+          "file": multipartFile,
+          "userId": userId,
         },
       ),
     );

@@ -37,6 +37,12 @@ type AccountBalanceByCustomPeriodQuery {
   totalBalance: Float
 }
 
+input AccountBalanceOfPlatformByCustomPeriod {
+  start: DateTime!
+  end: DateTime!
+  period: Period!
+}
+
 enum AccountCategory {
   EQUITY
   PROJECT
@@ -565,6 +571,7 @@ type Bank {
   name: String!
   logoUrl: String!
   accountNumber: Float!
+  isActive: Boolean!
   accountId: Int!
   account: Account!
 }
@@ -580,6 +587,7 @@ type BankCountAggregate {
   name: Int!
   logoUrl: Int!
   accountNumber: Int!
+  isActive: Int!
   accountId: Int!
   _all: Int!
 }
@@ -611,6 +619,7 @@ type BankMaxAggregate {
   name: String
   logoUrl: String
   accountNumber: Float
+  isActive: Boolean
   accountId: Int
 }
 
@@ -619,6 +628,7 @@ type BankMinAggregate {
   name: String
   logoUrl: String
   accountNumber: Float
+  isActive: Boolean
   accountId: Int
 }
 
@@ -634,6 +644,7 @@ enum BankScalarFieldEnum {
   name
   logoUrl
   accountNumber
+  isActive
   accountId
 }
 
@@ -2554,8 +2565,6 @@ type ImagesCountAggregate {
 }
 
 input ImagesCreateManyHotelImageInput {
-  fileType: FileType!
-  filesize: Float!
   url: String!
 }
 
@@ -2565,8 +2574,6 @@ input ImagesCreateManyHotelImageInputEnvelope {
 }
 
 input ImagesCreateManyProgramImageInput {
-  fileType: FileType!
-  filesize: Float!
   url: String!
 }
 
@@ -2576,8 +2583,6 @@ input ImagesCreateManyProgramImageInputEnvelope {
 }
 
 input ImagesCreateManyProjectImageInput {
-  fileType: FileType!
-  filesize: Float!
   url: String!
 }
 
@@ -2587,8 +2592,6 @@ input ImagesCreateManyProjectImageInputEnvelope {
 }
 
 input ImagesCreateManyRewardImageInput {
-  fileType: FileType!
-  filesize: Float!
   url: String!
 }
 
@@ -2646,26 +2649,18 @@ input ImagesCreateOrConnectWithoutRewardImageInput {
 }
 
 input ImagesCreateWithoutHotelImageInput {
-  fileType: FileType!
-  filesize: Float!
   url: String!
 }
 
 input ImagesCreateWithoutProgramImageInput {
-  fileType: FileType!
-  filesize: Float!
   url: String!
 }
 
 input ImagesCreateWithoutProjectImageInput {
-  fileType: FileType!
-  filesize: Float!
   url: String!
 }
 
 input ImagesCreateWithoutRewardImageInput {
-  fileType: FileType!
-  filesize: Float!
   url: String!
 }
 
@@ -2728,10 +2723,7 @@ type ImagesSumAggregate {
 }
 
 input ImagesUpdateManyMutationInput {
-  fileType: EnumFileTypeFieldUpdateOperationsInput
-  filesize: FloatFieldUpdateOperationsInput
   url: StringFieldUpdateOperationsInput
-  createdAt: DateTimeFieldUpdateOperationsInput
 }
 
 input ImagesUpdateManyWithoutHotelImageNestedInput {
@@ -2811,40 +2803,28 @@ input ImagesUpdateManyWithWhereWithoutRewardImageInput {
 }
 
 input ImagesUpdateWithoutHotelImageInput {
-  fileType: EnumFileTypeFieldUpdateOperationsInput
-  filesize: FloatFieldUpdateOperationsInput
   url: StringFieldUpdateOperationsInput
-  createdAt: DateTimeFieldUpdateOperationsInput
   programImage: ProgramUpdateOneWithoutImagesNestedInput
   rewardImage: RewardUpdateOneWithoutImagesNestedInput
   projectImage: ProjectUpdateOneWithoutImagesNestedInput
 }
 
 input ImagesUpdateWithoutProgramImageInput {
-  fileType: EnumFileTypeFieldUpdateOperationsInput
-  filesize: FloatFieldUpdateOperationsInput
   url: StringFieldUpdateOperationsInput
-  createdAt: DateTimeFieldUpdateOperationsInput
   hotelImage: HotelUpdateOneWithoutImagesNestedInput
   rewardImage: RewardUpdateOneWithoutImagesNestedInput
   projectImage: ProjectUpdateOneWithoutImagesNestedInput
 }
 
 input ImagesUpdateWithoutProjectImageInput {
-  fileType: EnumFileTypeFieldUpdateOperationsInput
-  filesize: FloatFieldUpdateOperationsInput
   url: StringFieldUpdateOperationsInput
-  createdAt: DateTimeFieldUpdateOperationsInput
   hotelImage: HotelUpdateOneWithoutImagesNestedInput
   programImage: ProgramUpdateOneWithoutImagesNestedInput
   rewardImage: RewardUpdateOneWithoutImagesNestedInput
 }
 
 input ImagesUpdateWithoutRewardImageInput {
-  fileType: EnumFileTypeFieldUpdateOperationsInput
-  filesize: FloatFieldUpdateOperationsInput
   url: StringFieldUpdateOperationsInput
-  createdAt: DateTimeFieldUpdateOperationsInput
   hotelImage: HotelUpdateOneWithoutImagesNestedInput
   programImage: ProgramUpdateOneWithoutImagesNestedInput
   projectImage: ProjectUpdateOneWithoutImagesNestedInput
@@ -3557,11 +3537,16 @@ type LoginResponse {
 }
 
 type Mutation {
+  authPasswordReset(email: String!): String!
+
   """Deskripsinya ada disini loh"""
-  userCreateOne(userCreateArgs: UserCreateArgs!): User
+  userCreateOne(file: Upload, userCreateArgs: UserCreateArgs!): User
 
   """Deskripsinya ada disini loh"""
   userUpdateOne(userUpdateOneArgs: UserUpdateOneArgs!): User!
+
+  """Dapat URL baru, gambar lama terhapus di storage"""
+  userUpdateOneAvatarUrl(file: Upload!, userId: String!): String!
 
   """
   Hanya berupa softdelete, artinya semua data tetap ada di database. field
@@ -3578,6 +3563,9 @@ type Mutation {
 
   """Datanya benar2 terhapus dari db"""
   itemRemove(itemId: Float!): Boolean
+
+  """Header wajib ada apollo-require-preflight = true agar tidak CSRF error"""
+  uploadSingle(file: Upload!, userId: String!): String!
 
   """Deskripsinya ada disini loh"""
   hotelCreateOne(hotelCreateArgs: HotelCreateArgs!): Hotel
@@ -3733,7 +3721,6 @@ type Mutation {
 
   """Datanya benar2 terhapus dari db"""
   withdrawalRequestRemove(withdrawalRequestId: Float!): Boolean
-  authPasswordReset(email: String!): String!
 }
 
 input NestedBoolFilter {
@@ -5638,6 +5625,7 @@ type Query {
   getAccountTotalBalance(accountId: Float!): Float!
   userFindManyOrderByAccountBalance(userFindManyOrderByAccountBalanceArgs: UserFindManyOrderByAccountBalanceArgs!): [UserFindManyOrderByAccountBalance!]!
   getAccountBalanceByCustomPeriod(accountBalanceByCustomPeriodArgs: AccountBalanceByCustomPeriodArgs!): [AccountBalanceByCustomPeriodQuery!]!
+  getAccountBalanceOfPlatformByCustomPeriod(accountBalanceOfPlatformByCustomPeriod: AccountBalanceOfPlatformByCustomPeriod!): [AccountBalanceByCustomPeriodQuery!]!
 
   """Deskripsinya ada disini loh"""
   schoolFindMany(schoolFindManyArgs: SchoolFindManyArgs!): [School!]
@@ -7238,6 +7226,9 @@ input TransactionWhereUniqueInput {
   invoice: InvoiceNullableRelationFilter
   withdrawalRequest: WithdrawalRequestNullableRelationFilter
 }
+
+"""The `Upload` scalar type represents a file upload."""
+scalar Upload
 
 """@/O/b/j/e/c/t/T/y/p/e('UserAbstract', { isAbstract: true })"""
 type User {

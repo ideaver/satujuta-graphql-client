@@ -15,7 +15,14 @@ class GraphQLService {
     authLink = AuthLink(getToken: getToken);
 
     // TODO SECURE ENDPOINT FROM ENV
-    httpLink = HttpLink("http://103.163.139.104:3000/graphql");
+    httpLink = HttpLink(
+      "http://103.163.139.104:3000/graphql",
+      defaultHeaders: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Apollo-Require-Preflight': 'true'
+      },
+    );
 
     /// The order of the links in the array matters!
     link = Link.from([authLink, httpLink]);
