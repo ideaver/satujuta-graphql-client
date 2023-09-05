@@ -5,7 +5,9 @@ import 'operations/generated/faq_find_many.graphql.dart';
 import 'schema/generated/schema.graphql.dart';
 
 class GqlFaqService {
-  static Future<QueryResult<Query$FaqFindMany>> faqFindMany(Enum$FaqType type) async {
+  static Future<QueryResult<Query$FaqFindMany>> faqFindMany({
+    required Enum$FaqType type,
+  }) async {
     return await GraphQLService.client.query(
       QueryOptions(
         document: documentNodeQueryFaqFindMany,

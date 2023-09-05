@@ -1,5 +1,5 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:satujuta_gql_client/operations/generated/subdistrict_find_many.graphql.dart';
+import 'operations/generated/subdistrict_find_many.graphql.dart';
 
 import 'graphql_service.dart';
 import 'operations/generated/city_find_many.graphql.dart';

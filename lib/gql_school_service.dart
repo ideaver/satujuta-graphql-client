@@ -68,7 +68,7 @@ class GqlSchoolService {
 
   // static Future<QueryResult<Query$SchoolCreateOne>> schoolCreateOne({
   //   int? skip = 0,
-  //   String contains = "",
+  //   String contains,
   // }) async {
   //   return await GraphQLService.client.query(
   //     QueryOptions(
@@ -77,7 +77,7 @@ class GqlSchoolService {
   //       variables: {
   //         "schoolCreateOneArgs": {
   //           "data": {
-  //             "name": {"contains": contains}
+  //             "name": {"contains": contains ?? ''}
   //           },
   //         }
   //       },

@@ -1,26 +1,27 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:http/http.dart';
-import 'package:satujuta_gql_client/operations/generated/count_referred_user_by_user_id.graphql.dart';
-import 'package:satujuta_gql_client/operations/generated/count_user_of_student_within_referred_id.graphql.dart';
-import 'package:satujuta_gql_client/operations/generated/get_account_total_balance.graphql.dart';
-import 'package:satujuta_gql_client/operations/generated/get_current_user_point_balance_by_user_id_from_point_transaction_find_first.graphql.dart';
-import 'package:satujuta_gql_client/operations/generated/user_create_one.graphql.dart';
-import 'package:satujuta_gql_client/schema/generated/schema.graphql.dart';
 
 import 'graphql_service.dart';
+import 'operations/generated/count_referred_user_by_user_id.graphql.dart';
+import 'operations/generated/count_user_of_student_within_referred_id.graphql.dart';
 import 'operations/generated/get_account_balance_by_custom_period.graphql.dart';
+import 'operations/generated/get_account_total_balance.graphql.dart';
+import 'operations/generated/get_current_user_point_balance_by_user_id_from_point_transaction_find_first.graphql.dart';
 import 'operations/generated/point_transaction_find_many.graphql.dart';
 import 'operations/generated/reward_claim_find_many.graphql.dart';
 import 'operations/generated/transaction_find_many.graphql.dart';
+import 'operations/generated/user_create_one.graphql.dart';
 import 'operations/generated/user_find_many.graphql.dart';
 import 'operations/generated/user_find_one.graphql.dart';
 import 'operations/generated/user_remove_one.graphql.dart';
 import 'operations/generated/user_update_one.graphql.dart';
 import 'operations/generated/user_update_one_avatar_url.graphql.dart';
+import 'schema/generated/schema.graphql.dart';
 
 class GqlUserService {
   static Future<QueryResult<Query$UserFindMany>> userFindMany({
     int skip = 0,
+    String? contains,
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -45,7 +46,7 @@ class GqlUserService {
   static Future<QueryResult<Query$UserFindMany>> referredUserFindManyByReferrerId(
     String refererId, {
     int? skip = 0,
-    String contains = "",
+    String? contains,
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -77,7 +78,9 @@ class GqlUserService {
     );
   }
 
-  static Future<QueryResult<Query$UserFindOne>> userFindOne(String id) async {
+  static Future<QueryResult<Query$UserFindOne>> userFindOne({
+    required String id,
+  }) async {
     return await GraphQLService.client.query(
       QueryOptions(
         document: documentNodeQueryUserFindOne,
@@ -150,9 +153,9 @@ class GqlUserService {
     );
   }
 
-  static Future<QueryResult<Mutation$UserUpdateOne>> userUpdateOne(
-    Mutation$UserUpdateOne$userUpdateOne user,
-  ) async {
+  static Future<QueryResult<Mutation$UserUpdateOne>> userUpdateOne({
+    required Mutation$UserUpdateOne$userUpdateOne user,
+  }) async {
     return await GraphQLService.client.mutate(
       MutationOptions(
         document: documentNodeMutationUserUpdateOne,
@@ -204,9 +207,9 @@ class GqlUserService {
     );
   }
 
-  static Future<QueryResult<Mutation$UserRemove>> userRemoveOne(
-    String userId,
-  ) async {
+  static Future<QueryResult<Mutation$UserRemove>> userRemoveOne({
+    required String userId,
+  }) async {
     return await GraphQLService.client.mutate(
       MutationOptions(
         document: documentNodeMutationUserRemove,
@@ -218,11 +221,11 @@ class GqlUserService {
     );
   }
 
-  static Future<QueryResult<Mutation$UserUpdateOne>> passwordUpdateFromUserUpdatedOne(
-    String userId,
-    String currentPassword,
-    String newPassword,
-  ) async {
+  static Future<QueryResult<Mutation$UserUpdateOne>> passwordUpdateFromUserUpdatedOne({
+    required String userId,
+    required String currentPassword,
+    required String newPassword,
+  }) async {
     return await GraphQLService.client.mutate(
       MutationOptions(
         document: documentNodeMutationUserUpdateOne,

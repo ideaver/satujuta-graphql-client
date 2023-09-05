@@ -1,8 +1,8 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:satujuta_gql_client/operations/generated/account_update_one.graphql.dart';
-import 'package:satujuta_gql_client/operations/generated/bank_find_many.graphql.dart';
 
 import 'graphql_service.dart';
+import 'operations/generated/account_update_one.graphql.dart';
+import 'operations/generated/bank_find_many.graphql.dart';
 
 class GqlAccountService {
   static Future<QueryResult<Query$BankFindMany>> bankFindMany() async {

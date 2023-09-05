@@ -1,12 +1,15 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:satujuta_gql_client/operations/generated/program_remove.graphql.dart';
 
 import 'graphql_service.dart';
 import 'operations/generated/program_category_find_many.graphql.dart';
 import 'operations/generated/program_find_many.graphql.dart';
+import 'operations/generated/program_remove.graphql.dart';
 
 class GqlProgramService {
-  static Future<QueryResult<Query$ProgramFindMany>> programFindMany({int? skip}) async {
+  static Future<QueryResult<Query$ProgramFindMany>> programFindMany({
+    int? skip,
+    String? contains,
+  }) async {
     return await GraphQLService.client.query(
       QueryOptions(
         document: documentNodeQueryProgramFindMany,
@@ -26,7 +29,7 @@ class GqlProgramService {
     );
   }
 
-  static Future<QueryResult<Query$ProgramCategoryFindMany>> programCategoryFindMany({int? skip}) async {
+  static Future<QueryResult<Query$ProgramCategoryFindMany>> programCategoryFindMany({int? skip, String? contains,}) async {
     return await GraphQLService.client.query(
       QueryOptions(
         document: documentNodeQueryProgramCategoryFindMany,
@@ -47,6 +50,7 @@ class GqlProgramService {
   static Future<QueryResult<Query$ProgramFindMany>> programFindManyByCategoryId({
     required int programCategoryId,
     int? skip,
+     String? contains,
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -104,7 +108,7 @@ class GqlProgramService {
   // }
 
   static Future<QueryResult<Mutation$ProgramRemove>> programRemove(
-    String programId,
+    {required String programId,}
   ) async {
     return await GraphQLService.client.query(
       QueryOptions(
