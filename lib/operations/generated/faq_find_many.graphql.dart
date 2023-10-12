@@ -1,37 +1,55 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
 class Variables$Query$FaqFindMany {
-  factory Variables$Query$FaqFindMany(
-          {required Input$FaqFindManyArgs faqFindManyArgs}) =>
+  factory Variables$Query$FaqFindMany({
+    Input$FaqWhereInput? where,
+    List<Input$FaqOrderByWithRelationInput>? orderBy,
+  }) =>
       Variables$Query$FaqFindMany._({
-        r'faqFindManyArgs': faqFindManyArgs,
+        if (where != null) r'where': where,
+        if (orderBy != null) r'orderBy': orderBy,
       });
 
   Variables$Query$FaqFindMany._(this._$data);
 
   factory Variables$Query$FaqFindMany.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$faqFindManyArgs = data['faqFindManyArgs'];
-    result$data['faqFindManyArgs'] = Input$FaqFindManyArgs.fromJson(
-        (l$faqFindManyArgs as Map<String, dynamic>));
+    if (data.containsKey('where')) {
+      final l$where = data['where'];
+      result$data['where'] = l$where == null
+          ? null
+          : Input$FaqWhereInput.fromJson((l$where as Map<String, dynamic>));
+    }
+    if (data.containsKey('orderBy')) {
+      final l$orderBy = data['orderBy'];
+      result$data['orderBy'] = (l$orderBy as List<dynamic>?)
+          ?.map((e) => Input$FaqOrderByWithRelationInput.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList();
+    }
     return Variables$Query$FaqFindMany._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$FaqFindManyArgs get faqFindManyArgs =>
-      (_$data['faqFindManyArgs'] as Input$FaqFindManyArgs);
+  Input$FaqWhereInput? get where => (_$data['where'] as Input$FaqWhereInput?);
+  List<Input$FaqOrderByWithRelationInput>? get orderBy =>
+      (_$data['orderBy'] as List<Input$FaqOrderByWithRelationInput>?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$faqFindManyArgs = faqFindManyArgs;
-    result$data['faqFindManyArgs'] = l$faqFindManyArgs.toJson();
+    if (_$data.containsKey('where')) {
+      final l$where = where;
+      result$data['where'] = l$where?.toJson();
+    }
+    if (_$data.containsKey('orderBy')) {
+      final l$orderBy = orderBy;
+      result$data['orderBy'] = l$orderBy?.map((e) => e.toJson()).toList();
+    }
     return result$data;
   }
 
@@ -49,9 +67,31 @@ class Variables$Query$FaqFindMany {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$faqFindManyArgs = faqFindManyArgs;
-    final lOther$faqFindManyArgs = other.faqFindManyArgs;
-    if (l$faqFindManyArgs != lOther$faqFindManyArgs) {
+    final l$where = where;
+    final lOther$where = other.where;
+    if (_$data.containsKey('where') != other._$data.containsKey('where')) {
+      return false;
+    }
+    if (l$where != lOther$where) {
+      return false;
+    }
+    final l$orderBy = orderBy;
+    final lOther$orderBy = other.orderBy;
+    if (_$data.containsKey('orderBy') != other._$data.containsKey('orderBy')) {
+      return false;
+    }
+    if (l$orderBy != null && lOther$orderBy != null) {
+      if (l$orderBy.length != lOther$orderBy.length) {
+        return false;
+      }
+      for (int i = 0; i < l$orderBy.length; i++) {
+        final l$orderBy$entry = l$orderBy[i];
+        final lOther$orderBy$entry = lOther$orderBy[i];
+        if (l$orderBy$entry != lOther$orderBy$entry) {
+          return false;
+        }
+      }
+    } else if (l$orderBy != lOther$orderBy) {
       return false;
     }
     return true;
@@ -59,8 +99,16 @@ class Variables$Query$FaqFindMany {
 
   @override
   int get hashCode {
-    final l$faqFindManyArgs = faqFindManyArgs;
-    return Object.hashAll([l$faqFindManyArgs]);
+    final l$where = where;
+    final l$orderBy = orderBy;
+    return Object.hashAll([
+      _$data.containsKey('where') ? l$where : const {},
+      _$data.containsKey('orderBy')
+          ? l$orderBy == null
+              ? null
+              : Object.hashAll(l$orderBy.map((v) => v))
+          : const {},
+    ]);
   }
 }
 
@@ -73,7 +121,10 @@ abstract class CopyWith$Variables$Query$FaqFindMany<TRes> {
   factory CopyWith$Variables$Query$FaqFindMany.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$FaqFindMany;
 
-  TRes call({Input$FaqFindManyArgs? faqFindManyArgs});
+  TRes call({
+    Input$FaqWhereInput? where,
+    List<Input$FaqOrderByWithRelationInput>? orderBy,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$FaqFindMany<TRes>
@@ -89,11 +140,15 @@ class _CopyWithImpl$Variables$Query$FaqFindMany<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? faqFindManyArgs = _undefined}) =>
+  TRes call({
+    Object? where = _undefined,
+    Object? orderBy = _undefined,
+  }) =>
       _then(Variables$Query$FaqFindMany._({
         ..._instance._$data,
-        if (faqFindManyArgs != _undefined && faqFindManyArgs != null)
-          'faqFindManyArgs': (faqFindManyArgs as Input$FaqFindManyArgs),
+        if (where != _undefined) 'where': (where as Input$FaqWhereInput?),
+        if (orderBy != _undefined)
+          'orderBy': (orderBy as List<Input$FaqOrderByWithRelationInput>?),
       }));
 }
 
@@ -103,7 +158,11 @@ class _CopyWithStubImpl$Variables$Query$FaqFindMany<TRes>
 
   TRes _res;
 
-  call({Input$FaqFindManyArgs? faqFindManyArgs}) => _res;
+  call({
+    Input$FaqWhereInput? where,
+    List<Input$FaqOrderByWithRelationInput>? orderBy,
+  }) =>
+      _res;
 }
 
 class Query$FaqFindMany {
@@ -270,14 +329,26 @@ const documentNodeQueryFaqFindMany = DocumentNode(definitions: [
     name: NameNode(value: 'FaqFindMany'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'faqFindManyArgs')),
+        variable: VariableNode(name: NameNode(value: 'where')),
         type: NamedTypeNode(
-          name: NameNode(value: 'FaqFindManyArgs'),
-          isNonNull: true,
+          name: NameNode(value: 'FaqWhereInput'),
+          isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'orderBy')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'FaqOrderByWithRelationInput'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -286,9 +357,13 @@ const documentNodeQueryFaqFindMany = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'faqFindManyArgs'),
-            value: VariableNode(name: NameNode(value: 'faqFindManyArgs')),
-          )
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'orderBy'),
+            value: VariableNode(name: NameNode(value: 'orderBy')),
+          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
@@ -364,7 +439,7 @@ class Options$Query$FaqFindMany
     extends graphql.QueryOptions<Query$FaqFindMany> {
   Options$Query$FaqFindMany({
     String? operationName,
-    required Variables$Query$FaqFindMany variables,
+    Variables$Query$FaqFindMany? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -376,7 +451,7 @@ class Options$Query$FaqFindMany
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -410,7 +485,7 @@ class WatchOptions$Query$FaqFindMany
     extends graphql.WatchQueryOptions<Query$FaqFindMany> {
   WatchOptions$Query$FaqFindMany({
     String? operationName,
-    required Variables$Query$FaqFindMany variables,
+    Variables$Query$FaqFindMany? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -422,7 +497,7 @@ class WatchOptions$Query$FaqFindMany
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -441,42 +516,42 @@ class WatchOptions$Query$FaqFindMany
 class FetchMoreOptions$Query$FaqFindMany extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$FaqFindMany({
     required graphql.UpdateQuery updateQuery,
-    required Variables$Query$FaqFindMany variables,
+    Variables$Query$FaqFindMany? variables,
   }) : super(
           updateQuery: updateQuery,
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           document: documentNodeQueryFaqFindMany,
         );
 }
 
 extension ClientExtension$Query$FaqFindMany on graphql.GraphQLClient {
   Future<graphql.QueryResult<Query$FaqFindMany>> query$FaqFindMany(
-          Options$Query$FaqFindMany options) async =>
-      await this.query(options);
+          [Options$Query$FaqFindMany? options]) async =>
+      await this.query(options ?? Options$Query$FaqFindMany());
   graphql.ObservableQuery<Query$FaqFindMany> watchQuery$FaqFindMany(
-          WatchOptions$Query$FaqFindMany options) =>
-      this.watchQuery(options);
+          [WatchOptions$Query$FaqFindMany? options]) =>
+      this.watchQuery(options ?? WatchOptions$Query$FaqFindMany());
   void writeQuery$FaqFindMany({
     required Query$FaqFindMany data,
-    required Variables$Query$FaqFindMany variables,
+    Variables$Query$FaqFindMany? variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
           operation: graphql.Operation(document: documentNodeQueryFaqFindMany),
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
   Query$FaqFindMany? readQuery$FaqFindMany({
-    required Variables$Query$FaqFindMany variables,
+    Variables$Query$FaqFindMany? variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
         operation: graphql.Operation(document: documentNodeQueryFaqFindMany),
-        variables: variables.toJson(),
+        variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
     );
@@ -485,21 +560,21 @@ extension ClientExtension$Query$FaqFindMany on graphql.GraphQLClient {
 }
 
 graphql_flutter.QueryHookResult<Query$FaqFindMany> useQuery$FaqFindMany(
-        Options$Query$FaqFindMany options) =>
-    graphql_flutter.useQuery(options);
+        [Options$Query$FaqFindMany? options]) =>
+    graphql_flutter.useQuery(options ?? Options$Query$FaqFindMany());
 graphql.ObservableQuery<Query$FaqFindMany> useWatchQuery$FaqFindMany(
-        WatchOptions$Query$FaqFindMany options) =>
-    graphql_flutter.useWatchQuery(options);
+        [WatchOptions$Query$FaqFindMany? options]) =>
+    graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$FaqFindMany());
 
 class Query$FaqFindMany$Widget
     extends graphql_flutter.Query<Query$FaqFindMany> {
   Query$FaqFindMany$Widget({
     widgets.Key? key,
-    required Options$Query$FaqFindMany options,
+    Options$Query$FaqFindMany? options,
     required graphql_flutter.QueryBuilder<Query$FaqFindMany> builder,
   }) : super(
           key: key,
-          options: options,
+          options: options ?? Options$Query$FaqFindMany(),
           builder: builder,
         );
 }

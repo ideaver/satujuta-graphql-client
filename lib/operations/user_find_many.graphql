@@ -1,5 +1,5 @@
-query UserFindMany($userFindManyArgs: UserFindManyArgs!) {
-  userFindMany(userFindManyArgs: $userFindManyArgs) {
+query UserFindMany($where: UserWhereInput, $orderBy: [UserOrderByWithRelationInput!], $skip: Int, $take: Int) {
+  userFindMany(where: $where, orderBy: $orderBy, skip: $skip, take: $take) {
     id
     firstName
     lastName

@@ -1,5 +1,5 @@
-query RewardClaimFindManyByUserId($rewardClaimFindManyArgs: RewardClaimFindManyArgs) {
-  rewardClaimFindMany(rewardClaimFindManyArgs: $rewardClaimFindManyArgs) {
+query RewardClaimFindManyByUserId($skip: Int, $take: Int, $where: RewardClaimWhereInput, $orderBy: [RewardClaimOrderByWithRelationInput!]) {
+  rewardClaimFindMany(skip: $skip, take: $take, where: $where, orderBy: $orderBy) {
     id
     reward {
       id

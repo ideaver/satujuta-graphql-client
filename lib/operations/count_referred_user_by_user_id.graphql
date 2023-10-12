@@ -1,5 +1,5 @@
-query countReferredUserByUserId($userFindUniqueArgs: UserFindUniqueArgs!) {
-  userFindOne(userFindUniqueArgs: $userFindUniqueArgs) {
+query CountReferredUserByUserId($where: UserWhereUniqueInput!) {
+  userFindOne(where: $where) {
     _count {
       referredUsers
     }

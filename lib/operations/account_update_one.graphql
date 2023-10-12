@@ -1,5 +1,5 @@
-mutation AccountUpdateOne($accountUpdateOneArgs: AccountUpdateOneArgs!) {
-  accountUpdateOne(accountUpdateOneArgs: $accountUpdateOneArgs) {
+mutation AccountUpdateOne($data: AccountUpdateInput!, $where: AccountWhereUniqueInput!) {
+  accountUpdateOne(data: $data, where: $where) {
     id
     name
     accountNumber

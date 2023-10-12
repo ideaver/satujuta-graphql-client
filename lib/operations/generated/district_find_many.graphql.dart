@@ -1,37 +1,79 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
 class Variables$Query$DistrictFindMany {
-  factory Variables$Query$DistrictFindMany(
-          {required Input$DistrictFindManyArgs districtFindManyArgs}) =>
+  factory Variables$Query$DistrictFindMany({
+    int? skip,
+    int? take,
+    Input$DistrictWhereInput? where,
+    List<Input$DistrictOrderByWithRelationInput>? orderBy,
+  }) =>
       Variables$Query$DistrictFindMany._({
-        r'districtFindManyArgs': districtFindManyArgs,
+        if (skip != null) r'skip': skip,
+        if (take != null) r'take': take,
+        if (where != null) r'where': where,
+        if (orderBy != null) r'orderBy': orderBy,
       });
 
   Variables$Query$DistrictFindMany._(this._$data);
 
   factory Variables$Query$DistrictFindMany.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$districtFindManyArgs = data['districtFindManyArgs'];
-    result$data['districtFindManyArgs'] = Input$DistrictFindManyArgs.fromJson(
-        (l$districtFindManyArgs as Map<String, dynamic>));
+    if (data.containsKey('skip')) {
+      final l$skip = data['skip'];
+      result$data['skip'] = (l$skip as int?);
+    }
+    if (data.containsKey('take')) {
+      final l$take = data['take'];
+      result$data['take'] = (l$take as int?);
+    }
+    if (data.containsKey('where')) {
+      final l$where = data['where'];
+      result$data['where'] = l$where == null
+          ? null
+          : Input$DistrictWhereInput.fromJson(
+              (l$where as Map<String, dynamic>));
+    }
+    if (data.containsKey('orderBy')) {
+      final l$orderBy = data['orderBy'];
+      result$data['orderBy'] = (l$orderBy as List<dynamic>?)
+          ?.map((e) => Input$DistrictOrderByWithRelationInput.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList();
+    }
     return Variables$Query$DistrictFindMany._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$DistrictFindManyArgs get districtFindManyArgs =>
-      (_$data['districtFindManyArgs'] as Input$DistrictFindManyArgs);
+  int? get skip => (_$data['skip'] as int?);
+  int? get take => (_$data['take'] as int?);
+  Input$DistrictWhereInput? get where =>
+      (_$data['where'] as Input$DistrictWhereInput?);
+  List<Input$DistrictOrderByWithRelationInput>? get orderBy =>
+      (_$data['orderBy'] as List<Input$DistrictOrderByWithRelationInput>?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$districtFindManyArgs = districtFindManyArgs;
-    result$data['districtFindManyArgs'] = l$districtFindManyArgs.toJson();
+    if (_$data.containsKey('skip')) {
+      final l$skip = skip;
+      result$data['skip'] = l$skip;
+    }
+    if (_$data.containsKey('take')) {
+      final l$take = take;
+      result$data['take'] = l$take;
+    }
+    if (_$data.containsKey('where')) {
+      final l$where = where;
+      result$data['where'] = l$where?.toJson();
+    }
+    if (_$data.containsKey('orderBy')) {
+      final l$orderBy = orderBy;
+      result$data['orderBy'] = l$orderBy?.map((e) => e.toJson()).toList();
+    }
     return result$data;
   }
 
@@ -49,9 +91,47 @@ class Variables$Query$DistrictFindMany {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$districtFindManyArgs = districtFindManyArgs;
-    final lOther$districtFindManyArgs = other.districtFindManyArgs;
-    if (l$districtFindManyArgs != lOther$districtFindManyArgs) {
+    final l$skip = skip;
+    final lOther$skip = other.skip;
+    if (_$data.containsKey('skip') != other._$data.containsKey('skip')) {
+      return false;
+    }
+    if (l$skip != lOther$skip) {
+      return false;
+    }
+    final l$take = take;
+    final lOther$take = other.take;
+    if (_$data.containsKey('take') != other._$data.containsKey('take')) {
+      return false;
+    }
+    if (l$take != lOther$take) {
+      return false;
+    }
+    final l$where = where;
+    final lOther$where = other.where;
+    if (_$data.containsKey('where') != other._$data.containsKey('where')) {
+      return false;
+    }
+    if (l$where != lOther$where) {
+      return false;
+    }
+    final l$orderBy = orderBy;
+    final lOther$orderBy = other.orderBy;
+    if (_$data.containsKey('orderBy') != other._$data.containsKey('orderBy')) {
+      return false;
+    }
+    if (l$orderBy != null && lOther$orderBy != null) {
+      if (l$orderBy.length != lOther$orderBy.length) {
+        return false;
+      }
+      for (int i = 0; i < l$orderBy.length; i++) {
+        final l$orderBy$entry = l$orderBy[i];
+        final lOther$orderBy$entry = lOther$orderBy[i];
+        if (l$orderBy$entry != lOther$orderBy$entry) {
+          return false;
+        }
+      }
+    } else if (l$orderBy != lOther$orderBy) {
       return false;
     }
     return true;
@@ -59,8 +139,20 @@ class Variables$Query$DistrictFindMany {
 
   @override
   int get hashCode {
-    final l$districtFindManyArgs = districtFindManyArgs;
-    return Object.hashAll([l$districtFindManyArgs]);
+    final l$skip = skip;
+    final l$take = take;
+    final l$where = where;
+    final l$orderBy = orderBy;
+    return Object.hashAll([
+      _$data.containsKey('skip') ? l$skip : const {},
+      _$data.containsKey('take') ? l$take : const {},
+      _$data.containsKey('where') ? l$where : const {},
+      _$data.containsKey('orderBy')
+          ? l$orderBy == null
+              ? null
+              : Object.hashAll(l$orderBy.map((v) => v))
+          : const {},
+    ]);
   }
 }
 
@@ -73,7 +165,12 @@ abstract class CopyWith$Variables$Query$DistrictFindMany<TRes> {
   factory CopyWith$Variables$Query$DistrictFindMany.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$DistrictFindMany;
 
-  TRes call({Input$DistrictFindManyArgs? districtFindManyArgs});
+  TRes call({
+    int? skip,
+    int? take,
+    Input$DistrictWhereInput? where,
+    List<Input$DistrictOrderByWithRelationInput>? orderBy,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$DistrictFindMany<TRes>
@@ -89,12 +186,19 @@ class _CopyWithImpl$Variables$Query$DistrictFindMany<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? districtFindManyArgs = _undefined}) =>
+  TRes call({
+    Object? skip = _undefined,
+    Object? take = _undefined,
+    Object? where = _undefined,
+    Object? orderBy = _undefined,
+  }) =>
       _then(Variables$Query$DistrictFindMany._({
         ..._instance._$data,
-        if (districtFindManyArgs != _undefined && districtFindManyArgs != null)
-          'districtFindManyArgs':
-              (districtFindManyArgs as Input$DistrictFindManyArgs),
+        if (skip != _undefined) 'skip': (skip as int?),
+        if (take != _undefined) 'take': (take as int?),
+        if (where != _undefined) 'where': (where as Input$DistrictWhereInput?),
+        if (orderBy != _undefined)
+          'orderBy': (orderBy as List<Input$DistrictOrderByWithRelationInput>?),
       }));
 }
 
@@ -104,7 +208,13 @@ class _CopyWithStubImpl$Variables$Query$DistrictFindMany<TRes>
 
   TRes _res;
 
-  call({Input$DistrictFindManyArgs? districtFindManyArgs}) => _res;
+  call({
+    int? skip,
+    int? take,
+    Input$DistrictWhereInput? where,
+    List<Input$DistrictOrderByWithRelationInput>? orderBy,
+  }) =>
+      _res;
 }
 
 class Query$DistrictFindMany {
@@ -274,14 +384,44 @@ const documentNodeQueryDistrictFindMany = DocumentNode(definitions: [
     name: NameNode(value: 'DistrictFindMany'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'districtFindManyArgs')),
+        variable: VariableNode(name: NameNode(value: 'skip')),
         type: NamedTypeNode(
-          name: NameNode(value: 'DistrictFindManyArgs'),
-          isNonNull: true,
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'take')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'where')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'DistrictWhereInput'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'orderBy')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'DistrictOrderByWithRelationInput'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -290,9 +430,21 @@ const documentNodeQueryDistrictFindMany = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'districtFindManyArgs'),
-            value: VariableNode(name: NameNode(value: 'districtFindManyArgs')),
-          )
+            name: NameNode(value: 'skip'),
+            value: VariableNode(name: NameNode(value: 'skip')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'take'),
+            value: VariableNode(name: NameNode(value: 'take')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'orderBy'),
+            value: VariableNode(name: NameNode(value: 'orderBy')),
+          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
@@ -341,7 +493,7 @@ class Options$Query$DistrictFindMany
     extends graphql.QueryOptions<Query$DistrictFindMany> {
   Options$Query$DistrictFindMany({
     String? operationName,
-    required Variables$Query$DistrictFindMany variables,
+    Variables$Query$DistrictFindMany? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -353,7 +505,7 @@ class Options$Query$DistrictFindMany
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -389,7 +541,7 @@ class WatchOptions$Query$DistrictFindMany
     extends graphql.WatchQueryOptions<Query$DistrictFindMany> {
   WatchOptions$Query$DistrictFindMany({
     String? operationName,
-    required Variables$Query$DistrictFindMany variables,
+    Variables$Query$DistrictFindMany? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -401,7 +553,7 @@ class WatchOptions$Query$DistrictFindMany
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -420,44 +572,44 @@ class WatchOptions$Query$DistrictFindMany
 class FetchMoreOptions$Query$DistrictFindMany extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$DistrictFindMany({
     required graphql.UpdateQuery updateQuery,
-    required Variables$Query$DistrictFindMany variables,
+    Variables$Query$DistrictFindMany? variables,
   }) : super(
           updateQuery: updateQuery,
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           document: documentNodeQueryDistrictFindMany,
         );
 }
 
 extension ClientExtension$Query$DistrictFindMany on graphql.GraphQLClient {
   Future<graphql.QueryResult<Query$DistrictFindMany>> query$DistrictFindMany(
-          Options$Query$DistrictFindMany options) async =>
-      await this.query(options);
+          [Options$Query$DistrictFindMany? options]) async =>
+      await this.query(options ?? Options$Query$DistrictFindMany());
   graphql.ObservableQuery<Query$DistrictFindMany> watchQuery$DistrictFindMany(
-          WatchOptions$Query$DistrictFindMany options) =>
-      this.watchQuery(options);
+          [WatchOptions$Query$DistrictFindMany? options]) =>
+      this.watchQuery(options ?? WatchOptions$Query$DistrictFindMany());
   void writeQuery$DistrictFindMany({
     required Query$DistrictFindMany data,
-    required Variables$Query$DistrictFindMany variables,
+    Variables$Query$DistrictFindMany? variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
           operation:
               graphql.Operation(document: documentNodeQueryDistrictFindMany),
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
   Query$DistrictFindMany? readQuery$DistrictFindMany({
-    required Variables$Query$DistrictFindMany variables,
+    Variables$Query$DistrictFindMany? variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
         operation:
             graphql.Operation(document: documentNodeQueryDistrictFindMany),
-        variables: variables.toJson(),
+        variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
     );
@@ -466,21 +618,22 @@ extension ClientExtension$Query$DistrictFindMany on graphql.GraphQLClient {
 }
 
 graphql_flutter.QueryHookResult<Query$DistrictFindMany>
-    useQuery$DistrictFindMany(Options$Query$DistrictFindMany options) =>
-        graphql_flutter.useQuery(options);
+    useQuery$DistrictFindMany([Options$Query$DistrictFindMany? options]) =>
+        graphql_flutter.useQuery(options ?? Options$Query$DistrictFindMany());
 graphql.ObservableQuery<Query$DistrictFindMany> useWatchQuery$DistrictFindMany(
-        WatchOptions$Query$DistrictFindMany options) =>
-    graphql_flutter.useWatchQuery(options);
+        [WatchOptions$Query$DistrictFindMany? options]) =>
+    graphql_flutter
+        .useWatchQuery(options ?? WatchOptions$Query$DistrictFindMany());
 
 class Query$DistrictFindMany$Widget
     extends graphql_flutter.Query<Query$DistrictFindMany> {
   Query$DistrictFindMany$Widget({
     widgets.Key? key,
-    required Options$Query$DistrictFindMany options,
+    Options$Query$DistrictFindMany? options,
     required graphql_flutter.QueryBuilder<Query$DistrictFindMany> builder,
   }) : super(
           key: key,
-          options: options,
+          options: options ?? Options$Query$DistrictFindMany(),
           builder: builder,
         );
 }

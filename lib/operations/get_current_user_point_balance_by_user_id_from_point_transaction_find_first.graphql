@@ -1,5 +1,5 @@
-query GetCurrentUserPointBalanceByUserIdFromPointTransactionFindFirst($pointTransactionFindFirstArgs: PointTransactionFindFirstArgs!) {
-  pointTransactionFindFirst(pointTransactionFindFirstArgs: $pointTransactionFindFirstArgs) {
-    currentBalance
-  }
-}
+# query GetCurrentUserPointBalanceByUserIdFromPointTransactionFindFirst($pointTransactionFindFirstArgs: PointTransactionFindFirstArgs!) {
+#   pointTransactionFindFirst(pointTransactionFindFirstArgs: $pointTransactionFindFirstArgs) {
+#     currentBalance
+#   }
+# }

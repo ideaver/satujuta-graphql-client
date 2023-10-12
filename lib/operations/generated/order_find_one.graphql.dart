@@ -1,37 +1,35 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
 class Variables$Query$OrderFindOne {
   factory Variables$Query$OrderFindOne(
-          {required Input$OrderFindUniqueArgs orderFindUniqueArgs}) =>
+          {required Input$OrderWhereUniqueInput where}) =>
       Variables$Query$OrderFindOne._({
-        r'orderFindUniqueArgs': orderFindUniqueArgs,
+        r'where': where,
       });
 
   Variables$Query$OrderFindOne._(this._$data);
 
   factory Variables$Query$OrderFindOne.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$orderFindUniqueArgs = data['orderFindUniqueArgs'];
-    result$data['orderFindUniqueArgs'] = Input$OrderFindUniqueArgs.fromJson(
-        (l$orderFindUniqueArgs as Map<String, dynamic>));
+    final l$where = data['where'];
+    result$data['where'] =
+        Input$OrderWhereUniqueInput.fromJson((l$where as Map<String, dynamic>));
     return Variables$Query$OrderFindOne._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$OrderFindUniqueArgs get orderFindUniqueArgs =>
-      (_$data['orderFindUniqueArgs'] as Input$OrderFindUniqueArgs);
+  Input$OrderWhereUniqueInput get where =>
+      (_$data['where'] as Input$OrderWhereUniqueInput);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$orderFindUniqueArgs = orderFindUniqueArgs;
-    result$data['orderFindUniqueArgs'] = l$orderFindUniqueArgs.toJson();
+    final l$where = where;
+    result$data['where'] = l$where.toJson();
     return result$data;
   }
 
@@ -49,9 +47,9 @@ class Variables$Query$OrderFindOne {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$orderFindUniqueArgs = orderFindUniqueArgs;
-    final lOther$orderFindUniqueArgs = other.orderFindUniqueArgs;
-    if (l$orderFindUniqueArgs != lOther$orderFindUniqueArgs) {
+    final l$where = where;
+    final lOther$where = other.where;
+    if (l$where != lOther$where) {
       return false;
     }
     return true;
@@ -59,8 +57,8 @@ class Variables$Query$OrderFindOne {
 
   @override
   int get hashCode {
-    final l$orderFindUniqueArgs = orderFindUniqueArgs;
-    return Object.hashAll([l$orderFindUniqueArgs]);
+    final l$where = where;
+    return Object.hashAll([l$where]);
   }
 }
 
@@ -73,7 +71,7 @@ abstract class CopyWith$Variables$Query$OrderFindOne<TRes> {
   factory CopyWith$Variables$Query$OrderFindOne.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$OrderFindOne;
 
-  TRes call({Input$OrderFindUniqueArgs? orderFindUniqueArgs});
+  TRes call({Input$OrderWhereUniqueInput? where});
 }
 
 class _CopyWithImpl$Variables$Query$OrderFindOne<TRes>
@@ -89,12 +87,11 @@ class _CopyWithImpl$Variables$Query$OrderFindOne<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? orderFindUniqueArgs = _undefined}) =>
+  TRes call({Object? where = _undefined}) =>
       _then(Variables$Query$OrderFindOne._({
         ..._instance._$data,
-        if (orderFindUniqueArgs != _undefined && orderFindUniqueArgs != null)
-          'orderFindUniqueArgs':
-              (orderFindUniqueArgs as Input$OrderFindUniqueArgs),
+        if (where != _undefined && where != null)
+          'where': (where as Input$OrderWhereUniqueInput),
       }));
 }
 
@@ -104,7 +101,7 @@ class _CopyWithStubImpl$Variables$Query$OrderFindOne<TRes>
 
   TRes _res;
 
-  call({Input$OrderFindUniqueArgs? orderFindUniqueArgs}) => _res;
+  call({Input$OrderWhereUniqueInput? where}) => _res;
 }
 
 class Query$OrderFindOne {
@@ -249,9 +246,9 @@ const documentNodeQueryOrderFindOne = DocumentNode(definitions: [
     name: NameNode(value: 'OrderFindOne'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'orderFindUniqueArgs')),
+        variable: VariableNode(name: NameNode(value: 'where')),
         type: NamedTypeNode(
-          name: NameNode(value: 'OrderFindUniqueArgs'),
+          name: NameNode(value: 'OrderWhereUniqueInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -265,8 +262,8 @@ const documentNodeQueryOrderFindOne = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'orderFindUniqueArgs'),
-            value: VariableNode(name: NameNode(value: 'orderFindUniqueArgs')),
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
           )
         ],
         directives: [],

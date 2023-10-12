@@ -1,18 +1,20 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
 class Variables$Query$ProgramCategoryFindMany {
-  factory Variables$Query$ProgramCategoryFindMany(
-          {required Input$ProgramCategoryFindManyArgs
-              programCategoryFindManyArgs}) =>
+  factory Variables$Query$ProgramCategoryFindMany({
+    int? skip,
+    int? take,
+    List<Input$ProgramCategoryOrderByWithRelationInput>? orderBy,
+  }) =>
       Variables$Query$ProgramCategoryFindMany._({
-        r'programCategoryFindManyArgs': programCategoryFindManyArgs,
+        if (skip != null) r'skip': skip,
+        if (take != null) r'take': take,
+        if (orderBy != null) r'orderBy': orderBy,
       });
 
   Variables$Query$ProgramCategoryFindMany._(this._$data);
@@ -20,23 +22,45 @@ class Variables$Query$ProgramCategoryFindMany {
   factory Variables$Query$ProgramCategoryFindMany.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$programCategoryFindManyArgs = data['programCategoryFindManyArgs'];
-    result$data['programCategoryFindManyArgs'] =
-        Input$ProgramCategoryFindManyArgs.fromJson(
-            (l$programCategoryFindManyArgs as Map<String, dynamic>));
+    if (data.containsKey('skip')) {
+      final l$skip = data['skip'];
+      result$data['skip'] = (l$skip as int?);
+    }
+    if (data.containsKey('take')) {
+      final l$take = data['take'];
+      result$data['take'] = (l$take as int?);
+    }
+    if (data.containsKey('orderBy')) {
+      final l$orderBy = data['orderBy'];
+      result$data['orderBy'] = (l$orderBy as List<dynamic>?)
+          ?.map((e) => Input$ProgramCategoryOrderByWithRelationInput.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList();
+    }
     return Variables$Query$ProgramCategoryFindMany._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$ProgramCategoryFindManyArgs get programCategoryFindManyArgs =>
-      (_$data['programCategoryFindManyArgs']
-          as Input$ProgramCategoryFindManyArgs);
+  int? get skip => (_$data['skip'] as int?);
+  int? get take => (_$data['take'] as int?);
+  List<Input$ProgramCategoryOrderByWithRelationInput>? get orderBy =>
+      (_$data['orderBy']
+          as List<Input$ProgramCategoryOrderByWithRelationInput>?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$programCategoryFindManyArgs = programCategoryFindManyArgs;
-    result$data['programCategoryFindManyArgs'] =
-        l$programCategoryFindManyArgs.toJson();
+    if (_$data.containsKey('skip')) {
+      final l$skip = skip;
+      result$data['skip'] = l$skip;
+    }
+    if (_$data.containsKey('take')) {
+      final l$take = take;
+      result$data['take'] = l$take;
+    }
+    if (_$data.containsKey('orderBy')) {
+      final l$orderBy = orderBy;
+      result$data['orderBy'] = l$orderBy?.map((e) => e.toJson()).toList();
+    }
     return result$data;
   }
 
@@ -55,10 +79,39 @@ class Variables$Query$ProgramCategoryFindMany {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$programCategoryFindManyArgs = programCategoryFindManyArgs;
-    final lOther$programCategoryFindManyArgs =
-        other.programCategoryFindManyArgs;
-    if (l$programCategoryFindManyArgs != lOther$programCategoryFindManyArgs) {
+    final l$skip = skip;
+    final lOther$skip = other.skip;
+    if (_$data.containsKey('skip') != other._$data.containsKey('skip')) {
+      return false;
+    }
+    if (l$skip != lOther$skip) {
+      return false;
+    }
+    final l$take = take;
+    final lOther$take = other.take;
+    if (_$data.containsKey('take') != other._$data.containsKey('take')) {
+      return false;
+    }
+    if (l$take != lOther$take) {
+      return false;
+    }
+    final l$orderBy = orderBy;
+    final lOther$orderBy = other.orderBy;
+    if (_$data.containsKey('orderBy') != other._$data.containsKey('orderBy')) {
+      return false;
+    }
+    if (l$orderBy != null && lOther$orderBy != null) {
+      if (l$orderBy.length != lOther$orderBy.length) {
+        return false;
+      }
+      for (int i = 0; i < l$orderBy.length; i++) {
+        final l$orderBy$entry = l$orderBy[i];
+        final lOther$orderBy$entry = lOther$orderBy[i];
+        if (l$orderBy$entry != lOther$orderBy$entry) {
+          return false;
+        }
+      }
+    } else if (l$orderBy != lOther$orderBy) {
       return false;
     }
     return true;
@@ -66,8 +119,18 @@ class Variables$Query$ProgramCategoryFindMany {
 
   @override
   int get hashCode {
-    final l$programCategoryFindManyArgs = programCategoryFindManyArgs;
-    return Object.hashAll([l$programCategoryFindManyArgs]);
+    final l$skip = skip;
+    final l$take = take;
+    final l$orderBy = orderBy;
+    return Object.hashAll([
+      _$data.containsKey('skip') ? l$skip : const {},
+      _$data.containsKey('take') ? l$take : const {},
+      _$data.containsKey('orderBy')
+          ? l$orderBy == null
+              ? null
+              : Object.hashAll(l$orderBy.map((v) => v))
+          : const {},
+    ]);
   }
 }
 
@@ -80,7 +143,11 @@ abstract class CopyWith$Variables$Query$ProgramCategoryFindMany<TRes> {
   factory CopyWith$Variables$Query$ProgramCategoryFindMany.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$ProgramCategoryFindMany;
 
-  TRes call({Input$ProgramCategoryFindManyArgs? programCategoryFindManyArgs});
+  TRes call({
+    int? skip,
+    int? take,
+    List<Input$ProgramCategoryOrderByWithRelationInput>? orderBy,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$ProgramCategoryFindMany<TRes>
@@ -96,13 +163,18 @@ class _CopyWithImpl$Variables$Query$ProgramCategoryFindMany<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? programCategoryFindManyArgs = _undefined}) =>
+  TRes call({
+    Object? skip = _undefined,
+    Object? take = _undefined,
+    Object? orderBy = _undefined,
+  }) =>
       _then(Variables$Query$ProgramCategoryFindMany._({
         ..._instance._$data,
-        if (programCategoryFindManyArgs != _undefined &&
-            programCategoryFindManyArgs != null)
-          'programCategoryFindManyArgs': (programCategoryFindManyArgs
-              as Input$ProgramCategoryFindManyArgs),
+        if (skip != _undefined) 'skip': (skip as int?),
+        if (take != _undefined) 'take': (take as int?),
+        if (orderBy != _undefined)
+          'orderBy':
+              (orderBy as List<Input$ProgramCategoryOrderByWithRelationInput>?),
       }));
 }
 
@@ -112,7 +184,11 @@ class _CopyWithStubImpl$Variables$Query$ProgramCategoryFindMany<TRes>
 
   TRes _res;
 
-  call({Input$ProgramCategoryFindManyArgs? programCategoryFindManyArgs}) =>
+  call({
+    int? skip,
+    int? take,
+    List<Input$ProgramCategoryOrderByWithRelationInput>? orderBy,
+  }) =>
       _res;
 }
 
@@ -293,15 +369,35 @@ const documentNodeQueryProgramCategoryFindMany = DocumentNode(definitions: [
     name: NameNode(value: 'ProgramCategoryFindMany'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable:
-            VariableNode(name: NameNode(value: 'programCategoryFindManyArgs')),
+        variable: VariableNode(name: NameNode(value: 'skip')),
         type: NamedTypeNode(
-          name: NameNode(value: 'ProgramCategoryFindManyArgs'),
-          isNonNull: true,
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'take')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'orderBy')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'ProgramCategoryOrderByWithRelationInput'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -310,10 +406,17 @@ const documentNodeQueryProgramCategoryFindMany = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'programCategoryFindManyArgs'),
-            value: VariableNode(
-                name: NameNode(value: 'programCategoryFindManyArgs')),
-          )
+            name: NameNode(value: 'skip'),
+            value: VariableNode(name: NameNode(value: 'skip')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'take'),
+            value: VariableNode(name: NameNode(value: 'take')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'orderBy'),
+            value: VariableNode(name: NameNode(value: 'orderBy')),
+          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
@@ -362,7 +465,7 @@ class Options$Query$ProgramCategoryFindMany
     extends graphql.QueryOptions<Query$ProgramCategoryFindMany> {
   Options$Query$ProgramCategoryFindMany({
     String? operationName,
-    required Variables$Query$ProgramCategoryFindMany variables,
+    Variables$Query$ProgramCategoryFindMany? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -374,7 +477,7 @@ class Options$Query$ProgramCategoryFindMany
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -410,7 +513,7 @@ class WatchOptions$Query$ProgramCategoryFindMany
     extends graphql.WatchQueryOptions<Query$ProgramCategoryFindMany> {
   WatchOptions$Query$ProgramCategoryFindMany({
     String? operationName,
-    required Variables$Query$ProgramCategoryFindMany variables,
+    Variables$Query$ProgramCategoryFindMany? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -422,7 +525,7 @@ class WatchOptions$Query$ProgramCategoryFindMany
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -442,10 +545,10 @@ class FetchMoreOptions$Query$ProgramCategoryFindMany
     extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$ProgramCategoryFindMany({
     required graphql.UpdateQuery updateQuery,
-    required Variables$Query$ProgramCategoryFindMany variables,
+    Variables$Query$ProgramCategoryFindMany? variables,
   }) : super(
           updateQuery: updateQuery,
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           document: documentNodeQueryProgramCategoryFindMany,
         );
 }
@@ -454,35 +557,36 @@ extension ClientExtension$Query$ProgramCategoryFindMany
     on graphql.GraphQLClient {
   Future<graphql.QueryResult<Query$ProgramCategoryFindMany>>
       query$ProgramCategoryFindMany(
-              Options$Query$ProgramCategoryFindMany options) async =>
-          await this.query(options);
+              [Options$Query$ProgramCategoryFindMany? options]) async =>
+          await this.query(options ?? Options$Query$ProgramCategoryFindMany());
   graphql.ObservableQuery<Query$ProgramCategoryFindMany>
       watchQuery$ProgramCategoryFindMany(
-              WatchOptions$Query$ProgramCategoryFindMany options) =>
-          this.watchQuery(options);
+              [WatchOptions$Query$ProgramCategoryFindMany? options]) =>
+          this.watchQuery(
+              options ?? WatchOptions$Query$ProgramCategoryFindMany());
   void writeQuery$ProgramCategoryFindMany({
     required Query$ProgramCategoryFindMany data,
-    required Variables$Query$ProgramCategoryFindMany variables,
+    Variables$Query$ProgramCategoryFindMany? variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
           operation: graphql.Operation(
               document: documentNodeQueryProgramCategoryFindMany),
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
   Query$ProgramCategoryFindMany? readQuery$ProgramCategoryFindMany({
-    required Variables$Query$ProgramCategoryFindMany variables,
+    Variables$Query$ProgramCategoryFindMany? variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
         operation: graphql.Operation(
             document: documentNodeQueryProgramCategoryFindMany),
-        variables: variables.toJson(),
+        variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
     );
@@ -494,23 +598,25 @@ extension ClientExtension$Query$ProgramCategoryFindMany
 
 graphql_flutter.QueryHookResult<Query$ProgramCategoryFindMany>
     useQuery$ProgramCategoryFindMany(
-            Options$Query$ProgramCategoryFindMany options) =>
-        graphql_flutter.useQuery(options);
+            [Options$Query$ProgramCategoryFindMany? options]) =>
+        graphql_flutter
+            .useQuery(options ?? Options$Query$ProgramCategoryFindMany());
 graphql.ObservableQuery<Query$ProgramCategoryFindMany>
     useWatchQuery$ProgramCategoryFindMany(
-            WatchOptions$Query$ProgramCategoryFindMany options) =>
-        graphql_flutter.useWatchQuery(options);
+            [WatchOptions$Query$ProgramCategoryFindMany? options]) =>
+        graphql_flutter.useWatchQuery(
+            options ?? WatchOptions$Query$ProgramCategoryFindMany());
 
 class Query$ProgramCategoryFindMany$Widget
     extends graphql_flutter.Query<Query$ProgramCategoryFindMany> {
   Query$ProgramCategoryFindMany$Widget({
     widgets.Key? key,
-    required Options$Query$ProgramCategoryFindMany options,
+    Options$Query$ProgramCategoryFindMany? options,
     required graphql_flutter.QueryBuilder<Query$ProgramCategoryFindMany>
         builder,
   }) : super(
           key: key,
-          options: options,
+          options: options ?? Options$Query$ProgramCategoryFindMany(),
           builder: builder,
         );
 }

@@ -1,21 +1,17 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:http/http.dart';
+import 'package:satujuta_gql_client/operations/generated/user_delete.graphql.dart';
 
 import 'graphql_service.dart';
 import 'operations/generated/count_referred_user_by_user_id.graphql.dart';
 import 'operations/generated/count_user_of_student_within_referred_id.graphql.dart';
 import 'operations/generated/get_account_balance_by_custom_period.graphql.dart';
 import 'operations/generated/get_account_total_balance.graphql.dart';
-import 'operations/generated/get_current_user_point_balance_by_user_id_from_point_transaction_find_first.graphql.dart';
-import 'operations/generated/point_transaction_find_many.graphql.dart';
 import 'operations/generated/reward_claim_find_many.graphql.dart';
 import 'operations/generated/transaction_find_many.graphql.dart';
 import 'operations/generated/user_create_one.graphql.dart';
 import 'operations/generated/user_find_many.graphql.dart';
 import 'operations/generated/user_find_one.graphql.dart';
-import 'operations/generated/user_remove_one.graphql.dart';
 import 'operations/generated/user_update_one.graphql.dart';
-import 'operations/generated/user_update_one_avatar_url.graphql.dart';
 import 'schema/generated/schema.graphql.dart';
 
 class GqlUserService {
@@ -28,15 +24,27 @@ class GqlUserService {
         document: documentNodeQueryUserFindMany,
         parserFn: (data) => Query$UserFindMany.fromJson(data),
         variables: {
-          "userFindManyArgs": {
-            "orderBy": [
-              {"firstName": "asc"}
-            ],
-            "skip": skip,
-            "take": 10,
-            "where": {
-              "deletedAt": {"equals": null}
-            }
+          "orderBy": [
+            {"firstName": "asc"}
+          ],
+          "skip": skip,
+          "take": contains,
+          "where": {
+            "AND": [
+              {
+                "deletedAt": {"equals": null}
+              },
+              {
+                "userRole": {
+                  "not": {"equals": "SUPERUSER"}
+                }
+              },
+              {
+                "userRole": {
+                  "not": {"equals": "ADMIN"}
+                }
+              }
+            ]
           }
         },
       ),
@@ -53,25 +61,33 @@ class GqlUserService {
         document: documentNodeQueryUserFindMany,
         parserFn: (data) => Query$UserFindMany.fromJson(data),
         variables: {
-          "userFindManyArgs": {
-            "skip": skip,
-            "take": 10,
-            "orderBy": [
-              {"firstName": "asc"}
-            ],
-            "where": {
-              "referredBy": {
-                "is": {
-                  "id": {"equals": refererId}
+          "orderBy": [
+            {"firstName": "asc"}
+          ],
+          "skip": skip,
+          "take": contains,
+          "where": {
+            "referredBy": {
+              "is": {
+                "id": {"equals": refererId}
+              }
+            },
+            "firstName": {"contains": contains},
+            "AND": [
+              {
+                "deletedAt": {"equals": null}
+              },
+              {
+                "userRole": {
+                  "not": {"equals": "SUPERUSER"}
                 }
               },
-              "OR": [
-                {
-                  "firstName": {"contains": contains},
+              {
+                "userRole": {
+                  "not": {"equals": "ADMIN"}
                 }
-              ],
-              "deletedAt": {"equals": null}
-            }
+              }
+            ]
           }
         },
       ),
@@ -86,68 +102,62 @@ class GqlUserService {
         document: documentNodeQueryUserFindOne,
         parserFn: (data) => Query$UserFindOne.fromJson(data),
         variables: {
-          "userFindUniqueArgs": {
-            "where": {"id": id}
-          },
+          "where": {"id": id}
         },
       ),
     );
   }
 
-  static Future<QueryResult<Mutation$UserCreate>> userCreateOne({
-    required Mutation$UserCreate$userCreateOne user,
+  static Future<QueryResult<Mutation$UserCreateOne>> userCreateOne({
+    required Mutation$UserCreateOne$userCreateOne user,
     required String userPassword,
-    MultipartFile? avatarFile,
   }) async {
     return await GraphQLService.client.mutate(
       MutationOptions(
-        document: documentNodeMutationUserCreate,
-        parserFn: (data) => Mutation$UserCreate.fromJson(data),
+        document: documentNodeMutationUserCreateOne,
+        parserFn: (data) => Mutation$UserCreateOne.fromJson(data),
         variables: {
-          "userCreateArgs": {
-            "data": {
-              "firstName": user.firstName,
-              "lastName": user.lastName,
-              "email": user.email,
-              "password": userPassword,
-              "theme": user.theme.name,
-              "userRole": user.userRole.name,
-              "userType": user.userType.name,
-              "whatsappNumber": user.whatsappNumber,
-              "avatarUrl": user.avatarUrl,
-              "address": {
-                "create": {
-                  "name": user.address.name,
-                  "subdistrict": {
-                    "connect": {"id": user.address.subdistrict.id}
-                  }
+          "data": {
+            "firstName": user.firstName,
+            "lastName": user.lastName,
+            "email": user.email,
+            "password": userPassword,
+            "theme": user.theme.name,
+            "userRole": user.userRole.name,
+            "userType": user.userType.name,
+            "whatsappNumber": user.whatsappNumber,
+            "avatarUrl": user.avatarUrl,
+            "address": {
+              "create": {
+                "name": user.address.name,
+                "subdistrict": {
+                  "connect": {"id": user.address.subdistrict.id}
                 }
-              },
-              "referredBy": {
-                "connect": {"referralCode": user.referredBy?.referralCode != "" ? user.referredBy?.referralCode : null}
-              },
-              "school": {
-                "connectOrCreate": {
-                  "where": {"id": user.schoolId ?? 0},
-                  "create": {
-                    "name": user.school?.name ?? "",
-                    "address": {
-                      "create": {
-                        "name": user.school?.address.name ?? "",
-                        "subdistrict": {
-                          "connect": {"id": user.school?.address.subdistrictId}
-                        }
+              }
+            },
+            "referredBy": {
+              "connect": {"referralCode": user.referredBy?.referralCode != "" ? user.referredBy?.referralCode : null}
+            },
+            "school": {
+              "connectOrCreate": {
+                "where": {"id": user.schoolId ?? 0},
+                "create": {
+                  "name": user.school?.name ?? "",
+                  "address": {
+                    "create": {
+                      "name": user.school?.address.name ?? "",
+                      "subdistrict": {
+                        "connect": {"id": user.school?.address.subdistrictId}
                       }
                     }
-                  },
-                }
-              },
-              "accounts": {
-                "create": user.accounts?.map((e) => e.toJson()).toList(),
+                  }
+                },
               }
+            },
+            "accounts": {
+              "create": user.accounts?.map((e) => e.toJson()).toList(),
             }
-          },
-          "file": avatarFile,
+          }
         },
       ),
     );
@@ -161,61 +171,59 @@ class GqlUserService {
         document: documentNodeMutationUserUpdateOne,
         parserFn: (data) => Mutation$UserUpdateOne.fromJson(data),
         variables: {
-          "userUpdateOneArgs": {
-            "where": {"id": user.id},
-            "data": {
-              "firstName": {"set": user.firstName},
-              "lastName": {"set": user.lastName},
-              "email": {"set": user.email},
-              "whatsappNumber": {"set": user.whatsappNumber},
-              "whatsappVerifiedAt": {"set": null},
-              "password": {"set": null},
-              "theme": {"set": user.theme.name},
-              "userType": {"set": user.userType.name},
-              "avatarUrl": {"set": user.avatarUrl},
-              "status": {"set": user.status.name},
-              "address": {
-                "update": {
-                  "data": {
-                    "name": {"set": user.address.name},
-                    "subdistrict": {
-                      "connect": {"id": user.address.subdistrict.id}
-                    },
-                  }
+          "where": {"id": user.id},
+          "data": {
+            "firstName": {"set": user.firstName},
+            "lastName": {"set": user.lastName},
+            "email": {"set": user.email},
+            "whatsappNumber": {"set": user.whatsappNumber},
+            "whatsappVerifiedAt": {"set": null},
+            "password": {"set": null},
+            "theme": {"set": user.theme.name},
+            "userType": {"set": user.userType.name},
+            "avatarUrl": {"set": user.avatarUrl},
+            "status": {"set": user.status.name},
+            "address": {
+              "update": {
+                "data": {
+                  "name": {"set": user.address.name},
+                  "subdistrict": {
+                    "connect": {"id": user.address.subdistrict.id}
+                  },
                 }
               }
-            },
+            }
           }
         },
       ),
     );
   }
 
-  static Future<QueryResult<Mutation$UserUpdateOneAvatarUrl>> userUpdateOneAvatarUrlAvatarUrl({
-    required String userId,
-    required MultipartFile multipartFile,
-  }) async {
-    return await GraphQLService.client.mutate(
-      MutationOptions(
-        document: documentNodeMutationUserUpdateOneAvatarUrl,
-        parserFn: (data) => Mutation$UserUpdateOneAvatarUrl.fromJson(data),
-        variables: {
-          "file": multipartFile,
-          "userId": userId,
-        },
-      ),
-    );
-  }
+  // static Future<QueryResult<Mutation$UserUpdateOneAvatarUrl>> userUpdateOneAvatarUrlAvatarUrl({
+  //   required String userId,
+  //   required MultipartFile multipartFile,
+  // }) async {
+  //   return await GraphQLService.client.mutate(
+  //     MutationOptions(
+  //       document: documentNodeMutationUserUpdateOneAvatarUrl,
+  //       parserFn: (data) => Mutation$UserUpdateOneAvatarUrl.fromJson(data),
+  //       variables: {
+  //         "file": multipartFile,
+  //         "userId": userId,
+  //       },
+  //     ),
+  //   );
+  // }
 
-  static Future<QueryResult<Mutation$UserRemove>> userRemoveOne({
+  static Future<QueryResult<Mutation$UserDelete>> userDelete({
     required String userId,
   }) async {
     return await GraphQLService.client.mutate(
       MutationOptions(
-        document: documentNodeMutationUserRemove,
-        parserFn: (data) => Mutation$UserRemove.fromJson(data),
+        document: documentNodeMutationUserDelete,
+        parserFn: (data) => Mutation$UserDelete.fromJson(data),
         variables: {
-          "userId": userId,
+          "where": {"id": userId}
         },
       ),
     );
@@ -231,31 +239,27 @@ class GqlUserService {
         document: documentNodeMutationUserUpdateOne,
         parserFn: (data) => Mutation$UserUpdateOne.fromJson(data),
         variables: {
-          "userUpdateOneArgs": {
-            "where": {
-              "id": userId,
-              "password": {"equals": currentPassword}
-            },
-            "data": {
-              "password": {"set": newPassword}
-            }
+          "where": {
+            "id": userId,
+            "password": {"equals": currentPassword}
+          },
+          "data": {
+            "password": {"set": newPassword}
           }
         },
       ),
     );
   }
 
-  static Future<QueryResult<Query$countReferredUserByUserId>> countReferredUserByUserId({
+  static Future<QueryResult<Query$CountReferredUserByUserId>> countReferredUserByUserId({
     required String userId,
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
-        document: documentNodeQuerycountReferredUserByUserId,
-        parserFn: (data) => Query$countReferredUserByUserId.fromJson(data),
+        document: documentNodeQueryCountReferredUserByUserId,
+        parserFn: (data) => Query$CountReferredUserByUserId.fromJson(data),
         variables: {
-          "userFindUniqueArgs": {
-            "where": {"id": userId}
-          }
+          "where": {"id": userId}
         },
       ),
     );
@@ -269,56 +273,54 @@ class GqlUserService {
         document: documentNodeQueryCountUserOfStudentWithinReferredId,
         parserFn: (data) => Query$CountUserOfStudentWithinReferredId.fromJson(data),
         variables: {
-          "userFindManyArgs": {
-            "where": {
-              // "deletedAt": {
-              //   "not": {"equals": null}
-              // },
-              "AND": [
-                {
-                  "referredBy": {
-                    "is": {
-                      "id": {"equals": userId}
-                    }
-                  }
-                },
-                {
-                  "userRole": {"equals": "STUDENT"}
-                }
-              ]
-            }
-          }
-        },
-      ),
-    );
-  }
-
-  static Future<QueryResult<Query$GetCurrentUserPointBalanceByUserIdFromPointTransactionFindFirst>>
-      getCurrentUserPointBalanceByUserIdFromPointTransactionFindFirst({
-    required String userId,
-  }) async {
-    return await GraphQLService.client.query(
-      QueryOptions(
-        document: documentNodeQueryGetCurrentUserPointBalanceByUserIdFromPointTransactionFindFirst,
-        parserFn: (data) => Query$GetCurrentUserPointBalanceByUserIdFromPointTransactionFindFirst.fromJson(data),
-        variables: {
-          "pointTransactionFindFirstArgs": {
-            "where": {
-              "User": {
-                "is": {
-                  "id": {"equals": userId}
-                }
-              }
+          "where": {
+            "deletedAt": {
+              "not": {"equals": null}
             },
-            "take": 1,
-            "orderBy": [
-              {"createdAt": "desc"}
+            "AND": [
+              {
+                "referredBy": {
+                  "is": {
+                    "id": {"equals": userId}
+                  }
+                }
+              },
+              {
+                "userRole": {"equals": "STUDENT"}
+              }
             ]
           }
         },
       ),
     );
   }
+
+  // static Future<QueryResult<Query$GetCurrentUserPointBalanceByUserIdFromPointTransactionFindFirst>>
+  //     getCurrentUserPointBalanceByUserIdFromPointTransactionFindFirst({
+  //   required String userId,
+  // }) async {
+  //   return await GraphQLService.client.query(
+  //     QueryOptions(
+  //       document: documentNodeQueryGetCurrentUserPointBalanceByUserIdFromPointTransactionFindFirst,
+  //       parserFn: (data) => Query$GetCurrentUserPointBalanceByUserIdFromPointTransactionFindFirst.fromJson(data),
+  //       variables: {
+  //         "pointTransactionFindFirstArgs": {
+  //           "where": {
+  //             "User": {
+  //               "is": {
+  //                 "id": {"equals": userId}
+  //               }
+  //             }
+  //           },
+  //           "take": 1,
+  //           "orderBy": [
+  //             {"createdAt": "desc"}
+  //           ]
+  //         }
+  //       },
+  //     ),
+  //   );
+  // }
 
   static Future<QueryResult<Query$GetAccountTotalBalance>> getAccountTotalBalance({
     required int userAccountId,
@@ -354,31 +356,31 @@ class GqlUserService {
     );
   }
 
-  static Future<QueryResult<Query$PointTransactionFindMany>> pointTransactionFindMany({
-    required String userId,
-    int skip = 0,
-  }) async {
-    return await GraphQLService.client.query(
-      QueryOptions(
-        document: documentNodeQueryPointTransactionFindMany,
-        parserFn: (data) => Query$PointTransactionFindMany.fromJson(data),
-        variables: {
-          "pointTransactionFindManyArgs": {
-            "where": {
-              "userId": {"equals": userId}
-            },
-            "orderBy": [
-              {"createdAt": "desc"}
-            ],
-            "skip": skip,
-            "take": 10,
-          }
-        },
-      ),
-    );
-  }
+  // static Future<QueryResult<Query$PointTransactionFindMany>> pointTransactionFindMany({
+  //   required String userId,
+  //   int skip = 0,
+  // }) async {
+  //   return await GraphQLService.client.query(
+  //     QueryOptions(
+  //       document: documentNodeQueryPointTransactionFindMany,
+  //       parserFn: (data) => Query$PointTransactionFindMany.fromJson(data),
+  //       variables: {
+  //         "pointTransactionFindManyArgs": {
+  //           "where": {
+  //             "userId": {"equals": userId}
+  //           },
+  //           "orderBy": [
+  //             {"createdAt": "desc"}
+  //           ],
+  //           "skip": skip,
+  //           "take": 10,
+  //         }
+  //       },
+  //     ),
+  //   );
+  // }
 
-  static Future<QueryResult<Query$TransactionFindMany>> transactionFindMany({
+  static Future<QueryResult<Query$TransactionFindManyByAccountId>> transactionFindManyByAccountId({
     required int fromAccountId,
     int? toAccountId,
     // TODO
@@ -388,10 +390,9 @@ class GqlUserService {
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
-        document: documentNodeQueryTransactionFindMany,
-        parserFn: (data) => Query$TransactionFindMany.fromJson(data),
-        variables: {
-          "transactionFindManyArgs": {
+          document: documentNodeQueryTransactionFindManyByAccountId,
+          parserFn: (data) => Query$TransactionFindManyByAccountId.fromJson(data),
+          variables: {
             "skip": skip,
             "take": 10,
             "where": {
@@ -403,17 +404,15 @@ class GqlUserService {
                   "toAccountId": {"equals": toAccountId ?? fromAccountId}
                 }
               ],
-              "status": {"equals": "COMPLETED"},
-              "transactionCategory": {
-                "equals": "COMISSION_BONUS",
-              }
+              // "status": {"equals": "COMPLETED"},
+              // "transactionCategory": {
+              //   "equals": "COMISSION_BONUS",
+              // }
             },
             "orderBy": [
               {"createdAt": "desc"}
             ]
-          }
-        },
-      ),
+          }),
     );
   }
 
@@ -426,20 +425,18 @@ class GqlUserService {
         document: documentNodeQueryRewardClaimFindManyByUserId,
         parserFn: (data) => Query$RewardClaimFindManyByUserId.fromJson(data),
         variables: {
-          "rewardClaimFindManyArgs": {
-            "skip": skip,
-            "take": 10,
-            "where": {
-              "user": {
-                "is": {
-                  "id": {"equals": userId}
-                }
+          "skip": skip,
+          "take": 10,
+          "where": {
+            "user": {
+              "is": {
+                "id": {"equals": userId}
               }
-            },
-            "orderBy": [
-              {"createdAt": "desc"}
-            ]
-          }
+            }
+          },
+          "orderBy": [
+            {"createdAt": "desc"}
+          ]
         },
       ),
     );

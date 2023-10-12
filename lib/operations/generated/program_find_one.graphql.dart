@@ -1,37 +1,35 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
 class Variables$Query$ProgramFindOne {
   factory Variables$Query$ProgramFindOne(
-          {required Input$ProgramFindUniqueArgs programFindOneArgs}) =>
+          {required Input$ProgramWhereUniqueInput where}) =>
       Variables$Query$ProgramFindOne._({
-        r'programFindOneArgs': programFindOneArgs,
+        r'where': where,
       });
 
   Variables$Query$ProgramFindOne._(this._$data);
 
   factory Variables$Query$ProgramFindOne.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$programFindOneArgs = data['programFindOneArgs'];
-    result$data['programFindOneArgs'] = Input$ProgramFindUniqueArgs.fromJson(
-        (l$programFindOneArgs as Map<String, dynamic>));
+    final l$where = data['where'];
+    result$data['where'] = Input$ProgramWhereUniqueInput.fromJson(
+        (l$where as Map<String, dynamic>));
     return Variables$Query$ProgramFindOne._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$ProgramFindUniqueArgs get programFindOneArgs =>
-      (_$data['programFindOneArgs'] as Input$ProgramFindUniqueArgs);
+  Input$ProgramWhereUniqueInput get where =>
+      (_$data['where'] as Input$ProgramWhereUniqueInput);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$programFindOneArgs = programFindOneArgs;
-    result$data['programFindOneArgs'] = l$programFindOneArgs.toJson();
+    final l$where = where;
+    result$data['where'] = l$where.toJson();
     return result$data;
   }
 
@@ -49,9 +47,9 @@ class Variables$Query$ProgramFindOne {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$programFindOneArgs = programFindOneArgs;
-    final lOther$programFindOneArgs = other.programFindOneArgs;
-    if (l$programFindOneArgs != lOther$programFindOneArgs) {
+    final l$where = where;
+    final lOther$where = other.where;
+    if (l$where != lOther$where) {
       return false;
     }
     return true;
@@ -59,8 +57,8 @@ class Variables$Query$ProgramFindOne {
 
   @override
   int get hashCode {
-    final l$programFindOneArgs = programFindOneArgs;
-    return Object.hashAll([l$programFindOneArgs]);
+    final l$where = where;
+    return Object.hashAll([l$where]);
   }
 }
 
@@ -73,7 +71,7 @@ abstract class CopyWith$Variables$Query$ProgramFindOne<TRes> {
   factory CopyWith$Variables$Query$ProgramFindOne.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$ProgramFindOne;
 
-  TRes call({Input$ProgramFindUniqueArgs? programFindOneArgs});
+  TRes call({Input$ProgramWhereUniqueInput? where});
 }
 
 class _CopyWithImpl$Variables$Query$ProgramFindOne<TRes>
@@ -89,12 +87,11 @@ class _CopyWithImpl$Variables$Query$ProgramFindOne<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? programFindOneArgs = _undefined}) =>
+  TRes call({Object? where = _undefined}) =>
       _then(Variables$Query$ProgramFindOne._({
         ..._instance._$data,
-        if (programFindOneArgs != _undefined && programFindOneArgs != null)
-          'programFindOneArgs':
-              (programFindOneArgs as Input$ProgramFindUniqueArgs),
+        if (where != _undefined && where != null)
+          'where': (where as Input$ProgramWhereUniqueInput),
       }));
 }
 
@@ -104,7 +101,7 @@ class _CopyWithStubImpl$Variables$Query$ProgramFindOne<TRes>
 
   TRes _res;
 
-  call({Input$ProgramFindUniqueArgs? programFindOneArgs}) => _res;
+  call({Input$ProgramWhereUniqueInput? where}) => _res;
 }
 
 class Query$ProgramFindOne {
@@ -249,9 +246,9 @@ const documentNodeQueryProgramFindOne = DocumentNode(definitions: [
     name: NameNode(value: 'ProgramFindOne'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'programFindOneArgs')),
+        variable: VariableNode(name: NameNode(value: 'where')),
         type: NamedTypeNode(
-          name: NameNode(value: 'ProgramFindUniqueArgs'),
+          name: NameNode(value: 'ProgramWhereUniqueInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -265,8 +262,8 @@ const documentNodeQueryProgramFindOne = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'programFindUniqueArgs'),
-            value: VariableNode(name: NameNode(value: 'programFindOneArgs')),
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
           )
         ],
         directives: [],

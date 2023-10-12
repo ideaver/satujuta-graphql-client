@@ -1,5 +1,5 @@
-query HotelFindOne($hotelFindUniqueArgs: HotelFindUniqueArgs!) {
-  hotelFindOne(hotelFindUniqueArgs: $hotelFindUniqueArgs) {
+query HotelFindOne($where: HotelWhereUniqueInput!) {
+  hotelFindOne(where: $where) {
     id
     name
     description

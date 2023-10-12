@@ -1,37 +1,64 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
 class Variables$Query$HotelFindMany {
-  factory Variables$Query$HotelFindMany(
-          {required Input$HotelFindManyArgs hotelFindManyArgs}) =>
+  factory Variables$Query$HotelFindMany({
+    int? skip,
+    int? take,
+    List<Input$HotelOrderByWithRelationInput>? orderBy,
+  }) =>
       Variables$Query$HotelFindMany._({
-        r'hotelFindManyArgs': hotelFindManyArgs,
+        if (skip != null) r'skip': skip,
+        if (take != null) r'take': take,
+        if (orderBy != null) r'orderBy': orderBy,
       });
 
   Variables$Query$HotelFindMany._(this._$data);
 
   factory Variables$Query$HotelFindMany.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$hotelFindManyArgs = data['hotelFindManyArgs'];
-    result$data['hotelFindManyArgs'] = Input$HotelFindManyArgs.fromJson(
-        (l$hotelFindManyArgs as Map<String, dynamic>));
+    if (data.containsKey('skip')) {
+      final l$skip = data['skip'];
+      result$data['skip'] = (l$skip as int?);
+    }
+    if (data.containsKey('take')) {
+      final l$take = data['take'];
+      result$data['take'] = (l$take as int?);
+    }
+    if (data.containsKey('orderBy')) {
+      final l$orderBy = data['orderBy'];
+      result$data['orderBy'] = (l$orderBy as List<dynamic>?)
+          ?.map((e) => Input$HotelOrderByWithRelationInput.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList();
+    }
     return Variables$Query$HotelFindMany._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$HotelFindManyArgs get hotelFindManyArgs =>
-      (_$data['hotelFindManyArgs'] as Input$HotelFindManyArgs);
+  int? get skip => (_$data['skip'] as int?);
+  int? get take => (_$data['take'] as int?);
+  List<Input$HotelOrderByWithRelationInput>? get orderBy =>
+      (_$data['orderBy'] as List<Input$HotelOrderByWithRelationInput>?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$hotelFindManyArgs = hotelFindManyArgs;
-    result$data['hotelFindManyArgs'] = l$hotelFindManyArgs.toJson();
+    if (_$data.containsKey('skip')) {
+      final l$skip = skip;
+      result$data['skip'] = l$skip;
+    }
+    if (_$data.containsKey('take')) {
+      final l$take = take;
+      result$data['take'] = l$take;
+    }
+    if (_$data.containsKey('orderBy')) {
+      final l$orderBy = orderBy;
+      result$data['orderBy'] = l$orderBy?.map((e) => e.toJson()).toList();
+    }
     return result$data;
   }
 
@@ -49,9 +76,39 @@ class Variables$Query$HotelFindMany {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$hotelFindManyArgs = hotelFindManyArgs;
-    final lOther$hotelFindManyArgs = other.hotelFindManyArgs;
-    if (l$hotelFindManyArgs != lOther$hotelFindManyArgs) {
+    final l$skip = skip;
+    final lOther$skip = other.skip;
+    if (_$data.containsKey('skip') != other._$data.containsKey('skip')) {
+      return false;
+    }
+    if (l$skip != lOther$skip) {
+      return false;
+    }
+    final l$take = take;
+    final lOther$take = other.take;
+    if (_$data.containsKey('take') != other._$data.containsKey('take')) {
+      return false;
+    }
+    if (l$take != lOther$take) {
+      return false;
+    }
+    final l$orderBy = orderBy;
+    final lOther$orderBy = other.orderBy;
+    if (_$data.containsKey('orderBy') != other._$data.containsKey('orderBy')) {
+      return false;
+    }
+    if (l$orderBy != null && lOther$orderBy != null) {
+      if (l$orderBy.length != lOther$orderBy.length) {
+        return false;
+      }
+      for (int i = 0; i < l$orderBy.length; i++) {
+        final l$orderBy$entry = l$orderBy[i];
+        final lOther$orderBy$entry = lOther$orderBy[i];
+        if (l$orderBy$entry != lOther$orderBy$entry) {
+          return false;
+        }
+      }
+    } else if (l$orderBy != lOther$orderBy) {
       return false;
     }
     return true;
@@ -59,8 +116,18 @@ class Variables$Query$HotelFindMany {
 
   @override
   int get hashCode {
-    final l$hotelFindManyArgs = hotelFindManyArgs;
-    return Object.hashAll([l$hotelFindManyArgs]);
+    final l$skip = skip;
+    final l$take = take;
+    final l$orderBy = orderBy;
+    return Object.hashAll([
+      _$data.containsKey('skip') ? l$skip : const {},
+      _$data.containsKey('take') ? l$take : const {},
+      _$data.containsKey('orderBy')
+          ? l$orderBy == null
+              ? null
+              : Object.hashAll(l$orderBy.map((v) => v))
+          : const {},
+    ]);
   }
 }
 
@@ -73,7 +140,11 @@ abstract class CopyWith$Variables$Query$HotelFindMany<TRes> {
   factory CopyWith$Variables$Query$HotelFindMany.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$HotelFindMany;
 
-  TRes call({Input$HotelFindManyArgs? hotelFindManyArgs});
+  TRes call({
+    int? skip,
+    int? take,
+    List<Input$HotelOrderByWithRelationInput>? orderBy,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$HotelFindMany<TRes>
@@ -89,11 +160,17 @@ class _CopyWithImpl$Variables$Query$HotelFindMany<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? hotelFindManyArgs = _undefined}) =>
+  TRes call({
+    Object? skip = _undefined,
+    Object? take = _undefined,
+    Object? orderBy = _undefined,
+  }) =>
       _then(Variables$Query$HotelFindMany._({
         ..._instance._$data,
-        if (hotelFindManyArgs != _undefined && hotelFindManyArgs != null)
-          'hotelFindManyArgs': (hotelFindManyArgs as Input$HotelFindManyArgs),
+        if (skip != _undefined) 'skip': (skip as int?),
+        if (take != _undefined) 'take': (take as int?),
+        if (orderBy != _undefined)
+          'orderBy': (orderBy as List<Input$HotelOrderByWithRelationInput>?),
       }));
 }
 
@@ -103,7 +180,12 @@ class _CopyWithStubImpl$Variables$Query$HotelFindMany<TRes>
 
   TRes _res;
 
-  call({Input$HotelFindManyArgs? hotelFindManyArgs}) => _res;
+  call({
+    int? skip,
+    int? take,
+    List<Input$HotelOrderByWithRelationInput>? orderBy,
+  }) =>
+      _res;
 }
 
 class Query$HotelFindMany {
@@ -271,14 +353,35 @@ const documentNodeQueryHotelFindMany = DocumentNode(definitions: [
     name: NameNode(value: 'HotelFindMany'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'hotelFindManyArgs')),
+        variable: VariableNode(name: NameNode(value: 'skip')),
         type: NamedTypeNode(
-          name: NameNode(value: 'HotelFindManyArgs'),
-          isNonNull: true,
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'take')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'orderBy')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'HotelOrderByWithRelationInput'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -287,9 +390,17 @@ const documentNodeQueryHotelFindMany = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'hotelFindManyArgs'),
-            value: VariableNode(name: NameNode(value: 'hotelFindManyArgs')),
-          )
+            name: NameNode(value: 'skip'),
+            value: VariableNode(name: NameNode(value: 'skip')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'take'),
+            value: VariableNode(name: NameNode(value: 'take')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'orderBy'),
+            value: VariableNode(name: NameNode(value: 'orderBy')),
+          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
@@ -561,7 +672,7 @@ class Options$Query$HotelFindMany
     extends graphql.QueryOptions<Query$HotelFindMany> {
   Options$Query$HotelFindMany({
     String? operationName,
-    required Variables$Query$HotelFindMany variables,
+    Variables$Query$HotelFindMany? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -573,7 +684,7 @@ class Options$Query$HotelFindMany
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -607,7 +718,7 @@ class WatchOptions$Query$HotelFindMany
     extends graphql.WatchQueryOptions<Query$HotelFindMany> {
   WatchOptions$Query$HotelFindMany({
     String? operationName,
-    required Variables$Query$HotelFindMany variables,
+    Variables$Query$HotelFindMany? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -619,7 +730,7 @@ class WatchOptions$Query$HotelFindMany
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -638,43 +749,43 @@ class WatchOptions$Query$HotelFindMany
 class FetchMoreOptions$Query$HotelFindMany extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$HotelFindMany({
     required graphql.UpdateQuery updateQuery,
-    required Variables$Query$HotelFindMany variables,
+    Variables$Query$HotelFindMany? variables,
   }) : super(
           updateQuery: updateQuery,
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           document: documentNodeQueryHotelFindMany,
         );
 }
 
 extension ClientExtension$Query$HotelFindMany on graphql.GraphQLClient {
   Future<graphql.QueryResult<Query$HotelFindMany>> query$HotelFindMany(
-          Options$Query$HotelFindMany options) async =>
-      await this.query(options);
+          [Options$Query$HotelFindMany? options]) async =>
+      await this.query(options ?? Options$Query$HotelFindMany());
   graphql.ObservableQuery<Query$HotelFindMany> watchQuery$HotelFindMany(
-          WatchOptions$Query$HotelFindMany options) =>
-      this.watchQuery(options);
+          [WatchOptions$Query$HotelFindMany? options]) =>
+      this.watchQuery(options ?? WatchOptions$Query$HotelFindMany());
   void writeQuery$HotelFindMany({
     required Query$HotelFindMany data,
-    required Variables$Query$HotelFindMany variables,
+    Variables$Query$HotelFindMany? variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
           operation:
               graphql.Operation(document: documentNodeQueryHotelFindMany),
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
   Query$HotelFindMany? readQuery$HotelFindMany({
-    required Variables$Query$HotelFindMany variables,
+    Variables$Query$HotelFindMany? variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
         operation: graphql.Operation(document: documentNodeQueryHotelFindMany),
-        variables: variables.toJson(),
+        variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
     );
@@ -683,21 +794,22 @@ extension ClientExtension$Query$HotelFindMany on graphql.GraphQLClient {
 }
 
 graphql_flutter.QueryHookResult<Query$HotelFindMany> useQuery$HotelFindMany(
-        Options$Query$HotelFindMany options) =>
-    graphql_flutter.useQuery(options);
+        [Options$Query$HotelFindMany? options]) =>
+    graphql_flutter.useQuery(options ?? Options$Query$HotelFindMany());
 graphql.ObservableQuery<Query$HotelFindMany> useWatchQuery$HotelFindMany(
-        WatchOptions$Query$HotelFindMany options) =>
-    graphql_flutter.useWatchQuery(options);
+        [WatchOptions$Query$HotelFindMany? options]) =>
+    graphql_flutter
+        .useWatchQuery(options ?? WatchOptions$Query$HotelFindMany());
 
 class Query$HotelFindMany$Widget
     extends graphql_flutter.Query<Query$HotelFindMany> {
   Query$HotelFindMany$Widget({
     widgets.Key? key,
-    required Options$Query$HotelFindMany options,
+    Options$Query$HotelFindMany? options,
     required graphql_flutter.QueryBuilder<Query$HotelFindMany> builder,
   }) : super(
           key: key,
-          options: options,
+          options: options ?? Options$Query$HotelFindMany(),
           builder: builder,
         );
 }

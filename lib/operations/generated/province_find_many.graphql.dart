@@ -1,37 +1,79 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
 class Variables$Query$ProvinceFindMany {
-  factory Variables$Query$ProvinceFindMany(
-          {required Input$ProvinceFindManyArgs provinceFindManyArgs}) =>
+  factory Variables$Query$ProvinceFindMany({
+    int? skip,
+    int? take,
+    Input$ProvinceWhereInput? where,
+    List<Input$ProvinceOrderByWithRelationInput>? orderBy,
+  }) =>
       Variables$Query$ProvinceFindMany._({
-        r'provinceFindManyArgs': provinceFindManyArgs,
+        if (skip != null) r'skip': skip,
+        if (take != null) r'take': take,
+        if (where != null) r'where': where,
+        if (orderBy != null) r'orderBy': orderBy,
       });
 
   Variables$Query$ProvinceFindMany._(this._$data);
 
   factory Variables$Query$ProvinceFindMany.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$provinceFindManyArgs = data['provinceFindManyArgs'];
-    result$data['provinceFindManyArgs'] = Input$ProvinceFindManyArgs.fromJson(
-        (l$provinceFindManyArgs as Map<String, dynamic>));
+    if (data.containsKey('skip')) {
+      final l$skip = data['skip'];
+      result$data['skip'] = (l$skip as int?);
+    }
+    if (data.containsKey('take')) {
+      final l$take = data['take'];
+      result$data['take'] = (l$take as int?);
+    }
+    if (data.containsKey('where')) {
+      final l$where = data['where'];
+      result$data['where'] = l$where == null
+          ? null
+          : Input$ProvinceWhereInput.fromJson(
+              (l$where as Map<String, dynamic>));
+    }
+    if (data.containsKey('orderBy')) {
+      final l$orderBy = data['orderBy'];
+      result$data['orderBy'] = (l$orderBy as List<dynamic>?)
+          ?.map((e) => Input$ProvinceOrderByWithRelationInput.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList();
+    }
     return Variables$Query$ProvinceFindMany._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$ProvinceFindManyArgs get provinceFindManyArgs =>
-      (_$data['provinceFindManyArgs'] as Input$ProvinceFindManyArgs);
+  int? get skip => (_$data['skip'] as int?);
+  int? get take => (_$data['take'] as int?);
+  Input$ProvinceWhereInput? get where =>
+      (_$data['where'] as Input$ProvinceWhereInput?);
+  List<Input$ProvinceOrderByWithRelationInput>? get orderBy =>
+      (_$data['orderBy'] as List<Input$ProvinceOrderByWithRelationInput>?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$provinceFindManyArgs = provinceFindManyArgs;
-    result$data['provinceFindManyArgs'] = l$provinceFindManyArgs.toJson();
+    if (_$data.containsKey('skip')) {
+      final l$skip = skip;
+      result$data['skip'] = l$skip;
+    }
+    if (_$data.containsKey('take')) {
+      final l$take = take;
+      result$data['take'] = l$take;
+    }
+    if (_$data.containsKey('where')) {
+      final l$where = where;
+      result$data['where'] = l$where?.toJson();
+    }
+    if (_$data.containsKey('orderBy')) {
+      final l$orderBy = orderBy;
+      result$data['orderBy'] = l$orderBy?.map((e) => e.toJson()).toList();
+    }
     return result$data;
   }
 
@@ -49,9 +91,47 @@ class Variables$Query$ProvinceFindMany {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$provinceFindManyArgs = provinceFindManyArgs;
-    final lOther$provinceFindManyArgs = other.provinceFindManyArgs;
-    if (l$provinceFindManyArgs != lOther$provinceFindManyArgs) {
+    final l$skip = skip;
+    final lOther$skip = other.skip;
+    if (_$data.containsKey('skip') != other._$data.containsKey('skip')) {
+      return false;
+    }
+    if (l$skip != lOther$skip) {
+      return false;
+    }
+    final l$take = take;
+    final lOther$take = other.take;
+    if (_$data.containsKey('take') != other._$data.containsKey('take')) {
+      return false;
+    }
+    if (l$take != lOther$take) {
+      return false;
+    }
+    final l$where = where;
+    final lOther$where = other.where;
+    if (_$data.containsKey('where') != other._$data.containsKey('where')) {
+      return false;
+    }
+    if (l$where != lOther$where) {
+      return false;
+    }
+    final l$orderBy = orderBy;
+    final lOther$orderBy = other.orderBy;
+    if (_$data.containsKey('orderBy') != other._$data.containsKey('orderBy')) {
+      return false;
+    }
+    if (l$orderBy != null && lOther$orderBy != null) {
+      if (l$orderBy.length != lOther$orderBy.length) {
+        return false;
+      }
+      for (int i = 0; i < l$orderBy.length; i++) {
+        final l$orderBy$entry = l$orderBy[i];
+        final lOther$orderBy$entry = lOther$orderBy[i];
+        if (l$orderBy$entry != lOther$orderBy$entry) {
+          return false;
+        }
+      }
+    } else if (l$orderBy != lOther$orderBy) {
       return false;
     }
     return true;
@@ -59,8 +139,20 @@ class Variables$Query$ProvinceFindMany {
 
   @override
   int get hashCode {
-    final l$provinceFindManyArgs = provinceFindManyArgs;
-    return Object.hashAll([l$provinceFindManyArgs]);
+    final l$skip = skip;
+    final l$take = take;
+    final l$where = where;
+    final l$orderBy = orderBy;
+    return Object.hashAll([
+      _$data.containsKey('skip') ? l$skip : const {},
+      _$data.containsKey('take') ? l$take : const {},
+      _$data.containsKey('where') ? l$where : const {},
+      _$data.containsKey('orderBy')
+          ? l$orderBy == null
+              ? null
+              : Object.hashAll(l$orderBy.map((v) => v))
+          : const {},
+    ]);
   }
 }
 
@@ -73,7 +165,12 @@ abstract class CopyWith$Variables$Query$ProvinceFindMany<TRes> {
   factory CopyWith$Variables$Query$ProvinceFindMany.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$ProvinceFindMany;
 
-  TRes call({Input$ProvinceFindManyArgs? provinceFindManyArgs});
+  TRes call({
+    int? skip,
+    int? take,
+    Input$ProvinceWhereInput? where,
+    List<Input$ProvinceOrderByWithRelationInput>? orderBy,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$ProvinceFindMany<TRes>
@@ -89,12 +186,19 @@ class _CopyWithImpl$Variables$Query$ProvinceFindMany<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? provinceFindManyArgs = _undefined}) =>
+  TRes call({
+    Object? skip = _undefined,
+    Object? take = _undefined,
+    Object? where = _undefined,
+    Object? orderBy = _undefined,
+  }) =>
       _then(Variables$Query$ProvinceFindMany._({
         ..._instance._$data,
-        if (provinceFindManyArgs != _undefined && provinceFindManyArgs != null)
-          'provinceFindManyArgs':
-              (provinceFindManyArgs as Input$ProvinceFindManyArgs),
+        if (skip != _undefined) 'skip': (skip as int?),
+        if (take != _undefined) 'take': (take as int?),
+        if (where != _undefined) 'where': (where as Input$ProvinceWhereInput?),
+        if (orderBy != _undefined)
+          'orderBy': (orderBy as List<Input$ProvinceOrderByWithRelationInput>?),
       }));
 }
 
@@ -104,7 +208,13 @@ class _CopyWithStubImpl$Variables$Query$ProvinceFindMany<TRes>
 
   TRes _res;
 
-  call({Input$ProvinceFindManyArgs? provinceFindManyArgs}) => _res;
+  call({
+    int? skip,
+    int? take,
+    Input$ProvinceWhereInput? where,
+    List<Input$ProvinceOrderByWithRelationInput>? orderBy,
+  }) =>
+      _res;
 }
 
 class Query$ProvinceFindMany {
@@ -274,14 +384,44 @@ const documentNodeQueryProvinceFindMany = DocumentNode(definitions: [
     name: NameNode(value: 'ProvinceFindMany'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'provinceFindManyArgs')),
+        variable: VariableNode(name: NameNode(value: 'skip')),
         type: NamedTypeNode(
-          name: NameNode(value: 'ProvinceFindManyArgs'),
-          isNonNull: true,
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'take')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'where')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'ProvinceWhereInput'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'orderBy')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'ProvinceOrderByWithRelationInput'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -290,9 +430,21 @@ const documentNodeQueryProvinceFindMany = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'provinceFindManyArgs'),
-            value: VariableNode(name: NameNode(value: 'provinceFindManyArgs')),
-          )
+            name: NameNode(value: 'skip'),
+            value: VariableNode(name: NameNode(value: 'skip')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'take'),
+            value: VariableNode(name: NameNode(value: 'take')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'orderBy'),
+            value: VariableNode(name: NameNode(value: 'orderBy')),
+          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
@@ -341,7 +493,7 @@ class Options$Query$ProvinceFindMany
     extends graphql.QueryOptions<Query$ProvinceFindMany> {
   Options$Query$ProvinceFindMany({
     String? operationName,
-    required Variables$Query$ProvinceFindMany variables,
+    Variables$Query$ProvinceFindMany? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -353,7 +505,7 @@ class Options$Query$ProvinceFindMany
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -389,7 +541,7 @@ class WatchOptions$Query$ProvinceFindMany
     extends graphql.WatchQueryOptions<Query$ProvinceFindMany> {
   WatchOptions$Query$ProvinceFindMany({
     String? operationName,
-    required Variables$Query$ProvinceFindMany variables,
+    Variables$Query$ProvinceFindMany? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -401,7 +553,7 @@ class WatchOptions$Query$ProvinceFindMany
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -420,44 +572,44 @@ class WatchOptions$Query$ProvinceFindMany
 class FetchMoreOptions$Query$ProvinceFindMany extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$ProvinceFindMany({
     required graphql.UpdateQuery updateQuery,
-    required Variables$Query$ProvinceFindMany variables,
+    Variables$Query$ProvinceFindMany? variables,
   }) : super(
           updateQuery: updateQuery,
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           document: documentNodeQueryProvinceFindMany,
         );
 }
 
 extension ClientExtension$Query$ProvinceFindMany on graphql.GraphQLClient {
   Future<graphql.QueryResult<Query$ProvinceFindMany>> query$ProvinceFindMany(
-          Options$Query$ProvinceFindMany options) async =>
-      await this.query(options);
+          [Options$Query$ProvinceFindMany? options]) async =>
+      await this.query(options ?? Options$Query$ProvinceFindMany());
   graphql.ObservableQuery<Query$ProvinceFindMany> watchQuery$ProvinceFindMany(
-          WatchOptions$Query$ProvinceFindMany options) =>
-      this.watchQuery(options);
+          [WatchOptions$Query$ProvinceFindMany? options]) =>
+      this.watchQuery(options ?? WatchOptions$Query$ProvinceFindMany());
   void writeQuery$ProvinceFindMany({
     required Query$ProvinceFindMany data,
-    required Variables$Query$ProvinceFindMany variables,
+    Variables$Query$ProvinceFindMany? variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
           operation:
               graphql.Operation(document: documentNodeQueryProvinceFindMany),
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
   Query$ProvinceFindMany? readQuery$ProvinceFindMany({
-    required Variables$Query$ProvinceFindMany variables,
+    Variables$Query$ProvinceFindMany? variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
         operation:
             graphql.Operation(document: documentNodeQueryProvinceFindMany),
-        variables: variables.toJson(),
+        variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
     );
@@ -466,21 +618,22 @@ extension ClientExtension$Query$ProvinceFindMany on graphql.GraphQLClient {
 }
 
 graphql_flutter.QueryHookResult<Query$ProvinceFindMany>
-    useQuery$ProvinceFindMany(Options$Query$ProvinceFindMany options) =>
-        graphql_flutter.useQuery(options);
+    useQuery$ProvinceFindMany([Options$Query$ProvinceFindMany? options]) =>
+        graphql_flutter.useQuery(options ?? Options$Query$ProvinceFindMany());
 graphql.ObservableQuery<Query$ProvinceFindMany> useWatchQuery$ProvinceFindMany(
-        WatchOptions$Query$ProvinceFindMany options) =>
-    graphql_flutter.useWatchQuery(options);
+        [WatchOptions$Query$ProvinceFindMany? options]) =>
+    graphql_flutter
+        .useWatchQuery(options ?? WatchOptions$Query$ProvinceFindMany());
 
 class Query$ProvinceFindMany$Widget
     extends graphql_flutter.Query<Query$ProvinceFindMany> {
   Query$ProvinceFindMany$Widget({
     widgets.Key? key,
-    required Options$Query$ProvinceFindMany options,
+    Options$Query$ProvinceFindMany? options,
     required graphql_flutter.QueryBuilder<Query$ProvinceFindMany> builder,
   }) : super(
           key: key,
-          options: options,
+          options: options ?? Options$Query$ProvinceFindMany(),
           builder: builder,
         );
 }

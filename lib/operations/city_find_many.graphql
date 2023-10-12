@@ -1,5 +1,5 @@
-query CityFindMany($cityFindManyArgs: CityFindManyArgs!) {
-  cityFindMany(cityFindManyArgs: $cityFindManyArgs) {
+query CityFindMany($skip: Int, $take: Int, $where: CityWhereInput, $orderBy: [CityOrderByWithRelationInput!]) {
+  cityFindMany(skip: $skip, take: $take, where: $where, orderBy: $orderBy) {
     id
     name
   }

@@ -1,5 +1,5 @@
-mutation UserUpdateOne($userUpdateOneArgs: UserUpdateOneArgs!) {
-  userUpdateOne(userUpdateOneArgs: $userUpdateOneArgs) {
+mutation UserUpdateOne($where: UserWhereUniqueInput!, $data: UserUpdateInput!) {
+  userUpdateOne(where: $where, data: $data) {
     id
     firstName
     lastName

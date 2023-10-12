@@ -1,9 +1,9 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:satujuta_gql_client/operations/generated/program_delete.graphql.dart';
 
 import 'graphql_service.dart';
 import 'operations/generated/program_category_find_many.graphql.dart';
 import 'operations/generated/program_find_many.graphql.dart';
-import 'operations/generated/program_remove.graphql.dart';
 
 class GqlProgramService {
   static Future<QueryResult<Query$ProgramFindMany>> programFindMany({
@@ -15,33 +15,32 @@ class GqlProgramService {
         document: documentNodeQueryProgramFindMany,
         parserFn: (data) => Query$ProgramFindMany.fromJson(data),
         variables: {
-          "programFindManyArgs": {
-            "orderBy": [
-              {
-                "dueDate": {"sort": "asc"}
-              }
-            ],
-            "skip": skip,
-            "take": 10
-          }
+          "orderBy": [
+            {
+              "dueDate": {"sort": "asc"}
+            }
+          ],
+          "skip": skip,
+          "take": 10
         },
       ),
     );
   }
 
-  static Future<QueryResult<Query$ProgramCategoryFindMany>> programCategoryFindMany({int? skip, String? contains,}) async {
+  static Future<QueryResult<Query$ProgramCategoryFindMany>> programCategoryFindMany({
+    int? skip,
+    String? contains,
+  }) async {
     return await GraphQLService.client.query(
       QueryOptions(
         document: documentNodeQueryProgramCategoryFindMany,
         parserFn: (data) => Query$ProgramCategoryFindMany.fromJson(data),
         variables: {
-          "programCategoryFindManyArgs": {
-            "skip": 0,
-            // "take": 10,
-            "orderBy": [
-              {"name": "asc"}
-            ]
-          }
+          "skip": 0,
+          // "take": 10,
+          "orderBy": [
+            {"name": "asc"}
+          ]
         },
       ),
     );
@@ -50,26 +49,24 @@ class GqlProgramService {
   static Future<QueryResult<Query$ProgramFindMany>> programFindManyByCategoryId({
     required int programCategoryId,
     int? skip,
-     String? contains,
+    String? contains,
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
         document: documentNodeQueryProgramFindMany,
         parserFn: (data) => Query$ProgramFindMany.fromJson(data),
         variables: {
-          "programFindManyArgs": {
-            "orderBy": [
-              {
-                "dueDate": {"sort": "asc"}
-              }
-            ],
-            "skip": skip,
-            "take": 10,
-            "where": {
-              "category": {
-                "is": {
-                  "id": {"equals": programCategoryId}
-                }
+          "orderBy": [
+            {
+              "dueDate": {"sort": "asc"}
+            }
+          ],
+          "skip": skip,
+          "take": 10,
+          "where": {
+            "category": {
+              "is": {
+                "id": {"equals": programCategoryId}
               }
             }
           }
@@ -107,15 +104,15 @@ class GqlProgramService {
   //   );
   // }
 
-  static Future<QueryResult<Mutation$ProgramRemove>> programRemove(
-    {required String programId,}
-  ) async {
+  static Future<QueryResult<Mutation$ProgramDelete>> programDelete({
+    required String programId,
+  }) async {
     return await GraphQLService.client.query(
       QueryOptions(
-        document: documentNodeMutationProgramRemove,
-        parserFn: (data) => Mutation$ProgramRemove.fromJson(data),
+        document: documentNodeMutationProgramDelete,
+        parserFn: (data) => Mutation$ProgramDelete.fromJson(data),
         variables: {
-          "programId": programId,
+          "where": {"id": programId}
         },
       ),
     );

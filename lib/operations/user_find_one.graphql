@@ -1,5 +1,5 @@
-query UserFindOne($userFindUniqueArgs: UserFindUniqueArgs!) {
-  userFindOne(userFindUniqueArgs: $userFindUniqueArgs) {
+query UserFindOne($where: UserWhereUniqueInput!) {
+  userFindOne(where: $where) {
     id
     firstName
     lastName

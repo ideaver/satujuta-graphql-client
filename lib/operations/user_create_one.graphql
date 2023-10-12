@@ -1,5 +1,5 @@
-mutation UserCreate($userCreateArgs: UserCreateArgs!) {
-  userCreateOne(userCreateArgs: $userCreateArgs) {
+mutation UserCreateOne($data: UserCreateInput!) {
+  userCreateOne(data: $data) {
     id
     firstName
     lastName

@@ -1,37 +1,44 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
 class Variables$Mutation$UserUpdateOne {
-  factory Variables$Mutation$UserUpdateOne(
-          {required Input$UserUpdateOneArgs userUpdateOneArgs}) =>
+  factory Variables$Mutation$UserUpdateOne({
+    required Input$UserWhereUniqueInput where,
+    required Input$UserUpdateInput data,
+  }) =>
       Variables$Mutation$UserUpdateOne._({
-        r'userUpdateOneArgs': userUpdateOneArgs,
+        r'where': where,
+        r'data': data,
       });
 
   Variables$Mutation$UserUpdateOne._(this._$data);
 
   factory Variables$Mutation$UserUpdateOne.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$userUpdateOneArgs = data['userUpdateOneArgs'];
-    result$data['userUpdateOneArgs'] = Input$UserUpdateOneArgs.fromJson(
-        (l$userUpdateOneArgs as Map<String, dynamic>));
+    final l$where = data['where'];
+    result$data['where'] =
+        Input$UserWhereUniqueInput.fromJson((l$where as Map<String, dynamic>));
+    final l$data = data['data'];
+    result$data['data'] =
+        Input$UserUpdateInput.fromJson((l$data as Map<String, dynamic>));
     return Variables$Mutation$UserUpdateOne._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$UserUpdateOneArgs get userUpdateOneArgs =>
-      (_$data['userUpdateOneArgs'] as Input$UserUpdateOneArgs);
+  Input$UserWhereUniqueInput get where =>
+      (_$data['where'] as Input$UserWhereUniqueInput);
+  Input$UserUpdateInput get data => (_$data['data'] as Input$UserUpdateInput);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$userUpdateOneArgs = userUpdateOneArgs;
-    result$data['userUpdateOneArgs'] = l$userUpdateOneArgs.toJson();
+    final l$where = where;
+    result$data['where'] = l$where.toJson();
+    final l$data = data;
+    result$data['data'] = l$data.toJson();
     return result$data;
   }
 
@@ -49,9 +56,14 @@ class Variables$Mutation$UserUpdateOne {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$userUpdateOneArgs = userUpdateOneArgs;
-    final lOther$userUpdateOneArgs = other.userUpdateOneArgs;
-    if (l$userUpdateOneArgs != lOther$userUpdateOneArgs) {
+    final l$where = where;
+    final lOther$where = other.where;
+    if (l$where != lOther$where) {
+      return false;
+    }
+    final l$data = data;
+    final lOther$data = other.data;
+    if (l$data != lOther$data) {
       return false;
     }
     return true;
@@ -59,8 +71,12 @@ class Variables$Mutation$UserUpdateOne {
 
   @override
   int get hashCode {
-    final l$userUpdateOneArgs = userUpdateOneArgs;
-    return Object.hashAll([l$userUpdateOneArgs]);
+    final l$where = where;
+    final l$data = data;
+    return Object.hashAll([
+      l$where,
+      l$data,
+    ]);
   }
 }
 
@@ -73,7 +89,10 @@ abstract class CopyWith$Variables$Mutation$UserUpdateOne<TRes> {
   factory CopyWith$Variables$Mutation$UserUpdateOne.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$UserUpdateOne;
 
-  TRes call({Input$UserUpdateOneArgs? userUpdateOneArgs});
+  TRes call({
+    Input$UserWhereUniqueInput? where,
+    Input$UserUpdateInput? data,
+  });
 }
 
 class _CopyWithImpl$Variables$Mutation$UserUpdateOne<TRes>
@@ -89,11 +108,16 @@ class _CopyWithImpl$Variables$Mutation$UserUpdateOne<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? userUpdateOneArgs = _undefined}) =>
+  TRes call({
+    Object? where = _undefined,
+    Object? data = _undefined,
+  }) =>
       _then(Variables$Mutation$UserUpdateOne._({
         ..._instance._$data,
-        if (userUpdateOneArgs != _undefined && userUpdateOneArgs != null)
-          'userUpdateOneArgs': (userUpdateOneArgs as Input$UserUpdateOneArgs),
+        if (where != _undefined && where != null)
+          'where': (where as Input$UserWhereUniqueInput),
+        if (data != _undefined && data != null)
+          'data': (data as Input$UserUpdateInput),
       }));
 }
 
@@ -103,12 +127,16 @@ class _CopyWithStubImpl$Variables$Mutation$UserUpdateOne<TRes>
 
   TRes _res;
 
-  call({Input$UserUpdateOneArgs? userUpdateOneArgs}) => _res;
+  call({
+    Input$UserWhereUniqueInput? where,
+    Input$UserUpdateInput? data,
+  }) =>
+      _res;
 }
 
 class Mutation$UserUpdateOne {
   Mutation$UserUpdateOne({
-    required this.userUpdateOne,
+    this.userUpdateOne,
     this.$__typename = 'Mutation',
   });
 
@@ -116,20 +144,22 @@ class Mutation$UserUpdateOne {
     final l$userUpdateOne = json['userUpdateOne'];
     final l$$__typename = json['__typename'];
     return Mutation$UserUpdateOne(
-      userUpdateOne: Mutation$UserUpdateOne$userUpdateOne.fromJson(
-          (l$userUpdateOne as Map<String, dynamic>)),
+      userUpdateOne: l$userUpdateOne == null
+          ? null
+          : Mutation$UserUpdateOne$userUpdateOne.fromJson(
+              (l$userUpdateOne as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Mutation$UserUpdateOne$userUpdateOne userUpdateOne;
+  final Mutation$UserUpdateOne$userUpdateOne? userUpdateOne;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
     final l$userUpdateOne = userUpdateOne;
-    _resultData['userUpdateOne'] = l$userUpdateOne.toJson();
+    _resultData['userUpdateOne'] = l$userUpdateOne?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -210,17 +240,19 @@ class _CopyWithImpl$Mutation$UserUpdateOne<TRes>
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$UserUpdateOne(
-        userUpdateOne: userUpdateOne == _undefined || userUpdateOne == null
+        userUpdateOne: userUpdateOne == _undefined
             ? _instance.userUpdateOne
-            : (userUpdateOne as Mutation$UserUpdateOne$userUpdateOne),
+            : (userUpdateOne as Mutation$UserUpdateOne$userUpdateOne?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
   CopyWith$Mutation$UserUpdateOne$userUpdateOne<TRes> get userUpdateOne {
     final local$userUpdateOne = _instance.userUpdateOne;
-    return CopyWith$Mutation$UserUpdateOne$userUpdateOne(
-        local$userUpdateOne, (e) => call(userUpdateOne: e));
+    return local$userUpdateOne == null
+        ? CopyWith$Mutation$UserUpdateOne$userUpdateOne.stub(_then(_instance))
+        : CopyWith$Mutation$UserUpdateOne$userUpdateOne(
+            local$userUpdateOne, (e) => call(userUpdateOne: e));
   }
 }
 
@@ -245,14 +277,23 @@ const documentNodeMutationUserUpdateOne = DocumentNode(definitions: [
     name: NameNode(value: 'UserUpdateOne'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'userUpdateOneArgs')),
+        variable: VariableNode(name: NameNode(value: 'where')),
         type: NamedTypeNode(
-          name: NameNode(value: 'UserUpdateOneArgs'),
+          name: NameNode(value: 'UserWhereUniqueInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'data')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'UserUpdateInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -261,9 +302,13 @@ const documentNodeMutationUserUpdateOne = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'userUpdateOneArgs'),
-            value: VariableNode(name: NameNode(value: 'userUpdateOneArgs')),
-          )
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'data'),
+            value: VariableNode(name: NameNode(value: 'data')),
+          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [

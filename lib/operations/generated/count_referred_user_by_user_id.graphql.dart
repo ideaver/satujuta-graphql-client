@@ -1,44 +1,42 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
-class Variables$Query$countReferredUserByUserId {
-  factory Variables$Query$countReferredUserByUserId(
-          {required Input$UserFindUniqueArgs userFindUniqueArgs}) =>
-      Variables$Query$countReferredUserByUserId._({
-        r'userFindUniqueArgs': userFindUniqueArgs,
+class Variables$Query$CountReferredUserByUserId {
+  factory Variables$Query$CountReferredUserByUserId(
+          {required Input$UserWhereUniqueInput where}) =>
+      Variables$Query$CountReferredUserByUserId._({
+        r'where': where,
       });
 
-  Variables$Query$countReferredUserByUserId._(this._$data);
+  Variables$Query$CountReferredUserByUserId._(this._$data);
 
-  factory Variables$Query$countReferredUserByUserId.fromJson(
+  factory Variables$Query$CountReferredUserByUserId.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$userFindUniqueArgs = data['userFindUniqueArgs'];
-    result$data['userFindUniqueArgs'] = Input$UserFindUniqueArgs.fromJson(
-        (l$userFindUniqueArgs as Map<String, dynamic>));
-    return Variables$Query$countReferredUserByUserId._(result$data);
+    final l$where = data['where'];
+    result$data['where'] =
+        Input$UserWhereUniqueInput.fromJson((l$where as Map<String, dynamic>));
+    return Variables$Query$CountReferredUserByUserId._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$UserFindUniqueArgs get userFindUniqueArgs =>
-      (_$data['userFindUniqueArgs'] as Input$UserFindUniqueArgs);
+  Input$UserWhereUniqueInput get where =>
+      (_$data['where'] as Input$UserWhereUniqueInput);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$userFindUniqueArgs = userFindUniqueArgs;
-    result$data['userFindUniqueArgs'] = l$userFindUniqueArgs.toJson();
+    final l$where = where;
+    result$data['where'] = l$where.toJson();
     return result$data;
   }
 
-  CopyWith$Variables$Query$countReferredUserByUserId<
-          Variables$Query$countReferredUserByUserId>
-      get copyWith => CopyWith$Variables$Query$countReferredUserByUserId(
+  CopyWith$Variables$Query$CountReferredUserByUserId<
+          Variables$Query$CountReferredUserByUserId>
+      get copyWith => CopyWith$Variables$Query$CountReferredUserByUserId(
             this,
             (i) => i,
           );
@@ -47,13 +45,13 @@ class Variables$Query$countReferredUserByUserId {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$countReferredUserByUserId) ||
+    if (!(other is Variables$Query$CountReferredUserByUserId) ||
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$userFindUniqueArgs = userFindUniqueArgs;
-    final lOther$userFindUniqueArgs = other.userFindUniqueArgs;
-    if (l$userFindUniqueArgs != lOther$userFindUniqueArgs) {
+    final l$where = where;
+    final lOther$where = other.where;
+    if (l$where != lOther$where) {
       return false;
     }
     return true;
@@ -61,73 +59,72 @@ class Variables$Query$countReferredUserByUserId {
 
   @override
   int get hashCode {
-    final l$userFindUniqueArgs = userFindUniqueArgs;
-    return Object.hashAll([l$userFindUniqueArgs]);
+    final l$where = where;
+    return Object.hashAll([l$where]);
   }
 }
 
-abstract class CopyWith$Variables$Query$countReferredUserByUserId<TRes> {
-  factory CopyWith$Variables$Query$countReferredUserByUserId(
-    Variables$Query$countReferredUserByUserId instance,
-    TRes Function(Variables$Query$countReferredUserByUserId) then,
-  ) = _CopyWithImpl$Variables$Query$countReferredUserByUserId;
+abstract class CopyWith$Variables$Query$CountReferredUserByUserId<TRes> {
+  factory CopyWith$Variables$Query$CountReferredUserByUserId(
+    Variables$Query$CountReferredUserByUserId instance,
+    TRes Function(Variables$Query$CountReferredUserByUserId) then,
+  ) = _CopyWithImpl$Variables$Query$CountReferredUserByUserId;
 
-  factory CopyWith$Variables$Query$countReferredUserByUserId.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Query$countReferredUserByUserId;
+  factory CopyWith$Variables$Query$CountReferredUserByUserId.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$CountReferredUserByUserId;
 
-  TRes call({Input$UserFindUniqueArgs? userFindUniqueArgs});
+  TRes call({Input$UserWhereUniqueInput? where});
 }
 
-class _CopyWithImpl$Variables$Query$countReferredUserByUserId<TRes>
-    implements CopyWith$Variables$Query$countReferredUserByUserId<TRes> {
-  _CopyWithImpl$Variables$Query$countReferredUserByUserId(
+class _CopyWithImpl$Variables$Query$CountReferredUserByUserId<TRes>
+    implements CopyWith$Variables$Query$CountReferredUserByUserId<TRes> {
+  _CopyWithImpl$Variables$Query$CountReferredUserByUserId(
     this._instance,
     this._then,
   );
 
-  final Variables$Query$countReferredUserByUserId _instance;
+  final Variables$Query$CountReferredUserByUserId _instance;
 
-  final TRes Function(Variables$Query$countReferredUserByUserId) _then;
+  final TRes Function(Variables$Query$CountReferredUserByUserId) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? userFindUniqueArgs = _undefined}) =>
-      _then(Variables$Query$countReferredUserByUserId._({
+  TRes call({Object? where = _undefined}) =>
+      _then(Variables$Query$CountReferredUserByUserId._({
         ..._instance._$data,
-        if (userFindUniqueArgs != _undefined && userFindUniqueArgs != null)
-          'userFindUniqueArgs':
-              (userFindUniqueArgs as Input$UserFindUniqueArgs),
+        if (where != _undefined && where != null)
+          'where': (where as Input$UserWhereUniqueInput),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$countReferredUserByUserId<TRes>
-    implements CopyWith$Variables$Query$countReferredUserByUserId<TRes> {
-  _CopyWithStubImpl$Variables$Query$countReferredUserByUserId(this._res);
+class _CopyWithStubImpl$Variables$Query$CountReferredUserByUserId<TRes>
+    implements CopyWith$Variables$Query$CountReferredUserByUserId<TRes> {
+  _CopyWithStubImpl$Variables$Query$CountReferredUserByUserId(this._res);
 
   TRes _res;
 
-  call({Input$UserFindUniqueArgs? userFindUniqueArgs}) => _res;
+  call({Input$UserWhereUniqueInput? where}) => _res;
 }
 
-class Query$countReferredUserByUserId {
-  Query$countReferredUserByUserId({
+class Query$CountReferredUserByUserId {
+  Query$CountReferredUserByUserId({
     this.userFindOne,
     this.$__typename = 'Query',
   });
 
-  factory Query$countReferredUserByUserId.fromJson(Map<String, dynamic> json) {
+  factory Query$CountReferredUserByUserId.fromJson(Map<String, dynamic> json) {
     final l$userFindOne = json['userFindOne'];
     final l$$__typename = json['__typename'];
-    return Query$countReferredUserByUserId(
+    return Query$CountReferredUserByUserId(
       userFindOne: l$userFindOne == null
           ? null
-          : Query$countReferredUserByUserId$userFindOne.fromJson(
+          : Query$CountReferredUserByUserId$userFindOne.fromJson(
               (l$userFindOne as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Query$countReferredUserByUserId$userFindOne? userFindOne;
+  final Query$CountReferredUserByUserId$userFindOne? userFindOne;
 
   final String $__typename;
 
@@ -155,7 +152,7 @@ class Query$countReferredUserByUserId {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$countReferredUserByUserId) ||
+    if (!(other is Query$CountReferredUserByUserId) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -173,41 +170,41 @@ class Query$countReferredUserByUserId {
   }
 }
 
-extension UtilityExtension$Query$countReferredUserByUserId
-    on Query$countReferredUserByUserId {
-  CopyWith$Query$countReferredUserByUserId<Query$countReferredUserByUserId>
-      get copyWith => CopyWith$Query$countReferredUserByUserId(
+extension UtilityExtension$Query$CountReferredUserByUserId
+    on Query$CountReferredUserByUserId {
+  CopyWith$Query$CountReferredUserByUserId<Query$CountReferredUserByUserId>
+      get copyWith => CopyWith$Query$CountReferredUserByUserId(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$countReferredUserByUserId<TRes> {
-  factory CopyWith$Query$countReferredUserByUserId(
-    Query$countReferredUserByUserId instance,
-    TRes Function(Query$countReferredUserByUserId) then,
-  ) = _CopyWithImpl$Query$countReferredUserByUserId;
+abstract class CopyWith$Query$CountReferredUserByUserId<TRes> {
+  factory CopyWith$Query$CountReferredUserByUserId(
+    Query$CountReferredUserByUserId instance,
+    TRes Function(Query$CountReferredUserByUserId) then,
+  ) = _CopyWithImpl$Query$CountReferredUserByUserId;
 
-  factory CopyWith$Query$countReferredUserByUserId.stub(TRes res) =
-      _CopyWithStubImpl$Query$countReferredUserByUserId;
+  factory CopyWith$Query$CountReferredUserByUserId.stub(TRes res) =
+      _CopyWithStubImpl$Query$CountReferredUserByUserId;
 
   TRes call({
-    Query$countReferredUserByUserId$userFindOne? userFindOne,
+    Query$CountReferredUserByUserId$userFindOne? userFindOne,
     String? $__typename,
   });
-  CopyWith$Query$countReferredUserByUserId$userFindOne<TRes> get userFindOne;
+  CopyWith$Query$CountReferredUserByUserId$userFindOne<TRes> get userFindOne;
 }
 
-class _CopyWithImpl$Query$countReferredUserByUserId<TRes>
-    implements CopyWith$Query$countReferredUserByUserId<TRes> {
-  _CopyWithImpl$Query$countReferredUserByUserId(
+class _CopyWithImpl$Query$CountReferredUserByUserId<TRes>
+    implements CopyWith$Query$CountReferredUserByUserId<TRes> {
+  _CopyWithImpl$Query$CountReferredUserByUserId(
     this._instance,
     this._then,
   );
 
-  final Query$countReferredUserByUserId _instance;
+  final Query$CountReferredUserByUserId _instance;
 
-  final TRes Function(Query$countReferredUserByUserId) _then;
+  final TRes Function(Query$CountReferredUserByUserId) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -215,48 +212,48 @@ class _CopyWithImpl$Query$countReferredUserByUserId<TRes>
     Object? userFindOne = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$countReferredUserByUserId(
+      _then(Query$CountReferredUserByUserId(
         userFindOne: userFindOne == _undefined
             ? _instance.userFindOne
-            : (userFindOne as Query$countReferredUserByUserId$userFindOne?),
+            : (userFindOne as Query$CountReferredUserByUserId$userFindOne?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Query$countReferredUserByUserId$userFindOne<TRes> get userFindOne {
+  CopyWith$Query$CountReferredUserByUserId$userFindOne<TRes> get userFindOne {
     final local$userFindOne = _instance.userFindOne;
     return local$userFindOne == null
-        ? CopyWith$Query$countReferredUserByUserId$userFindOne.stub(
+        ? CopyWith$Query$CountReferredUserByUserId$userFindOne.stub(
             _then(_instance))
-        : CopyWith$Query$countReferredUserByUserId$userFindOne(
+        : CopyWith$Query$CountReferredUserByUserId$userFindOne(
             local$userFindOne, (e) => call(userFindOne: e));
   }
 }
 
-class _CopyWithStubImpl$Query$countReferredUserByUserId<TRes>
-    implements CopyWith$Query$countReferredUserByUserId<TRes> {
-  _CopyWithStubImpl$Query$countReferredUserByUserId(this._res);
+class _CopyWithStubImpl$Query$CountReferredUserByUserId<TRes>
+    implements CopyWith$Query$CountReferredUserByUserId<TRes> {
+  _CopyWithStubImpl$Query$CountReferredUserByUserId(this._res);
 
   TRes _res;
 
   call({
-    Query$countReferredUserByUserId$userFindOne? userFindOne,
+    Query$CountReferredUserByUserId$userFindOne? userFindOne,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Query$countReferredUserByUserId$userFindOne<TRes> get userFindOne =>
-      CopyWith$Query$countReferredUserByUserId$userFindOne.stub(_res);
+  CopyWith$Query$CountReferredUserByUserId$userFindOne<TRes> get userFindOne =>
+      CopyWith$Query$CountReferredUserByUserId$userFindOne.stub(_res);
 }
 
-const documentNodeQuerycountReferredUserByUserId = DocumentNode(definitions: [
+const documentNodeQueryCountReferredUserByUserId = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.query,
-    name: NameNode(value: 'countReferredUserByUserId'),
+    name: NameNode(value: 'CountReferredUserByUserId'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'userFindUniqueArgs')),
+        variable: VariableNode(name: NameNode(value: 'where')),
         type: NamedTypeNode(
-          name: NameNode(value: 'UserFindUniqueArgs'),
+          name: NameNode(value: 'UserWhereUniqueInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -270,8 +267,8 @@ const documentNodeQuerycountReferredUserByUserId = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'userFindUniqueArgs'),
-            value: VariableNode(name: NameNode(value: 'userFindUniqueArgs')),
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
           )
         ],
         directives: [],
@@ -317,28 +314,28 @@ const documentNodeQuerycountReferredUserByUserId = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Query$countReferredUserByUserId _parserFn$Query$countReferredUserByUserId(
+Query$CountReferredUserByUserId _parserFn$Query$CountReferredUserByUserId(
         Map<String, dynamic> data) =>
-    Query$countReferredUserByUserId.fromJson(data);
-typedef OnQueryComplete$Query$countReferredUserByUserId = FutureOr<void>
+    Query$CountReferredUserByUserId.fromJson(data);
+typedef OnQueryComplete$Query$CountReferredUserByUserId = FutureOr<void>
     Function(
   Map<String, dynamic>?,
-  Query$countReferredUserByUserId?,
+  Query$CountReferredUserByUserId?,
 );
 
-class Options$Query$countReferredUserByUserId
-    extends graphql.QueryOptions<Query$countReferredUserByUserId> {
-  Options$Query$countReferredUserByUserId({
+class Options$Query$CountReferredUserByUserId
+    extends graphql.QueryOptions<Query$CountReferredUserByUserId> {
+  Options$Query$CountReferredUserByUserId({
     String? operationName,
-    required Variables$Query$countReferredUserByUserId variables,
+    required Variables$Query$CountReferredUserByUserId variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$countReferredUserByUserId? typedOptimisticResult,
+    Query$CountReferredUserByUserId? typedOptimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
-    OnQueryComplete$Query$countReferredUserByUserId? onComplete,
+    OnQueryComplete$Query$CountReferredUserByUserId? onComplete,
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
@@ -356,14 +353,14 @@ class Options$Query$countReferredUserByUserId
                     data,
                     data == null
                         ? null
-                        : _parserFn$Query$countReferredUserByUserId(data),
+                        : _parserFn$Query$CountReferredUserByUserId(data),
                   ),
           onError: onError,
-          document: documentNodeQuerycountReferredUserByUserId,
-          parserFn: _parserFn$Query$countReferredUserByUserId,
+          document: documentNodeQueryCountReferredUserByUserId,
+          parserFn: _parserFn$Query$CountReferredUserByUserId,
         );
 
-  final OnQueryComplete$Query$countReferredUserByUserId? onCompleteWithParsed;
+  final OnQueryComplete$Query$CountReferredUserByUserId? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -374,16 +371,16 @@ class Options$Query$countReferredUserByUserId
       ];
 }
 
-class WatchOptions$Query$countReferredUserByUserId
-    extends graphql.WatchQueryOptions<Query$countReferredUserByUserId> {
-  WatchOptions$Query$countReferredUserByUserId({
+class WatchOptions$Query$CountReferredUserByUserId
+    extends graphql.WatchQueryOptions<Query$CountReferredUserByUserId> {
+  WatchOptions$Query$CountReferredUserByUserId({
     String? operationName,
-    required Variables$Query$countReferredUserByUserId variables,
+    required Variables$Query$CountReferredUserByUserId variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$countReferredUserByUserId? typedOptimisticResult,
+    Query$CountReferredUserByUserId? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
@@ -397,84 +394,84 @@ class WatchOptions$Query$countReferredUserByUserId
           cacheRereadPolicy: cacheRereadPolicy,
           optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
-          document: documentNodeQuerycountReferredUserByUserId,
+          document: documentNodeQueryCountReferredUserByUserId,
           pollInterval: pollInterval,
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Query$countReferredUserByUserId,
+          parserFn: _parserFn$Query$CountReferredUserByUserId,
         );
 }
 
-class FetchMoreOptions$Query$countReferredUserByUserId
+class FetchMoreOptions$Query$CountReferredUserByUserId
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$countReferredUserByUserId({
+  FetchMoreOptions$Query$CountReferredUserByUserId({
     required graphql.UpdateQuery updateQuery,
-    required Variables$Query$countReferredUserByUserId variables,
+    required Variables$Query$CountReferredUserByUserId variables,
   }) : super(
           updateQuery: updateQuery,
           variables: variables.toJson(),
-          document: documentNodeQuerycountReferredUserByUserId,
+          document: documentNodeQueryCountReferredUserByUserId,
         );
 }
 
-extension ClientExtension$Query$countReferredUserByUserId
+extension ClientExtension$Query$CountReferredUserByUserId
     on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$countReferredUserByUserId>>
-      query$countReferredUserByUserId(
-              Options$Query$countReferredUserByUserId options) async =>
+  Future<graphql.QueryResult<Query$CountReferredUserByUserId>>
+      query$CountReferredUserByUserId(
+              Options$Query$CountReferredUserByUserId options) async =>
           await this.query(options);
-  graphql.ObservableQuery<Query$countReferredUserByUserId>
-      watchQuery$countReferredUserByUserId(
-              WatchOptions$Query$countReferredUserByUserId options) =>
+  graphql.ObservableQuery<Query$CountReferredUserByUserId>
+      watchQuery$CountReferredUserByUserId(
+              WatchOptions$Query$CountReferredUserByUserId options) =>
           this.watchQuery(options);
-  void writeQuery$countReferredUserByUserId({
-    required Query$countReferredUserByUserId data,
-    required Variables$Query$countReferredUserByUserId variables,
+  void writeQuery$CountReferredUserByUserId({
+    required Query$CountReferredUserByUserId data,
+    required Variables$Query$CountReferredUserByUserId variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
           operation: graphql.Operation(
-              document: documentNodeQuerycountReferredUserByUserId),
+              document: documentNodeQueryCountReferredUserByUserId),
           variables: variables.toJson(),
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
-  Query$countReferredUserByUserId? readQuery$countReferredUserByUserId({
-    required Variables$Query$countReferredUserByUserId variables,
+  Query$CountReferredUserByUserId? readQuery$CountReferredUserByUserId({
+    required Variables$Query$CountReferredUserByUserId variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
         operation: graphql.Operation(
-            document: documentNodeQuerycountReferredUserByUserId),
+            document: documentNodeQueryCountReferredUserByUserId),
         variables: variables.toJson(),
       ),
       optimistic: optimistic,
     );
     return result == null
         ? null
-        : Query$countReferredUserByUserId.fromJson(result);
+        : Query$CountReferredUserByUserId.fromJson(result);
   }
 }
 
-graphql_flutter.QueryHookResult<Query$countReferredUserByUserId>
-    useQuery$countReferredUserByUserId(
-            Options$Query$countReferredUserByUserId options) =>
+graphql_flutter.QueryHookResult<Query$CountReferredUserByUserId>
+    useQuery$CountReferredUserByUserId(
+            Options$Query$CountReferredUserByUserId options) =>
         graphql_flutter.useQuery(options);
-graphql.ObservableQuery<Query$countReferredUserByUserId>
-    useWatchQuery$countReferredUserByUserId(
-            WatchOptions$Query$countReferredUserByUserId options) =>
+graphql.ObservableQuery<Query$CountReferredUserByUserId>
+    useWatchQuery$CountReferredUserByUserId(
+            WatchOptions$Query$CountReferredUserByUserId options) =>
         graphql_flutter.useWatchQuery(options);
 
-class Query$countReferredUserByUserId$Widget
-    extends graphql_flutter.Query<Query$countReferredUserByUserId> {
-  Query$countReferredUserByUserId$Widget({
+class Query$CountReferredUserByUserId$Widget
+    extends graphql_flutter.Query<Query$CountReferredUserByUserId> {
+  Query$CountReferredUserByUserId$Widget({
     widgets.Key? key,
-    required Options$Query$countReferredUserByUserId options,
-    required graphql_flutter.QueryBuilder<Query$countReferredUserByUserId>
+    required Options$Query$CountReferredUserByUserId options,
+    required graphql_flutter.QueryBuilder<Query$CountReferredUserByUserId>
         builder,
   }) : super(
           key: key,
@@ -483,24 +480,24 @@ class Query$countReferredUserByUserId$Widget
         );
 }
 
-class Query$countReferredUserByUserId$userFindOne {
-  Query$countReferredUserByUserId$userFindOne({
+class Query$CountReferredUserByUserId$userFindOne {
+  Query$CountReferredUserByUserId$userFindOne({
     required this.$_count,
     this.$__typename = 'User',
   });
 
-  factory Query$countReferredUserByUserId$userFindOne.fromJson(
+  factory Query$CountReferredUserByUserId$userFindOne.fromJson(
       Map<String, dynamic> json) {
     final l$$_count = json['_count'];
     final l$$__typename = json['__typename'];
-    return Query$countReferredUserByUserId$userFindOne(
-      $_count: Query$countReferredUserByUserId$userFindOne$_count.fromJson(
+    return Query$CountReferredUserByUserId$userFindOne(
+      $_count: Query$CountReferredUserByUserId$userFindOne$_count.fromJson(
           (l$$_count as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Query$countReferredUserByUserId$userFindOne$_count $_count;
+  final Query$CountReferredUserByUserId$userFindOne$_count $_count;
 
   final String $__typename;
 
@@ -528,7 +525,7 @@ class Query$countReferredUserByUserId$userFindOne {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$countReferredUserByUserId$userFindOne) ||
+    if (!(other is Query$CountReferredUserByUserId$userFindOne) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -546,42 +543,42 @@ class Query$countReferredUserByUserId$userFindOne {
   }
 }
 
-extension UtilityExtension$Query$countReferredUserByUserId$userFindOne
-    on Query$countReferredUserByUserId$userFindOne {
-  CopyWith$Query$countReferredUserByUserId$userFindOne<
-          Query$countReferredUserByUserId$userFindOne>
-      get copyWith => CopyWith$Query$countReferredUserByUserId$userFindOne(
+extension UtilityExtension$Query$CountReferredUserByUserId$userFindOne
+    on Query$CountReferredUserByUserId$userFindOne {
+  CopyWith$Query$CountReferredUserByUserId$userFindOne<
+          Query$CountReferredUserByUserId$userFindOne>
+      get copyWith => CopyWith$Query$CountReferredUserByUserId$userFindOne(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$countReferredUserByUserId$userFindOne<TRes> {
-  factory CopyWith$Query$countReferredUserByUserId$userFindOne(
-    Query$countReferredUserByUserId$userFindOne instance,
-    TRes Function(Query$countReferredUserByUserId$userFindOne) then,
-  ) = _CopyWithImpl$Query$countReferredUserByUserId$userFindOne;
+abstract class CopyWith$Query$CountReferredUserByUserId$userFindOne<TRes> {
+  factory CopyWith$Query$CountReferredUserByUserId$userFindOne(
+    Query$CountReferredUserByUserId$userFindOne instance,
+    TRes Function(Query$CountReferredUserByUserId$userFindOne) then,
+  ) = _CopyWithImpl$Query$CountReferredUserByUserId$userFindOne;
 
-  factory CopyWith$Query$countReferredUserByUserId$userFindOne.stub(TRes res) =
-      _CopyWithStubImpl$Query$countReferredUserByUserId$userFindOne;
+  factory CopyWith$Query$CountReferredUserByUserId$userFindOne.stub(TRes res) =
+      _CopyWithStubImpl$Query$CountReferredUserByUserId$userFindOne;
 
   TRes call({
-    Query$countReferredUserByUserId$userFindOne$_count? $_count,
+    Query$CountReferredUserByUserId$userFindOne$_count? $_count,
     String? $__typename,
   });
-  CopyWith$Query$countReferredUserByUserId$userFindOne$_count<TRes> get $_count;
+  CopyWith$Query$CountReferredUserByUserId$userFindOne$_count<TRes> get $_count;
 }
 
-class _CopyWithImpl$Query$countReferredUserByUserId$userFindOne<TRes>
-    implements CopyWith$Query$countReferredUserByUserId$userFindOne<TRes> {
-  _CopyWithImpl$Query$countReferredUserByUserId$userFindOne(
+class _CopyWithImpl$Query$CountReferredUserByUserId$userFindOne<TRes>
+    implements CopyWith$Query$CountReferredUserByUserId$userFindOne<TRes> {
+  _CopyWithImpl$Query$CountReferredUserByUserId$userFindOne(
     this._instance,
     this._then,
   );
 
-  final Query$countReferredUserByUserId$userFindOne _instance;
+  final Query$CountReferredUserByUserId$userFindOne _instance;
 
-  final TRes Function(Query$countReferredUserByUserId$userFindOne) _then;
+  final TRes Function(Query$CountReferredUserByUserId$userFindOne) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -589,50 +586,50 @@ class _CopyWithImpl$Query$countReferredUserByUserId$userFindOne<TRes>
     Object? $_count = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$countReferredUserByUserId$userFindOne(
+      _then(Query$CountReferredUserByUserId$userFindOne(
         $_count: $_count == _undefined || $_count == null
             ? _instance.$_count
-            : ($_count as Query$countReferredUserByUserId$userFindOne$_count),
+            : ($_count as Query$CountReferredUserByUserId$userFindOne$_count),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Query$countReferredUserByUserId$userFindOne$_count<TRes>
+  CopyWith$Query$CountReferredUserByUserId$userFindOne$_count<TRes>
       get $_count {
     final local$$_count = _instance.$_count;
-    return CopyWith$Query$countReferredUserByUserId$userFindOne$_count(
+    return CopyWith$Query$CountReferredUserByUserId$userFindOne$_count(
         local$$_count, (e) => call($_count: e));
   }
 }
 
-class _CopyWithStubImpl$Query$countReferredUserByUserId$userFindOne<TRes>
-    implements CopyWith$Query$countReferredUserByUserId$userFindOne<TRes> {
-  _CopyWithStubImpl$Query$countReferredUserByUserId$userFindOne(this._res);
+class _CopyWithStubImpl$Query$CountReferredUserByUserId$userFindOne<TRes>
+    implements CopyWith$Query$CountReferredUserByUserId$userFindOne<TRes> {
+  _CopyWithStubImpl$Query$CountReferredUserByUserId$userFindOne(this._res);
 
   TRes _res;
 
   call({
-    Query$countReferredUserByUserId$userFindOne$_count? $_count,
+    Query$CountReferredUserByUserId$userFindOne$_count? $_count,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Query$countReferredUserByUserId$userFindOne$_count<TRes>
+  CopyWith$Query$CountReferredUserByUserId$userFindOne$_count<TRes>
       get $_count =>
-          CopyWith$Query$countReferredUserByUserId$userFindOne$_count.stub(
+          CopyWith$Query$CountReferredUserByUserId$userFindOne$_count.stub(
               _res);
 }
 
-class Query$countReferredUserByUserId$userFindOne$_count {
-  Query$countReferredUserByUserId$userFindOne$_count({
+class Query$CountReferredUserByUserId$userFindOne$_count {
+  Query$CountReferredUserByUserId$userFindOne$_count({
     required this.referredUsers,
     this.$__typename = 'UserCount',
   });
 
-  factory Query$countReferredUserByUserId$userFindOne$_count.fromJson(
+  factory Query$CountReferredUserByUserId$userFindOne$_count.fromJson(
       Map<String, dynamic> json) {
     final l$referredUsers = json['referredUsers'];
     final l$$__typename = json['__typename'];
-    return Query$countReferredUserByUserId$userFindOne$_count(
+    return Query$CountReferredUserByUserId$userFindOne$_count(
       referredUsers: (l$referredUsers as int),
       $__typename: (l$$__typename as String),
     );
@@ -666,7 +663,7 @@ class Query$countReferredUserByUserId$userFindOne$_count {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$countReferredUserByUserId$userFindOne$_count) ||
+    if (!(other is Query$CountReferredUserByUserId$userFindOne$_count) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -684,27 +681,27 @@ class Query$countReferredUserByUserId$userFindOne$_count {
   }
 }
 
-extension UtilityExtension$Query$countReferredUserByUserId$userFindOne$_count
-    on Query$countReferredUserByUserId$userFindOne$_count {
-  CopyWith$Query$countReferredUserByUserId$userFindOne$_count<
-          Query$countReferredUserByUserId$userFindOne$_count>
+extension UtilityExtension$Query$CountReferredUserByUserId$userFindOne$_count
+    on Query$CountReferredUserByUserId$userFindOne$_count {
+  CopyWith$Query$CountReferredUserByUserId$userFindOne$_count<
+          Query$CountReferredUserByUserId$userFindOne$_count>
       get copyWith =>
-          CopyWith$Query$countReferredUserByUserId$userFindOne$_count(
+          CopyWith$Query$CountReferredUserByUserId$userFindOne$_count(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$countReferredUserByUserId$userFindOne$_count<
+abstract class CopyWith$Query$CountReferredUserByUserId$userFindOne$_count<
     TRes> {
-  factory CopyWith$Query$countReferredUserByUserId$userFindOne$_count(
-    Query$countReferredUserByUserId$userFindOne$_count instance,
-    TRes Function(Query$countReferredUserByUserId$userFindOne$_count) then,
-  ) = _CopyWithImpl$Query$countReferredUserByUserId$userFindOne$_count;
+  factory CopyWith$Query$CountReferredUserByUserId$userFindOne$_count(
+    Query$CountReferredUserByUserId$userFindOne$_count instance,
+    TRes Function(Query$CountReferredUserByUserId$userFindOne$_count) then,
+  ) = _CopyWithImpl$Query$CountReferredUserByUserId$userFindOne$_count;
 
-  factory CopyWith$Query$countReferredUserByUserId$userFindOne$_count.stub(
+  factory CopyWith$Query$CountReferredUserByUserId$userFindOne$_count.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$countReferredUserByUserId$userFindOne$_count;
+      _CopyWithStubImpl$Query$CountReferredUserByUserId$userFindOne$_count;
 
   TRes call({
     int? referredUsers,
@@ -712,17 +709,17 @@ abstract class CopyWith$Query$countReferredUserByUserId$userFindOne$_count<
   });
 }
 
-class _CopyWithImpl$Query$countReferredUserByUserId$userFindOne$_count<TRes>
+class _CopyWithImpl$Query$CountReferredUserByUserId$userFindOne$_count<TRes>
     implements
-        CopyWith$Query$countReferredUserByUserId$userFindOne$_count<TRes> {
-  _CopyWithImpl$Query$countReferredUserByUserId$userFindOne$_count(
+        CopyWith$Query$CountReferredUserByUserId$userFindOne$_count<TRes> {
+  _CopyWithImpl$Query$CountReferredUserByUserId$userFindOne$_count(
     this._instance,
     this._then,
   );
 
-  final Query$countReferredUserByUserId$userFindOne$_count _instance;
+  final Query$CountReferredUserByUserId$userFindOne$_count _instance;
 
-  final TRes Function(Query$countReferredUserByUserId$userFindOne$_count) _then;
+  final TRes Function(Query$CountReferredUserByUserId$userFindOne$_count) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -730,7 +727,7 @@ class _CopyWithImpl$Query$countReferredUserByUserId$userFindOne$_count<TRes>
     Object? referredUsers = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$countReferredUserByUserId$userFindOne$_count(
+      _then(Query$CountReferredUserByUserId$userFindOne$_count(
         referredUsers: referredUsers == _undefined || referredUsers == null
             ? _instance.referredUsers
             : (referredUsers as int),
@@ -740,10 +737,10 @@ class _CopyWithImpl$Query$countReferredUserByUserId$userFindOne$_count<TRes>
       ));
 }
 
-class _CopyWithStubImpl$Query$countReferredUserByUserId$userFindOne$_count<TRes>
+class _CopyWithStubImpl$Query$CountReferredUserByUserId$userFindOne$_count<TRes>
     implements
-        CopyWith$Query$countReferredUserByUserId$userFindOne$_count<TRes> {
-  _CopyWithStubImpl$Query$countReferredUserByUserId$userFindOne$_count(
+        CopyWith$Query$CountReferredUserByUserId$userFindOne$_count<TRes> {
+  _CopyWithStubImpl$Query$CountReferredUserByUserId$userFindOne$_count(
       this._res);
 
   TRes _res;

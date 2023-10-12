@@ -1,17 +1,15 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
 class Variables$Query$CountUserOfStudentWithinReferredId {
   factory Variables$Query$CountUserOfStudentWithinReferredId(
-          {Input$UserFindManyArgs? userFindManyArgs}) =>
+          {Input$UserWhereInput? where}) =>
       Variables$Query$CountUserOfStudentWithinReferredId._({
-        if (userFindManyArgs != null) r'userFindManyArgs': userFindManyArgs,
+        if (where != null) r'where': where,
       });
 
   Variables$Query$CountUserOfStudentWithinReferredId._(this._$data);
@@ -19,25 +17,23 @@ class Variables$Query$CountUserOfStudentWithinReferredId {
   factory Variables$Query$CountUserOfStudentWithinReferredId.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    if (data.containsKey('userFindManyArgs')) {
-      final l$userFindManyArgs = data['userFindManyArgs'];
-      result$data['userFindManyArgs'] = l$userFindManyArgs == null
+    if (data.containsKey('where')) {
+      final l$where = data['where'];
+      result$data['where'] = l$where == null
           ? null
-          : Input$UserFindManyArgs.fromJson(
-              (l$userFindManyArgs as Map<String, dynamic>));
+          : Input$UserWhereInput.fromJson((l$where as Map<String, dynamic>));
     }
     return Variables$Query$CountUserOfStudentWithinReferredId._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$UserFindManyArgs? get userFindManyArgs =>
-      (_$data['userFindManyArgs'] as Input$UserFindManyArgs?);
+  Input$UserWhereInput? get where => (_$data['where'] as Input$UserWhereInput?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if (_$data.containsKey('userFindManyArgs')) {
-      final l$userFindManyArgs = userFindManyArgs;
-      result$data['userFindManyArgs'] = l$userFindManyArgs?.toJson();
+    if (_$data.containsKey('where')) {
+      final l$where = where;
+      result$data['where'] = l$where?.toJson();
     }
     return result$data;
   }
@@ -58,13 +54,12 @@ class Variables$Query$CountUserOfStudentWithinReferredId {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$userFindManyArgs = userFindManyArgs;
-    final lOther$userFindManyArgs = other.userFindManyArgs;
-    if (_$data.containsKey('userFindManyArgs') !=
-        other._$data.containsKey('userFindManyArgs')) {
+    final l$where = where;
+    final lOther$where = other.where;
+    if (_$data.containsKey('where') != other._$data.containsKey('where')) {
       return false;
     }
-    if (l$userFindManyArgs != lOther$userFindManyArgs) {
+    if (l$where != lOther$where) {
       return false;
     }
     return true;
@@ -72,10 +67,8 @@ class Variables$Query$CountUserOfStudentWithinReferredId {
 
   @override
   int get hashCode {
-    final l$userFindManyArgs = userFindManyArgs;
-    return Object.hashAll([
-      _$data.containsKey('userFindManyArgs') ? l$userFindManyArgs : const {}
-    ]);
+    final l$where = where;
+    return Object.hashAll([_$data.containsKey('where') ? l$where : const {}]);
   }
 }
 
@@ -90,7 +83,7 @@ abstract class CopyWith$Variables$Query$CountUserOfStudentWithinReferredId<
           TRes res) =
       _CopyWithStubImpl$Variables$Query$CountUserOfStudentWithinReferredId;
 
-  TRes call({Input$UserFindManyArgs? userFindManyArgs});
+  TRes call({Input$UserWhereInput? where});
 }
 
 class _CopyWithImpl$Variables$Query$CountUserOfStudentWithinReferredId<TRes>
@@ -107,11 +100,10 @@ class _CopyWithImpl$Variables$Query$CountUserOfStudentWithinReferredId<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? userFindManyArgs = _undefined}) =>
+  TRes call({Object? where = _undefined}) =>
       _then(Variables$Query$CountUserOfStudentWithinReferredId._({
         ..._instance._$data,
-        if (userFindManyArgs != _undefined)
-          'userFindManyArgs': (userFindManyArgs as Input$UserFindManyArgs?),
+        if (where != _undefined) 'where': (where as Input$UserWhereInput?),
       }));
 }
 
@@ -123,12 +115,12 @@ class _CopyWithStubImpl$Variables$Query$CountUserOfStudentWithinReferredId<TRes>
 
   TRes _res;
 
-  call({Input$UserFindManyArgs? userFindManyArgs}) => _res;
+  call({Input$UserWhereInput? where}) => _res;
 }
 
 class Query$CountUserOfStudentWithinReferredId {
   Query$CountUserOfStudentWithinReferredId({
-    required this.userCount,
+    this.userCount,
     this.$__typename = 'Query',
   });
 
@@ -137,12 +129,12 @@ class Query$CountUserOfStudentWithinReferredId {
     final l$userCount = json['userCount'];
     final l$$__typename = json['__typename'];
     return Query$CountUserOfStudentWithinReferredId(
-      userCount: (l$userCount as int),
+      userCount: (l$userCount as num?)?.toDouble(),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final int userCount;
+  final double? userCount;
 
   final String $__typename;
 
@@ -208,7 +200,7 @@ abstract class CopyWith$Query$CountUserOfStudentWithinReferredId<TRes> {
       _CopyWithStubImpl$Query$CountUserOfStudentWithinReferredId;
 
   TRes call({
-    int? userCount,
+    double? userCount,
     String? $__typename,
   });
 }
@@ -231,9 +223,9 @@ class _CopyWithImpl$Query$CountUserOfStudentWithinReferredId<TRes>
     Object? $__typename = _undefined,
   }) =>
       _then(Query$CountUserOfStudentWithinReferredId(
-        userCount: userCount == _undefined || userCount == null
+        userCount: userCount == _undefined
             ? _instance.userCount
-            : (userCount as int),
+            : (userCount as double?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -247,7 +239,7 @@ class _CopyWithStubImpl$Query$CountUserOfStudentWithinReferredId<TRes>
   TRes _res;
 
   call({
-    int? userCount,
+    double? userCount,
     String? $__typename,
   }) =>
       _res;
@@ -260,9 +252,9 @@ const documentNodeQueryCountUserOfStudentWithinReferredId =
     name: NameNode(value: 'CountUserOfStudentWithinReferredId'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'userFindManyArgs')),
+        variable: VariableNode(name: NameNode(value: 'where')),
         type: NamedTypeNode(
-          name: NameNode(value: 'UserFindManyArgs'),
+          name: NameNode(value: 'UserWhereInput'),
           isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -276,8 +268,8 @@ const documentNodeQueryCountUserOfStudentWithinReferredId =
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'userFindManyArgs'),
-            value: VariableNode(name: NameNode(value: 'userFindManyArgs')),
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
           )
         ],
         directives: [],

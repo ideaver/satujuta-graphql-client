@@ -1,45 +1,86 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
-class Variables$Query$TransactionFindMany {
-  factory Variables$Query$TransactionFindMany(
-          {required Input$TransactionFindManyArgs transactionFindManyArgs}) =>
-      Variables$Query$TransactionFindMany._({
-        r'transactionFindManyArgs': transactionFindManyArgs,
+class Variables$Query$TransactionFindManyByAccountId {
+  factory Variables$Query$TransactionFindManyByAccountId({
+    int? skip,
+    int? take,
+    Input$TransactionWhereInput? where,
+    List<Input$TransactionOrderByWithRelationInput>? orderBy,
+  }) =>
+      Variables$Query$TransactionFindManyByAccountId._({
+        if (skip != null) r'skip': skip,
+        if (take != null) r'take': take,
+        if (where != null) r'where': where,
+        if (orderBy != null) r'orderBy': orderBy,
       });
 
-  Variables$Query$TransactionFindMany._(this._$data);
+  Variables$Query$TransactionFindManyByAccountId._(this._$data);
 
-  factory Variables$Query$TransactionFindMany.fromJson(
+  factory Variables$Query$TransactionFindManyByAccountId.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$transactionFindManyArgs = data['transactionFindManyArgs'];
-    result$data['transactionFindManyArgs'] =
-        Input$TransactionFindManyArgs.fromJson(
-            (l$transactionFindManyArgs as Map<String, dynamic>));
-    return Variables$Query$TransactionFindMany._(result$data);
+    if (data.containsKey('skip')) {
+      final l$skip = data['skip'];
+      result$data['skip'] = (l$skip as int?);
+    }
+    if (data.containsKey('take')) {
+      final l$take = data['take'];
+      result$data['take'] = (l$take as int?);
+    }
+    if (data.containsKey('where')) {
+      final l$where = data['where'];
+      result$data['where'] = l$where == null
+          ? null
+          : Input$TransactionWhereInput.fromJson(
+              (l$where as Map<String, dynamic>));
+    }
+    if (data.containsKey('orderBy')) {
+      final l$orderBy = data['orderBy'];
+      result$data['orderBy'] = (l$orderBy as List<dynamic>?)
+          ?.map((e) => Input$TransactionOrderByWithRelationInput.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList();
+    }
+    return Variables$Query$TransactionFindManyByAccountId._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$TransactionFindManyArgs get transactionFindManyArgs =>
-      (_$data['transactionFindManyArgs'] as Input$TransactionFindManyArgs);
+  int? get skip => (_$data['skip'] as int?);
+  int? get take => (_$data['take'] as int?);
+  Input$TransactionWhereInput? get where =>
+      (_$data['where'] as Input$TransactionWhereInput?);
+  List<Input$TransactionOrderByWithRelationInput>? get orderBy =>
+      (_$data['orderBy'] as List<Input$TransactionOrderByWithRelationInput>?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$transactionFindManyArgs = transactionFindManyArgs;
-    result$data['transactionFindManyArgs'] = l$transactionFindManyArgs.toJson();
+    if (_$data.containsKey('skip')) {
+      final l$skip = skip;
+      result$data['skip'] = l$skip;
+    }
+    if (_$data.containsKey('take')) {
+      final l$take = take;
+      result$data['take'] = l$take;
+    }
+    if (_$data.containsKey('where')) {
+      final l$where = where;
+      result$data['where'] = l$where?.toJson();
+    }
+    if (_$data.containsKey('orderBy')) {
+      final l$orderBy = orderBy;
+      result$data['orderBy'] = l$orderBy?.map((e) => e.toJson()).toList();
+    }
     return result$data;
   }
 
-  CopyWith$Variables$Query$TransactionFindMany<
-          Variables$Query$TransactionFindMany>
-      get copyWith => CopyWith$Variables$Query$TransactionFindMany(
+  CopyWith$Variables$Query$TransactionFindManyByAccountId<
+          Variables$Query$TransactionFindManyByAccountId>
+      get copyWith => CopyWith$Variables$Query$TransactionFindManyByAccountId(
             this,
             (i) => i,
           );
@@ -48,13 +89,51 @@ class Variables$Query$TransactionFindMany {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$TransactionFindMany) ||
+    if (!(other is Variables$Query$TransactionFindManyByAccountId) ||
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$transactionFindManyArgs = transactionFindManyArgs;
-    final lOther$transactionFindManyArgs = other.transactionFindManyArgs;
-    if (l$transactionFindManyArgs != lOther$transactionFindManyArgs) {
+    final l$skip = skip;
+    final lOther$skip = other.skip;
+    if (_$data.containsKey('skip') != other._$data.containsKey('skip')) {
+      return false;
+    }
+    if (l$skip != lOther$skip) {
+      return false;
+    }
+    final l$take = take;
+    final lOther$take = other.take;
+    if (_$data.containsKey('take') != other._$data.containsKey('take')) {
+      return false;
+    }
+    if (l$take != lOther$take) {
+      return false;
+    }
+    final l$where = where;
+    final lOther$where = other.where;
+    if (_$data.containsKey('where') != other._$data.containsKey('where')) {
+      return false;
+    }
+    if (l$where != lOther$where) {
+      return false;
+    }
+    final l$orderBy = orderBy;
+    final lOther$orderBy = other.orderBy;
+    if (_$data.containsKey('orderBy') != other._$data.containsKey('orderBy')) {
+      return false;
+    }
+    if (l$orderBy != null && lOther$orderBy != null) {
+      if (l$orderBy.length != lOther$orderBy.length) {
+        return false;
+      }
+      for (int i = 0; i < l$orderBy.length; i++) {
+        final l$orderBy$entry = l$orderBy[i];
+        final lOther$orderBy$entry = lOther$orderBy[i];
+        if (l$orderBy$entry != lOther$orderBy$entry) {
+          return false;
+        }
+      }
+    } else if (l$orderBy != lOther$orderBy) {
       return false;
     }
     return true;
@@ -62,74 +141,108 @@ class Variables$Query$TransactionFindMany {
 
   @override
   int get hashCode {
-    final l$transactionFindManyArgs = transactionFindManyArgs;
-    return Object.hashAll([l$transactionFindManyArgs]);
+    final l$skip = skip;
+    final l$take = take;
+    final l$where = where;
+    final l$orderBy = orderBy;
+    return Object.hashAll([
+      _$data.containsKey('skip') ? l$skip : const {},
+      _$data.containsKey('take') ? l$take : const {},
+      _$data.containsKey('where') ? l$where : const {},
+      _$data.containsKey('orderBy')
+          ? l$orderBy == null
+              ? null
+              : Object.hashAll(l$orderBy.map((v) => v))
+          : const {},
+    ]);
   }
 }
 
-abstract class CopyWith$Variables$Query$TransactionFindMany<TRes> {
-  factory CopyWith$Variables$Query$TransactionFindMany(
-    Variables$Query$TransactionFindMany instance,
-    TRes Function(Variables$Query$TransactionFindMany) then,
-  ) = _CopyWithImpl$Variables$Query$TransactionFindMany;
+abstract class CopyWith$Variables$Query$TransactionFindManyByAccountId<TRes> {
+  factory CopyWith$Variables$Query$TransactionFindManyByAccountId(
+    Variables$Query$TransactionFindManyByAccountId instance,
+    TRes Function(Variables$Query$TransactionFindManyByAccountId) then,
+  ) = _CopyWithImpl$Variables$Query$TransactionFindManyByAccountId;
 
-  factory CopyWith$Variables$Query$TransactionFindMany.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Query$TransactionFindMany;
+  factory CopyWith$Variables$Query$TransactionFindManyByAccountId.stub(
+          TRes res) =
+      _CopyWithStubImpl$Variables$Query$TransactionFindManyByAccountId;
 
-  TRes call({Input$TransactionFindManyArgs? transactionFindManyArgs});
+  TRes call({
+    int? skip,
+    int? take,
+    Input$TransactionWhereInput? where,
+    List<Input$TransactionOrderByWithRelationInput>? orderBy,
+  });
 }
 
-class _CopyWithImpl$Variables$Query$TransactionFindMany<TRes>
-    implements CopyWith$Variables$Query$TransactionFindMany<TRes> {
-  _CopyWithImpl$Variables$Query$TransactionFindMany(
+class _CopyWithImpl$Variables$Query$TransactionFindManyByAccountId<TRes>
+    implements CopyWith$Variables$Query$TransactionFindManyByAccountId<TRes> {
+  _CopyWithImpl$Variables$Query$TransactionFindManyByAccountId(
     this._instance,
     this._then,
   );
 
-  final Variables$Query$TransactionFindMany _instance;
+  final Variables$Query$TransactionFindManyByAccountId _instance;
 
-  final TRes Function(Variables$Query$TransactionFindMany) _then;
+  final TRes Function(Variables$Query$TransactionFindManyByAccountId) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? transactionFindManyArgs = _undefined}) =>
-      _then(Variables$Query$TransactionFindMany._({
+  TRes call({
+    Object? skip = _undefined,
+    Object? take = _undefined,
+    Object? where = _undefined,
+    Object? orderBy = _undefined,
+  }) =>
+      _then(Variables$Query$TransactionFindManyByAccountId._({
         ..._instance._$data,
-        if (transactionFindManyArgs != _undefined &&
-            transactionFindManyArgs != null)
-          'transactionFindManyArgs':
-              (transactionFindManyArgs as Input$TransactionFindManyArgs),
+        if (skip != _undefined) 'skip': (skip as int?),
+        if (take != _undefined) 'take': (take as int?),
+        if (where != _undefined)
+          'where': (where as Input$TransactionWhereInput?),
+        if (orderBy != _undefined)
+          'orderBy':
+              (orderBy as List<Input$TransactionOrderByWithRelationInput>?),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$TransactionFindMany<TRes>
-    implements CopyWith$Variables$Query$TransactionFindMany<TRes> {
-  _CopyWithStubImpl$Variables$Query$TransactionFindMany(this._res);
+class _CopyWithStubImpl$Variables$Query$TransactionFindManyByAccountId<TRes>
+    implements CopyWith$Variables$Query$TransactionFindManyByAccountId<TRes> {
+  _CopyWithStubImpl$Variables$Query$TransactionFindManyByAccountId(this._res);
 
   TRes _res;
 
-  call({Input$TransactionFindManyArgs? transactionFindManyArgs}) => _res;
+  call({
+    int? skip,
+    int? take,
+    Input$TransactionWhereInput? where,
+    List<Input$TransactionOrderByWithRelationInput>? orderBy,
+  }) =>
+      _res;
 }
 
-class Query$TransactionFindMany {
-  Query$TransactionFindMany({
+class Query$TransactionFindManyByAccountId {
+  Query$TransactionFindManyByAccountId({
     this.transactionFindMany,
     this.$__typename = 'Query',
   });
 
-  factory Query$TransactionFindMany.fromJson(Map<String, dynamic> json) {
+  factory Query$TransactionFindManyByAccountId.fromJson(
+      Map<String, dynamic> json) {
     final l$transactionFindMany = json['transactionFindMany'];
     final l$$__typename = json['__typename'];
-    return Query$TransactionFindMany(
+    return Query$TransactionFindManyByAccountId(
       transactionFindMany: (l$transactionFindMany as List<dynamic>?)
-          ?.map((e) => Query$TransactionFindMany$transactionFindMany.fromJson(
-              (e as Map<String, dynamic>)))
+          ?.map((e) =>
+              Query$TransactionFindManyByAccountId$transactionFindMany.fromJson(
+                  (e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final List<Query$TransactionFindMany$transactionFindMany>?
+  final List<Query$TransactionFindManyByAccountId$transactionFindMany>?
       transactionFindMany;
 
   final String $__typename;
@@ -161,7 +274,7 @@ class Query$TransactionFindMany {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$TransactionFindMany) ||
+    if (!(other is Query$TransactionFindManyByAccountId) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -190,46 +303,48 @@ class Query$TransactionFindMany {
   }
 }
 
-extension UtilityExtension$Query$TransactionFindMany
-    on Query$TransactionFindMany {
-  CopyWith$Query$TransactionFindMany<Query$TransactionFindMany> get copyWith =>
-      CopyWith$Query$TransactionFindMany(
-        this,
-        (i) => i,
-      );
+extension UtilityExtension$Query$TransactionFindManyByAccountId
+    on Query$TransactionFindManyByAccountId {
+  CopyWith$Query$TransactionFindManyByAccountId<
+          Query$TransactionFindManyByAccountId>
+      get copyWith => CopyWith$Query$TransactionFindManyByAccountId(
+            this,
+            (i) => i,
+          );
 }
 
-abstract class CopyWith$Query$TransactionFindMany<TRes> {
-  factory CopyWith$Query$TransactionFindMany(
-    Query$TransactionFindMany instance,
-    TRes Function(Query$TransactionFindMany) then,
-  ) = _CopyWithImpl$Query$TransactionFindMany;
+abstract class CopyWith$Query$TransactionFindManyByAccountId<TRes> {
+  factory CopyWith$Query$TransactionFindManyByAccountId(
+    Query$TransactionFindManyByAccountId instance,
+    TRes Function(Query$TransactionFindManyByAccountId) then,
+  ) = _CopyWithImpl$Query$TransactionFindManyByAccountId;
 
-  factory CopyWith$Query$TransactionFindMany.stub(TRes res) =
-      _CopyWithStubImpl$Query$TransactionFindMany;
+  factory CopyWith$Query$TransactionFindManyByAccountId.stub(TRes res) =
+      _CopyWithStubImpl$Query$TransactionFindManyByAccountId;
 
   TRes call({
-    List<Query$TransactionFindMany$transactionFindMany>? transactionFindMany,
+    List<Query$TransactionFindManyByAccountId$transactionFindMany>?
+        transactionFindMany,
     String? $__typename,
   });
   TRes transactionFindMany(
-      Iterable<Query$TransactionFindMany$transactionFindMany>? Function(
+      Iterable<Query$TransactionFindManyByAccountId$transactionFindMany>? Function(
               Iterable<
-                  CopyWith$Query$TransactionFindMany$transactionFindMany<
-                      Query$TransactionFindMany$transactionFindMany>>?)
+                  CopyWith$Query$TransactionFindManyByAccountId$transactionFindMany<
+                      Query$TransactionFindManyByAccountId$transactionFindMany>>?)
           _fn);
 }
 
-class _CopyWithImpl$Query$TransactionFindMany<TRes>
-    implements CopyWith$Query$TransactionFindMany<TRes> {
-  _CopyWithImpl$Query$TransactionFindMany(
+class _CopyWithImpl$Query$TransactionFindManyByAccountId<TRes>
+    implements CopyWith$Query$TransactionFindManyByAccountId<TRes> {
+  _CopyWithImpl$Query$TransactionFindManyByAccountId(
     this._instance,
     this._then,
   );
 
-  final Query$TransactionFindMany _instance;
+  final Query$TransactionFindManyByAccountId _instance;
 
-  final TRes Function(Query$TransactionFindMany) _then;
+  final TRes Function(Query$TransactionFindManyByAccountId) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -237,58 +352,89 @@ class _CopyWithImpl$Query$TransactionFindMany<TRes>
     Object? transactionFindMany = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$TransactionFindMany(
+      _then(Query$TransactionFindManyByAccountId(
         transactionFindMany: transactionFindMany == _undefined
             ? _instance.transactionFindMany
-            : (transactionFindMany
-                as List<Query$TransactionFindMany$transactionFindMany>?),
+            : (transactionFindMany as List<
+                Query$TransactionFindManyByAccountId$transactionFindMany>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
   TRes transactionFindMany(
-          Iterable<Query$TransactionFindMany$transactionFindMany>? Function(
+          Iterable<Query$TransactionFindManyByAccountId$transactionFindMany>? Function(
                   Iterable<
-                      CopyWith$Query$TransactionFindMany$transactionFindMany<
-                          Query$TransactionFindMany$transactionFindMany>>?)
+                      CopyWith$Query$TransactionFindManyByAccountId$transactionFindMany<
+                          Query$TransactionFindManyByAccountId$transactionFindMany>>?)
               _fn) =>
       call(
-          transactionFindMany: _fn(_instance.transactionFindMany?.map(
-              (e) => CopyWith$Query$TransactionFindMany$transactionFindMany(
-                    e,
-                    (i) => i,
-                  )))?.toList());
+          transactionFindMany: _fn(_instance.transactionFindMany?.map((e) =>
+              CopyWith$Query$TransactionFindManyByAccountId$transactionFindMany(
+                e,
+                (i) => i,
+              )))?.toList());
 }
 
-class _CopyWithStubImpl$Query$TransactionFindMany<TRes>
-    implements CopyWith$Query$TransactionFindMany<TRes> {
-  _CopyWithStubImpl$Query$TransactionFindMany(this._res);
+class _CopyWithStubImpl$Query$TransactionFindManyByAccountId<TRes>
+    implements CopyWith$Query$TransactionFindManyByAccountId<TRes> {
+  _CopyWithStubImpl$Query$TransactionFindManyByAccountId(this._res);
 
   TRes _res;
 
   call({
-    List<Query$TransactionFindMany$transactionFindMany>? transactionFindMany,
+    List<Query$TransactionFindManyByAccountId$transactionFindMany>?
+        transactionFindMany,
     String? $__typename,
   }) =>
       _res;
   transactionFindMany(_fn) => _res;
 }
 
-const documentNodeQueryTransactionFindMany = DocumentNode(definitions: [
+const documentNodeQueryTransactionFindManyByAccountId =
+    DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.query,
-    name: NameNode(value: 'TransactionFindMany'),
+    name: NameNode(value: 'TransactionFindManyByAccountId'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable:
-            VariableNode(name: NameNode(value: 'transactionFindManyArgs')),
+        variable: VariableNode(name: NameNode(value: 'skip')),
         type: NamedTypeNode(
-          name: NameNode(value: 'TransactionFindManyArgs'),
-          isNonNull: true,
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'take')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'where')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'TransactionWhereInput'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'orderBy')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'TransactionOrderByWithRelationInput'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -297,10 +443,21 @@ const documentNodeQueryTransactionFindMany = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'transactionFindManyArgs'),
-            value:
-                VariableNode(name: NameNode(value: 'transactionFindManyArgs')),
-          )
+            name: NameNode(value: 'skip'),
+            value: VariableNode(name: NameNode(value: 'skip')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'take'),
+            value: VariableNode(name: NameNode(value: 'take')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'orderBy'),
+            value: VariableNode(name: NameNode(value: 'orderBy')),
+          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
@@ -372,31 +529,32 @@ const documentNodeQueryTransactionFindMany = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Query$TransactionFindMany _parserFn$Query$TransactionFindMany(
-        Map<String, dynamic> data) =>
-    Query$TransactionFindMany.fromJson(data);
-typedef OnQueryComplete$Query$TransactionFindMany = FutureOr<void> Function(
+Query$TransactionFindManyByAccountId
+    _parserFn$Query$TransactionFindManyByAccountId(Map<String, dynamic> data) =>
+        Query$TransactionFindManyByAccountId.fromJson(data);
+typedef OnQueryComplete$Query$TransactionFindManyByAccountId = FutureOr<void>
+    Function(
   Map<String, dynamic>?,
-  Query$TransactionFindMany?,
+  Query$TransactionFindManyByAccountId?,
 );
 
-class Options$Query$TransactionFindMany
-    extends graphql.QueryOptions<Query$TransactionFindMany> {
-  Options$Query$TransactionFindMany({
+class Options$Query$TransactionFindManyByAccountId
+    extends graphql.QueryOptions<Query$TransactionFindManyByAccountId> {
+  Options$Query$TransactionFindManyByAccountId({
     String? operationName,
-    required Variables$Query$TransactionFindMany variables,
+    Variables$Query$TransactionFindManyByAccountId? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$TransactionFindMany? typedOptimisticResult,
+    Query$TransactionFindManyByAccountId? typedOptimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
-    OnQueryComplete$Query$TransactionFindMany? onComplete,
+    OnQueryComplete$Query$TransactionFindManyByAccountId? onComplete,
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -410,14 +568,15 @@ class Options$Query$TransactionFindMany
                     data,
                     data == null
                         ? null
-                        : _parserFn$Query$TransactionFindMany(data),
+                        : _parserFn$Query$TransactionFindManyByAccountId(data),
                   ),
           onError: onError,
-          document: documentNodeQueryTransactionFindMany,
-          parserFn: _parserFn$Query$TransactionFindMany,
+          document: documentNodeQueryTransactionFindManyByAccountId,
+          parserFn: _parserFn$Query$TransactionFindManyByAccountId,
         );
 
-  final OnQueryComplete$Query$TransactionFindMany? onCompleteWithParsed;
+  final OnQueryComplete$Query$TransactionFindManyByAccountId?
+      onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -428,112 +587,122 @@ class Options$Query$TransactionFindMany
       ];
 }
 
-class WatchOptions$Query$TransactionFindMany
-    extends graphql.WatchQueryOptions<Query$TransactionFindMany> {
-  WatchOptions$Query$TransactionFindMany({
+class WatchOptions$Query$TransactionFindManyByAccountId
+    extends graphql.WatchQueryOptions<Query$TransactionFindManyByAccountId> {
+  WatchOptions$Query$TransactionFindManyByAccountId({
     String? operationName,
-    required Variables$Query$TransactionFindMany variables,
+    Variables$Query$TransactionFindManyByAccountId? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$TransactionFindMany? typedOptimisticResult,
+    Query$TransactionFindManyByAccountId? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
           optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
-          document: documentNodeQueryTransactionFindMany,
+          document: documentNodeQueryTransactionFindManyByAccountId,
           pollInterval: pollInterval,
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Query$TransactionFindMany,
+          parserFn: _parserFn$Query$TransactionFindManyByAccountId,
         );
 }
 
-class FetchMoreOptions$Query$TransactionFindMany
+class FetchMoreOptions$Query$TransactionFindManyByAccountId
     extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$TransactionFindMany({
+  FetchMoreOptions$Query$TransactionFindManyByAccountId({
     required graphql.UpdateQuery updateQuery,
-    required Variables$Query$TransactionFindMany variables,
+    Variables$Query$TransactionFindManyByAccountId? variables,
   }) : super(
           updateQuery: updateQuery,
-          variables: variables.toJson(),
-          document: documentNodeQueryTransactionFindMany,
+          variables: variables?.toJson() ?? {},
+          document: documentNodeQueryTransactionFindManyByAccountId,
         );
 }
 
-extension ClientExtension$Query$TransactionFindMany on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$TransactionFindMany>>
-      query$TransactionFindMany(
-              Options$Query$TransactionFindMany options) async =>
-          await this.query(options);
-  graphql.ObservableQuery<Query$TransactionFindMany>
-      watchQuery$TransactionFindMany(
-              WatchOptions$Query$TransactionFindMany options) =>
-          this.watchQuery(options);
-  void writeQuery$TransactionFindMany({
-    required Query$TransactionFindMany data,
-    required Variables$Query$TransactionFindMany variables,
+extension ClientExtension$Query$TransactionFindManyByAccountId
+    on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$TransactionFindManyByAccountId>>
+      query$TransactionFindManyByAccountId(
+              [Options$Query$TransactionFindManyByAccountId? options]) async =>
+          await this
+              .query(options ?? Options$Query$TransactionFindManyByAccountId());
+  graphql.ObservableQuery<Query$TransactionFindManyByAccountId>
+      watchQuery$TransactionFindManyByAccountId(
+              [WatchOptions$Query$TransactionFindManyByAccountId? options]) =>
+          this.watchQuery(
+              options ?? WatchOptions$Query$TransactionFindManyByAccountId());
+  void writeQuery$TransactionFindManyByAccountId({
+    required Query$TransactionFindManyByAccountId data,
+    Variables$Query$TransactionFindManyByAccountId? variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
-          operation:
-              graphql.Operation(document: documentNodeQueryTransactionFindMany),
-          variables: variables.toJson(),
+          operation: graphql.Operation(
+              document: documentNodeQueryTransactionFindManyByAccountId),
+          variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
-  Query$TransactionFindMany? readQuery$TransactionFindMany({
-    required Variables$Query$TransactionFindMany variables,
+  Query$TransactionFindManyByAccountId?
+      readQuery$TransactionFindManyByAccountId({
+    Variables$Query$TransactionFindManyByAccountId? variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
-        operation:
-            graphql.Operation(document: documentNodeQueryTransactionFindMany),
-        variables: variables.toJson(),
+        operation: graphql.Operation(
+            document: documentNodeQueryTransactionFindManyByAccountId),
+        variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
     );
-    return result == null ? null : Query$TransactionFindMany.fromJson(result);
+    return result == null
+        ? null
+        : Query$TransactionFindManyByAccountId.fromJson(result);
   }
 }
 
-graphql_flutter.QueryHookResult<Query$TransactionFindMany>
-    useQuery$TransactionFindMany(Options$Query$TransactionFindMany options) =>
-        graphql_flutter.useQuery(options);
-graphql.ObservableQuery<Query$TransactionFindMany>
-    useWatchQuery$TransactionFindMany(
-            WatchOptions$Query$TransactionFindMany options) =>
-        graphql_flutter.useWatchQuery(options);
+graphql_flutter.QueryHookResult<Query$TransactionFindManyByAccountId>
+    useQuery$TransactionFindManyByAccountId(
+            [Options$Query$TransactionFindManyByAccountId? options]) =>
+        graphql_flutter.useQuery(
+            options ?? Options$Query$TransactionFindManyByAccountId());
+graphql.ObservableQuery<Query$TransactionFindManyByAccountId>
+    useWatchQuery$TransactionFindManyByAccountId(
+            [WatchOptions$Query$TransactionFindManyByAccountId? options]) =>
+        graphql_flutter.useWatchQuery(
+            options ?? WatchOptions$Query$TransactionFindManyByAccountId());
 
-class Query$TransactionFindMany$Widget
-    extends graphql_flutter.Query<Query$TransactionFindMany> {
-  Query$TransactionFindMany$Widget({
+class Query$TransactionFindManyByAccountId$Widget
+    extends graphql_flutter.Query<Query$TransactionFindManyByAccountId> {
+  Query$TransactionFindManyByAccountId$Widget({
     widgets.Key? key,
-    required Options$Query$TransactionFindMany options,
-    required graphql_flutter.QueryBuilder<Query$TransactionFindMany> builder,
+    Options$Query$TransactionFindManyByAccountId? options,
+    required graphql_flutter.QueryBuilder<Query$TransactionFindManyByAccountId>
+        builder,
   }) : super(
           key: key,
-          options: options,
+          options: options ?? Options$Query$TransactionFindManyByAccountId(),
           builder: builder,
         );
 }
 
-class Query$TransactionFindMany$transactionFindMany {
-  Query$TransactionFindMany$transactionFindMany({
+class Query$TransactionFindManyByAccountId$transactionFindMany {
+  Query$TransactionFindManyByAccountId$transactionFindMany({
     required this.id,
     required this.amount,
     required this.status,
@@ -544,7 +713,7 @@ class Query$TransactionFindMany$transactionFindMany {
     this.$__typename = 'Transaction',
   });
 
-  factory Query$TransactionFindMany$transactionFindMany.fromJson(
+  factory Query$TransactionFindManyByAccountId$transactionFindMany.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$amount = json['amount'];
@@ -554,7 +723,7 @@ class Query$TransactionFindMany$transactionFindMany {
     final l$fromAccountId = json['fromAccountId'];
     final l$toAccountId = json['toAccountId'];
     final l$$__typename = json['__typename'];
-    return Query$TransactionFindMany$transactionFindMany(
+    return Query$TransactionFindManyByAccountId$transactionFindMany(
       id: (l$id as int),
       amount: (l$amount as num).toDouble(),
       status: fromJson$Enum$TransactionStatus((l$status as String)),
@@ -632,7 +801,7 @@ class Query$TransactionFindMany$transactionFindMany {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$TransactionFindMany$transactionFindMany) ||
+    if (!(other is Query$TransactionFindManyByAccountId$transactionFindMany) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -680,25 +849,28 @@ class Query$TransactionFindMany$transactionFindMany {
   }
 }
 
-extension UtilityExtension$Query$TransactionFindMany$transactionFindMany
-    on Query$TransactionFindMany$transactionFindMany {
-  CopyWith$Query$TransactionFindMany$transactionFindMany<
-          Query$TransactionFindMany$transactionFindMany>
-      get copyWith => CopyWith$Query$TransactionFindMany$transactionFindMany(
+extension UtilityExtension$Query$TransactionFindManyByAccountId$transactionFindMany
+    on Query$TransactionFindManyByAccountId$transactionFindMany {
+  CopyWith$Query$TransactionFindManyByAccountId$transactionFindMany<
+          Query$TransactionFindManyByAccountId$transactionFindMany>
+      get copyWith =>
+          CopyWith$Query$TransactionFindManyByAccountId$transactionFindMany(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$TransactionFindMany$transactionFindMany<TRes> {
-  factory CopyWith$Query$TransactionFindMany$transactionFindMany(
-    Query$TransactionFindMany$transactionFindMany instance,
-    TRes Function(Query$TransactionFindMany$transactionFindMany) then,
-  ) = _CopyWithImpl$Query$TransactionFindMany$transactionFindMany;
+abstract class CopyWith$Query$TransactionFindManyByAccountId$transactionFindMany<
+    TRes> {
+  factory CopyWith$Query$TransactionFindManyByAccountId$transactionFindMany(
+    Query$TransactionFindManyByAccountId$transactionFindMany instance,
+    TRes Function(Query$TransactionFindManyByAccountId$transactionFindMany)
+        then,
+  ) = _CopyWithImpl$Query$TransactionFindManyByAccountId$transactionFindMany;
 
-  factory CopyWith$Query$TransactionFindMany$transactionFindMany.stub(
+  factory CopyWith$Query$TransactionFindManyByAccountId$transactionFindMany.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$TransactionFindMany$transactionFindMany;
+      _CopyWithStubImpl$Query$TransactionFindManyByAccountId$transactionFindMany;
 
   TRes call({
     int? id,
@@ -712,16 +884,20 @@ abstract class CopyWith$Query$TransactionFindMany$transactionFindMany<TRes> {
   });
 }
 
-class _CopyWithImpl$Query$TransactionFindMany$transactionFindMany<TRes>
-    implements CopyWith$Query$TransactionFindMany$transactionFindMany<TRes> {
-  _CopyWithImpl$Query$TransactionFindMany$transactionFindMany(
+class _CopyWithImpl$Query$TransactionFindManyByAccountId$transactionFindMany<
+        TRes>
+    implements
+        CopyWith$Query$TransactionFindManyByAccountId$transactionFindMany<
+            TRes> {
+  _CopyWithImpl$Query$TransactionFindManyByAccountId$transactionFindMany(
     this._instance,
     this._then,
   );
 
-  final Query$TransactionFindMany$transactionFindMany _instance;
+  final Query$TransactionFindManyByAccountId$transactionFindMany _instance;
 
-  final TRes Function(Query$TransactionFindMany$transactionFindMany) _then;
+  final TRes Function(Query$TransactionFindManyByAccountId$transactionFindMany)
+      _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -735,7 +911,7 @@ class _CopyWithImpl$Query$TransactionFindMany$transactionFindMany<TRes>
     Object? toAccountId = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$TransactionFindMany$transactionFindMany(
+      _then(Query$TransactionFindManyByAccountId$transactionFindMany(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         amount: amount == _undefined || amount == null
             ? _instance.amount
@@ -762,9 +938,13 @@ class _CopyWithImpl$Query$TransactionFindMany$transactionFindMany<TRes>
       ));
 }
 
-class _CopyWithStubImpl$Query$TransactionFindMany$transactionFindMany<TRes>
-    implements CopyWith$Query$TransactionFindMany$transactionFindMany<TRes> {
-  _CopyWithStubImpl$Query$TransactionFindMany$transactionFindMany(this._res);
+class _CopyWithStubImpl$Query$TransactionFindManyByAccountId$transactionFindMany<
+        TRes>
+    implements
+        CopyWith$Query$TransactionFindManyByAccountId$transactionFindMany<
+            TRes> {
+  _CopyWithStubImpl$Query$TransactionFindManyByAccountId$transactionFindMany(
+      this._res);
 
   TRes _res;
 

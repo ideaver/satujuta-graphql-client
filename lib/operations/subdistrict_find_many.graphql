@@ -1,5 +1,5 @@
-query SubdistrictFindMany($subdistrictFindManyArgs: SubdistrictFindManyArgs!) {
-  subdistrictFindMany(subdistrictFindManyArgs: $subdistrictFindManyArgs) {
+query SubdistrictFindMany($skip: Int, $take: Int, $where: SubdistrictWhereInput, $orderBy: [SubdistrictOrderByWithRelationInput!]) {
+  subdistrictFindMany(skip: $skip, take: $take, where: $where, orderBy: $orderBy) {
     id
     name
     postalCode

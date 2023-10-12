@@ -1,17 +1,22 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
 class Variables$Query$ProvinceFindManyWhereHotelNotNull {
-  factory Variables$Query$ProvinceFindManyWhereHotelNotNull(
-          {required Input$ProvinceFindManyArgs provinceFindManyArgs}) =>
+  factory Variables$Query$ProvinceFindManyWhereHotelNotNull({
+    List<Input$ProvinceOrderByWithRelationInput>? orderBy,
+    int? skip,
+    int? take,
+    Input$ProvinceWhereInput? where,
+  }) =>
       Variables$Query$ProvinceFindManyWhereHotelNotNull._({
-        r'provinceFindManyArgs': provinceFindManyArgs,
+        if (orderBy != null) r'orderBy': orderBy,
+        if (skip != null) r'skip': skip,
+        if (take != null) r'take': take,
+        if (where != null) r'where': where,
       });
 
   Variables$Query$ProvinceFindManyWhereHotelNotNull._(this._$data);
@@ -19,20 +24,57 @@ class Variables$Query$ProvinceFindManyWhereHotelNotNull {
   factory Variables$Query$ProvinceFindManyWhereHotelNotNull.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$provinceFindManyArgs = data['provinceFindManyArgs'];
-    result$data['provinceFindManyArgs'] = Input$ProvinceFindManyArgs.fromJson(
-        (l$provinceFindManyArgs as Map<String, dynamic>));
+    if (data.containsKey('orderBy')) {
+      final l$orderBy = data['orderBy'];
+      result$data['orderBy'] = (l$orderBy as List<dynamic>?)
+          ?.map((e) => Input$ProvinceOrderByWithRelationInput.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList();
+    }
+    if (data.containsKey('skip')) {
+      final l$skip = data['skip'];
+      result$data['skip'] = (l$skip as int?);
+    }
+    if (data.containsKey('take')) {
+      final l$take = data['take'];
+      result$data['take'] = (l$take as int?);
+    }
+    if (data.containsKey('where')) {
+      final l$where = data['where'];
+      result$data['where'] = l$where == null
+          ? null
+          : Input$ProvinceWhereInput.fromJson(
+              (l$where as Map<String, dynamic>));
+    }
     return Variables$Query$ProvinceFindManyWhereHotelNotNull._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$ProvinceFindManyArgs get provinceFindManyArgs =>
-      (_$data['provinceFindManyArgs'] as Input$ProvinceFindManyArgs);
+  List<Input$ProvinceOrderByWithRelationInput>? get orderBy =>
+      (_$data['orderBy'] as List<Input$ProvinceOrderByWithRelationInput>?);
+  int? get skip => (_$data['skip'] as int?);
+  int? get take => (_$data['take'] as int?);
+  Input$ProvinceWhereInput? get where =>
+      (_$data['where'] as Input$ProvinceWhereInput?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$provinceFindManyArgs = provinceFindManyArgs;
-    result$data['provinceFindManyArgs'] = l$provinceFindManyArgs.toJson();
+    if (_$data.containsKey('orderBy')) {
+      final l$orderBy = orderBy;
+      result$data['orderBy'] = l$orderBy?.map((e) => e.toJson()).toList();
+    }
+    if (_$data.containsKey('skip')) {
+      final l$skip = skip;
+      result$data['skip'] = l$skip;
+    }
+    if (_$data.containsKey('take')) {
+      final l$take = take;
+      result$data['take'] = l$take;
+    }
+    if (_$data.containsKey('where')) {
+      final l$where = where;
+      result$data['where'] = l$where?.toJson();
+    }
     return result$data;
   }
 
@@ -52,9 +94,47 @@ class Variables$Query$ProvinceFindManyWhereHotelNotNull {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$provinceFindManyArgs = provinceFindManyArgs;
-    final lOther$provinceFindManyArgs = other.provinceFindManyArgs;
-    if (l$provinceFindManyArgs != lOther$provinceFindManyArgs) {
+    final l$orderBy = orderBy;
+    final lOther$orderBy = other.orderBy;
+    if (_$data.containsKey('orderBy') != other._$data.containsKey('orderBy')) {
+      return false;
+    }
+    if (l$orderBy != null && lOther$orderBy != null) {
+      if (l$orderBy.length != lOther$orderBy.length) {
+        return false;
+      }
+      for (int i = 0; i < l$orderBy.length; i++) {
+        final l$orderBy$entry = l$orderBy[i];
+        final lOther$orderBy$entry = lOther$orderBy[i];
+        if (l$orderBy$entry != lOther$orderBy$entry) {
+          return false;
+        }
+      }
+    } else if (l$orderBy != lOther$orderBy) {
+      return false;
+    }
+    final l$skip = skip;
+    final lOther$skip = other.skip;
+    if (_$data.containsKey('skip') != other._$data.containsKey('skip')) {
+      return false;
+    }
+    if (l$skip != lOther$skip) {
+      return false;
+    }
+    final l$take = take;
+    final lOther$take = other.take;
+    if (_$data.containsKey('take') != other._$data.containsKey('take')) {
+      return false;
+    }
+    if (l$take != lOther$take) {
+      return false;
+    }
+    final l$where = where;
+    final lOther$where = other.where;
+    if (_$data.containsKey('where') != other._$data.containsKey('where')) {
+      return false;
+    }
+    if (l$where != lOther$where) {
       return false;
     }
     return true;
@@ -62,8 +142,20 @@ class Variables$Query$ProvinceFindManyWhereHotelNotNull {
 
   @override
   int get hashCode {
-    final l$provinceFindManyArgs = provinceFindManyArgs;
-    return Object.hashAll([l$provinceFindManyArgs]);
+    final l$orderBy = orderBy;
+    final l$skip = skip;
+    final l$take = take;
+    final l$where = where;
+    return Object.hashAll([
+      _$data.containsKey('orderBy')
+          ? l$orderBy == null
+              ? null
+              : Object.hashAll(l$orderBy.map((v) => v))
+          : const {},
+      _$data.containsKey('skip') ? l$skip : const {},
+      _$data.containsKey('take') ? l$take : const {},
+      _$data.containsKey('where') ? l$where : const {},
+    ]);
   }
 }
 
@@ -78,7 +170,12 @@ abstract class CopyWith$Variables$Query$ProvinceFindManyWhereHotelNotNull<
           TRes res) =
       _CopyWithStubImpl$Variables$Query$ProvinceFindManyWhereHotelNotNull;
 
-  TRes call({Input$ProvinceFindManyArgs? provinceFindManyArgs});
+  TRes call({
+    List<Input$ProvinceOrderByWithRelationInput>? orderBy,
+    int? skip,
+    int? take,
+    Input$ProvinceWhereInput? where,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$ProvinceFindManyWhereHotelNotNull<TRes>
@@ -95,12 +192,19 @@ class _CopyWithImpl$Variables$Query$ProvinceFindManyWhereHotelNotNull<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? provinceFindManyArgs = _undefined}) =>
+  TRes call({
+    Object? orderBy = _undefined,
+    Object? skip = _undefined,
+    Object? take = _undefined,
+    Object? where = _undefined,
+  }) =>
       _then(Variables$Query$ProvinceFindManyWhereHotelNotNull._({
         ..._instance._$data,
-        if (provinceFindManyArgs != _undefined && provinceFindManyArgs != null)
-          'provinceFindManyArgs':
-              (provinceFindManyArgs as Input$ProvinceFindManyArgs),
+        if (orderBy != _undefined)
+          'orderBy': (orderBy as List<Input$ProvinceOrderByWithRelationInput>?),
+        if (skip != _undefined) 'skip': (skip as int?),
+        if (take != _undefined) 'take': (take as int?),
+        if (where != _undefined) 'where': (where as Input$ProvinceWhereInput?),
       }));
 }
 
@@ -112,7 +216,13 @@ class _CopyWithStubImpl$Variables$Query$ProvinceFindManyWhereHotelNotNull<TRes>
 
   TRes _res;
 
-  call({Input$ProvinceFindManyArgs? provinceFindManyArgs}) => _res;
+  call({
+    List<Input$ProvinceOrderByWithRelationInput>? orderBy,
+    int? skip,
+    int? take,
+    Input$ProvinceWhereInput? where,
+  }) =>
+      _res;
 }
 
 class Query$ProvinceFindManyWhereHotelNotNull {
@@ -290,14 +400,44 @@ const documentNodeQueryProvinceFindManyWhereHotelNotNull =
     name: NameNode(value: 'ProvinceFindManyWhereHotelNotNull'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'provinceFindManyArgs')),
-        type: NamedTypeNode(
-          name: NameNode(value: 'ProvinceFindManyArgs'),
-          isNonNull: true,
+        variable: VariableNode(name: NameNode(value: 'orderBy')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'ProvinceOrderByWithRelationInput'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'skip')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'take')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'where')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'ProvinceWhereInput'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -306,9 +446,21 @@ const documentNodeQueryProvinceFindManyWhereHotelNotNull =
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'provinceFindManyArgs'),
-            value: VariableNode(name: NameNode(value: 'provinceFindManyArgs')),
-          )
+            name: NameNode(value: 'orderBy'),
+            value: VariableNode(name: NameNode(value: 'orderBy')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'skip'),
+            value: VariableNode(name: NameNode(value: 'skip')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'take'),
+            value: VariableNode(name: NameNode(value: 'take')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
+          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
@@ -359,7 +511,7 @@ class Options$Query$ProvinceFindManyWhereHotelNotNull
     extends graphql.QueryOptions<Query$ProvinceFindManyWhereHotelNotNull> {
   Options$Query$ProvinceFindManyWhereHotelNotNull({
     String? operationName,
-    required Variables$Query$ProvinceFindManyWhereHotelNotNull variables,
+    Variables$Query$ProvinceFindManyWhereHotelNotNull? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -371,7 +523,7 @@ class Options$Query$ProvinceFindManyWhereHotelNotNull
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -409,7 +561,7 @@ class WatchOptions$Query$ProvinceFindManyWhereHotelNotNull
     extends graphql.WatchQueryOptions<Query$ProvinceFindManyWhereHotelNotNull> {
   WatchOptions$Query$ProvinceFindManyWhereHotelNotNull({
     String? operationName,
-    required Variables$Query$ProvinceFindManyWhereHotelNotNull variables,
+    Variables$Query$ProvinceFindManyWhereHotelNotNull? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -421,7 +573,7 @@ class WatchOptions$Query$ProvinceFindManyWhereHotelNotNull
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -441,10 +593,10 @@ class FetchMoreOptions$Query$ProvinceFindManyWhereHotelNotNull
     extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$ProvinceFindManyWhereHotelNotNull({
     required graphql.UpdateQuery updateQuery,
-    required Variables$Query$ProvinceFindManyWhereHotelNotNull variables,
+    Variables$Query$ProvinceFindManyWhereHotelNotNull? variables,
   }) : super(
           updateQuery: updateQuery,
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           document: documentNodeQueryProvinceFindManyWhereHotelNotNull,
         );
 }
@@ -453,36 +605,40 @@ extension ClientExtension$Query$ProvinceFindManyWhereHotelNotNull
     on graphql.GraphQLClient {
   Future<graphql.QueryResult<Query$ProvinceFindManyWhereHotelNotNull>>
       query$ProvinceFindManyWhereHotelNotNull(
-              Options$Query$ProvinceFindManyWhereHotelNotNull options) async =>
-          await this.query(options);
+              [Options$Query$ProvinceFindManyWhereHotelNotNull?
+                  options]) async =>
+          await this.query(
+              options ?? Options$Query$ProvinceFindManyWhereHotelNotNull());
   graphql.ObservableQuery<Query$ProvinceFindManyWhereHotelNotNull>
       watchQuery$ProvinceFindManyWhereHotelNotNull(
-              WatchOptions$Query$ProvinceFindManyWhereHotelNotNull options) =>
-          this.watchQuery(options);
+              [WatchOptions$Query$ProvinceFindManyWhereHotelNotNull?
+                  options]) =>
+          this.watchQuery(options ??
+              WatchOptions$Query$ProvinceFindManyWhereHotelNotNull());
   void writeQuery$ProvinceFindManyWhereHotelNotNull({
     required Query$ProvinceFindManyWhereHotelNotNull data,
-    required Variables$Query$ProvinceFindManyWhereHotelNotNull variables,
+    Variables$Query$ProvinceFindManyWhereHotelNotNull? variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
           operation: graphql.Operation(
               document: documentNodeQueryProvinceFindManyWhereHotelNotNull),
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
   Query$ProvinceFindManyWhereHotelNotNull?
       readQuery$ProvinceFindManyWhereHotelNotNull({
-    required Variables$Query$ProvinceFindManyWhereHotelNotNull variables,
+    Variables$Query$ProvinceFindManyWhereHotelNotNull? variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
         operation: graphql.Operation(
             document: documentNodeQueryProvinceFindManyWhereHotelNotNull),
-        variables: variables.toJson(),
+        variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
     );
@@ -494,24 +650,26 @@ extension ClientExtension$Query$ProvinceFindManyWhereHotelNotNull
 
 graphql_flutter.QueryHookResult<Query$ProvinceFindManyWhereHotelNotNull>
     useQuery$ProvinceFindManyWhereHotelNotNull(
-            Options$Query$ProvinceFindManyWhereHotelNotNull options) =>
-        graphql_flutter.useQuery(options);
+            [Options$Query$ProvinceFindManyWhereHotelNotNull? options]) =>
+        graphql_flutter.useQuery(
+            options ?? Options$Query$ProvinceFindManyWhereHotelNotNull());
 graphql.ObservableQuery<Query$ProvinceFindManyWhereHotelNotNull>
     useWatchQuery$ProvinceFindManyWhereHotelNotNull(
-            WatchOptions$Query$ProvinceFindManyWhereHotelNotNull options) =>
-        graphql_flutter.useWatchQuery(options);
+            [WatchOptions$Query$ProvinceFindManyWhereHotelNotNull? options]) =>
+        graphql_flutter.useWatchQuery(
+            options ?? WatchOptions$Query$ProvinceFindManyWhereHotelNotNull());
 
 class Query$ProvinceFindManyWhereHotelNotNull$Widget
     extends graphql_flutter.Query<Query$ProvinceFindManyWhereHotelNotNull> {
   Query$ProvinceFindManyWhereHotelNotNull$Widget({
     widgets.Key? key,
-    required Options$Query$ProvinceFindManyWhereHotelNotNull options,
+    Options$Query$ProvinceFindManyWhereHotelNotNull? options,
     required graphql_flutter
         .QueryBuilder<Query$ProvinceFindManyWhereHotelNotNull>
         builder,
   }) : super(
           key: key,
-          options: options,
+          options: options ?? Options$Query$ProvinceFindManyWhereHotelNotNull(),
           builder: builder,
         );
 }

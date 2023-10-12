@@ -1,5 +1,5 @@
-query HotelFindMany($hotelFindManyArgs: HotelFindManyArgs!) {
-  hotelFindMany(hotelFindManyArgs: $hotelFindManyArgs) {
+query HotelFindMany($skip: Int, $take: Int, $orderBy: [HotelOrderByWithRelationInput!]) {
+  hotelFindMany(skip: $skip, take: $take, orderBy: $orderBy) {
     id
     name
     description

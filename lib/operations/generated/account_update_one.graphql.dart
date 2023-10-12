@@ -1,17 +1,18 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
 class Variables$Mutation$AccountUpdateOne {
-  factory Variables$Mutation$AccountUpdateOne(
-          {required Input$AccountUpdateOneArgs accountUpdateOneArgs}) =>
+  factory Variables$Mutation$AccountUpdateOne({
+    required Input$AccountUpdateInput data,
+    required Input$AccountWhereUniqueInput where,
+  }) =>
       Variables$Mutation$AccountUpdateOne._({
-        r'accountUpdateOneArgs': accountUpdateOneArgs,
+        r'data': data,
+        r'where': where,
       });
 
   Variables$Mutation$AccountUpdateOne._(this._$data);
@@ -19,20 +20,27 @@ class Variables$Mutation$AccountUpdateOne {
   factory Variables$Mutation$AccountUpdateOne.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$accountUpdateOneArgs = data['accountUpdateOneArgs'];
-    result$data['accountUpdateOneArgs'] = Input$AccountUpdateOneArgs.fromJson(
-        (l$accountUpdateOneArgs as Map<String, dynamic>));
+    final l$data = data['data'];
+    result$data['data'] =
+        Input$AccountUpdateInput.fromJson((l$data as Map<String, dynamic>));
+    final l$where = data['where'];
+    result$data['where'] = Input$AccountWhereUniqueInput.fromJson(
+        (l$where as Map<String, dynamic>));
     return Variables$Mutation$AccountUpdateOne._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$AccountUpdateOneArgs get accountUpdateOneArgs =>
-      (_$data['accountUpdateOneArgs'] as Input$AccountUpdateOneArgs);
+  Input$AccountUpdateInput get data =>
+      (_$data['data'] as Input$AccountUpdateInput);
+  Input$AccountWhereUniqueInput get where =>
+      (_$data['where'] as Input$AccountWhereUniqueInput);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$accountUpdateOneArgs = accountUpdateOneArgs;
-    result$data['accountUpdateOneArgs'] = l$accountUpdateOneArgs.toJson();
+    final l$data = data;
+    result$data['data'] = l$data.toJson();
+    final l$where = where;
+    result$data['where'] = l$where.toJson();
     return result$data;
   }
 
@@ -51,9 +59,14 @@ class Variables$Mutation$AccountUpdateOne {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$accountUpdateOneArgs = accountUpdateOneArgs;
-    final lOther$accountUpdateOneArgs = other.accountUpdateOneArgs;
-    if (l$accountUpdateOneArgs != lOther$accountUpdateOneArgs) {
+    final l$data = data;
+    final lOther$data = other.data;
+    if (l$data != lOther$data) {
+      return false;
+    }
+    final l$where = where;
+    final lOther$where = other.where;
+    if (l$where != lOther$where) {
       return false;
     }
     return true;
@@ -61,8 +74,12 @@ class Variables$Mutation$AccountUpdateOne {
 
   @override
   int get hashCode {
-    final l$accountUpdateOneArgs = accountUpdateOneArgs;
-    return Object.hashAll([l$accountUpdateOneArgs]);
+    final l$data = data;
+    final l$where = where;
+    return Object.hashAll([
+      l$data,
+      l$where,
+    ]);
   }
 }
 
@@ -75,7 +92,10 @@ abstract class CopyWith$Variables$Mutation$AccountUpdateOne<TRes> {
   factory CopyWith$Variables$Mutation$AccountUpdateOne.stub(TRes res) =
       _CopyWithStubImpl$Variables$Mutation$AccountUpdateOne;
 
-  TRes call({Input$AccountUpdateOneArgs? accountUpdateOneArgs});
+  TRes call({
+    Input$AccountUpdateInput? data,
+    Input$AccountWhereUniqueInput? where,
+  });
 }
 
 class _CopyWithImpl$Variables$Mutation$AccountUpdateOne<TRes>
@@ -91,12 +111,16 @@ class _CopyWithImpl$Variables$Mutation$AccountUpdateOne<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? accountUpdateOneArgs = _undefined}) =>
+  TRes call({
+    Object? data = _undefined,
+    Object? where = _undefined,
+  }) =>
       _then(Variables$Mutation$AccountUpdateOne._({
         ..._instance._$data,
-        if (accountUpdateOneArgs != _undefined && accountUpdateOneArgs != null)
-          'accountUpdateOneArgs':
-              (accountUpdateOneArgs as Input$AccountUpdateOneArgs),
+        if (data != _undefined && data != null)
+          'data': (data as Input$AccountUpdateInput),
+        if (where != _undefined && where != null)
+          'where': (where as Input$AccountWhereUniqueInput),
       }));
 }
 
@@ -106,12 +130,16 @@ class _CopyWithStubImpl$Variables$Mutation$AccountUpdateOne<TRes>
 
   TRes _res;
 
-  call({Input$AccountUpdateOneArgs? accountUpdateOneArgs}) => _res;
+  call({
+    Input$AccountUpdateInput? data,
+    Input$AccountWhereUniqueInput? where,
+  }) =>
+      _res;
 }
 
 class Mutation$AccountUpdateOne {
   Mutation$AccountUpdateOne({
-    required this.accountUpdateOne,
+    this.accountUpdateOne,
     this.$__typename = 'Mutation',
   });
 
@@ -119,20 +147,22 @@ class Mutation$AccountUpdateOne {
     final l$accountUpdateOne = json['accountUpdateOne'];
     final l$$__typename = json['__typename'];
     return Mutation$AccountUpdateOne(
-      accountUpdateOne: Mutation$AccountUpdateOne$accountUpdateOne.fromJson(
-          (l$accountUpdateOne as Map<String, dynamic>)),
+      accountUpdateOne: l$accountUpdateOne == null
+          ? null
+          : Mutation$AccountUpdateOne$accountUpdateOne.fromJson(
+              (l$accountUpdateOne as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final Mutation$AccountUpdateOne$accountUpdateOne accountUpdateOne;
+  final Mutation$AccountUpdateOne$accountUpdateOne? accountUpdateOne;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
     final l$accountUpdateOne = accountUpdateOne;
-    _resultData['accountUpdateOne'] = l$accountUpdateOne.toJson();
+    _resultData['accountUpdateOne'] = l$accountUpdateOne?.toJson();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -215,10 +245,9 @@ class _CopyWithImpl$Mutation$AccountUpdateOne<TRes>
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$AccountUpdateOne(
-        accountUpdateOne: accountUpdateOne == _undefined ||
-                accountUpdateOne == null
+        accountUpdateOne: accountUpdateOne == _undefined
             ? _instance.accountUpdateOne
-            : (accountUpdateOne as Mutation$AccountUpdateOne$accountUpdateOne),
+            : (accountUpdateOne as Mutation$AccountUpdateOne$accountUpdateOne?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -226,8 +255,11 @@ class _CopyWithImpl$Mutation$AccountUpdateOne<TRes>
   CopyWith$Mutation$AccountUpdateOne$accountUpdateOne<TRes>
       get accountUpdateOne {
     final local$accountUpdateOne = _instance.accountUpdateOne;
-    return CopyWith$Mutation$AccountUpdateOne$accountUpdateOne(
-        local$accountUpdateOne, (e) => call(accountUpdateOne: e));
+    return local$accountUpdateOne == null
+        ? CopyWith$Mutation$AccountUpdateOne$accountUpdateOne.stub(
+            _then(_instance))
+        : CopyWith$Mutation$AccountUpdateOne$accountUpdateOne(
+            local$accountUpdateOne, (e) => call(accountUpdateOne: e));
   }
 }
 
@@ -253,14 +285,23 @@ const documentNodeMutationAccountUpdateOne = DocumentNode(definitions: [
     name: NameNode(value: 'AccountUpdateOne'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'accountUpdateOneArgs')),
+        variable: VariableNode(name: NameNode(value: 'data')),
         type: NamedTypeNode(
-          name: NameNode(value: 'AccountUpdateOneArgs'),
+          name: NameNode(value: 'AccountUpdateInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'where')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'AccountWhereUniqueInput'),
+          isNonNull: true,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -269,9 +310,13 @@ const documentNodeMutationAccountUpdateOne = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'accountUpdateOneArgs'),
-            value: VariableNode(name: NameNode(value: 'accountUpdateOneArgs')),
-          )
+            name: NameNode(value: 'data'),
+            value: VariableNode(name: NameNode(value: 'data')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
+          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [

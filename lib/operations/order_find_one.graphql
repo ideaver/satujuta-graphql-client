@@ -1,5 +1,5 @@
-query OrderFindOne($orderFindUniqueArgs: OrderFindUniqueArgs!) {
-  orderFindOne(orderFindUniqueArgs: $orderFindUniqueArgs) {
+query OrderFindOne($where: OrderWhereUniqueInput!) {
+  orderFindOne(where: $where) {
     id
     status
     platformFee

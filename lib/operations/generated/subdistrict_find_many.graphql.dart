@@ -1,17 +1,22 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
 class Variables$Query$SubdistrictFindMany {
-  factory Variables$Query$SubdistrictFindMany(
-          {required Input$SubdistrictFindManyArgs subdistrictFindManyArgs}) =>
+  factory Variables$Query$SubdistrictFindMany({
+    int? skip,
+    int? take,
+    Input$SubdistrictWhereInput? where,
+    List<Input$SubdistrictOrderByWithRelationInput>? orderBy,
+  }) =>
       Variables$Query$SubdistrictFindMany._({
-        r'subdistrictFindManyArgs': subdistrictFindManyArgs,
+        if (skip != null) r'skip': skip,
+        if (take != null) r'take': take,
+        if (where != null) r'where': where,
+        if (orderBy != null) r'orderBy': orderBy,
       });
 
   Variables$Query$SubdistrictFindMany._(this._$data);
@@ -19,21 +24,57 @@ class Variables$Query$SubdistrictFindMany {
   factory Variables$Query$SubdistrictFindMany.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$subdistrictFindManyArgs = data['subdistrictFindManyArgs'];
-    result$data['subdistrictFindManyArgs'] =
-        Input$SubdistrictFindManyArgs.fromJson(
-            (l$subdistrictFindManyArgs as Map<String, dynamic>));
+    if (data.containsKey('skip')) {
+      final l$skip = data['skip'];
+      result$data['skip'] = (l$skip as int?);
+    }
+    if (data.containsKey('take')) {
+      final l$take = data['take'];
+      result$data['take'] = (l$take as int?);
+    }
+    if (data.containsKey('where')) {
+      final l$where = data['where'];
+      result$data['where'] = l$where == null
+          ? null
+          : Input$SubdistrictWhereInput.fromJson(
+              (l$where as Map<String, dynamic>));
+    }
+    if (data.containsKey('orderBy')) {
+      final l$orderBy = data['orderBy'];
+      result$data['orderBy'] = (l$orderBy as List<dynamic>?)
+          ?.map((e) => Input$SubdistrictOrderByWithRelationInput.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList();
+    }
     return Variables$Query$SubdistrictFindMany._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$SubdistrictFindManyArgs get subdistrictFindManyArgs =>
-      (_$data['subdistrictFindManyArgs'] as Input$SubdistrictFindManyArgs);
+  int? get skip => (_$data['skip'] as int?);
+  int? get take => (_$data['take'] as int?);
+  Input$SubdistrictWhereInput? get where =>
+      (_$data['where'] as Input$SubdistrictWhereInput?);
+  List<Input$SubdistrictOrderByWithRelationInput>? get orderBy =>
+      (_$data['orderBy'] as List<Input$SubdistrictOrderByWithRelationInput>?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$subdistrictFindManyArgs = subdistrictFindManyArgs;
-    result$data['subdistrictFindManyArgs'] = l$subdistrictFindManyArgs.toJson();
+    if (_$data.containsKey('skip')) {
+      final l$skip = skip;
+      result$data['skip'] = l$skip;
+    }
+    if (_$data.containsKey('take')) {
+      final l$take = take;
+      result$data['take'] = l$take;
+    }
+    if (_$data.containsKey('where')) {
+      final l$where = where;
+      result$data['where'] = l$where?.toJson();
+    }
+    if (_$data.containsKey('orderBy')) {
+      final l$orderBy = orderBy;
+      result$data['orderBy'] = l$orderBy?.map((e) => e.toJson()).toList();
+    }
     return result$data;
   }
 
@@ -52,9 +93,47 @@ class Variables$Query$SubdistrictFindMany {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$subdistrictFindManyArgs = subdistrictFindManyArgs;
-    final lOther$subdistrictFindManyArgs = other.subdistrictFindManyArgs;
-    if (l$subdistrictFindManyArgs != lOther$subdistrictFindManyArgs) {
+    final l$skip = skip;
+    final lOther$skip = other.skip;
+    if (_$data.containsKey('skip') != other._$data.containsKey('skip')) {
+      return false;
+    }
+    if (l$skip != lOther$skip) {
+      return false;
+    }
+    final l$take = take;
+    final lOther$take = other.take;
+    if (_$data.containsKey('take') != other._$data.containsKey('take')) {
+      return false;
+    }
+    if (l$take != lOther$take) {
+      return false;
+    }
+    final l$where = where;
+    final lOther$where = other.where;
+    if (_$data.containsKey('where') != other._$data.containsKey('where')) {
+      return false;
+    }
+    if (l$where != lOther$where) {
+      return false;
+    }
+    final l$orderBy = orderBy;
+    final lOther$orderBy = other.orderBy;
+    if (_$data.containsKey('orderBy') != other._$data.containsKey('orderBy')) {
+      return false;
+    }
+    if (l$orderBy != null && lOther$orderBy != null) {
+      if (l$orderBy.length != lOther$orderBy.length) {
+        return false;
+      }
+      for (int i = 0; i < l$orderBy.length; i++) {
+        final l$orderBy$entry = l$orderBy[i];
+        final lOther$orderBy$entry = lOther$orderBy[i];
+        if (l$orderBy$entry != lOther$orderBy$entry) {
+          return false;
+        }
+      }
+    } else if (l$orderBy != lOther$orderBy) {
       return false;
     }
     return true;
@@ -62,8 +141,20 @@ class Variables$Query$SubdistrictFindMany {
 
   @override
   int get hashCode {
-    final l$subdistrictFindManyArgs = subdistrictFindManyArgs;
-    return Object.hashAll([l$subdistrictFindManyArgs]);
+    final l$skip = skip;
+    final l$take = take;
+    final l$where = where;
+    final l$orderBy = orderBy;
+    return Object.hashAll([
+      _$data.containsKey('skip') ? l$skip : const {},
+      _$data.containsKey('take') ? l$take : const {},
+      _$data.containsKey('where') ? l$where : const {},
+      _$data.containsKey('orderBy')
+          ? l$orderBy == null
+              ? null
+              : Object.hashAll(l$orderBy.map((v) => v))
+          : const {},
+    ]);
   }
 }
 
@@ -76,7 +167,12 @@ abstract class CopyWith$Variables$Query$SubdistrictFindMany<TRes> {
   factory CopyWith$Variables$Query$SubdistrictFindMany.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$SubdistrictFindMany;
 
-  TRes call({Input$SubdistrictFindManyArgs? subdistrictFindManyArgs});
+  TRes call({
+    int? skip,
+    int? take,
+    Input$SubdistrictWhereInput? where,
+    List<Input$SubdistrictOrderByWithRelationInput>? orderBy,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$SubdistrictFindMany<TRes>
@@ -92,13 +188,21 @@ class _CopyWithImpl$Variables$Query$SubdistrictFindMany<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? subdistrictFindManyArgs = _undefined}) =>
+  TRes call({
+    Object? skip = _undefined,
+    Object? take = _undefined,
+    Object? where = _undefined,
+    Object? orderBy = _undefined,
+  }) =>
       _then(Variables$Query$SubdistrictFindMany._({
         ..._instance._$data,
-        if (subdistrictFindManyArgs != _undefined &&
-            subdistrictFindManyArgs != null)
-          'subdistrictFindManyArgs':
-              (subdistrictFindManyArgs as Input$SubdistrictFindManyArgs),
+        if (skip != _undefined) 'skip': (skip as int?),
+        if (take != _undefined) 'take': (take as int?),
+        if (where != _undefined)
+          'where': (where as Input$SubdistrictWhereInput?),
+        if (orderBy != _undefined)
+          'orderBy':
+              (orderBy as List<Input$SubdistrictOrderByWithRelationInput>?),
       }));
 }
 
@@ -108,7 +212,13 @@ class _CopyWithStubImpl$Variables$Query$SubdistrictFindMany<TRes>
 
   TRes _res;
 
-  call({Input$SubdistrictFindManyArgs? subdistrictFindManyArgs}) => _res;
+  call({
+    int? skip,
+    int? take,
+    Input$SubdistrictWhereInput? where,
+    List<Input$SubdistrictOrderByWithRelationInput>? orderBy,
+  }) =>
+      _res;
 }
 
 class Query$SubdistrictFindMany {
@@ -280,15 +390,44 @@ const documentNodeQuerySubdistrictFindMany = DocumentNode(definitions: [
     name: NameNode(value: 'SubdistrictFindMany'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable:
-            VariableNode(name: NameNode(value: 'subdistrictFindManyArgs')),
+        variable: VariableNode(name: NameNode(value: 'skip')),
         type: NamedTypeNode(
-          name: NameNode(value: 'SubdistrictFindManyArgs'),
-          isNonNull: true,
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'take')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'where')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'SubdistrictWhereInput'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'orderBy')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'SubdistrictOrderByWithRelationInput'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -297,10 +436,21 @@ const documentNodeQuerySubdistrictFindMany = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'subdistrictFindManyArgs'),
-            value:
-                VariableNode(name: NameNode(value: 'subdistrictFindManyArgs')),
-          )
+            name: NameNode(value: 'skip'),
+            value: VariableNode(name: NameNode(value: 'skip')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'take'),
+            value: VariableNode(name: NameNode(value: 'take')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'orderBy'),
+            value: VariableNode(name: NameNode(value: 'orderBy')),
+          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
@@ -356,7 +506,7 @@ class Options$Query$SubdistrictFindMany
     extends graphql.QueryOptions<Query$SubdistrictFindMany> {
   Options$Query$SubdistrictFindMany({
     String? operationName,
-    required Variables$Query$SubdistrictFindMany variables,
+    Variables$Query$SubdistrictFindMany? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -368,7 +518,7 @@ class Options$Query$SubdistrictFindMany
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -404,7 +554,7 @@ class WatchOptions$Query$SubdistrictFindMany
     extends graphql.WatchQueryOptions<Query$SubdistrictFindMany> {
   WatchOptions$Query$SubdistrictFindMany({
     String? operationName,
-    required Variables$Query$SubdistrictFindMany variables,
+    Variables$Query$SubdistrictFindMany? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -416,7 +566,7 @@ class WatchOptions$Query$SubdistrictFindMany
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -436,10 +586,10 @@ class FetchMoreOptions$Query$SubdistrictFindMany
     extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$SubdistrictFindMany({
     required graphql.UpdateQuery updateQuery,
-    required Variables$Query$SubdistrictFindMany variables,
+    Variables$Query$SubdistrictFindMany? variables,
   }) : super(
           updateQuery: updateQuery,
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           document: documentNodeQuerySubdistrictFindMany,
         );
 }
@@ -447,35 +597,35 @@ class FetchMoreOptions$Query$SubdistrictFindMany
 extension ClientExtension$Query$SubdistrictFindMany on graphql.GraphQLClient {
   Future<graphql.QueryResult<Query$SubdistrictFindMany>>
       query$SubdistrictFindMany(
-              Options$Query$SubdistrictFindMany options) async =>
-          await this.query(options);
+              [Options$Query$SubdistrictFindMany? options]) async =>
+          await this.query(options ?? Options$Query$SubdistrictFindMany());
   graphql.ObservableQuery<Query$SubdistrictFindMany>
       watchQuery$SubdistrictFindMany(
-              WatchOptions$Query$SubdistrictFindMany options) =>
-          this.watchQuery(options);
+              [WatchOptions$Query$SubdistrictFindMany? options]) =>
+          this.watchQuery(options ?? WatchOptions$Query$SubdistrictFindMany());
   void writeQuery$SubdistrictFindMany({
     required Query$SubdistrictFindMany data,
-    required Variables$Query$SubdistrictFindMany variables,
+    Variables$Query$SubdistrictFindMany? variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
           operation:
               graphql.Operation(document: documentNodeQuerySubdistrictFindMany),
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
   Query$SubdistrictFindMany? readQuery$SubdistrictFindMany({
-    required Variables$Query$SubdistrictFindMany variables,
+    Variables$Query$SubdistrictFindMany? variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
         operation:
             graphql.Operation(document: documentNodeQuerySubdistrictFindMany),
-        variables: variables.toJson(),
+        variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
     );
@@ -484,22 +634,25 @@ extension ClientExtension$Query$SubdistrictFindMany on graphql.GraphQLClient {
 }
 
 graphql_flutter.QueryHookResult<Query$SubdistrictFindMany>
-    useQuery$SubdistrictFindMany(Options$Query$SubdistrictFindMany options) =>
-        graphql_flutter.useQuery(options);
+    useQuery$SubdistrictFindMany(
+            [Options$Query$SubdistrictFindMany? options]) =>
+        graphql_flutter
+            .useQuery(options ?? Options$Query$SubdistrictFindMany());
 graphql.ObservableQuery<Query$SubdistrictFindMany>
     useWatchQuery$SubdistrictFindMany(
-            WatchOptions$Query$SubdistrictFindMany options) =>
-        graphql_flutter.useWatchQuery(options);
+            [WatchOptions$Query$SubdistrictFindMany? options]) =>
+        graphql_flutter
+            .useWatchQuery(options ?? WatchOptions$Query$SubdistrictFindMany());
 
 class Query$SubdistrictFindMany$Widget
     extends graphql_flutter.Query<Query$SubdistrictFindMany> {
   Query$SubdistrictFindMany$Widget({
     widgets.Key? key,
-    required Options$Query$SubdistrictFindMany options,
+    Options$Query$SubdistrictFindMany? options,
     required graphql_flutter.QueryBuilder<Query$SubdistrictFindMany> builder,
   }) : super(
           key: key,
-          options: options,
+          options: options ?? Options$Query$SubdistrictFindMany(),
           builder: builder,
         );
 }

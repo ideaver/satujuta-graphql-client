@@ -1,37 +1,77 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
 class Variables$Query$UserFindMany {
-  factory Variables$Query$UserFindMany(
-          {required Input$UserFindManyArgs userFindManyArgs}) =>
+  factory Variables$Query$UserFindMany({
+    Input$UserWhereInput? where,
+    List<Input$UserOrderByWithRelationInput>? orderBy,
+    int? skip,
+    int? take,
+  }) =>
       Variables$Query$UserFindMany._({
-        r'userFindManyArgs': userFindManyArgs,
+        if (where != null) r'where': where,
+        if (orderBy != null) r'orderBy': orderBy,
+        if (skip != null) r'skip': skip,
+        if (take != null) r'take': take,
       });
 
   Variables$Query$UserFindMany._(this._$data);
 
   factory Variables$Query$UserFindMany.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$userFindManyArgs = data['userFindManyArgs'];
-    result$data['userFindManyArgs'] = Input$UserFindManyArgs.fromJson(
-        (l$userFindManyArgs as Map<String, dynamic>));
+    if (data.containsKey('where')) {
+      final l$where = data['where'];
+      result$data['where'] = l$where == null
+          ? null
+          : Input$UserWhereInput.fromJson((l$where as Map<String, dynamic>));
+    }
+    if (data.containsKey('orderBy')) {
+      final l$orderBy = data['orderBy'];
+      result$data['orderBy'] = (l$orderBy as List<dynamic>?)
+          ?.map((e) => Input$UserOrderByWithRelationInput.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList();
+    }
+    if (data.containsKey('skip')) {
+      final l$skip = data['skip'];
+      result$data['skip'] = (l$skip as int?);
+    }
+    if (data.containsKey('take')) {
+      final l$take = data['take'];
+      result$data['take'] = (l$take as int?);
+    }
     return Variables$Query$UserFindMany._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$UserFindManyArgs get userFindManyArgs =>
-      (_$data['userFindManyArgs'] as Input$UserFindManyArgs);
+  Input$UserWhereInput? get where => (_$data['where'] as Input$UserWhereInput?);
+  List<Input$UserOrderByWithRelationInput>? get orderBy =>
+      (_$data['orderBy'] as List<Input$UserOrderByWithRelationInput>?);
+  int? get skip => (_$data['skip'] as int?);
+  int? get take => (_$data['take'] as int?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$userFindManyArgs = userFindManyArgs;
-    result$data['userFindManyArgs'] = l$userFindManyArgs.toJson();
+    if (_$data.containsKey('where')) {
+      final l$where = where;
+      result$data['where'] = l$where?.toJson();
+    }
+    if (_$data.containsKey('orderBy')) {
+      final l$orderBy = orderBy;
+      result$data['orderBy'] = l$orderBy?.map((e) => e.toJson()).toList();
+    }
+    if (_$data.containsKey('skip')) {
+      final l$skip = skip;
+      result$data['skip'] = l$skip;
+    }
+    if (_$data.containsKey('take')) {
+      final l$take = take;
+      result$data['take'] = l$take;
+    }
     return result$data;
   }
 
@@ -49,9 +89,47 @@ class Variables$Query$UserFindMany {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$userFindManyArgs = userFindManyArgs;
-    final lOther$userFindManyArgs = other.userFindManyArgs;
-    if (l$userFindManyArgs != lOther$userFindManyArgs) {
+    final l$where = where;
+    final lOther$where = other.where;
+    if (_$data.containsKey('where') != other._$data.containsKey('where')) {
+      return false;
+    }
+    if (l$where != lOther$where) {
+      return false;
+    }
+    final l$orderBy = orderBy;
+    final lOther$orderBy = other.orderBy;
+    if (_$data.containsKey('orderBy') != other._$data.containsKey('orderBy')) {
+      return false;
+    }
+    if (l$orderBy != null && lOther$orderBy != null) {
+      if (l$orderBy.length != lOther$orderBy.length) {
+        return false;
+      }
+      for (int i = 0; i < l$orderBy.length; i++) {
+        final l$orderBy$entry = l$orderBy[i];
+        final lOther$orderBy$entry = lOther$orderBy[i];
+        if (l$orderBy$entry != lOther$orderBy$entry) {
+          return false;
+        }
+      }
+    } else if (l$orderBy != lOther$orderBy) {
+      return false;
+    }
+    final l$skip = skip;
+    final lOther$skip = other.skip;
+    if (_$data.containsKey('skip') != other._$data.containsKey('skip')) {
+      return false;
+    }
+    if (l$skip != lOther$skip) {
+      return false;
+    }
+    final l$take = take;
+    final lOther$take = other.take;
+    if (_$data.containsKey('take') != other._$data.containsKey('take')) {
+      return false;
+    }
+    if (l$take != lOther$take) {
       return false;
     }
     return true;
@@ -59,8 +137,20 @@ class Variables$Query$UserFindMany {
 
   @override
   int get hashCode {
-    final l$userFindManyArgs = userFindManyArgs;
-    return Object.hashAll([l$userFindManyArgs]);
+    final l$where = where;
+    final l$orderBy = orderBy;
+    final l$skip = skip;
+    final l$take = take;
+    return Object.hashAll([
+      _$data.containsKey('where') ? l$where : const {},
+      _$data.containsKey('orderBy')
+          ? l$orderBy == null
+              ? null
+              : Object.hashAll(l$orderBy.map((v) => v))
+          : const {},
+      _$data.containsKey('skip') ? l$skip : const {},
+      _$data.containsKey('take') ? l$take : const {},
+    ]);
   }
 }
 
@@ -73,7 +163,12 @@ abstract class CopyWith$Variables$Query$UserFindMany<TRes> {
   factory CopyWith$Variables$Query$UserFindMany.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$UserFindMany;
 
-  TRes call({Input$UserFindManyArgs? userFindManyArgs});
+  TRes call({
+    Input$UserWhereInput? where,
+    List<Input$UserOrderByWithRelationInput>? orderBy,
+    int? skip,
+    int? take,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$UserFindMany<TRes>
@@ -89,11 +184,19 @@ class _CopyWithImpl$Variables$Query$UserFindMany<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? userFindManyArgs = _undefined}) =>
+  TRes call({
+    Object? where = _undefined,
+    Object? orderBy = _undefined,
+    Object? skip = _undefined,
+    Object? take = _undefined,
+  }) =>
       _then(Variables$Query$UserFindMany._({
         ..._instance._$data,
-        if (userFindManyArgs != _undefined && userFindManyArgs != null)
-          'userFindManyArgs': (userFindManyArgs as Input$UserFindManyArgs),
+        if (where != _undefined) 'where': (where as Input$UserWhereInput?),
+        if (orderBy != _undefined)
+          'orderBy': (orderBy as List<Input$UserOrderByWithRelationInput>?),
+        if (skip != _undefined) 'skip': (skip as int?),
+        if (take != _undefined) 'take': (take as int?),
       }));
 }
 
@@ -103,7 +206,13 @@ class _CopyWithStubImpl$Variables$Query$UserFindMany<TRes>
 
   TRes _res;
 
-  call({Input$UserFindManyArgs? userFindManyArgs}) => _res;
+  call({
+    Input$UserWhereInput? where,
+    List<Input$UserOrderByWithRelationInput>? orderBy,
+    int? skip,
+    int? take,
+  }) =>
+      _res;
 }
 
 class Query$UserFindMany {
@@ -271,14 +380,44 @@ const documentNodeQueryUserFindMany = DocumentNode(definitions: [
     name: NameNode(value: 'UserFindMany'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'userFindManyArgs')),
+        variable: VariableNode(name: NameNode(value: 'where')),
         type: NamedTypeNode(
-          name: NameNode(value: 'UserFindManyArgs'),
-          isNonNull: true,
+          name: NameNode(value: 'UserWhereInput'),
+          isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'orderBy')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'UserOrderByWithRelationInput'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'skip')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'take')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -287,9 +426,21 @@ const documentNodeQueryUserFindMany = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'userFindManyArgs'),
-            value: VariableNode(name: NameNode(value: 'userFindManyArgs')),
-          )
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'orderBy'),
+            value: VariableNode(name: NameNode(value: 'orderBy')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'skip'),
+            value: VariableNode(name: NameNode(value: 'skip')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'take'),
+            value: VariableNode(name: NameNode(value: 'take')),
+          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
@@ -667,7 +818,7 @@ class Options$Query$UserFindMany
     extends graphql.QueryOptions<Query$UserFindMany> {
   Options$Query$UserFindMany({
     String? operationName,
-    required Variables$Query$UserFindMany variables,
+    Variables$Query$UserFindMany? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -679,7 +830,7 @@ class Options$Query$UserFindMany
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -713,7 +864,7 @@ class WatchOptions$Query$UserFindMany
     extends graphql.WatchQueryOptions<Query$UserFindMany> {
   WatchOptions$Query$UserFindMany({
     String? operationName,
-    required Variables$Query$UserFindMany variables,
+    Variables$Query$UserFindMany? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -725,7 +876,7 @@ class WatchOptions$Query$UserFindMany
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -744,42 +895,42 @@ class WatchOptions$Query$UserFindMany
 class FetchMoreOptions$Query$UserFindMany extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$UserFindMany({
     required graphql.UpdateQuery updateQuery,
-    required Variables$Query$UserFindMany variables,
+    Variables$Query$UserFindMany? variables,
   }) : super(
           updateQuery: updateQuery,
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           document: documentNodeQueryUserFindMany,
         );
 }
 
 extension ClientExtension$Query$UserFindMany on graphql.GraphQLClient {
   Future<graphql.QueryResult<Query$UserFindMany>> query$UserFindMany(
-          Options$Query$UserFindMany options) async =>
-      await this.query(options);
+          [Options$Query$UserFindMany? options]) async =>
+      await this.query(options ?? Options$Query$UserFindMany());
   graphql.ObservableQuery<Query$UserFindMany> watchQuery$UserFindMany(
-          WatchOptions$Query$UserFindMany options) =>
-      this.watchQuery(options);
+          [WatchOptions$Query$UserFindMany? options]) =>
+      this.watchQuery(options ?? WatchOptions$Query$UserFindMany());
   void writeQuery$UserFindMany({
     required Query$UserFindMany data,
-    required Variables$Query$UserFindMany variables,
+    Variables$Query$UserFindMany? variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
           operation: graphql.Operation(document: documentNodeQueryUserFindMany),
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
   Query$UserFindMany? readQuery$UserFindMany({
-    required Variables$Query$UserFindMany variables,
+    Variables$Query$UserFindMany? variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
         operation: graphql.Operation(document: documentNodeQueryUserFindMany),
-        variables: variables.toJson(),
+        variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
     );
@@ -788,21 +939,21 @@ extension ClientExtension$Query$UserFindMany on graphql.GraphQLClient {
 }
 
 graphql_flutter.QueryHookResult<Query$UserFindMany> useQuery$UserFindMany(
-        Options$Query$UserFindMany options) =>
-    graphql_flutter.useQuery(options);
+        [Options$Query$UserFindMany? options]) =>
+    graphql_flutter.useQuery(options ?? Options$Query$UserFindMany());
 graphql.ObservableQuery<Query$UserFindMany> useWatchQuery$UserFindMany(
-        WatchOptions$Query$UserFindMany options) =>
-    graphql_flutter.useWatchQuery(options);
+        [WatchOptions$Query$UserFindMany? options]) =>
+    graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$UserFindMany());
 
 class Query$UserFindMany$Widget
     extends graphql_flutter.Query<Query$UserFindMany> {
   Query$UserFindMany$Widget({
     widgets.Key? key,
-    required Options$Query$UserFindMany options,
+    Options$Query$UserFindMany? options,
     required graphql_flutter.QueryBuilder<Query$UserFindMany> builder,
   }) : super(
           key: key,
-          options: options,
+          options: options ?? Options$Query$UserFindMany(),
           builder: builder,
         );
 }

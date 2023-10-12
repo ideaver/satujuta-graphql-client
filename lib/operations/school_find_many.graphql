@@ -1,5 +1,5 @@
-query SchoolFindMany($schoolFindManyArgs: SchoolFindManyArgs!) {
-  schoolFindMany(schoolFindManyArgs: $schoolFindManyArgs) {
+query SchoolFindManyByName($skip: Int, $take: Int, $where: SchoolWhereInput, $orderBy: [SchoolOrderByWithRelationInput!]) {
+  schoolFindMany(skip: $skip, take: $take, where: $where, orderBy: $orderBy) {
     id
     name
     address {

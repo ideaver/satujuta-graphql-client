@@ -1,37 +1,77 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
 class Variables$Query$CityFindMany {
-  factory Variables$Query$CityFindMany(
-          {required Input$CityFindManyArgs cityFindManyArgs}) =>
+  factory Variables$Query$CityFindMany({
+    int? skip,
+    int? take,
+    Input$CityWhereInput? where,
+    List<Input$CityOrderByWithRelationInput>? orderBy,
+  }) =>
       Variables$Query$CityFindMany._({
-        r'cityFindManyArgs': cityFindManyArgs,
+        if (skip != null) r'skip': skip,
+        if (take != null) r'take': take,
+        if (where != null) r'where': where,
+        if (orderBy != null) r'orderBy': orderBy,
       });
 
   Variables$Query$CityFindMany._(this._$data);
 
   factory Variables$Query$CityFindMany.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$cityFindManyArgs = data['cityFindManyArgs'];
-    result$data['cityFindManyArgs'] = Input$CityFindManyArgs.fromJson(
-        (l$cityFindManyArgs as Map<String, dynamic>));
+    if (data.containsKey('skip')) {
+      final l$skip = data['skip'];
+      result$data['skip'] = (l$skip as int?);
+    }
+    if (data.containsKey('take')) {
+      final l$take = data['take'];
+      result$data['take'] = (l$take as int?);
+    }
+    if (data.containsKey('where')) {
+      final l$where = data['where'];
+      result$data['where'] = l$where == null
+          ? null
+          : Input$CityWhereInput.fromJson((l$where as Map<String, dynamic>));
+    }
+    if (data.containsKey('orderBy')) {
+      final l$orderBy = data['orderBy'];
+      result$data['orderBy'] = (l$orderBy as List<dynamic>?)
+          ?.map((e) => Input$CityOrderByWithRelationInput.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList();
+    }
     return Variables$Query$CityFindMany._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$CityFindManyArgs get cityFindManyArgs =>
-      (_$data['cityFindManyArgs'] as Input$CityFindManyArgs);
+  int? get skip => (_$data['skip'] as int?);
+  int? get take => (_$data['take'] as int?);
+  Input$CityWhereInput? get where => (_$data['where'] as Input$CityWhereInput?);
+  List<Input$CityOrderByWithRelationInput>? get orderBy =>
+      (_$data['orderBy'] as List<Input$CityOrderByWithRelationInput>?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$cityFindManyArgs = cityFindManyArgs;
-    result$data['cityFindManyArgs'] = l$cityFindManyArgs.toJson();
+    if (_$data.containsKey('skip')) {
+      final l$skip = skip;
+      result$data['skip'] = l$skip;
+    }
+    if (_$data.containsKey('take')) {
+      final l$take = take;
+      result$data['take'] = l$take;
+    }
+    if (_$data.containsKey('where')) {
+      final l$where = where;
+      result$data['where'] = l$where?.toJson();
+    }
+    if (_$data.containsKey('orderBy')) {
+      final l$orderBy = orderBy;
+      result$data['orderBy'] = l$orderBy?.map((e) => e.toJson()).toList();
+    }
     return result$data;
   }
 
@@ -49,9 +89,47 @@ class Variables$Query$CityFindMany {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$cityFindManyArgs = cityFindManyArgs;
-    final lOther$cityFindManyArgs = other.cityFindManyArgs;
-    if (l$cityFindManyArgs != lOther$cityFindManyArgs) {
+    final l$skip = skip;
+    final lOther$skip = other.skip;
+    if (_$data.containsKey('skip') != other._$data.containsKey('skip')) {
+      return false;
+    }
+    if (l$skip != lOther$skip) {
+      return false;
+    }
+    final l$take = take;
+    final lOther$take = other.take;
+    if (_$data.containsKey('take') != other._$data.containsKey('take')) {
+      return false;
+    }
+    if (l$take != lOther$take) {
+      return false;
+    }
+    final l$where = where;
+    final lOther$where = other.where;
+    if (_$data.containsKey('where') != other._$data.containsKey('where')) {
+      return false;
+    }
+    if (l$where != lOther$where) {
+      return false;
+    }
+    final l$orderBy = orderBy;
+    final lOther$orderBy = other.orderBy;
+    if (_$data.containsKey('orderBy') != other._$data.containsKey('orderBy')) {
+      return false;
+    }
+    if (l$orderBy != null && lOther$orderBy != null) {
+      if (l$orderBy.length != lOther$orderBy.length) {
+        return false;
+      }
+      for (int i = 0; i < l$orderBy.length; i++) {
+        final l$orderBy$entry = l$orderBy[i];
+        final lOther$orderBy$entry = lOther$orderBy[i];
+        if (l$orderBy$entry != lOther$orderBy$entry) {
+          return false;
+        }
+      }
+    } else if (l$orderBy != lOther$orderBy) {
       return false;
     }
     return true;
@@ -59,8 +137,20 @@ class Variables$Query$CityFindMany {
 
   @override
   int get hashCode {
-    final l$cityFindManyArgs = cityFindManyArgs;
-    return Object.hashAll([l$cityFindManyArgs]);
+    final l$skip = skip;
+    final l$take = take;
+    final l$where = where;
+    final l$orderBy = orderBy;
+    return Object.hashAll([
+      _$data.containsKey('skip') ? l$skip : const {},
+      _$data.containsKey('take') ? l$take : const {},
+      _$data.containsKey('where') ? l$where : const {},
+      _$data.containsKey('orderBy')
+          ? l$orderBy == null
+              ? null
+              : Object.hashAll(l$orderBy.map((v) => v))
+          : const {},
+    ]);
   }
 }
 
@@ -73,7 +163,12 @@ abstract class CopyWith$Variables$Query$CityFindMany<TRes> {
   factory CopyWith$Variables$Query$CityFindMany.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$CityFindMany;
 
-  TRes call({Input$CityFindManyArgs? cityFindManyArgs});
+  TRes call({
+    int? skip,
+    int? take,
+    Input$CityWhereInput? where,
+    List<Input$CityOrderByWithRelationInput>? orderBy,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$CityFindMany<TRes>
@@ -89,11 +184,19 @@ class _CopyWithImpl$Variables$Query$CityFindMany<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? cityFindManyArgs = _undefined}) =>
+  TRes call({
+    Object? skip = _undefined,
+    Object? take = _undefined,
+    Object? where = _undefined,
+    Object? orderBy = _undefined,
+  }) =>
       _then(Variables$Query$CityFindMany._({
         ..._instance._$data,
-        if (cityFindManyArgs != _undefined && cityFindManyArgs != null)
-          'cityFindManyArgs': (cityFindManyArgs as Input$CityFindManyArgs),
+        if (skip != _undefined) 'skip': (skip as int?),
+        if (take != _undefined) 'take': (take as int?),
+        if (where != _undefined) 'where': (where as Input$CityWhereInput?),
+        if (orderBy != _undefined)
+          'orderBy': (orderBy as List<Input$CityOrderByWithRelationInput>?),
       }));
 }
 
@@ -103,7 +206,13 @@ class _CopyWithStubImpl$Variables$Query$CityFindMany<TRes>
 
   TRes _res;
 
-  call({Input$CityFindManyArgs? cityFindManyArgs}) => _res;
+  call({
+    int? skip,
+    int? take,
+    Input$CityWhereInput? where,
+    List<Input$CityOrderByWithRelationInput>? orderBy,
+  }) =>
+      _res;
 }
 
 class Query$CityFindMany {
@@ -271,14 +380,44 @@ const documentNodeQueryCityFindMany = DocumentNode(definitions: [
     name: NameNode(value: 'CityFindMany'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'cityFindManyArgs')),
+        variable: VariableNode(name: NameNode(value: 'skip')),
         type: NamedTypeNode(
-          name: NameNode(value: 'CityFindManyArgs'),
-          isNonNull: true,
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'take')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'where')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'CityWhereInput'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'orderBy')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'CityOrderByWithRelationInput'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -287,9 +426,21 @@ const documentNodeQueryCityFindMany = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'cityFindManyArgs'),
-            value: VariableNode(name: NameNode(value: 'cityFindManyArgs')),
-          )
+            name: NameNode(value: 'skip'),
+            value: VariableNode(name: NameNode(value: 'skip')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'take'),
+            value: VariableNode(name: NameNode(value: 'take')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'orderBy'),
+            value: VariableNode(name: NameNode(value: 'orderBy')),
+          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
@@ -337,7 +488,7 @@ class Options$Query$CityFindMany
     extends graphql.QueryOptions<Query$CityFindMany> {
   Options$Query$CityFindMany({
     String? operationName,
-    required Variables$Query$CityFindMany variables,
+    Variables$Query$CityFindMany? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -349,7 +500,7 @@ class Options$Query$CityFindMany
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -383,7 +534,7 @@ class WatchOptions$Query$CityFindMany
     extends graphql.WatchQueryOptions<Query$CityFindMany> {
   WatchOptions$Query$CityFindMany({
     String? operationName,
-    required Variables$Query$CityFindMany variables,
+    Variables$Query$CityFindMany? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
@@ -395,7 +546,7 @@ class WatchOptions$Query$CityFindMany
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -414,42 +565,42 @@ class WatchOptions$Query$CityFindMany
 class FetchMoreOptions$Query$CityFindMany extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$CityFindMany({
     required graphql.UpdateQuery updateQuery,
-    required Variables$Query$CityFindMany variables,
+    Variables$Query$CityFindMany? variables,
   }) : super(
           updateQuery: updateQuery,
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           document: documentNodeQueryCityFindMany,
         );
 }
 
 extension ClientExtension$Query$CityFindMany on graphql.GraphQLClient {
   Future<graphql.QueryResult<Query$CityFindMany>> query$CityFindMany(
-          Options$Query$CityFindMany options) async =>
-      await this.query(options);
+          [Options$Query$CityFindMany? options]) async =>
+      await this.query(options ?? Options$Query$CityFindMany());
   graphql.ObservableQuery<Query$CityFindMany> watchQuery$CityFindMany(
-          WatchOptions$Query$CityFindMany options) =>
-      this.watchQuery(options);
+          [WatchOptions$Query$CityFindMany? options]) =>
+      this.watchQuery(options ?? WatchOptions$Query$CityFindMany());
   void writeQuery$CityFindMany({
     required Query$CityFindMany data,
-    required Variables$Query$CityFindMany variables,
+    Variables$Query$CityFindMany? variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
           operation: graphql.Operation(document: documentNodeQueryCityFindMany),
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
   Query$CityFindMany? readQuery$CityFindMany({
-    required Variables$Query$CityFindMany variables,
+    Variables$Query$CityFindMany? variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
         operation: graphql.Operation(document: documentNodeQueryCityFindMany),
-        variables: variables.toJson(),
+        variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
     );
@@ -458,21 +609,21 @@ extension ClientExtension$Query$CityFindMany on graphql.GraphQLClient {
 }
 
 graphql_flutter.QueryHookResult<Query$CityFindMany> useQuery$CityFindMany(
-        Options$Query$CityFindMany options) =>
-    graphql_flutter.useQuery(options);
+        [Options$Query$CityFindMany? options]) =>
+    graphql_flutter.useQuery(options ?? Options$Query$CityFindMany());
 graphql.ObservableQuery<Query$CityFindMany> useWatchQuery$CityFindMany(
-        WatchOptions$Query$CityFindMany options) =>
-    graphql_flutter.useWatchQuery(options);
+        [WatchOptions$Query$CityFindMany? options]) =>
+    graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$CityFindMany());
 
 class Query$CityFindMany$Widget
     extends graphql_flutter.Query<Query$CityFindMany> {
   Query$CityFindMany$Widget({
     widgets.Key? key,
-    required Options$Query$CityFindMany options,
+    Options$Query$CityFindMany? options,
     required graphql_flutter.QueryBuilder<Query$CityFindMany> builder,
   }) : super(
           key: key,
-          options: options,
+          options: options ?? Options$Query$CityFindMany(),
           builder: builder,
         );
 }

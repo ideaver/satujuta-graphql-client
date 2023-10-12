@@ -1,37 +1,35 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
 class Variables$Query$HotelFindOne {
   factory Variables$Query$HotelFindOne(
-          {required Input$HotelFindUniqueArgs hotelFindUniqueArgs}) =>
+          {required Input$HotelWhereUniqueInput where}) =>
       Variables$Query$HotelFindOne._({
-        r'hotelFindUniqueArgs': hotelFindUniqueArgs,
+        r'where': where,
       });
 
   Variables$Query$HotelFindOne._(this._$data);
 
   factory Variables$Query$HotelFindOne.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$hotelFindUniqueArgs = data['hotelFindUniqueArgs'];
-    result$data['hotelFindUniqueArgs'] = Input$HotelFindUniqueArgs.fromJson(
-        (l$hotelFindUniqueArgs as Map<String, dynamic>));
+    final l$where = data['where'];
+    result$data['where'] =
+        Input$HotelWhereUniqueInput.fromJson((l$where as Map<String, dynamic>));
     return Variables$Query$HotelFindOne._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$HotelFindUniqueArgs get hotelFindUniqueArgs =>
-      (_$data['hotelFindUniqueArgs'] as Input$HotelFindUniqueArgs);
+  Input$HotelWhereUniqueInput get where =>
+      (_$data['where'] as Input$HotelWhereUniqueInput);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$hotelFindUniqueArgs = hotelFindUniqueArgs;
-    result$data['hotelFindUniqueArgs'] = l$hotelFindUniqueArgs.toJson();
+    final l$where = where;
+    result$data['where'] = l$where.toJson();
     return result$data;
   }
 
@@ -49,9 +47,9 @@ class Variables$Query$HotelFindOne {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$hotelFindUniqueArgs = hotelFindUniqueArgs;
-    final lOther$hotelFindUniqueArgs = other.hotelFindUniqueArgs;
-    if (l$hotelFindUniqueArgs != lOther$hotelFindUniqueArgs) {
+    final l$where = where;
+    final lOther$where = other.where;
+    if (l$where != lOther$where) {
       return false;
     }
     return true;
@@ -59,8 +57,8 @@ class Variables$Query$HotelFindOne {
 
   @override
   int get hashCode {
-    final l$hotelFindUniqueArgs = hotelFindUniqueArgs;
-    return Object.hashAll([l$hotelFindUniqueArgs]);
+    final l$where = where;
+    return Object.hashAll([l$where]);
   }
 }
 
@@ -73,7 +71,7 @@ abstract class CopyWith$Variables$Query$HotelFindOne<TRes> {
   factory CopyWith$Variables$Query$HotelFindOne.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$HotelFindOne;
 
-  TRes call({Input$HotelFindUniqueArgs? hotelFindUniqueArgs});
+  TRes call({Input$HotelWhereUniqueInput? where});
 }
 
 class _CopyWithImpl$Variables$Query$HotelFindOne<TRes>
@@ -89,12 +87,11 @@ class _CopyWithImpl$Variables$Query$HotelFindOne<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? hotelFindUniqueArgs = _undefined}) =>
+  TRes call({Object? where = _undefined}) =>
       _then(Variables$Query$HotelFindOne._({
         ..._instance._$data,
-        if (hotelFindUniqueArgs != _undefined && hotelFindUniqueArgs != null)
-          'hotelFindUniqueArgs':
-              (hotelFindUniqueArgs as Input$HotelFindUniqueArgs),
+        if (where != _undefined && where != null)
+          'where': (where as Input$HotelWhereUniqueInput),
       }));
 }
 
@@ -104,7 +101,7 @@ class _CopyWithStubImpl$Variables$Query$HotelFindOne<TRes>
 
   TRes _res;
 
-  call({Input$HotelFindUniqueArgs? hotelFindUniqueArgs}) => _res;
+  call({Input$HotelWhereUniqueInput? where}) => _res;
 }
 
 class Query$HotelFindOne {
@@ -249,9 +246,9 @@ const documentNodeQueryHotelFindOne = DocumentNode(definitions: [
     name: NameNode(value: 'HotelFindOne'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'hotelFindUniqueArgs')),
+        variable: VariableNode(name: NameNode(value: 'where')),
         type: NamedTypeNode(
-          name: NameNode(value: 'HotelFindUniqueArgs'),
+          name: NameNode(value: 'HotelWhereUniqueInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -265,8 +262,8 @@ const documentNodeQueryHotelFindOne = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'hotelFindUniqueArgs'),
-            value: VariableNode(name: NameNode(value: 'hotelFindUniqueArgs')),
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
           )
         ],
         directives: [],

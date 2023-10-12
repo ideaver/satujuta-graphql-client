@@ -1,18 +1,15 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
 class Variables$Mutation$WithdrawalRequestCreateOne {
   factory Variables$Mutation$WithdrawalRequestCreateOne(
-          {required Input$WithdrawalRequestCreateArgs
-              withdrawalRequestCreateArgs}) =>
+          {required Input$WithdrawalRequestCreateInput data}) =>
       Variables$Mutation$WithdrawalRequestCreateOne._({
-        r'withdrawalRequestCreateArgs': withdrawalRequestCreateArgs,
+        r'data': data,
       });
 
   Variables$Mutation$WithdrawalRequestCreateOne._(this._$data);
@@ -20,23 +17,20 @@ class Variables$Mutation$WithdrawalRequestCreateOne {
   factory Variables$Mutation$WithdrawalRequestCreateOne.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$withdrawalRequestCreateArgs = data['withdrawalRequestCreateArgs'];
-    result$data['withdrawalRequestCreateArgs'] =
-        Input$WithdrawalRequestCreateArgs.fromJson(
-            (l$withdrawalRequestCreateArgs as Map<String, dynamic>));
+    final l$data = data['data'];
+    result$data['data'] = Input$WithdrawalRequestCreateInput.fromJson(
+        (l$data as Map<String, dynamic>));
     return Variables$Mutation$WithdrawalRequestCreateOne._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$WithdrawalRequestCreateArgs get withdrawalRequestCreateArgs =>
-      (_$data['withdrawalRequestCreateArgs']
-          as Input$WithdrawalRequestCreateArgs);
+  Input$WithdrawalRequestCreateInput get data =>
+      (_$data['data'] as Input$WithdrawalRequestCreateInput);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$withdrawalRequestCreateArgs = withdrawalRequestCreateArgs;
-    result$data['withdrawalRequestCreateArgs'] =
-        l$withdrawalRequestCreateArgs.toJson();
+    final l$data = data;
+    result$data['data'] = l$data.toJson();
     return result$data;
   }
 
@@ -55,10 +49,9 @@ class Variables$Mutation$WithdrawalRequestCreateOne {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$withdrawalRequestCreateArgs = withdrawalRequestCreateArgs;
-    final lOther$withdrawalRequestCreateArgs =
-        other.withdrawalRequestCreateArgs;
-    if (l$withdrawalRequestCreateArgs != lOther$withdrawalRequestCreateArgs) {
+    final l$data = data;
+    final lOther$data = other.data;
+    if (l$data != lOther$data) {
       return false;
     }
     return true;
@@ -66,8 +59,8 @@ class Variables$Mutation$WithdrawalRequestCreateOne {
 
   @override
   int get hashCode {
-    final l$withdrawalRequestCreateArgs = withdrawalRequestCreateArgs;
-    return Object.hashAll([l$withdrawalRequestCreateArgs]);
+    final l$data = data;
+    return Object.hashAll([l$data]);
   }
 }
 
@@ -81,7 +74,7 @@ abstract class CopyWith$Variables$Mutation$WithdrawalRequestCreateOne<TRes> {
           TRes res) =
       _CopyWithStubImpl$Variables$Mutation$WithdrawalRequestCreateOne;
 
-  TRes call({Input$WithdrawalRequestCreateArgs? withdrawalRequestCreateArgs});
+  TRes call({Input$WithdrawalRequestCreateInput? data});
 }
 
 class _CopyWithImpl$Variables$Mutation$WithdrawalRequestCreateOne<TRes>
@@ -97,13 +90,11 @@ class _CopyWithImpl$Variables$Mutation$WithdrawalRequestCreateOne<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? withdrawalRequestCreateArgs = _undefined}) =>
+  TRes call({Object? data = _undefined}) =>
       _then(Variables$Mutation$WithdrawalRequestCreateOne._({
         ..._instance._$data,
-        if (withdrawalRequestCreateArgs != _undefined &&
-            withdrawalRequestCreateArgs != null)
-          'withdrawalRequestCreateArgs': (withdrawalRequestCreateArgs
-              as Input$WithdrawalRequestCreateArgs),
+        if (data != _undefined && data != null)
+          'data': (data as Input$WithdrawalRequestCreateInput),
       }));
 }
 
@@ -113,8 +104,7 @@ class _CopyWithStubImpl$Variables$Mutation$WithdrawalRequestCreateOne<TRes>
 
   TRes _res;
 
-  call({Input$WithdrawalRequestCreateArgs? withdrawalRequestCreateArgs}) =>
-      _res;
+  call({Input$WithdrawalRequestCreateInput? data}) => _res;
 }
 
 class Mutation$WithdrawalRequestCreateOne {
@@ -276,10 +266,9 @@ const documentNodeMutationWithdrawalRequestCreateOne =
     name: NameNode(value: 'WithdrawalRequestCreateOne'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable:
-            VariableNode(name: NameNode(value: 'withdrawalRequestCreateArgs')),
+        variable: VariableNode(name: NameNode(value: 'data')),
         type: NamedTypeNode(
-          name: NameNode(value: 'WithdrawalRequestCreateArgs'),
+          name: NameNode(value: 'WithdrawalRequestCreateInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -293,9 +282,8 @@ const documentNodeMutationWithdrawalRequestCreateOne =
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'withdrawalRequestCreateArgs'),
-            value: VariableNode(
-                name: NameNode(value: 'withdrawalRequestCreateArgs')),
+            name: NameNode(value: 'data'),
+            value: VariableNode(name: NameNode(value: 'data')),
           )
         ],
         directives: [],
@@ -330,6 +318,13 @@ const documentNodeMutationWithdrawalRequestCreateOne =
           ),
           FieldNode(
             name: NameNode(value: 'createdAt'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
+            name: NameNode(value: 'updatedAt'),
             alias: null,
             arguments: [],
             directives: [],
@@ -582,6 +577,7 @@ class Mutation$WithdrawalRequestCreateOne$withdrawalRequestCreateOne {
     required this.amount,
     required this.status,
     required this.createdAt,
+    required this.updatedAt,
     this.$__typename = 'WithdrawalRequest',
   });
 
@@ -592,6 +588,7 @@ class Mutation$WithdrawalRequestCreateOne$withdrawalRequestCreateOne {
     final l$amount = json['amount'];
     final l$status = json['status'];
     final l$createdAt = json['createdAt'];
+    final l$updatedAt = json['updatedAt'];
     final l$$__typename = json['__typename'];
     return Mutation$WithdrawalRequestCreateOne$withdrawalRequestCreateOne(
       id: (l$id as int),
@@ -599,6 +596,7 @@ class Mutation$WithdrawalRequestCreateOne$withdrawalRequestCreateOne {
       amount: (l$amount as num).toDouble(),
       status: fromJson$Enum$TransactionStatus((l$status as String)),
       createdAt: (l$createdAt as String),
+      updatedAt: (l$updatedAt as String),
       $__typename: (l$$__typename as String),
     );
   }
@@ -612,6 +610,8 @@ class Mutation$WithdrawalRequestCreateOne$withdrawalRequestCreateOne {
   final Enum$TransactionStatus status;
 
   final String createdAt;
+
+  final String updatedAt;
 
   final String $__typename;
 
@@ -627,6 +627,8 @@ class Mutation$WithdrawalRequestCreateOne$withdrawalRequestCreateOne {
     _resultData['status'] = toJson$Enum$TransactionStatus(l$status);
     final l$createdAt = createdAt;
     _resultData['createdAt'] = l$createdAt;
+    final l$updatedAt = updatedAt;
+    _resultData['updatedAt'] = l$updatedAt;
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -639,6 +641,7 @@ class Mutation$WithdrawalRequestCreateOne$withdrawalRequestCreateOne {
     final l$amount = amount;
     final l$status = status;
     final l$createdAt = createdAt;
+    final l$updatedAt = updatedAt;
     final l$$__typename = $__typename;
     return Object.hashAll([
       l$id,
@@ -646,6 +649,7 @@ class Mutation$WithdrawalRequestCreateOne$withdrawalRequestCreateOne {
       l$amount,
       l$status,
       l$createdAt,
+      l$updatedAt,
       l$$__typename,
     ]);
   }
@@ -683,6 +687,11 @@ class Mutation$WithdrawalRequestCreateOne$withdrawalRequestCreateOne {
     final l$createdAt = createdAt;
     final lOther$createdAt = other.createdAt;
     if (l$createdAt != lOther$createdAt) {
+      return false;
+    }
+    final l$updatedAt = updatedAt;
+    final lOther$updatedAt = other.updatedAt;
+    if (l$updatedAt != lOther$updatedAt) {
       return false;
     }
     final l$$__typename = $__typename;
@@ -724,6 +733,7 @@ abstract class CopyWith$Mutation$WithdrawalRequestCreateOne$withdrawalRequestCre
     double? amount,
     Enum$TransactionStatus? status,
     String? createdAt,
+    String? updatedAt,
     String? $__typename,
   });
 }
@@ -752,6 +762,7 @@ class _CopyWithImpl$Mutation$WithdrawalRequestCreateOne$withdrawalRequestCreateO
     Object? amount = _undefined,
     Object? status = _undefined,
     Object? createdAt = _undefined,
+    Object? updatedAt = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$WithdrawalRequestCreateOne$withdrawalRequestCreateOne(
@@ -768,6 +779,9 @@ class _CopyWithImpl$Mutation$WithdrawalRequestCreateOne$withdrawalRequestCreateO
         createdAt: createdAt == _undefined || createdAt == null
             ? _instance.createdAt
             : (createdAt as String),
+        updatedAt: updatedAt == _undefined || updatedAt == null
+            ? _instance.updatedAt
+            : (updatedAt as String),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
@@ -790,6 +804,7 @@ class _CopyWithStubImpl$Mutation$WithdrawalRequestCreateOne$withdrawalRequestCre
     double? amount,
     Enum$TransactionStatus? status,
     String? createdAt,
+    String? updatedAt,
     String? $__typename,
   }) =>
       _res;

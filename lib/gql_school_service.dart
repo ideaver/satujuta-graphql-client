@@ -4,39 +4,37 @@ import 'graphql_service.dart';
 import 'operations/generated/school_find_many.graphql.dart';
 
 class GqlSchoolService {
-  static Future<QueryResult<Query$SchoolFindMany>> schoolFindManyByName({
+  static Future<QueryResult<Query$SchoolFindManyByName>> schoolFindManyByName({
     required int cityId,
     int? skip = 0,
     String? contains,
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
-        document: documentNodeQuerySchoolFindMany,
-        parserFn: (data) => Query$SchoolFindMany.fromJson(data),
+        document: documentNodeQuerySchoolFindManyByName,
+        parserFn: (data) => Query$SchoolFindManyByName.fromJson(data),
         variables: {
-          "schoolFindManyArgs": {
-            "skip": skip,
-            "take": 10,
-            "where": {
-              "name": {"contains": contains ?? ""},
-              "address": {
-                "is": {
-                  "subdistrict": {
-                    "is": {
-                      "district": {
-                        "is": {
-                          "cityId": {"equals": cityId}
-                        }
+          "skip": skip,
+          "take": 10,
+          "where": {
+            "name": {"contains": contains ?? ""},
+            "address": {
+              "is": {
+                "subdistrict": {
+                  "is": {
+                    "district": {
+                      "is": {
+                        "cityId": {"equals": cityId}
                       }
                     }
                   }
                 }
               }
-            },
-            "orderBy": [
-              {"name": "asc"}
-            ]
-          }
+            }
+          },
+          "orderBy": [
+            {"name": "asc"}
+          ]
         },
       ),
     );

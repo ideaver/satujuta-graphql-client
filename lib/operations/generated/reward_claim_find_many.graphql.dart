@@ -1,18 +1,22 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
 class Variables$Query$RewardClaimFindManyByUserId {
-  factory Variables$Query$RewardClaimFindManyByUserId(
-          {Input$RewardClaimFindManyArgs? rewardClaimFindManyArgs}) =>
+  factory Variables$Query$RewardClaimFindManyByUserId({
+    int? skip,
+    int? take,
+    Input$RewardClaimWhereInput? where,
+    List<Input$RewardClaimOrderByWithRelationInput>? orderBy,
+  }) =>
       Variables$Query$RewardClaimFindManyByUserId._({
-        if (rewardClaimFindManyArgs != null)
-          r'rewardClaimFindManyArgs': rewardClaimFindManyArgs,
+        if (skip != null) r'skip': skip,
+        if (take != null) r'take': take,
+        if (where != null) r'where': where,
+        if (orderBy != null) r'orderBy': orderBy,
       });
 
   Variables$Query$RewardClaimFindManyByUserId._(this._$data);
@@ -20,26 +24,56 @@ class Variables$Query$RewardClaimFindManyByUserId {
   factory Variables$Query$RewardClaimFindManyByUserId.fromJson(
       Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    if (data.containsKey('rewardClaimFindManyArgs')) {
-      final l$rewardClaimFindManyArgs = data['rewardClaimFindManyArgs'];
-      result$data['rewardClaimFindManyArgs'] = l$rewardClaimFindManyArgs == null
+    if (data.containsKey('skip')) {
+      final l$skip = data['skip'];
+      result$data['skip'] = (l$skip as int?);
+    }
+    if (data.containsKey('take')) {
+      final l$take = data['take'];
+      result$data['take'] = (l$take as int?);
+    }
+    if (data.containsKey('where')) {
+      final l$where = data['where'];
+      result$data['where'] = l$where == null
           ? null
-          : Input$RewardClaimFindManyArgs.fromJson(
-              (l$rewardClaimFindManyArgs as Map<String, dynamic>));
+          : Input$RewardClaimWhereInput.fromJson(
+              (l$where as Map<String, dynamic>));
+    }
+    if (data.containsKey('orderBy')) {
+      final l$orderBy = data['orderBy'];
+      result$data['orderBy'] = (l$orderBy as List<dynamic>?)
+          ?.map((e) => Input$RewardClaimOrderByWithRelationInput.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList();
     }
     return Variables$Query$RewardClaimFindManyByUserId._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$RewardClaimFindManyArgs? get rewardClaimFindManyArgs =>
-      (_$data['rewardClaimFindManyArgs'] as Input$RewardClaimFindManyArgs?);
+  int? get skip => (_$data['skip'] as int?);
+  int? get take => (_$data['take'] as int?);
+  Input$RewardClaimWhereInput? get where =>
+      (_$data['where'] as Input$RewardClaimWhereInput?);
+  List<Input$RewardClaimOrderByWithRelationInput>? get orderBy =>
+      (_$data['orderBy'] as List<Input$RewardClaimOrderByWithRelationInput>?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    if (_$data.containsKey('rewardClaimFindManyArgs')) {
-      final l$rewardClaimFindManyArgs = rewardClaimFindManyArgs;
-      result$data['rewardClaimFindManyArgs'] =
-          l$rewardClaimFindManyArgs?.toJson();
+    if (_$data.containsKey('skip')) {
+      final l$skip = skip;
+      result$data['skip'] = l$skip;
+    }
+    if (_$data.containsKey('take')) {
+      final l$take = take;
+      result$data['take'] = l$take;
+    }
+    if (_$data.containsKey('where')) {
+      final l$where = where;
+      result$data['where'] = l$where?.toJson();
+    }
+    if (_$data.containsKey('orderBy')) {
+      final l$orderBy = orderBy;
+      result$data['orderBy'] = l$orderBy?.map((e) => e.toJson()).toList();
     }
     return result$data;
   }
@@ -59,13 +93,47 @@ class Variables$Query$RewardClaimFindManyByUserId {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$rewardClaimFindManyArgs = rewardClaimFindManyArgs;
-    final lOther$rewardClaimFindManyArgs = other.rewardClaimFindManyArgs;
-    if (_$data.containsKey('rewardClaimFindManyArgs') !=
-        other._$data.containsKey('rewardClaimFindManyArgs')) {
+    final l$skip = skip;
+    final lOther$skip = other.skip;
+    if (_$data.containsKey('skip') != other._$data.containsKey('skip')) {
       return false;
     }
-    if (l$rewardClaimFindManyArgs != lOther$rewardClaimFindManyArgs) {
+    if (l$skip != lOther$skip) {
+      return false;
+    }
+    final l$take = take;
+    final lOther$take = other.take;
+    if (_$data.containsKey('take') != other._$data.containsKey('take')) {
+      return false;
+    }
+    if (l$take != lOther$take) {
+      return false;
+    }
+    final l$where = where;
+    final lOther$where = other.where;
+    if (_$data.containsKey('where') != other._$data.containsKey('where')) {
+      return false;
+    }
+    if (l$where != lOther$where) {
+      return false;
+    }
+    final l$orderBy = orderBy;
+    final lOther$orderBy = other.orderBy;
+    if (_$data.containsKey('orderBy') != other._$data.containsKey('orderBy')) {
+      return false;
+    }
+    if (l$orderBy != null && lOther$orderBy != null) {
+      if (l$orderBy.length != lOther$orderBy.length) {
+        return false;
+      }
+      for (int i = 0; i < l$orderBy.length; i++) {
+        final l$orderBy$entry = l$orderBy[i];
+        final lOther$orderBy$entry = lOther$orderBy[i];
+        if (l$orderBy$entry != lOther$orderBy$entry) {
+          return false;
+        }
+      }
+    } else if (l$orderBy != lOther$orderBy) {
       return false;
     }
     return true;
@@ -73,11 +141,19 @@ class Variables$Query$RewardClaimFindManyByUserId {
 
   @override
   int get hashCode {
-    final l$rewardClaimFindManyArgs = rewardClaimFindManyArgs;
+    final l$skip = skip;
+    final l$take = take;
+    final l$where = where;
+    final l$orderBy = orderBy;
     return Object.hashAll([
-      _$data.containsKey('rewardClaimFindManyArgs')
-          ? l$rewardClaimFindManyArgs
-          : const {}
+      _$data.containsKey('skip') ? l$skip : const {},
+      _$data.containsKey('take') ? l$take : const {},
+      _$data.containsKey('where') ? l$where : const {},
+      _$data.containsKey('orderBy')
+          ? l$orderBy == null
+              ? null
+              : Object.hashAll(l$orderBy.map((v) => v))
+          : const {},
     ]);
   }
 }
@@ -91,7 +167,12 @@ abstract class CopyWith$Variables$Query$RewardClaimFindManyByUserId<TRes> {
   factory CopyWith$Variables$Query$RewardClaimFindManyByUserId.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$RewardClaimFindManyByUserId;
 
-  TRes call({Input$RewardClaimFindManyArgs? rewardClaimFindManyArgs});
+  TRes call({
+    int? skip,
+    int? take,
+    Input$RewardClaimWhereInput? where,
+    List<Input$RewardClaimOrderByWithRelationInput>? orderBy,
+  });
 }
 
 class _CopyWithImpl$Variables$Query$RewardClaimFindManyByUserId<TRes>
@@ -107,12 +188,21 @@ class _CopyWithImpl$Variables$Query$RewardClaimFindManyByUserId<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? rewardClaimFindManyArgs = _undefined}) =>
+  TRes call({
+    Object? skip = _undefined,
+    Object? take = _undefined,
+    Object? where = _undefined,
+    Object? orderBy = _undefined,
+  }) =>
       _then(Variables$Query$RewardClaimFindManyByUserId._({
         ..._instance._$data,
-        if (rewardClaimFindManyArgs != _undefined)
-          'rewardClaimFindManyArgs':
-              (rewardClaimFindManyArgs as Input$RewardClaimFindManyArgs?),
+        if (skip != _undefined) 'skip': (skip as int?),
+        if (take != _undefined) 'take': (take as int?),
+        if (where != _undefined)
+          'where': (where as Input$RewardClaimWhereInput?),
+        if (orderBy != _undefined)
+          'orderBy':
+              (orderBy as List<Input$RewardClaimOrderByWithRelationInput>?),
       }));
 }
 
@@ -122,7 +212,13 @@ class _CopyWithStubImpl$Variables$Query$RewardClaimFindManyByUserId<TRes>
 
   TRes _res;
 
-  call({Input$RewardClaimFindManyArgs? rewardClaimFindManyArgs}) => _res;
+  call({
+    int? skip,
+    int? take,
+    Input$RewardClaimWhereInput? where,
+    List<Input$RewardClaimOrderByWithRelationInput>? orderBy,
+  }) =>
+      _res;
 }
 
 class Query$RewardClaimFindManyByUserId {
@@ -298,15 +394,44 @@ const documentNodeQueryRewardClaimFindManyByUserId = DocumentNode(definitions: [
     name: NameNode(value: 'RewardClaimFindManyByUserId'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable:
-            VariableNode(name: NameNode(value: 'rewardClaimFindManyArgs')),
+        variable: VariableNode(name: NameNode(value: 'skip')),
         type: NamedTypeNode(
-          name: NameNode(value: 'RewardClaimFindManyArgs'),
+          name: NameNode(value: 'Int'),
           isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'take')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'where')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'RewardClaimWhereInput'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'orderBy')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'RewardClaimOrderByWithRelationInput'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -315,10 +440,21 @@ const documentNodeQueryRewardClaimFindManyByUserId = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'rewardClaimFindManyArgs'),
-            value:
-                VariableNode(name: NameNode(value: 'rewardClaimFindManyArgs')),
-          )
+            name: NameNode(value: 'skip'),
+            value: VariableNode(name: NameNode(value: 'skip')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'take'),
+            value: VariableNode(name: NameNode(value: 'take')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'orderBy'),
+            value: VariableNode(name: NameNode(value: 'orderBy')),
+          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [

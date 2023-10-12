@@ -1,37 +1,35 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
 class Variables$Query$UserFindOne {
   factory Variables$Query$UserFindOne(
-          {required Input$UserFindUniqueArgs userFindUniqueArgs}) =>
+          {required Input$UserWhereUniqueInput where}) =>
       Variables$Query$UserFindOne._({
-        r'userFindUniqueArgs': userFindUniqueArgs,
+        r'where': where,
       });
 
   Variables$Query$UserFindOne._(this._$data);
 
   factory Variables$Query$UserFindOne.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$userFindUniqueArgs = data['userFindUniqueArgs'];
-    result$data['userFindUniqueArgs'] = Input$UserFindUniqueArgs.fromJson(
-        (l$userFindUniqueArgs as Map<String, dynamic>));
+    final l$where = data['where'];
+    result$data['where'] =
+        Input$UserWhereUniqueInput.fromJson((l$where as Map<String, dynamic>));
     return Variables$Query$UserFindOne._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$UserFindUniqueArgs get userFindUniqueArgs =>
-      (_$data['userFindUniqueArgs'] as Input$UserFindUniqueArgs);
+  Input$UserWhereUniqueInput get where =>
+      (_$data['where'] as Input$UserWhereUniqueInput);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$userFindUniqueArgs = userFindUniqueArgs;
-    result$data['userFindUniqueArgs'] = l$userFindUniqueArgs.toJson();
+    final l$where = where;
+    result$data['where'] = l$where.toJson();
     return result$data;
   }
 
@@ -49,9 +47,9 @@ class Variables$Query$UserFindOne {
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$userFindUniqueArgs = userFindUniqueArgs;
-    final lOther$userFindUniqueArgs = other.userFindUniqueArgs;
-    if (l$userFindUniqueArgs != lOther$userFindUniqueArgs) {
+    final l$where = where;
+    final lOther$where = other.where;
+    if (l$where != lOther$where) {
       return false;
     }
     return true;
@@ -59,8 +57,8 @@ class Variables$Query$UserFindOne {
 
   @override
   int get hashCode {
-    final l$userFindUniqueArgs = userFindUniqueArgs;
-    return Object.hashAll([l$userFindUniqueArgs]);
+    final l$where = where;
+    return Object.hashAll([l$where]);
   }
 }
 
@@ -73,7 +71,7 @@ abstract class CopyWith$Variables$Query$UserFindOne<TRes> {
   factory CopyWith$Variables$Query$UserFindOne.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$UserFindOne;
 
-  TRes call({Input$UserFindUniqueArgs? userFindUniqueArgs});
+  TRes call({Input$UserWhereUniqueInput? where});
 }
 
 class _CopyWithImpl$Variables$Query$UserFindOne<TRes>
@@ -89,12 +87,11 @@ class _CopyWithImpl$Variables$Query$UserFindOne<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? userFindUniqueArgs = _undefined}) =>
+  TRes call({Object? where = _undefined}) =>
       _then(Variables$Query$UserFindOne._({
         ..._instance._$data,
-        if (userFindUniqueArgs != _undefined && userFindUniqueArgs != null)
-          'userFindUniqueArgs':
-              (userFindUniqueArgs as Input$UserFindUniqueArgs),
+        if (where != _undefined && where != null)
+          'where': (where as Input$UserWhereUniqueInput),
       }));
 }
 
@@ -104,7 +101,7 @@ class _CopyWithStubImpl$Variables$Query$UserFindOne<TRes>
 
   TRes _res;
 
-  call({Input$UserFindUniqueArgs? userFindUniqueArgs}) => _res;
+  call({Input$UserWhereUniqueInput? where}) => _res;
 }
 
 class Query$UserFindOne {
@@ -249,9 +246,9 @@ const documentNodeQueryUserFindOne = DocumentNode(definitions: [
     name: NameNode(value: 'UserFindOne'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'userFindUniqueArgs')),
+        variable: VariableNode(name: NameNode(value: 'where')),
         type: NamedTypeNode(
-          name: NameNode(value: 'UserFindUniqueArgs'),
+          name: NameNode(value: 'UserWhereUniqueInput'),
           isNonNull: true,
         ),
         defaultValue: DefaultValueNode(value: null),
@@ -265,8 +262,8 @@ const documentNodeQueryUserFindOne = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'userFindUniqueArgs'),
-            value: VariableNode(name: NameNode(value: 'userFindUniqueArgs')),
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
           )
         ],
         directives: [],

@@ -1,5 +1,5 @@
-query DistrictFindMany($districtFindManyArgs: DistrictFindManyArgs!) {
-  districtFindMany(districtFindManyArgs: $districtFindManyArgs) {
+query DistrictFindMany($skip: Int, $take: Int, $where: DistrictWhereInput, $orderBy: [DistrictOrderByWithRelationInput!]) {
+  districtFindMany(skip: $skip, take: $take, where: $where, orderBy: $orderBy) {
     id
     name
   }

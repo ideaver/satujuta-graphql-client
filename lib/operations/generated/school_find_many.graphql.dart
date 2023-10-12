@@ -1,42 +1,85 @@
+import '../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../schema/generated/schema.graphql.dart';
-
-class Variables$Query$SchoolFindMany {
-  factory Variables$Query$SchoolFindMany(
-          {required Input$SchoolFindManyArgs schoolFindManyArgs}) =>
-      Variables$Query$SchoolFindMany._({
-        r'schoolFindManyArgs': schoolFindManyArgs,
+class Variables$Query$SchoolFindManyByName {
+  factory Variables$Query$SchoolFindManyByName({
+    int? skip,
+    int? take,
+    Input$SchoolWhereInput? where,
+    List<Input$SchoolOrderByWithRelationInput>? orderBy,
+  }) =>
+      Variables$Query$SchoolFindManyByName._({
+        if (skip != null) r'skip': skip,
+        if (take != null) r'take': take,
+        if (where != null) r'where': where,
+        if (orderBy != null) r'orderBy': orderBy,
       });
 
-  Variables$Query$SchoolFindMany._(this._$data);
+  Variables$Query$SchoolFindManyByName._(this._$data);
 
-  factory Variables$Query$SchoolFindMany.fromJson(Map<String, dynamic> data) {
+  factory Variables$Query$SchoolFindManyByName.fromJson(
+      Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$schoolFindManyArgs = data['schoolFindManyArgs'];
-    result$data['schoolFindManyArgs'] = Input$SchoolFindManyArgs.fromJson(
-        (l$schoolFindManyArgs as Map<String, dynamic>));
-    return Variables$Query$SchoolFindMany._(result$data);
+    if (data.containsKey('skip')) {
+      final l$skip = data['skip'];
+      result$data['skip'] = (l$skip as int?);
+    }
+    if (data.containsKey('take')) {
+      final l$take = data['take'];
+      result$data['take'] = (l$take as int?);
+    }
+    if (data.containsKey('where')) {
+      final l$where = data['where'];
+      result$data['where'] = l$where == null
+          ? null
+          : Input$SchoolWhereInput.fromJson((l$where as Map<String, dynamic>));
+    }
+    if (data.containsKey('orderBy')) {
+      final l$orderBy = data['orderBy'];
+      result$data['orderBy'] = (l$orderBy as List<dynamic>?)
+          ?.map((e) => Input$SchoolOrderByWithRelationInput.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList();
+    }
+    return Variables$Query$SchoolFindManyByName._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$SchoolFindManyArgs get schoolFindManyArgs =>
-      (_$data['schoolFindManyArgs'] as Input$SchoolFindManyArgs);
+  int? get skip => (_$data['skip'] as int?);
+  int? get take => (_$data['take'] as int?);
+  Input$SchoolWhereInput? get where =>
+      (_$data['where'] as Input$SchoolWhereInput?);
+  List<Input$SchoolOrderByWithRelationInput>? get orderBy =>
+      (_$data['orderBy'] as List<Input$SchoolOrderByWithRelationInput>?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
-    final l$schoolFindManyArgs = schoolFindManyArgs;
-    result$data['schoolFindManyArgs'] = l$schoolFindManyArgs.toJson();
+    if (_$data.containsKey('skip')) {
+      final l$skip = skip;
+      result$data['skip'] = l$skip;
+    }
+    if (_$data.containsKey('take')) {
+      final l$take = take;
+      result$data['take'] = l$take;
+    }
+    if (_$data.containsKey('where')) {
+      final l$where = where;
+      result$data['where'] = l$where?.toJson();
+    }
+    if (_$data.containsKey('orderBy')) {
+      final l$orderBy = orderBy;
+      result$data['orderBy'] = l$orderBy?.map((e) => e.toJson()).toList();
+    }
     return result$data;
   }
 
-  CopyWith$Variables$Query$SchoolFindMany<Variables$Query$SchoolFindMany>
-      get copyWith => CopyWith$Variables$Query$SchoolFindMany(
+  CopyWith$Variables$Query$SchoolFindManyByName<
+          Variables$Query$SchoolFindManyByName>
+      get copyWith => CopyWith$Variables$Query$SchoolFindManyByName(
             this,
             (i) => i,
           );
@@ -45,13 +88,51 @@ class Variables$Query$SchoolFindMany {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$SchoolFindMany) ||
+    if (!(other is Variables$Query$SchoolFindManyByName) ||
         runtimeType != other.runtimeType) {
       return false;
     }
-    final l$schoolFindManyArgs = schoolFindManyArgs;
-    final lOther$schoolFindManyArgs = other.schoolFindManyArgs;
-    if (l$schoolFindManyArgs != lOther$schoolFindManyArgs) {
+    final l$skip = skip;
+    final lOther$skip = other.skip;
+    if (_$data.containsKey('skip') != other._$data.containsKey('skip')) {
+      return false;
+    }
+    if (l$skip != lOther$skip) {
+      return false;
+    }
+    final l$take = take;
+    final lOther$take = other.take;
+    if (_$data.containsKey('take') != other._$data.containsKey('take')) {
+      return false;
+    }
+    if (l$take != lOther$take) {
+      return false;
+    }
+    final l$where = where;
+    final lOther$where = other.where;
+    if (_$data.containsKey('where') != other._$data.containsKey('where')) {
+      return false;
+    }
+    if (l$where != lOther$where) {
+      return false;
+    }
+    final l$orderBy = orderBy;
+    final lOther$orderBy = other.orderBy;
+    if (_$data.containsKey('orderBy') != other._$data.containsKey('orderBy')) {
+      return false;
+    }
+    if (l$orderBy != null && lOther$orderBy != null) {
+      if (l$orderBy.length != lOther$orderBy.length) {
+        return false;
+      }
+      for (int i = 0; i < l$orderBy.length; i++) {
+        final l$orderBy$entry = l$orderBy[i];
+        final lOther$orderBy$entry = lOther$orderBy[i];
+        if (l$orderBy$entry != lOther$orderBy$entry) {
+          return false;
+        }
+      }
+    } else if (l$orderBy != lOther$orderBy) {
       return false;
     }
     return true;
@@ -59,73 +140,103 @@ class Variables$Query$SchoolFindMany {
 
   @override
   int get hashCode {
-    final l$schoolFindManyArgs = schoolFindManyArgs;
-    return Object.hashAll([l$schoolFindManyArgs]);
+    final l$skip = skip;
+    final l$take = take;
+    final l$where = where;
+    final l$orderBy = orderBy;
+    return Object.hashAll([
+      _$data.containsKey('skip') ? l$skip : const {},
+      _$data.containsKey('take') ? l$take : const {},
+      _$data.containsKey('where') ? l$where : const {},
+      _$data.containsKey('orderBy')
+          ? l$orderBy == null
+              ? null
+              : Object.hashAll(l$orderBy.map((v) => v))
+          : const {},
+    ]);
   }
 }
 
-abstract class CopyWith$Variables$Query$SchoolFindMany<TRes> {
-  factory CopyWith$Variables$Query$SchoolFindMany(
-    Variables$Query$SchoolFindMany instance,
-    TRes Function(Variables$Query$SchoolFindMany) then,
-  ) = _CopyWithImpl$Variables$Query$SchoolFindMany;
+abstract class CopyWith$Variables$Query$SchoolFindManyByName<TRes> {
+  factory CopyWith$Variables$Query$SchoolFindManyByName(
+    Variables$Query$SchoolFindManyByName instance,
+    TRes Function(Variables$Query$SchoolFindManyByName) then,
+  ) = _CopyWithImpl$Variables$Query$SchoolFindManyByName;
 
-  factory CopyWith$Variables$Query$SchoolFindMany.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Query$SchoolFindMany;
+  factory CopyWith$Variables$Query$SchoolFindManyByName.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$SchoolFindManyByName;
 
-  TRes call({Input$SchoolFindManyArgs? schoolFindManyArgs});
+  TRes call({
+    int? skip,
+    int? take,
+    Input$SchoolWhereInput? where,
+    List<Input$SchoolOrderByWithRelationInput>? orderBy,
+  });
 }
 
-class _CopyWithImpl$Variables$Query$SchoolFindMany<TRes>
-    implements CopyWith$Variables$Query$SchoolFindMany<TRes> {
-  _CopyWithImpl$Variables$Query$SchoolFindMany(
+class _CopyWithImpl$Variables$Query$SchoolFindManyByName<TRes>
+    implements CopyWith$Variables$Query$SchoolFindManyByName<TRes> {
+  _CopyWithImpl$Variables$Query$SchoolFindManyByName(
     this._instance,
     this._then,
   );
 
-  final Variables$Query$SchoolFindMany _instance;
+  final Variables$Query$SchoolFindManyByName _instance;
 
-  final TRes Function(Variables$Query$SchoolFindMany) _then;
+  final TRes Function(Variables$Query$SchoolFindManyByName) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? schoolFindManyArgs = _undefined}) =>
-      _then(Variables$Query$SchoolFindMany._({
+  TRes call({
+    Object? skip = _undefined,
+    Object? take = _undefined,
+    Object? where = _undefined,
+    Object? orderBy = _undefined,
+  }) =>
+      _then(Variables$Query$SchoolFindManyByName._({
         ..._instance._$data,
-        if (schoolFindManyArgs != _undefined && schoolFindManyArgs != null)
-          'schoolFindManyArgs':
-              (schoolFindManyArgs as Input$SchoolFindManyArgs),
+        if (skip != _undefined) 'skip': (skip as int?),
+        if (take != _undefined) 'take': (take as int?),
+        if (where != _undefined) 'where': (where as Input$SchoolWhereInput?),
+        if (orderBy != _undefined)
+          'orderBy': (orderBy as List<Input$SchoolOrderByWithRelationInput>?),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$SchoolFindMany<TRes>
-    implements CopyWith$Variables$Query$SchoolFindMany<TRes> {
-  _CopyWithStubImpl$Variables$Query$SchoolFindMany(this._res);
+class _CopyWithStubImpl$Variables$Query$SchoolFindManyByName<TRes>
+    implements CopyWith$Variables$Query$SchoolFindManyByName<TRes> {
+  _CopyWithStubImpl$Variables$Query$SchoolFindManyByName(this._res);
 
   TRes _res;
 
-  call({Input$SchoolFindManyArgs? schoolFindManyArgs}) => _res;
+  call({
+    int? skip,
+    int? take,
+    Input$SchoolWhereInput? where,
+    List<Input$SchoolOrderByWithRelationInput>? orderBy,
+  }) =>
+      _res;
 }
 
-class Query$SchoolFindMany {
-  Query$SchoolFindMany({
+class Query$SchoolFindManyByName {
+  Query$SchoolFindManyByName({
     this.schoolFindMany,
     this.$__typename = 'Query',
   });
 
-  factory Query$SchoolFindMany.fromJson(Map<String, dynamic> json) {
+  factory Query$SchoolFindManyByName.fromJson(Map<String, dynamic> json) {
     final l$schoolFindMany = json['schoolFindMany'];
     final l$$__typename = json['__typename'];
-    return Query$SchoolFindMany(
+    return Query$SchoolFindManyByName(
       schoolFindMany: (l$schoolFindMany as List<dynamic>?)
-          ?.map((e) => Query$SchoolFindMany$schoolFindMany.fromJson(
+          ?.map((e) => Query$SchoolFindManyByName$schoolFindMany.fromJson(
               (e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final List<Query$SchoolFindMany$schoolFindMany>? schoolFindMany;
+  final List<Query$SchoolFindManyByName$schoolFindMany>? schoolFindMany;
 
   final String $__typename;
 
@@ -156,7 +267,8 @@ class Query$SchoolFindMany {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$SchoolFindMany) || runtimeType != other.runtimeType) {
+    if (!(other is Query$SchoolFindManyByName) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$schoolFindMany = schoolFindMany;
@@ -184,45 +296,46 @@ class Query$SchoolFindMany {
   }
 }
 
-extension UtilityExtension$Query$SchoolFindMany on Query$SchoolFindMany {
-  CopyWith$Query$SchoolFindMany<Query$SchoolFindMany> get copyWith =>
-      CopyWith$Query$SchoolFindMany(
-        this,
-        (i) => i,
-      );
+extension UtilityExtension$Query$SchoolFindManyByName
+    on Query$SchoolFindManyByName {
+  CopyWith$Query$SchoolFindManyByName<Query$SchoolFindManyByName>
+      get copyWith => CopyWith$Query$SchoolFindManyByName(
+            this,
+            (i) => i,
+          );
 }
 
-abstract class CopyWith$Query$SchoolFindMany<TRes> {
-  factory CopyWith$Query$SchoolFindMany(
-    Query$SchoolFindMany instance,
-    TRes Function(Query$SchoolFindMany) then,
-  ) = _CopyWithImpl$Query$SchoolFindMany;
+abstract class CopyWith$Query$SchoolFindManyByName<TRes> {
+  factory CopyWith$Query$SchoolFindManyByName(
+    Query$SchoolFindManyByName instance,
+    TRes Function(Query$SchoolFindManyByName) then,
+  ) = _CopyWithImpl$Query$SchoolFindManyByName;
 
-  factory CopyWith$Query$SchoolFindMany.stub(TRes res) =
-      _CopyWithStubImpl$Query$SchoolFindMany;
+  factory CopyWith$Query$SchoolFindManyByName.stub(TRes res) =
+      _CopyWithStubImpl$Query$SchoolFindManyByName;
 
   TRes call({
-    List<Query$SchoolFindMany$schoolFindMany>? schoolFindMany,
+    List<Query$SchoolFindManyByName$schoolFindMany>? schoolFindMany,
     String? $__typename,
   });
   TRes schoolFindMany(
-      Iterable<Query$SchoolFindMany$schoolFindMany>? Function(
+      Iterable<Query$SchoolFindManyByName$schoolFindMany>? Function(
               Iterable<
-                  CopyWith$Query$SchoolFindMany$schoolFindMany<
-                      Query$SchoolFindMany$schoolFindMany>>?)
+                  CopyWith$Query$SchoolFindManyByName$schoolFindMany<
+                      Query$SchoolFindManyByName$schoolFindMany>>?)
           _fn);
 }
 
-class _CopyWithImpl$Query$SchoolFindMany<TRes>
-    implements CopyWith$Query$SchoolFindMany<TRes> {
-  _CopyWithImpl$Query$SchoolFindMany(
+class _CopyWithImpl$Query$SchoolFindManyByName<TRes>
+    implements CopyWith$Query$SchoolFindManyByName<TRes> {
+  _CopyWithImpl$Query$SchoolFindManyByName(
     this._instance,
     this._then,
   );
 
-  final Query$SchoolFindMany _instance;
+  final Query$SchoolFindManyByName _instance;
 
-  final TRes Function(Query$SchoolFindMany) _then;
+  final TRes Function(Query$SchoolFindManyByName) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -230,56 +343,87 @@ class _CopyWithImpl$Query$SchoolFindMany<TRes>
     Object? schoolFindMany = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$SchoolFindMany(
+      _then(Query$SchoolFindManyByName(
         schoolFindMany: schoolFindMany == _undefined
             ? _instance.schoolFindMany
-            : (schoolFindMany as List<Query$SchoolFindMany$schoolFindMany>?),
+            : (schoolFindMany
+                as List<Query$SchoolFindManyByName$schoolFindMany>?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
   TRes schoolFindMany(
-          Iterable<Query$SchoolFindMany$schoolFindMany>? Function(
+          Iterable<Query$SchoolFindManyByName$schoolFindMany>? Function(
                   Iterable<
-                      CopyWith$Query$SchoolFindMany$schoolFindMany<
-                          Query$SchoolFindMany$schoolFindMany>>?)
+                      CopyWith$Query$SchoolFindManyByName$schoolFindMany<
+                          Query$SchoolFindManyByName$schoolFindMany>>?)
               _fn) =>
       call(
           schoolFindMany: _fn(_instance.schoolFindMany
-              ?.map((e) => CopyWith$Query$SchoolFindMany$schoolFindMany(
+              ?.map((e) => CopyWith$Query$SchoolFindManyByName$schoolFindMany(
                     e,
                     (i) => i,
                   )))?.toList());
 }
 
-class _CopyWithStubImpl$Query$SchoolFindMany<TRes>
-    implements CopyWith$Query$SchoolFindMany<TRes> {
-  _CopyWithStubImpl$Query$SchoolFindMany(this._res);
+class _CopyWithStubImpl$Query$SchoolFindManyByName<TRes>
+    implements CopyWith$Query$SchoolFindManyByName<TRes> {
+  _CopyWithStubImpl$Query$SchoolFindManyByName(this._res);
 
   TRes _res;
 
   call({
-    List<Query$SchoolFindMany$schoolFindMany>? schoolFindMany,
+    List<Query$SchoolFindManyByName$schoolFindMany>? schoolFindMany,
     String? $__typename,
   }) =>
       _res;
   schoolFindMany(_fn) => _res;
 }
 
-const documentNodeQuerySchoolFindMany = DocumentNode(definitions: [
+const documentNodeQuerySchoolFindManyByName = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.query,
-    name: NameNode(value: 'SchoolFindMany'),
+    name: NameNode(value: 'SchoolFindManyByName'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(name: NameNode(value: 'schoolFindManyArgs')),
+        variable: VariableNode(name: NameNode(value: 'skip')),
         type: NamedTypeNode(
-          name: NameNode(value: 'SchoolFindManyArgs'),
-          isNonNull: true,
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
         ),
         defaultValue: DefaultValueNode(value: null),
         directives: [],
-      )
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'take')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'Int'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'where')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'SchoolWhereInput'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'orderBy')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'SchoolOrderByWithRelationInput'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -288,9 +432,21 @@ const documentNodeQuerySchoolFindMany = DocumentNode(definitions: [
         alias: null,
         arguments: [
           ArgumentNode(
-            name: NameNode(value: 'schoolFindManyArgs'),
-            value: VariableNode(name: NameNode(value: 'schoolFindManyArgs')),
-          )
+            name: NameNode(value: 'skip'),
+            value: VariableNode(name: NameNode(value: 'skip')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'take'),
+            value: VariableNode(name: NameNode(value: 'take')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'orderBy'),
+            value: VariableNode(name: NameNode(value: 'orderBy')),
+          ),
         ],
         directives: [],
         selectionSet: SelectionSetNode(selections: [
@@ -479,31 +635,31 @@ const documentNodeQuerySchoolFindMany = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Query$SchoolFindMany _parserFn$Query$SchoolFindMany(
+Query$SchoolFindManyByName _parserFn$Query$SchoolFindManyByName(
         Map<String, dynamic> data) =>
-    Query$SchoolFindMany.fromJson(data);
-typedef OnQueryComplete$Query$SchoolFindMany = FutureOr<void> Function(
+    Query$SchoolFindManyByName.fromJson(data);
+typedef OnQueryComplete$Query$SchoolFindManyByName = FutureOr<void> Function(
   Map<String, dynamic>?,
-  Query$SchoolFindMany?,
+  Query$SchoolFindManyByName?,
 );
 
-class Options$Query$SchoolFindMany
-    extends graphql.QueryOptions<Query$SchoolFindMany> {
-  Options$Query$SchoolFindMany({
+class Options$Query$SchoolFindManyByName
+    extends graphql.QueryOptions<Query$SchoolFindManyByName> {
+  Options$Query$SchoolFindManyByName({
     String? operationName,
-    required Variables$Query$SchoolFindMany variables,
+    Variables$Query$SchoolFindManyByName? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$SchoolFindMany? typedOptimisticResult,
+    Query$SchoolFindManyByName? typedOptimisticResult,
     Duration? pollInterval,
     graphql.Context? context,
-    OnQueryComplete$Query$SchoolFindMany? onComplete,
+    OnQueryComplete$Query$SchoolFindManyByName? onComplete,
     graphql.OnQueryError? onError,
   })  : onCompleteWithParsed = onComplete,
         super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
@@ -515,14 +671,16 @@ class Options$Query$SchoolFindMany
               ? null
               : (data) => onComplete(
                     data,
-                    data == null ? null : _parserFn$Query$SchoolFindMany(data),
+                    data == null
+                        ? null
+                        : _parserFn$Query$SchoolFindManyByName(data),
                   ),
           onError: onError,
-          document: documentNodeQuerySchoolFindMany,
-          parserFn: _parserFn$Query$SchoolFindMany,
+          document: documentNodeQuerySchoolFindManyByName,
+          parserFn: _parserFn$Query$SchoolFindManyByName,
         );
 
-  final OnQueryComplete$Query$SchoolFindMany? onCompleteWithParsed;
+  final OnQueryComplete$Query$SchoolFindManyByName? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
@@ -533,123 +691,131 @@ class Options$Query$SchoolFindMany
       ];
 }
 
-class WatchOptions$Query$SchoolFindMany
-    extends graphql.WatchQueryOptions<Query$SchoolFindMany> {
-  WatchOptions$Query$SchoolFindMany({
+class WatchOptions$Query$SchoolFindManyByName
+    extends graphql.WatchQueryOptions<Query$SchoolFindManyByName> {
+  WatchOptions$Query$SchoolFindManyByName({
     String? operationName,
-    required Variables$Query$SchoolFindMany variables,
+    Variables$Query$SchoolFindManyByName? variables,
     graphql.FetchPolicy? fetchPolicy,
     graphql.ErrorPolicy? errorPolicy,
     graphql.CacheRereadPolicy? cacheRereadPolicy,
     Object? optimisticResult,
-    Query$SchoolFindMany? typedOptimisticResult,
+    Query$SchoolFindManyByName? typedOptimisticResult,
     graphql.Context? context,
     Duration? pollInterval,
     bool? eagerlyFetchResults,
     bool carryForwardDataOnException = true,
     bool fetchResults = false,
   }) : super(
-          variables: variables.toJson(),
+          variables: variables?.toJson() ?? {},
           operationName: operationName,
           fetchPolicy: fetchPolicy,
           errorPolicy: errorPolicy,
           cacheRereadPolicy: cacheRereadPolicy,
           optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
           context: context,
-          document: documentNodeQuerySchoolFindMany,
+          document: documentNodeQuerySchoolFindManyByName,
           pollInterval: pollInterval,
           eagerlyFetchResults: eagerlyFetchResults,
           carryForwardDataOnException: carryForwardDataOnException,
           fetchResults: fetchResults,
-          parserFn: _parserFn$Query$SchoolFindMany,
+          parserFn: _parserFn$Query$SchoolFindManyByName,
         );
 }
 
-class FetchMoreOptions$Query$SchoolFindMany extends graphql.FetchMoreOptions {
-  FetchMoreOptions$Query$SchoolFindMany({
+class FetchMoreOptions$Query$SchoolFindManyByName
+    extends graphql.FetchMoreOptions {
+  FetchMoreOptions$Query$SchoolFindManyByName({
     required graphql.UpdateQuery updateQuery,
-    required Variables$Query$SchoolFindMany variables,
+    Variables$Query$SchoolFindManyByName? variables,
   }) : super(
           updateQuery: updateQuery,
-          variables: variables.toJson(),
-          document: documentNodeQuerySchoolFindMany,
+          variables: variables?.toJson() ?? {},
+          document: documentNodeQuerySchoolFindManyByName,
         );
 }
 
-extension ClientExtension$Query$SchoolFindMany on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$SchoolFindMany>> query$SchoolFindMany(
-          Options$Query$SchoolFindMany options) async =>
-      await this.query(options);
-  graphql.ObservableQuery<Query$SchoolFindMany> watchQuery$SchoolFindMany(
-          WatchOptions$Query$SchoolFindMany options) =>
-      this.watchQuery(options);
-  void writeQuery$SchoolFindMany({
-    required Query$SchoolFindMany data,
-    required Variables$Query$SchoolFindMany variables,
+extension ClientExtension$Query$SchoolFindManyByName on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$SchoolFindManyByName>>
+      query$SchoolFindManyByName(
+              [Options$Query$SchoolFindManyByName? options]) async =>
+          await this.query(options ?? Options$Query$SchoolFindManyByName());
+  graphql.ObservableQuery<Query$SchoolFindManyByName>
+      watchQuery$SchoolFindManyByName(
+              [WatchOptions$Query$SchoolFindManyByName? options]) =>
+          this.watchQuery(options ?? WatchOptions$Query$SchoolFindManyByName());
+  void writeQuery$SchoolFindManyByName({
+    required Query$SchoolFindManyByName data,
+    Variables$Query$SchoolFindManyByName? variables,
     bool broadcast = true,
   }) =>
       this.writeQuery(
         graphql.Request(
-          operation:
-              graphql.Operation(document: documentNodeQuerySchoolFindMany),
-          variables: variables.toJson(),
+          operation: graphql.Operation(
+              document: documentNodeQuerySchoolFindManyByName),
+          variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
-  Query$SchoolFindMany? readQuery$SchoolFindMany({
-    required Variables$Query$SchoolFindMany variables,
+  Query$SchoolFindManyByName? readQuery$SchoolFindManyByName({
+    Variables$Query$SchoolFindManyByName? variables,
     bool optimistic = true,
   }) {
     final result = this.readQuery(
       graphql.Request(
-        operation: graphql.Operation(document: documentNodeQuerySchoolFindMany),
-        variables: variables.toJson(),
+        operation:
+            graphql.Operation(document: documentNodeQuerySchoolFindManyByName),
+        variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
     );
-    return result == null ? null : Query$SchoolFindMany.fromJson(result);
+    return result == null ? null : Query$SchoolFindManyByName.fromJson(result);
   }
 }
 
-graphql_flutter.QueryHookResult<Query$SchoolFindMany> useQuery$SchoolFindMany(
-        Options$Query$SchoolFindMany options) =>
-    graphql_flutter.useQuery(options);
-graphql.ObservableQuery<Query$SchoolFindMany> useWatchQuery$SchoolFindMany(
-        WatchOptions$Query$SchoolFindMany options) =>
-    graphql_flutter.useWatchQuery(options);
+graphql_flutter.QueryHookResult<Query$SchoolFindManyByName>
+    useQuery$SchoolFindManyByName(
+            [Options$Query$SchoolFindManyByName? options]) =>
+        graphql_flutter
+            .useQuery(options ?? Options$Query$SchoolFindManyByName());
+graphql.ObservableQuery<Query$SchoolFindManyByName>
+    useWatchQuery$SchoolFindManyByName(
+            [WatchOptions$Query$SchoolFindManyByName? options]) =>
+        graphql_flutter.useWatchQuery(
+            options ?? WatchOptions$Query$SchoolFindManyByName());
 
-class Query$SchoolFindMany$Widget
-    extends graphql_flutter.Query<Query$SchoolFindMany> {
-  Query$SchoolFindMany$Widget({
+class Query$SchoolFindManyByName$Widget
+    extends graphql_flutter.Query<Query$SchoolFindManyByName> {
+  Query$SchoolFindManyByName$Widget({
     widgets.Key? key,
-    required Options$Query$SchoolFindMany options,
-    required graphql_flutter.QueryBuilder<Query$SchoolFindMany> builder,
+    Options$Query$SchoolFindManyByName? options,
+    required graphql_flutter.QueryBuilder<Query$SchoolFindManyByName> builder,
   }) : super(
           key: key,
-          options: options,
+          options: options ?? Options$Query$SchoolFindManyByName(),
           builder: builder,
         );
 }
 
-class Query$SchoolFindMany$schoolFindMany {
-  Query$SchoolFindMany$schoolFindMany({
+class Query$SchoolFindManyByName$schoolFindMany {
+  Query$SchoolFindManyByName$schoolFindMany({
     required this.id,
     required this.name,
     required this.address,
     this.$__typename = 'School',
   });
 
-  factory Query$SchoolFindMany$schoolFindMany.fromJson(
+  factory Query$SchoolFindManyByName$schoolFindMany.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$address = json['address'];
     final l$$__typename = json['__typename'];
-    return Query$SchoolFindMany$schoolFindMany(
+    return Query$SchoolFindManyByName$schoolFindMany(
       id: (l$id as int),
       name: (l$name as String),
-      address: Query$SchoolFindMany$schoolFindMany$address.fromJson(
+      address: Query$SchoolFindManyByName$schoolFindMany$address.fromJson(
           (l$address as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
@@ -659,7 +825,7 @@ class Query$SchoolFindMany$schoolFindMany {
 
   final String name;
 
-  final Query$SchoolFindMany$schoolFindMany$address address;
+  final Query$SchoolFindManyByName$schoolFindMany$address address;
 
   final String $__typename;
 
@@ -695,7 +861,7 @@ class Query$SchoolFindMany$schoolFindMany {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$SchoolFindMany$schoolFindMany) ||
+    if (!(other is Query$SchoolFindManyByName$schoolFindMany) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -723,44 +889,44 @@ class Query$SchoolFindMany$schoolFindMany {
   }
 }
 
-extension UtilityExtension$Query$SchoolFindMany$schoolFindMany
-    on Query$SchoolFindMany$schoolFindMany {
-  CopyWith$Query$SchoolFindMany$schoolFindMany<
-          Query$SchoolFindMany$schoolFindMany>
-      get copyWith => CopyWith$Query$SchoolFindMany$schoolFindMany(
+extension UtilityExtension$Query$SchoolFindManyByName$schoolFindMany
+    on Query$SchoolFindManyByName$schoolFindMany {
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany<
+          Query$SchoolFindManyByName$schoolFindMany>
+      get copyWith => CopyWith$Query$SchoolFindManyByName$schoolFindMany(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$SchoolFindMany$schoolFindMany<TRes> {
-  factory CopyWith$Query$SchoolFindMany$schoolFindMany(
-    Query$SchoolFindMany$schoolFindMany instance,
-    TRes Function(Query$SchoolFindMany$schoolFindMany) then,
-  ) = _CopyWithImpl$Query$SchoolFindMany$schoolFindMany;
+abstract class CopyWith$Query$SchoolFindManyByName$schoolFindMany<TRes> {
+  factory CopyWith$Query$SchoolFindManyByName$schoolFindMany(
+    Query$SchoolFindManyByName$schoolFindMany instance,
+    TRes Function(Query$SchoolFindManyByName$schoolFindMany) then,
+  ) = _CopyWithImpl$Query$SchoolFindManyByName$schoolFindMany;
 
-  factory CopyWith$Query$SchoolFindMany$schoolFindMany.stub(TRes res) =
-      _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany;
+  factory CopyWith$Query$SchoolFindManyByName$schoolFindMany.stub(TRes res) =
+      _CopyWithStubImpl$Query$SchoolFindManyByName$schoolFindMany;
 
   TRes call({
     int? id,
     String? name,
-    Query$SchoolFindMany$schoolFindMany$address? address,
+    Query$SchoolFindManyByName$schoolFindMany$address? address,
     String? $__typename,
   });
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address<TRes> get address;
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address<TRes> get address;
 }
 
-class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany<TRes>
-    implements CopyWith$Query$SchoolFindMany$schoolFindMany<TRes> {
-  _CopyWithImpl$Query$SchoolFindMany$schoolFindMany(
+class _CopyWithImpl$Query$SchoolFindManyByName$schoolFindMany<TRes>
+    implements CopyWith$Query$SchoolFindManyByName$schoolFindMany<TRes> {
+  _CopyWithImpl$Query$SchoolFindManyByName$schoolFindMany(
     this._instance,
     this._then,
   );
 
-  final Query$SchoolFindMany$schoolFindMany _instance;
+  final Query$SchoolFindManyByName$schoolFindMany _instance;
 
-  final TRes Function(Query$SchoolFindMany$schoolFindMany) _then;
+  final TRes Function(Query$SchoolFindManyByName$schoolFindMany) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -770,62 +936,62 @@ class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany<TRes>
     Object? address = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$SchoolFindMany$schoolFindMany(
+      _then(Query$SchoolFindManyByName$schoolFindMany(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         name: name == _undefined || name == null
             ? _instance.name
             : (name as String),
         address: address == _undefined || address == null
             ? _instance.address
-            : (address as Query$SchoolFindMany$schoolFindMany$address),
+            : (address as Query$SchoolFindManyByName$schoolFindMany$address),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address<TRes> get address {
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address<TRes> get address {
     final local$address = _instance.address;
-    return CopyWith$Query$SchoolFindMany$schoolFindMany$address(
+    return CopyWith$Query$SchoolFindManyByName$schoolFindMany$address(
         local$address, (e) => call(address: e));
   }
 }
 
-class _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany<TRes>
-    implements CopyWith$Query$SchoolFindMany$schoolFindMany<TRes> {
-  _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany(this._res);
+class _CopyWithStubImpl$Query$SchoolFindManyByName$schoolFindMany<TRes>
+    implements CopyWith$Query$SchoolFindManyByName$schoolFindMany<TRes> {
+  _CopyWithStubImpl$Query$SchoolFindManyByName$schoolFindMany(this._res);
 
   TRes _res;
 
   call({
     int? id,
     String? name,
-    Query$SchoolFindMany$schoolFindMany$address? address,
+    Query$SchoolFindManyByName$schoolFindMany$address? address,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address<TRes> get address =>
-      CopyWith$Query$SchoolFindMany$schoolFindMany$address.stub(_res);
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address<TRes>
+      get address =>
+          CopyWith$Query$SchoolFindManyByName$schoolFindMany$address.stub(_res);
 }
 
-class Query$SchoolFindMany$schoolFindMany$address {
-  Query$SchoolFindMany$schoolFindMany$address({
+class Query$SchoolFindManyByName$schoolFindMany$address {
+  Query$SchoolFindManyByName$schoolFindMany$address({
     required this.id,
     required this.name,
     required this.subdistrict,
     this.$__typename = 'Address',
   });
 
-  factory Query$SchoolFindMany$schoolFindMany$address.fromJson(
+  factory Query$SchoolFindManyByName$schoolFindMany$address.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$subdistrict = json['subdistrict'];
     final l$$__typename = json['__typename'];
-    return Query$SchoolFindMany$schoolFindMany$address(
+    return Query$SchoolFindManyByName$schoolFindMany$address(
       id: (l$id as int),
       name: (l$name as String),
-      subdistrict:
-          Query$SchoolFindMany$schoolFindMany$address$subdistrict.fromJson(
-              (l$subdistrict as Map<String, dynamic>)),
+      subdistrict: Query$SchoolFindManyByName$schoolFindMany$address$subdistrict
+          .fromJson((l$subdistrict as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -834,7 +1000,8 @@ class Query$SchoolFindMany$schoolFindMany$address {
 
   final String name;
 
-  final Query$SchoolFindMany$schoolFindMany$address$subdistrict subdistrict;
+  final Query$SchoolFindManyByName$schoolFindMany$address$subdistrict
+      subdistrict;
 
   final String $__typename;
 
@@ -870,7 +1037,7 @@ class Query$SchoolFindMany$schoolFindMany$address {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$SchoolFindMany$schoolFindMany$address) ||
+    if (!(other is Query$SchoolFindManyByName$schoolFindMany$address) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -898,45 +1065,49 @@ class Query$SchoolFindMany$schoolFindMany$address {
   }
 }
 
-extension UtilityExtension$Query$SchoolFindMany$schoolFindMany$address
-    on Query$SchoolFindMany$schoolFindMany$address {
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address<
-          Query$SchoolFindMany$schoolFindMany$address>
-      get copyWith => CopyWith$Query$SchoolFindMany$schoolFindMany$address(
+extension UtilityExtension$Query$SchoolFindManyByName$schoolFindMany$address
+    on Query$SchoolFindManyByName$schoolFindMany$address {
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address<
+          Query$SchoolFindManyByName$schoolFindMany$address>
+      get copyWith =>
+          CopyWith$Query$SchoolFindManyByName$schoolFindMany$address(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$SchoolFindMany$schoolFindMany$address<TRes> {
-  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address(
-    Query$SchoolFindMany$schoolFindMany$address instance,
-    TRes Function(Query$SchoolFindMany$schoolFindMany$address) then,
-  ) = _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address;
+abstract class CopyWith$Query$SchoolFindManyByName$schoolFindMany$address<
+    TRes> {
+  factory CopyWith$Query$SchoolFindManyByName$schoolFindMany$address(
+    Query$SchoolFindManyByName$schoolFindMany$address instance,
+    TRes Function(Query$SchoolFindManyByName$schoolFindMany$address) then,
+  ) = _CopyWithImpl$Query$SchoolFindManyByName$schoolFindMany$address;
 
-  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address.stub(TRes res) =
-      _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address;
+  factory CopyWith$Query$SchoolFindManyByName$schoolFindMany$address.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$SchoolFindManyByName$schoolFindMany$address;
 
   TRes call({
     int? id,
     String? name,
-    Query$SchoolFindMany$schoolFindMany$address$subdistrict? subdistrict,
+    Query$SchoolFindManyByName$schoolFindMany$address$subdistrict? subdistrict,
     String? $__typename,
   });
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict<TRes>
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict<TRes>
       get subdistrict;
 }
 
-class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address<TRes>
-    implements CopyWith$Query$SchoolFindMany$schoolFindMany$address<TRes> {
-  _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address(
+class _CopyWithImpl$Query$SchoolFindManyByName$schoolFindMany$address<TRes>
+    implements
+        CopyWith$Query$SchoolFindManyByName$schoolFindMany$address<TRes> {
+  _CopyWithImpl$Query$SchoolFindManyByName$schoolFindMany$address(
     this._instance,
     this._then,
   );
 
-  final Query$SchoolFindMany$schoolFindMany$address _instance;
+  final Query$SchoolFindManyByName$schoolFindMany$address _instance;
 
-  final TRes Function(Query$SchoolFindMany$schoolFindMany$address) _then;
+  final TRes Function(Query$SchoolFindManyByName$schoolFindMany$address) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -946,7 +1117,7 @@ class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address<TRes>
     Object? subdistrict = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$SchoolFindMany$schoolFindMany$address(
+      _then(Query$SchoolFindManyByName$schoolFindMany$address(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         name: name == _undefined || name == null
             ? _instance.name
@@ -954,40 +1125,42 @@ class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address<TRes>
         subdistrict: subdistrict == _undefined || subdistrict == null
             ? _instance.subdistrict
             : (subdistrict
-                as Query$SchoolFindMany$schoolFindMany$address$subdistrict),
+                as Query$SchoolFindManyByName$schoolFindMany$address$subdistrict),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict<TRes>
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict<TRes>
       get subdistrict {
     final local$subdistrict = _instance.subdistrict;
-    return CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict(
+    return CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict(
         local$subdistrict, (e) => call(subdistrict: e));
   }
 }
 
-class _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address<TRes>
-    implements CopyWith$Query$SchoolFindMany$schoolFindMany$address<TRes> {
-  _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address(this._res);
+class _CopyWithStubImpl$Query$SchoolFindManyByName$schoolFindMany$address<TRes>
+    implements
+        CopyWith$Query$SchoolFindManyByName$schoolFindMany$address<TRes> {
+  _CopyWithStubImpl$Query$SchoolFindManyByName$schoolFindMany$address(
+      this._res);
 
   TRes _res;
 
   call({
     int? id,
     String? name,
-    Query$SchoolFindMany$schoolFindMany$address$subdistrict? subdistrict,
+    Query$SchoolFindManyByName$schoolFindMany$address$subdistrict? subdistrict,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict<TRes>
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict<TRes>
       get subdistrict =>
-          CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict.stub(
-              _res);
+          CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict
+              .stub(_res);
 }
 
-class Query$SchoolFindMany$schoolFindMany$address$subdistrict {
-  Query$SchoolFindMany$schoolFindMany$address$subdistrict({
+class Query$SchoolFindManyByName$schoolFindMany$address$subdistrict {
+  Query$SchoolFindManyByName$schoolFindMany$address$subdistrict({
     required this.id,
     required this.name,
     required this.postalCode,
@@ -995,19 +1168,20 @@ class Query$SchoolFindMany$schoolFindMany$address$subdistrict {
     this.$__typename = 'Subdistrict',
   });
 
-  factory Query$SchoolFindMany$schoolFindMany$address$subdistrict.fromJson(
+  factory Query$SchoolFindManyByName$schoolFindMany$address$subdistrict.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$postalCode = json['postalCode'];
     final l$district = json['district'];
     final l$$__typename = json['__typename'];
-    return Query$SchoolFindMany$schoolFindMany$address$subdistrict(
+    return Query$SchoolFindManyByName$schoolFindMany$address$subdistrict(
       id: (l$id as int),
       name: (l$name as String),
       postalCode: (l$postalCode as String),
-      district: Query$SchoolFindMany$schoolFindMany$address$subdistrict$district
-          .fromJson((l$district as Map<String, dynamic>)),
+      district:
+          Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district
+              .fromJson((l$district as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1018,7 +1192,7 @@ class Query$SchoolFindMany$schoolFindMany$address$subdistrict {
 
   final String postalCode;
 
-  final Query$SchoolFindMany$schoolFindMany$address$subdistrict$district
+  final Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district
       district;
 
   final String $__typename;
@@ -1059,7 +1233,8 @@ class Query$SchoolFindMany$schoolFindMany$address$subdistrict {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$SchoolFindMany$schoolFindMany$address$subdistrict) ||
+    if (!(other
+            is Query$SchoolFindManyByName$schoolFindMany$address$subdistrict) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1092,52 +1267,55 @@ class Query$SchoolFindMany$schoolFindMany$address$subdistrict {
   }
 }
 
-extension UtilityExtension$Query$SchoolFindMany$schoolFindMany$address$subdistrict
-    on Query$SchoolFindMany$schoolFindMany$address$subdistrict {
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict<
-          Query$SchoolFindMany$schoolFindMany$address$subdistrict>
+extension UtilityExtension$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict
+    on Query$SchoolFindManyByName$schoolFindMany$address$subdistrict {
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict<
+          Query$SchoolFindManyByName$schoolFindMany$address$subdistrict>
       get copyWith =>
-          CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict(
+          CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict<
+abstract class CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict<
     TRes> {
-  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict(
-    Query$SchoolFindMany$schoolFindMany$address$subdistrict instance,
-    TRes Function(Query$SchoolFindMany$schoolFindMany$address$subdistrict) then,
-  ) = _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict;
+  factory CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict(
+    Query$SchoolFindManyByName$schoolFindMany$address$subdistrict instance,
+    TRes Function(Query$SchoolFindManyByName$schoolFindMany$address$subdistrict)
+        then,
+  ) = _CopyWithImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict;
 
-  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict.stub(
+  factory CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict;
+      _CopyWithStubImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict;
 
   TRes call({
     int? id,
     String? name,
     String? postalCode,
-    Query$SchoolFindMany$schoolFindMany$address$subdistrict$district? district,
+    Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district?
+        district,
     String? $__typename,
   });
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district<
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district<
       TRes> get district;
 }
 
-class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict<
+class _CopyWithImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict<
         TRes>
     implements
-        CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict<TRes> {
-  _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict(
+        CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict<
+            TRes> {
+  _CopyWithImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict(
     this._instance,
     this._then,
   );
 
-  final Query$SchoolFindMany$schoolFindMany$address$subdistrict _instance;
+  final Query$SchoolFindManyByName$schoolFindMany$address$subdistrict _instance;
 
-  final TRes Function(Query$SchoolFindMany$schoolFindMany$address$subdistrict)
-      _then;
+  final TRes Function(
+      Query$SchoolFindManyByName$schoolFindMany$address$subdistrict) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1148,7 +1326,7 @@ class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict<
     Object? district = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$SchoolFindMany$schoolFindMany$address$subdistrict(
+      _then(Query$SchoolFindManyByName$schoolFindMany$address$subdistrict(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         name: name == _undefined || name == null
             ? _instance.name
@@ -1159,24 +1337,25 @@ class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict<
         district: district == _undefined || district == null
             ? _instance.district
             : (district
-                as Query$SchoolFindMany$schoolFindMany$address$subdistrict$district),
+                as Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district<
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district<
       TRes> get district {
     final local$district = _instance.district;
-    return CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district(
+    return CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district(
         local$district, (e) => call(district: e));
   }
 }
 
-class _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict<
+class _CopyWithStubImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict<
         TRes>
     implements
-        CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict<TRes> {
-  _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict(
+        CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict<
+            TRes> {
+  _CopyWithStubImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict(
       this._res);
 
   TRes _res;
@@ -1185,36 +1364,37 @@ class _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict<
     int? id,
     String? name,
     String? postalCode,
-    Query$SchoolFindMany$schoolFindMany$address$subdistrict$district? district,
+    Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district?
+        district,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district<
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district<
           TRes>
       get district =>
-          CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district
+          CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district
               .stub(_res);
 }
 
-class Query$SchoolFindMany$schoolFindMany$address$subdistrict$district {
-  Query$SchoolFindMany$schoolFindMany$address$subdistrict$district({
+class Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district {
+  Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district({
     required this.id,
     required this.name,
     required this.city,
     this.$__typename = 'District',
   });
 
-  factory Query$SchoolFindMany$schoolFindMany$address$subdistrict$district.fromJson(
+  factory Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$city = json['city'];
     final l$$__typename = json['__typename'];
-    return Query$SchoolFindMany$schoolFindMany$address$subdistrict$district(
+    return Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district(
       id: (l$id as int),
       name: (l$name as String),
       city:
-          Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city
+          Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city
               .fromJson((l$city as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
@@ -1224,7 +1404,7 @@ class Query$SchoolFindMany$schoolFindMany$address$subdistrict$district {
 
   final String name;
 
-  final Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city
+  final Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city
       city;
 
   final String $__typename;
@@ -1262,7 +1442,7 @@ class Query$SchoolFindMany$schoolFindMany$address$subdistrict$district {
       return true;
     }
     if (!(other
-            is Query$SchoolFindMany$schoolFindMany$address$subdistrict$district) ||
+            is Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1290,55 +1470,58 @@ class Query$SchoolFindMany$schoolFindMany$address$subdistrict$district {
   }
 }
 
-extension UtilityExtension$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district
-    on Query$SchoolFindMany$schoolFindMany$address$subdistrict$district {
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district<
-          Query$SchoolFindMany$schoolFindMany$address$subdistrict$district>
+extension UtilityExtension$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district
+    on Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district {
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district<
+          Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district>
       get copyWith =>
-          CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district(
+          CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district<
+abstract class CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district<
     TRes> {
-  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district(
-    Query$SchoolFindMany$schoolFindMany$address$subdistrict$district instance,
+  factory CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district(
+    Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district
+        instance,
     TRes Function(
-            Query$SchoolFindMany$schoolFindMany$address$subdistrict$district)
+            Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district)
         then,
-  ) = _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district;
+  ) = _CopyWithImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district;
 
-  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district.stub(
+  factory CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district;
+      _CopyWithStubImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district;
 
   TRes call({
     int? id,
     String? name,
-    Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city? city,
+    Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city?
+        city,
     String? $__typename,
   });
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city<
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city<
       TRes> get city;
 }
 
-class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district<
+class _CopyWithImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district<
         TRes>
     implements
-        CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district<
+        CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district<
             TRes> {
-  _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district(
+  _CopyWithImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district(
     this._instance,
     this._then,
   );
 
-  final Query$SchoolFindMany$schoolFindMany$address$subdistrict$district
+  final Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district
       _instance;
 
   final TRes Function(
-      Query$SchoolFindMany$schoolFindMany$address$subdistrict$district) _then;
+          Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district)
+      _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
@@ -1348,7 +1531,8 @@ class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$dist
     Object? city = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(Query$SchoolFindMany$schoolFindMany$address$subdistrict$district(
+      _then(
+          Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         name: name == _undefined || name == null
             ? _instance.name
@@ -1356,25 +1540,25 @@ class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$dist
         city: city == _undefined || city == null
             ? _instance.city
             : (city
-                as Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city),
+                as Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city<
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city<
       TRes> get city {
     final local$city = _instance.city;
-    return CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city(
+    return CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city(
         local$city, (e) => call(city: e));
   }
 }
 
-class _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district<
+class _CopyWithStubImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district<
         TRes>
     implements
-        CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district<
+        CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district<
             TRes> {
-  _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district(
+  _CopyWithStubImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district(
       this._res);
 
   TRes _res;
@@ -1382,36 +1566,37 @@ class _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$
   call({
     int? id,
     String? name,
-    Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city? city,
+    Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city?
+        city,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city<
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city<
           TRes>
       get city =>
-          CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city
+          CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city
               .stub(_res);
 }
 
-class Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city {
-  Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city({
+class Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city {
+  Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city({
     required this.id,
     required this.name,
     required this.province,
     this.$__typename = 'City',
   });
 
-  factory Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city.fromJson(
+  factory Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$province = json['province'];
     final l$$__typename = json['__typename'];
-    return Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city(
+    return Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city(
       id: (l$id as int),
       name: (l$name as String),
       province:
-          Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province
+          Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province
               .fromJson((l$province as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
@@ -1421,7 +1606,7 @@ class Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city {
 
   final String name;
 
-  final Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province
+  final Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province
       province;
 
   final String $__typename;
@@ -1459,7 +1644,7 @@ class Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city {
       return true;
     }
     if (!(other
-            is Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city) ||
+            is Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1487,57 +1672,57 @@ class Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city {
   }
 }
 
-extension UtilityExtension$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city
-    on Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city {
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city<
-          Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city>
+extension UtilityExtension$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city
+    on Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city {
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city<
+          Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city>
       get copyWith =>
-          CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city(
+          CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city<
+abstract class CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city<
     TRes> {
-  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city(
-    Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city
+  factory CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city(
+    Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city
         instance,
     TRes Function(
-            Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city)
+            Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city)
         then,
-  ) = _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city;
+  ) = _CopyWithImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city;
 
-  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city.stub(
+  factory CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city;
+      _CopyWithStubImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city;
 
   TRes call({
     int? id,
     String? name,
-    Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province?
+    Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province?
         province,
     String? $__typename,
   });
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province<
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province<
       TRes> get province;
 }
 
-class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city<
+class _CopyWithImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city<
         TRes>
     implements
-        CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city<
+        CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city<
             TRes> {
-  _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city(
+  _CopyWithImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city(
     this._instance,
     this._then,
   );
 
-  final Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city
+  final Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city
       _instance;
 
   final TRes Function(
-          Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city)
+          Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city)
       _then;
 
   static const _undefined = <dynamic, dynamic>{};
@@ -1549,7 +1734,7 @@ class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$dist
     Object? $__typename = _undefined,
   }) =>
       _then(
-          Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city(
+          Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         name: name == _undefined || name == null
             ? _instance.name
@@ -1557,25 +1742,25 @@ class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$dist
         province: province == _undefined || province == null
             ? _instance.province
             : (province
-                as Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province),
+                as Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),
       ));
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province<
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province<
       TRes> get province {
     final local$province = _instance.province;
-    return CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province(
+    return CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province(
         local$province, (e) => call(province: e));
   }
 }
 
-class _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city<
+class _CopyWithStubImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city<
         TRes>
     implements
-        CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city<
+        CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city<
             TRes> {
-  _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city(
+  _CopyWithStubImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city(
       this._res);
 
   TRes _res;
@@ -1583,31 +1768,31 @@ class _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$
   call({
     int? id,
     String? name,
-    Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province?
+    Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province?
         province,
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province<
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province<
           TRes>
       get province =>
-          CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province
+          CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province
               .stub(_res);
 }
 
-class Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province {
-  Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province({
+class Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province {
+  Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province({
     required this.id,
     required this.name,
     this.$__typename = 'Province',
   });
 
-  factory Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province.fromJson(
+  factory Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province.fromJson(
       Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$$__typename = json['__typename'];
-    return Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province(
+    return Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province(
       id: (l$id as int),
       name: (l$name as String),
       $__typename: (l$$__typename as String),
@@ -1649,7 +1834,7 @@ class Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$prov
       return true;
     }
     if (!(other
-            is Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province) ||
+            is Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province) ||
         runtimeType != other.runtimeType) {
       return false;
     }
@@ -1672,30 +1857,30 @@ class Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$prov
   }
 }
 
-extension UtilityExtension$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province
-    on Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province {
-  CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province<
-          Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province>
+extension UtilityExtension$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province
+    on Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province {
+  CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province<
+          Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province>
       get copyWith =>
-          CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province(
+          CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province<
+abstract class CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province<
     TRes> {
-  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province(
-    Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province
+  factory CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province(
+    Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province
         instance,
     TRes Function(
-            Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province)
+            Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province)
         then,
-  ) = _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province;
+  ) = _CopyWithImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province;
 
-  factory CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province.stub(
+  factory CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province.stub(
           TRes res) =
-      _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province;
+      _CopyWithStubImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province;
 
   TRes call({
     int? id,
@@ -1704,21 +1889,21 @@ abstract class CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$
   });
 }
 
-class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province<
+class _CopyWithImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province<
         TRes>
     implements
-        CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province<
+        CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province<
             TRes> {
-  _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province(
+  _CopyWithImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province(
     this._instance,
     this._then,
   );
 
-  final Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province
+  final Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province
       _instance;
 
   final TRes Function(
-          Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province)
+          Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province)
       _then;
 
   static const _undefined = <dynamic, dynamic>{};
@@ -1729,7 +1914,7 @@ class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$dist
     Object? $__typename = _undefined,
   }) =>
       _then(
-          Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province(
+          Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province(
         id: id == _undefined || id == null ? _instance.id : (id as int),
         name: name == _undefined || name == null
             ? _instance.name
@@ -1740,12 +1925,12 @@ class _CopyWithImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$dist
       ));
 }
 
-class _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province<
+class _CopyWithStubImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province<
         TRes>
     implements
-        CopyWith$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province<
+        CopyWith$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province<
             TRes> {
-  _CopyWithStubImpl$Query$SchoolFindMany$schoolFindMany$address$subdistrict$district$city$province(
+  _CopyWithStubImpl$Query$SchoolFindManyByName$schoolFindMany$address$subdistrict$district$city$province(
       this._res);
 
   TRes _res;

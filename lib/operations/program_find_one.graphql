@@ -1,5 +1,5 @@
-query ProgramFindOne($programFindOneArgs: ProgramFindUniqueArgs!) {
-  programFindOne(programFindUniqueArgs: $programFindOneArgs) {
+query ProgramFindOne($where: ProgramWhereUniqueInput!) {
+  programFindOne(where: $where) {
     id
     name
     startDate
