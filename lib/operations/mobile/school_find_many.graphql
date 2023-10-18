@@ -1,0 +1,32 @@
+query SchoolFindManyByName(
+  $skip: Int
+  $take: Int
+  $where: SchoolWhereInput
+  $orderBy: [SchoolOrderByWithRelationInput!]
+) {
+  schoolFindMany(skip: $skip, take: $take, where: $where, orderBy: $orderBy) {
+    id
+    name
+    address {
+      id
+      name
+      subdistrict {
+        id
+        name
+        postalCode
+        district {
+          id
+          name
+          city {
+            id
+            name
+            province {
+              id
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+}

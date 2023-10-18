@@ -1,0 +1,13 @@
+query FaqFindMany(
+  $where: FaqWhereInput
+  $orderBy: [FaqOrderByWithRelationInput!]
+) {
+  faqFindMany(where: $where, orderBy: $orderBy) {
+    id
+    name
+    description
+    createdAt
+    updatedAt
+    type
+  }
+}

@@ -1,9 +1,0 @@
-query BankFindMany {
-  bankFindMany {
-    id
-    name
-    logoUrl
-    accountNumber
-    accountId
-  }
-}

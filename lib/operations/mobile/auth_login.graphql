@@ -1,0 +1,25 @@
+mutation AuthLogin($loginArgs: LoginArgs!) {
+  authLogin(loginArgs: $loginArgs) {
+    accessToken
+    user {
+      id
+      firstName
+      lastName
+      email
+      addressId
+      userRole
+      userType
+      avatarUrl
+      whatsappNumber
+      whatsappVerifiedAt
+      referralCode
+      referredById
+      status
+      schoolId
+      createdAt
+      updatedAt
+      deletedAt
+      theme
+    }
+  }
+}

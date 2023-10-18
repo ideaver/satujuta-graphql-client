@@ -1,0 +1,10 @@
+query GetUserGrowthByCustomPeriod(
+  $userCreatedByCustomPeriodArgs: UserCreatedByCustomPeriodArgs!
+) {
+  getUserGrowthByCustomPeriod(
+    userCreatedByCustomPeriodArgs: $userCreatedByCustomPeriodArgs
+  ) {
+    period
+    totalUser
+  }
+}

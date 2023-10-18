@@ -1,0 +1,3 @@
+mutation UserDelete($where: UserWhereUniqueInput!) {
+  userDelete(where: $where)
+}

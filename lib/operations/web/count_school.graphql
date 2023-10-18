@@ -1,0 +1,3 @@
+query CountSchoolByCustomCreatedAtRange($where: SchoolWhereInput) {
+  schoolCount(where: $where)
+}

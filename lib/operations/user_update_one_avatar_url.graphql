@@ -1,3 +1,0 @@
-# mutation UserUpdateOneAvatarUrl($file: Upload!, $userId: String!) {
-#   userUpdateOneAvatarUrl(file: $file, userId: $userId)
-# }

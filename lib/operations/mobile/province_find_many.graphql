@@ -1,0 +1,11 @@
+query ProvinceFindMany(
+  $skip: Int
+  $take: Int
+  $where: ProvinceWhereInput
+  $orderBy: [ProvinceOrderByWithRelationInput!]
+) {
+  provinceFindMany(skip: $skip, take: $take, where: $where, orderBy: $orderBy) {
+    id
+    name
+  }
+}

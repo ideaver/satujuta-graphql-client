@@ -1,0 +1,24 @@
+query TransactionFindManyByAccountId(
+  $skip: Int
+  $take: Int
+  $where: TransactionWhereInput
+  $orderBy: [TransactionOrderByWithRelationInput!]
+) {
+  transactionFindMany(
+    skip: $skip
+    take: $take
+    where: $where
+    orderBy: $orderBy
+  ) {
+    id
+    amount
+    status
+    transactionCategory
+    createdAt
+    fromAccountId
+    toAccountId
+    # payment {
+    #   id
+    # }
+  }
+}

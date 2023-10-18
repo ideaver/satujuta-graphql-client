@@ -1,0 +1,10 @@
+query CountTotalCartQuantityOfPaidOrderByCreatedRange(
+  $sum: CartSumAggregateInput
+  $where: CartWhereInput
+) {
+  cartAggregate(_sum: $sum, where: $where) {
+    _sum {
+      quantity
+    }
+  }
+}

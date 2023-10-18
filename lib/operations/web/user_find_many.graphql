@@ -1,0 +1,57 @@
+query UserFindMany(
+  $where: UserWhereInput
+  $orderBy: [UserOrderByWithRelationInput!]
+  $skip: Int
+  $take: Int
+) {
+  userFindMany(where: $where, orderBy: $orderBy, skip: $skip, take: $take) {
+    id
+    firstName
+    lastName
+    email
+    userRole
+    userType
+    avatarUrl
+    whatsappNumber
+    whatsappVerifiedAt
+    referredById
+    status
+    theme
+    referredBy {
+      id
+      firstName
+      lastName
+    }
+    school {
+      id
+      name
+    }
+    address {
+      id
+      name
+      subdistrict {
+        id
+        name
+        postalCode
+        district {
+          id
+          name
+          city {
+            id
+            name
+            province {
+              id
+              name
+            }
+          }
+        }
+      }
+    }
+    _count {
+      referredUsers
+      claimedRewards
+    }
+    createdAt
+    updatedAt
+  }
+}

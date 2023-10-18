@@ -1,0 +1,17 @@
+# mutation TransactionCreateOne($transactionCreateArgs: TransactionCreateArgs!) {
+#   transactionCreateOne(transactionCreateArgs: $transactionCreateArgs) {
+#     id
+#     amount
+#     status
+#     uniqueCode
+#     transactionCategory
+#     proofUrl
+#     createdAt
+#     invoice {
+#       id
+#       uniqueCode
+#       amount
+#       createdAt
+#     }
+#   }
+# }

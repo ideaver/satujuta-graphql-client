@@ -1,7 +1,0 @@
-query CountReferredUserByUserId($where: UserWhereUniqueInput!) {
-  userFindOne(where: $where) {
-    _count {
-      referredUsers
-    }
-  }
-}

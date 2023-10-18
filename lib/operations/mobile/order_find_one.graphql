@@ -1,0 +1,81 @@
+query OrderFindOne($where: OrderWhereUniqueInput!) {
+  orderFindOne(where: $where) {
+    id
+    status
+    platformFee
+    total
+    createdAt
+    cart {
+      membershipItem {
+        id
+        name
+        description
+        price
+      }
+      quantity
+      cost
+    }
+    orderBy {
+      id
+      firstName
+      lastName
+    }
+    shipping {
+      address {
+        id
+        name
+        user {
+          id
+          firstName
+          lastName
+          whatsappNumber
+          address {
+            subdistrict {
+              id
+              name
+              postalCode
+              district {
+                id
+                name
+                city {
+                  id
+                  name
+                  province {
+                    id
+                    name
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+      logisticName
+      courier
+      estimatedTime
+      deliveryDate
+      trackingNo
+    }
+    invoice {
+      id
+      adminFee
+      amount
+      createdAt
+      Installments {
+        id
+        lateFee
+        number
+        status
+        dueDate
+        amount
+      }
+      transactions {
+        id
+        status
+        amount
+        transactionCategory
+        createdAt
+      }
+    }
+  }
+}

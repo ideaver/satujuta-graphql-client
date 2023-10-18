@@ -1,3 +1,0 @@
-mutation ProgramDelete($where: ProgramWhereUniqueInput!) {
-  programDelete(where: $where)
-}

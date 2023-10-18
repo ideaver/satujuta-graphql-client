@@ -1,3 +1,0 @@
-query CountUserOfStudentWithinReferredId($where: UserWhereInput) {
-  userCount(where: $where)
-}

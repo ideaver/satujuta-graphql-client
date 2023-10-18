@@ -1,0 +1,25 @@
+mutation ProgramUpdateOne(
+  $data: ProgramUpdateInput!
+  $where: ProgramWhereUniqueInput!
+) {
+  programUpdateOne(data: $data, where: $where) {
+    id
+    name
+    startDate
+    dueDate
+    description
+    createdById
+    categoryId
+    createdAt
+    updatedAt
+    Images {
+      url
+    }
+    category {
+      id
+      name
+      createdAt
+      updatedAt
+    }
+  }
+}

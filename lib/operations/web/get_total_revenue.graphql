@@ -1,0 +1,10 @@
+query GetTotalRevenueFromTotalOfOrderAggregateByCustomRange(
+  $sum: OrderSumAggregateInput
+  $where: OrderWhereInput
+) {
+  orderAggregate(_sum: $sum, where: $where) {
+    _sum {
+      total
+    }
+  }
+}

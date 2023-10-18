@@ -1,6 +1,0 @@
-query ProvinceFindManyWhereHotelNotNull($orderBy: [ProvinceOrderByWithRelationInput!], $skip: Int, $take: Int, $where: ProvinceWhereInput) {
-  provinceFindMany(orderBy: $orderBy, skip: $skip, take: $take, where: $where) {
-    id
-    name
-  }
-}

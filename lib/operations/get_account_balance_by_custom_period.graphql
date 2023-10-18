@@ -1,6 +1,0 @@
-query GetAccountBalanceByCustomPeriod($accountBalanceByCustomPeriodArgs: AccountBalanceByCustomPeriodArgs!) {
-  getAccountBalanceByCustomPeriod(accountBalanceByCustomPeriodArgs: $accountBalanceByCustomPeriodArgs) {
-    period
-    totalBalance
-  }
-}

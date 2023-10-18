@@ -1,6 +1,0 @@
-query ProgramCategoryFindMany($skip: Int, $take: Int, $orderBy: [ProgramCategoryOrderByWithRelationInput!]) {
-  programCategoryFindMany(skip: $skip, take: $take, orderBy: $orderBy) {
-    id
-    name
-  }
-}

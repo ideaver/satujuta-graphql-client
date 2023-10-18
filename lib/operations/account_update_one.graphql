@@ -1,9 +1,0 @@
-mutation AccountUpdateOne($data: AccountUpdateInput!, $where: AccountWhereUniqueInput!) {
-  accountUpdateOne(data: $data, where: $where) {
-    id
-    name
-    accountNumber
-    accountCategory
-    updatedAt
-  }
-}

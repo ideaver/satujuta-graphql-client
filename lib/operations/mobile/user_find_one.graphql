@@ -1,0 +1,61 @@
+query UserFindOne($where: UserWhereUniqueInput!) {
+  userFindOne(where: $where) {
+    id
+    firstName
+    lastName
+    email
+    userRole
+    userType
+    avatarUrl
+    whatsappNumber
+    whatsappVerifiedAt
+    status
+    theme
+    referralCode
+    referredBy {
+      id
+      firstName
+      lastName
+    }
+    school {
+      id
+      name
+    }
+    address {
+      id
+      name
+      subdistrict {
+        id
+        name
+        postalCode
+        district {
+          id
+          name
+          city {
+            id
+            name
+            province {
+              id
+              name
+            }
+          }
+        }
+      }
+    }
+    accounts {
+      id
+      name
+      accountCategory
+      accountNumber
+      bankAccount {
+        id
+        name
+        logoUrl
+        accountId
+        accountNumber
+      }
+    }
+    createdAt
+    updatedAt
+  }
+}
