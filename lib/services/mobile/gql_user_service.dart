@@ -28,7 +28,7 @@ class GqlUserService {
             {"firstName": "asc"}
           ],
           "skip": skip,
-          "take": contains,
+          "take": 10,
           "where": {
             "AND": [
               {
@@ -43,7 +43,17 @@ class GqlUserService {
                 "userRole": {
                   "not": {"equals": "ADMIN"}
                 }
-              }
+              },
+              {
+                "firstName": {
+                  "contains": contains //firstname tidak boleh null
+                }
+              },
+              {
+                "lastName": {
+                  "contains": contains //lastname boleh null
+                }
+              },
             ]
           }
         },

@@ -1,0 +1,7 @@
+query GetTopCitiesWithMostUsers($cityFindManyUserArgs: CityFindManyUserArgs!) {
+  getTopCitiesWithMostUsers(cityFindManyUserArgs: $cityFindManyUserArgs) {
+    cityId
+    cityName
+    userCount
+  }
+}

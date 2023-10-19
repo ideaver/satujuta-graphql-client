@@ -1,17 +1,14 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:satujuta_gql_client/operations/web/generated/count_total_member.graphql.dart';
-import 'package:satujuta_gql_client/operations/web/generated/get_user_growth.graphql.dart';
-import 'package:satujuta_gql_client/operations/web/generated/get_user_of_student_growth.graphql.dart';
 import 'package:satujuta_gql_client/schema/generated/schema.graphql.dart';
 
 import '../../operations/web/generated/user_delete.graphql.dart';
 import '../../operations/web/generated/user_find_many.graphql.dart';
 import '../../operations/web/generated/user_find_one.graphql.dart';
-import '../../operations/web/generated/user_update_one.graphql.dart';
 import '../graphql_service.dart';
 
-class GqlUserService {
-  static Future<QueryResult<Query$UserFindMany>> userFindMany({
+class GqlMemberService {
+  static Future<QueryResult<Query$UserFindMany>> memberFindMany({
     int skip = 0,
     String? contains,
   }) async {
@@ -57,8 +54,10 @@ class GqlUserService {
     );
   }
 
-  static Future<QueryResult<Query$UserFindMany>> newUserFindMany({
-    int skip = 0,
+  static Future<QueryResult<Query$UserFindMany>> referredUserFindManyByReferrerId(
+    String refererId, {
+    int? skip = 0,
+    String? contains,
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -66,11 +65,17 @@ class GqlUserService {
         parserFn: (data) => Query$UserFindMany.fromJson(data),
         variables: {
           "orderBy": [
-            {"createdAt": "desc"}
+            {"firstName": "asc"}
           ],
           "skip": skip,
-          "take": 10,
+          "take": contains,
           "where": {
+            "referredBy": {
+              "is": {
+                "id": {"equals": refererId}
+              }
+            },
+            "firstName": {"contains": contains},
             "AND": [
               {
                 "deletedAt": {"equals": null}
@@ -106,41 +111,41 @@ class GqlUserService {
     );
   }
 
-  static Future<QueryResult<Mutation$UserUpdateOne>> userUpdateOne({
-    required Mutation$UserUpdateOne$userUpdateOne user,
-  }) async {
-    return await GraphQLService.client.mutate(
-      MutationOptions(
-        document: documentNodeMutationUserUpdateOne,
-        parserFn: (data) => Mutation$UserUpdateOne.fromJson(data),
-        variables: {
-          "where": {"id": user.id},
-          "data": {
-            "firstName": {"set": user.firstName},
-            "lastName": {"set": user.lastName},
-            "email": {"set": user.email},
-            "whatsappNumber": {"set": user.whatsappNumber},
-            "whatsappVerifiedAt": {"set": null},
-            "password": {"set": null},
-            "theme": {"set": user.theme.name},
-            "userType": {"set": user.userType.name},
-            "avatarUrl": {"set": user.avatarUrl},
-            "status": {"set": user.status.name},
-            "address": {
-              "update": {
-                "data": {
-                  "name": {"set": user.address.name},
-                  "subdistrict": {
-                    "connect": {"id": user.address.subdistrict.id}
-                  },
-                }
-              }
-            }
-          }
-        },
-      ),
-    );
-  }
+  // static Future<QueryResult<Mutation$UserUpdateOne>> userUpdateOne({
+  //   required Mutation$UserUpdateOne$userUpdateOne user,
+  // }) async {
+  //   return await GraphQLService.client.mutate(
+  //     MutationOptions(
+  //       document: documentNodeMutationUserUpdateOne,
+  //       parserFn: (data) => Mutation$UserUpdateOne.fromJson(data),
+  //       variables: {
+  //         "where": {"id": user.id},
+  //         "data": {
+  //           "firstName": {"set": user.firstName},
+  //           "lastName": {"set": user.lastName},
+  //           "email": {"set": user.email},
+  //           "whatsappNumber": {"set": user.whatsappNumber},
+  //           "whatsappVerifiedAt": {"set": null},
+  //           "password": {"set": null},
+  //           "theme": {"set": user.theme.name},
+  //           "userType": {"set": user.userType.name},
+  //           "avatarUrl": {"set": user.avatarUrl},
+  //           "status": {"set": user.status.name},
+  //           "address": {
+  //             "update": {
+  //               "data": {
+  //                 "name": {"set": user.address.name},
+  //                 "subdistrict": {
+  //                   "connect": {"id": user.address.subdistrict.id}
+  //                 },
+  //               }
+  //             }
+  //           }
+  //         }
+  //       },
+  //     ),
+  //   );
+  // }
 
   static Future<QueryResult<Mutation$UserDelete>> userDelete({
     required String userId,
@@ -209,54 +214,54 @@ class GqlUserService {
   //   );
   // }
 
-  static Future<QueryResult<Query$GetUserGrowthByCustomPeriod>> getUserGrowth({
-    required String startDate,
-    required String endDate,
-  }) async {
-    return await GraphQLService.client.query(
-      QueryOptions(
-        document: documentNodeQueryGetUserGrowthByCustomPeriod,
-        parserFn: (data) => Query$GetUserGrowthByCustomPeriod.fromJson(data),
-        variables: {
-          "userCreatedByCustomPeriodArgs": {
-            "start": startDate,
-            "end": endDate,
-            "period": "MONTHLY",
-            "where": {
-              "NOT": [
-                {
-                  "userRole": {"equals": "SUPERUSER"}
-                },
-                {
-                  "userRole": {"equals": "ADMIN"}
-                }
-              ]
-            }
-          }
-        },
-      ),
-    );
-  }
+  // static Future<QueryResult<Query$GetUserGrowthByCustomPeriod>> getUserGrowth({
+  //   required String startDate,
+  //   required String endDate,
+  // }) async {
+  //   return await GraphQLService.client.query(
+  //     QueryOptions(
+  //       document: documentNodeQueryGetUserGrowthByCustomPeriod,
+  //       parserFn: (data) => Query$GetUserGrowthByCustomPeriod.fromJson(data),
+  //       variables: {
+  //         "userCreatedByCustomPeriodArgs": {
+  //           "start": startDate,
+  //           "end": endDate,
+  //           "period": "MONTHLY",
+  //           "where": {
+  //             "NOT": [
+  //               {
+  //                 "userRole": {"equals": "SUPERUSER"}
+  //               },
+  //               {
+  //                 "userRole": {"equals": "ADMIN"}
+  //               }
+  //             ]
+  //           }
+  //         }
+  //       },
+  //     ),
+  //   );
+  // }
 
-  static Future<QueryResult<Query$GetUserOfStudentGrowthByCustomPeriod>> getUserOfStudentGrowth({
-    required String startDate,
-    required String endDate,
-  }) async {
-    return await GraphQLService.client.query(
-      QueryOptions(
-        document: documentNodeQueryGetUserOfStudentGrowthByCustomPeriod,
-        parserFn: (data) => Query$GetUserOfStudentGrowthByCustomPeriod.fromJson(data),
-        variables: {
-          "userCreatedByCustomPeriodArgs": {
-            "start": startDate,
-            "end": endDate,
-            "period": "MONTHLY",
-            "where": {
-              "userRole": {"equals": "STUDENT"}
-            }
-          }
-        },
-      ),
-    );
-  }
+  // static Future<QueryResult<Query$GetUserOfStudentGrowthByCustomPeriod>> getUserOfStudentGrowth({
+  //   required String startDate,
+  //   required String endDate,
+  // }) async {
+  //   return await GraphQLService.client.query(
+  //     QueryOptions(
+  //       document: documentNodeQueryGetUserOfStudentGrowthByCustomPeriod,
+  //       parserFn: (data) => Query$GetUserOfStudentGrowthByCustomPeriod.fromJson(data),
+  //       variables: {
+  //         "userCreatedByCustomPeriodArgs": {
+  //           "start": startDate,
+  //           "end": endDate,
+  //           "period": "MONTHLY",
+  //           "where": {
+  //             "userRole": {"equals": "STUDENT"}
+  //           }
+  //         }
+  //       },
+  //     ),
+  //   );
+  // }
 }

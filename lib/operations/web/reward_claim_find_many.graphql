@@ -1,0 +1,25 @@
+query RewardClaimFindMany(
+  $skip: Int
+  $take: Int
+  $orderBy: [RewardClaimOrderByWithRelationInput!]
+) {
+  rewardClaimFindMany(skip: $skip, take: $take, orderBy: $orderBy) {
+    id
+    reward {
+      id
+      name
+      pointCost
+      images {
+        url
+      }
+    }
+    user {
+      id
+      firstName
+      lastName
+      avatarUrl
+    }
+    createdAt
+    processedAt
+  }
+}
