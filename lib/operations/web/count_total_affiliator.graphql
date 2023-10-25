@@ -1,0 +1,3 @@
+query CountTotalAffiliator($where: UserWhereInput) {
+  userCount(where: $where)
+}

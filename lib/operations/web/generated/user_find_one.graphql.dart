@@ -663,6 +663,35 @@ const documentNodeQueryUserFindOne = DocumentNode(definitions: [
             ]),
           ),
           FieldNode(
+            name: NameNode(value: '_count'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'referredUsers'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'claimedRewards'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
             name: NameNode(value: 'createdAt'),
             alias: null,
             arguments: [],
@@ -864,6 +893,7 @@ class Query$UserFindOne$userFindOne {
     this.school,
     required this.address,
     this.accounts,
+    required this.$_count,
     required this.createdAt,
     required this.updatedAt,
     this.$__typename = 'User',
@@ -886,6 +916,7 @@ class Query$UserFindOne$userFindOne {
     final l$school = json['school'];
     final l$address = json['address'];
     final l$accounts = json['accounts'];
+    final l$$_count = json['_count'];
     final l$createdAt = json['createdAt'];
     final l$updatedAt = json['updatedAt'];
     final l$$__typename = json['__typename'];
@@ -916,6 +947,8 @@ class Query$UserFindOne$userFindOne {
           ?.map((e) => Query$UserFindOne$userFindOne$accounts.fromJson(
               (e as Map<String, dynamic>)))
           .toList(),
+      $_count: Query$UserFindOne$userFindOne$_count.fromJson(
+          (l$$_count as Map<String, dynamic>)),
       createdAt: (l$createdAt as String),
       updatedAt: (l$updatedAt as String),
       $__typename: (l$$__typename as String),
@@ -953,6 +986,8 @@ class Query$UserFindOne$userFindOne {
   final Query$UserFindOne$userFindOne$address address;
 
   final List<Query$UserFindOne$userFindOne$accounts>? accounts;
+
+  final Query$UserFindOne$userFindOne$_count $_count;
 
   final String createdAt;
 
@@ -994,6 +1029,8 @@ class Query$UserFindOne$userFindOne {
     _resultData['address'] = l$address.toJson();
     final l$accounts = accounts;
     _resultData['accounts'] = l$accounts?.map((e) => e.toJson()).toList();
+    final l$$_count = $_count;
+    _resultData['_count'] = l$$_count.toJson();
     final l$createdAt = createdAt;
     _resultData['createdAt'] = l$createdAt;
     final l$updatedAt = updatedAt;
@@ -1021,6 +1058,7 @@ class Query$UserFindOne$userFindOne {
     final l$school = school;
     final l$address = address;
     final l$accounts = accounts;
+    final l$$_count = $_count;
     final l$createdAt = createdAt;
     final l$updatedAt = updatedAt;
     final l$$__typename = $__typename;
@@ -1041,6 +1079,7 @@ class Query$UserFindOne$userFindOne {
       l$school,
       l$address,
       l$accounts == null ? null : Object.hashAll(l$accounts.map((v) => v)),
+      l$$_count,
       l$createdAt,
       l$updatedAt,
       l$$__typename,
@@ -1147,6 +1186,11 @@ class Query$UserFindOne$userFindOne {
     } else if (l$accounts != lOther$accounts) {
       return false;
     }
+    final l$$_count = $_count;
+    final lOther$$_count = other.$_count;
+    if (l$$_count != lOther$$_count) {
+      return false;
+    }
     final l$createdAt = createdAt;
     final lOther$createdAt = other.createdAt;
     if (l$createdAt != lOther$createdAt) {
@@ -1201,6 +1245,7 @@ abstract class CopyWith$Query$UserFindOne$userFindOne<TRes> {
     Query$UserFindOne$userFindOne$school? school,
     Query$UserFindOne$userFindOne$address? address,
     List<Query$UserFindOne$userFindOne$accounts>? accounts,
+    Query$UserFindOne$userFindOne$_count? $_count,
     String? createdAt,
     String? updatedAt,
     String? $__typename,
@@ -1214,6 +1259,7 @@ abstract class CopyWith$Query$UserFindOne$userFindOne<TRes> {
                   CopyWith$Query$UserFindOne$userFindOne$accounts<
                       Query$UserFindOne$userFindOne$accounts>>?)
           _fn);
+  CopyWith$Query$UserFindOne$userFindOne$_count<TRes> get $_count;
 }
 
 class _CopyWithImpl$Query$UserFindOne$userFindOne<TRes>
@@ -1246,6 +1292,7 @@ class _CopyWithImpl$Query$UserFindOne$userFindOne<TRes>
     Object? school = _undefined,
     Object? address = _undefined,
     Object? accounts = _undefined,
+    Object? $_count = _undefined,
     Object? createdAt = _undefined,
     Object? updatedAt = _undefined,
     Object? $__typename = _undefined,
@@ -1296,6 +1343,9 @@ class _CopyWithImpl$Query$UserFindOne$userFindOne<TRes>
         accounts: accounts == _undefined
             ? _instance.accounts
             : (accounts as List<Query$UserFindOne$userFindOne$accounts>?),
+        $_count: $_count == _undefined || $_count == null
+            ? _instance.$_count
+            : ($_count as Query$UserFindOne$userFindOne$_count),
         createdAt: createdAt == _undefined || createdAt == null
             ? _instance.createdAt
             : (createdAt as String),
@@ -1341,6 +1391,11 @@ class _CopyWithImpl$Query$UserFindOne$userFindOne<TRes>
                     e,
                     (i) => i,
                   )))?.toList());
+  CopyWith$Query$UserFindOne$userFindOne$_count<TRes> get $_count {
+    final local$$_count = _instance.$_count;
+    return CopyWith$Query$UserFindOne$userFindOne$_count(
+        local$$_count, (e) => call($_count: e));
+  }
 }
 
 class _CopyWithStubImpl$Query$UserFindOne$userFindOne<TRes>
@@ -1366,6 +1421,7 @@ class _CopyWithStubImpl$Query$UserFindOne$userFindOne<TRes>
     Query$UserFindOne$userFindOne$school? school,
     Query$UserFindOne$userFindOne$address? address,
     List<Query$UserFindOne$userFindOne$accounts>? accounts,
+    Query$UserFindOne$userFindOne$_count? $_count,
     String? createdAt,
     String? updatedAt,
     String? $__typename,
@@ -1378,6 +1434,8 @@ class _CopyWithStubImpl$Query$UserFindOne$userFindOne<TRes>
   CopyWith$Query$UserFindOne$userFindOne$address<TRes> get address =>
       CopyWith$Query$UserFindOne$userFindOne$address.stub(_res);
   accounts(_fn) => _res;
+  CopyWith$Query$UserFindOne$userFindOne$_count<TRes> get $_count =>
+      CopyWith$Query$UserFindOne$userFindOne$_count.stub(_res);
 }
 
 class Query$UserFindOne$userFindOne$referredBy {
@@ -3060,6 +3118,153 @@ class _CopyWithStubImpl$Query$UserFindOne$userFindOne$accounts$bankAccount<TRes>
     String? logoUrl,
     int? accountId,
     double? accountNumber,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Query$UserFindOne$userFindOne$_count {
+  Query$UserFindOne$userFindOne$_count({
+    required this.referredUsers,
+    required this.claimedRewards,
+    this.$__typename = 'UserCount',
+  });
+
+  factory Query$UserFindOne$userFindOne$_count.fromJson(
+      Map<String, dynamic> json) {
+    final l$referredUsers = json['referredUsers'];
+    final l$claimedRewards = json['claimedRewards'];
+    final l$$__typename = json['__typename'];
+    return Query$UserFindOne$userFindOne$_count(
+      referredUsers: (l$referredUsers as int),
+      claimedRewards: (l$claimedRewards as int),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final int referredUsers;
+
+  final int claimedRewards;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$referredUsers = referredUsers;
+    _resultData['referredUsers'] = l$referredUsers;
+    final l$claimedRewards = claimedRewards;
+    _resultData['claimedRewards'] = l$claimedRewards;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$referredUsers = referredUsers;
+    final l$claimedRewards = claimedRewards;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$referredUsers,
+      l$claimedRewards,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$UserFindOne$userFindOne$_count) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$referredUsers = referredUsers;
+    final lOther$referredUsers = other.referredUsers;
+    if (l$referredUsers != lOther$referredUsers) {
+      return false;
+    }
+    final l$claimedRewards = claimedRewards;
+    final lOther$claimedRewards = other.claimedRewards;
+    if (l$claimedRewards != lOther$claimedRewards) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$UserFindOne$userFindOne$_count
+    on Query$UserFindOne$userFindOne$_count {
+  CopyWith$Query$UserFindOne$userFindOne$_count<
+          Query$UserFindOne$userFindOne$_count>
+      get copyWith => CopyWith$Query$UserFindOne$userFindOne$_count(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$UserFindOne$userFindOne$_count<TRes> {
+  factory CopyWith$Query$UserFindOne$userFindOne$_count(
+    Query$UserFindOne$userFindOne$_count instance,
+    TRes Function(Query$UserFindOne$userFindOne$_count) then,
+  ) = _CopyWithImpl$Query$UserFindOne$userFindOne$_count;
+
+  factory CopyWith$Query$UserFindOne$userFindOne$_count.stub(TRes res) =
+      _CopyWithStubImpl$Query$UserFindOne$userFindOne$_count;
+
+  TRes call({
+    int? referredUsers,
+    int? claimedRewards,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$UserFindOne$userFindOne$_count<TRes>
+    implements CopyWith$Query$UserFindOne$userFindOne$_count<TRes> {
+  _CopyWithImpl$Query$UserFindOne$userFindOne$_count(
+    this._instance,
+    this._then,
+  );
+
+  final Query$UserFindOne$userFindOne$_count _instance;
+
+  final TRes Function(Query$UserFindOne$userFindOne$_count) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? referredUsers = _undefined,
+    Object? claimedRewards = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$UserFindOne$userFindOne$_count(
+        referredUsers: referredUsers == _undefined || referredUsers == null
+            ? _instance.referredUsers
+            : (referredUsers as int),
+        claimedRewards: claimedRewards == _undefined || claimedRewards == null
+            ? _instance.claimedRewards
+            : (claimedRewards as int),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$UserFindOne$userFindOne$_count<TRes>
+    implements CopyWith$Query$UserFindOne$userFindOne$_count<TRes> {
+  _CopyWithStubImpl$Query$UserFindOne$userFindOne$_count(this._res);
+
+  TRes _res;
+
+  call({
+    int? referredUsers,
+    int? claimedRewards,
     String? $__typename,
   }) =>
       _res;

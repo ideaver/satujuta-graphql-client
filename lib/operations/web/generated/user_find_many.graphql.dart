@@ -515,6 +515,13 @@ const documentNodeQueryUserFindMany = DocumentNode(definitions: [
             selectionSet: null,
           ),
           FieldNode(
+            name: NameNode(value: 'referralCode'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: null,
+          ),
+          FieldNode(
             name: NameNode(value: 'status'),
             alias: null,
             arguments: [],
@@ -970,6 +977,7 @@ class Query$UserFindMany$userFindMany {
     required this.whatsappNumber,
     this.whatsappVerifiedAt,
     this.referredById,
+    required this.referralCode,
     required this.status,
     required this.theme,
     this.referredBy,
@@ -992,6 +1000,7 @@ class Query$UserFindMany$userFindMany {
     final l$whatsappNumber = json['whatsappNumber'];
     final l$whatsappVerifiedAt = json['whatsappVerifiedAt'];
     final l$referredById = json['referredById'];
+    final l$referralCode = json['referralCode'];
     final l$status = json['status'];
     final l$theme = json['theme'];
     final l$referredBy = json['referredBy'];
@@ -1012,6 +1021,7 @@ class Query$UserFindMany$userFindMany {
       whatsappNumber: (l$whatsappNumber as String),
       whatsappVerifiedAt: (l$whatsappVerifiedAt as String?),
       referredById: (l$referredById as String?),
+      referralCode: (l$referralCode as String),
       status: fromJson$Enum$UserStatus((l$status as String)),
       theme: fromJson$Enum$Theme((l$theme as String)),
       referredBy: l$referredBy == null
@@ -1051,6 +1061,8 @@ class Query$UserFindMany$userFindMany {
   final String? whatsappVerifiedAt;
 
   final String? referredById;
+
+  final String referralCode;
 
   final Enum$UserStatus status;
 
@@ -1092,6 +1104,8 @@ class Query$UserFindMany$userFindMany {
     _resultData['whatsappVerifiedAt'] = l$whatsappVerifiedAt;
     final l$referredById = referredById;
     _resultData['referredById'] = l$referredById;
+    final l$referralCode = referralCode;
+    _resultData['referralCode'] = l$referralCode;
     final l$status = status;
     _resultData['status'] = toJson$Enum$UserStatus(l$status);
     final l$theme = theme;
@@ -1125,6 +1139,7 @@ class Query$UserFindMany$userFindMany {
     final l$whatsappNumber = whatsappNumber;
     final l$whatsappVerifiedAt = whatsappVerifiedAt;
     final l$referredById = referredById;
+    final l$referralCode = referralCode;
     final l$status = status;
     final l$theme = theme;
     final l$referredBy = referredBy;
@@ -1145,6 +1160,7 @@ class Query$UserFindMany$userFindMany {
       l$whatsappNumber,
       l$whatsappVerifiedAt,
       l$referredById,
+      l$referralCode,
       l$status,
       l$theme,
       l$referredBy,
@@ -1214,6 +1230,11 @@ class Query$UserFindMany$userFindMany {
     final l$referredById = referredById;
     final lOther$referredById = other.referredById;
     if (l$referredById != lOther$referredById) {
+      return false;
+    }
+    final l$referralCode = referralCode;
+    final lOther$referralCode = other.referralCode;
+    if (l$referralCode != lOther$referralCode) {
       return false;
     }
     final l$status = status;
@@ -1294,6 +1315,7 @@ abstract class CopyWith$Query$UserFindMany$userFindMany<TRes> {
     String? whatsappNumber,
     String? whatsappVerifiedAt,
     String? referredById,
+    String? referralCode,
     Enum$UserStatus? status,
     Enum$Theme? theme,
     Query$UserFindMany$userFindMany$referredBy? referredBy,
@@ -1334,6 +1356,7 @@ class _CopyWithImpl$Query$UserFindMany$userFindMany<TRes>
     Object? whatsappNumber = _undefined,
     Object? whatsappVerifiedAt = _undefined,
     Object? referredById = _undefined,
+    Object? referralCode = _undefined,
     Object? status = _undefined,
     Object? theme = _undefined,
     Object? referredBy = _undefined,
@@ -1372,6 +1395,9 @@ class _CopyWithImpl$Query$UserFindMany$userFindMany<TRes>
         referredById: referredById == _undefined
             ? _instance.referredById
             : (referredById as String?),
+        referralCode: referralCode == _undefined || referralCode == null
+            ? _instance.referralCode
+            : (referralCode as String),
         status: status == _undefined || status == null
             ? _instance.status
             : (status as Enum$UserStatus),
@@ -1447,6 +1473,7 @@ class _CopyWithStubImpl$Query$UserFindMany$userFindMany<TRes>
     String? whatsappNumber,
     String? whatsappVerifiedAt,
     String? referredById,
+    String? referralCode,
     Enum$UserStatus? status,
     Enum$Theme? theme,
     Query$UserFindMany$userFindMany$referredBy? referredBy,

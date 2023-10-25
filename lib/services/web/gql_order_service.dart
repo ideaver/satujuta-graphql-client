@@ -74,4 +74,35 @@ class GqlOrderService {
       ),
     );
   }
+
+  static Future<QueryResult<Query$CountTotalCartQuantityOfPaidOrderByCreatedRange>> countTotalOrderQtyByUserId({
+    required String userId,
+  }) async {
+    return await GraphQLService.client.query(
+      QueryOptions(
+        document: documentNodeQueryCountTotalCartQuantityOfPaidOrderByCreatedRange,
+        parserFn: (data) => Query$CountTotalCartQuantityOfPaidOrderByCreatedRange.fromJson(data),
+        variables: {
+          "where": {
+            "order": {
+              "is": {
+                "orderById": {
+                  "equals": userId,
+                },
+                "invoice": {
+                  "is": {
+                    "transactions": {
+                      "some": {} //ada transaksi pembayaran setidaknya satu kali
+                    }
+                  }
+                }
+              }
+            },
+            "membershipItemId": {"not": null},
+          },
+          "sum": {"quantity": true}
+        },
+      ),
+    );
+  }
 }

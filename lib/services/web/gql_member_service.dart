@@ -2,6 +2,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:satujuta_gql_client/operations/web/generated/count_total_member.graphql.dart';
 import 'package:satujuta_gql_client/schema/generated/schema.graphql.dart';
 
+import '../../operations/web/generated/count_total_affiliator.graphql.dart';
 import '../../operations/web/generated/user_delete.graphql.dart';
 import '../../operations/web/generated/user_find_many.graphql.dart';
 import '../../operations/web/generated/user_find_one.graphql.dart';
@@ -10,7 +11,7 @@ import '../graphql_service.dart';
 class GqlMemberService {
   static Future<QueryResult<Query$UserFindMany>> memberFindMany({
     int skip = 0,
-    String? contains,
+    String? contains = "",
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -18,7 +19,9 @@ class GqlMemberService {
         parserFn: (data) => Query$UserFindMany.fromJson(data),
         variables: {
           "orderBy": [
-            {"firstName": "asc"}
+            {
+              "referredUsers": {"_count": "desc"}
+            }
           ],
           "skip": skip,
           "take": 10,
@@ -38,14 +41,10 @@ class GqlMemberService {
                 },
               },
               {
-                "firstName": {
-                  "contains": contains //firstname tidak boleh null
-                }
+                "firstName": {"contains": contains}
               },
               {
-                "lastName": {
-                  "contains": contains //lastname boleh null
-                }
+                "lastName": {"contains": contains}
               },
             ]
           }
@@ -54,8 +53,8 @@ class GqlMemberService {
     );
   }
 
-  static Future<QueryResult<Query$UserFindMany>> referredUserFindManyByReferrerId(
-    String refererId, {
+  static Future<QueryResult<Query$UserFindMany>> memberFindManyByReferrerId({
+    required String referrerId,
     int? skip = 0,
     String? contains,
   }) async {
@@ -65,20 +64,23 @@ class GqlMemberService {
         parserFn: (data) => Query$UserFindMany.fromJson(data),
         variables: {
           "orderBy": [
-            {"firstName": "asc"}
+            {
+              "referredUsers": {"_count": "desc"}
+            }
           ],
           "skip": skip,
-          "take": contains,
+          "take": 10,
           "where": {
-            "referredBy": {
-              "is": {
-                "id": {"equals": refererId}
-              }
-            },
-            "firstName": {"contains": contains},
             "AND": [
               {
                 "deletedAt": {"equals": null}
+              },
+              {
+                "referredBy": {
+                  "is": {
+                    "id": {"equals": referrerId}
+                  }
+                },
               },
               {
                 "userRole": {
@@ -88,8 +90,14 @@ class GqlMemberService {
               {
                 "userRole": {
                   "not": {"equals": "ADMIN"}
-                }
-              }
+                },
+              },
+              {
+                "firstName": {"contains": contains}
+              },
+              {
+                "lastName": {"contains": contains}
+              },
             ]
           }
         },
@@ -192,6 +200,44 @@ class GqlMemberService {
                 }
               }
             ]
+          }
+        },
+      ),
+    );
+  }
+
+  static Future<QueryResult<Query$CountTotalAffiliator>> countTotalAffiliator({
+    required String startDate,
+    required String endDate,
+    Enum$UserStatus? status,
+  }) async {
+    return await GraphQLService.client.query(
+      QueryOptions(
+        document: documentNodeQueryCountTotalAffiliator,
+        parserFn: (data) => Query$CountTotalAffiliator.fromJson(data),
+        variables: {
+          "where": {
+            "deletedAt": {"equals": null},
+            "createdAt": {"gte": startDate, "lte": endDate},
+            "AND": [
+              {
+                "userRole": {
+                  "not": {"equals": "ADMIN"}
+                }
+              },
+              {
+                "userRole": {
+                  "not": {"equals": "SUPERUSER"}
+                }
+              }
+            ],
+            "referredUsers": {
+              "some": {
+                "id": {
+                  "not": {} //jika ini diganti ke null, maka prisma nya error, namun jika dibiarkan object kosong seperti itu, it works
+                }
+              }
+            }
           }
         },
       ),

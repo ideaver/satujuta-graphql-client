@@ -1,8 +1,6 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:satujuta_gql_client/operations/web/generated/count_total_member.graphql.dart';
 import 'package:satujuta_gql_client/operations/web/generated/get_user_growth.graphql.dart';
 import 'package:satujuta_gql_client/operations/web/generated/get_user_of_student_growth.graphql.dart';
-import 'package:satujuta_gql_client/schema/generated/schema.graphql.dart';
 
 import '../../operations/web/generated/user_delete.graphql.dart';
 import '../../operations/web/generated/user_find_many.graphql.dart';
@@ -155,59 +153,6 @@ class GqlUserService {
       ),
     );
   }
-
-  static Future<QueryResult<Query$CountTotalMember>> countTotalMember({
-    required String startDate,
-    required String endDate,
-    Enum$UserStatus? status,
-  }) async {
-    return await GraphQLService.client.query(
-      QueryOptions(
-        document: documentNodeQueryCountTotalMember,
-        parserFn: (data) => Query$CountTotalMember.fromJson(data),
-        variables: {
-          "where": {
-            "deletedAt": {"equals": null},
-            if (status != null)
-              "status": {
-                "equals": status.name,
-              },
-            "AND": [
-              {
-                "createdAt": {"gte": startDate, "lte": endDate}
-              },
-              {
-                "userRole": {
-                  "not": {"equals": "ADMIN"}
-                }
-              },
-              {
-                "userRole": {
-                  "not": {"equals": "SUPERUSER"}
-                }
-              }
-            ]
-          }
-        },
-      ),
-    );
-  }
-
-  // static Future<QueryResult<Query$CountTotalMember>> countUserByStatus({
-  //   Enum$UserStatus status = Enum$UserStatus.ACTIVE,
-  // }) async {
-  //   return await GraphQLService.client.query(
-  //     QueryOptions(
-  //       document: documentNodeQueryCountTotalMember,
-  //       parserFn: (data) => Query$CountTotalMember.fromJson(data),
-  //       variables: {
-  //         "where": {
-  //           "status": {"equals": status.name}
-  //         }
-  //       },
-  //     ),
-  //   );
-  // }
 
   static Future<QueryResult<Query$GetUserGrowthByCustomPeriod>> getUserGrowth({
     required String startDate,

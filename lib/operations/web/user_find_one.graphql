@@ -55,6 +55,10 @@ query UserFindOne($where: UserWhereUniqueInput!) {
         accountNumber
       }
     }
+    _count {
+      referredUsers
+      claimedRewards
+    }
     createdAt
     updatedAt
   }
