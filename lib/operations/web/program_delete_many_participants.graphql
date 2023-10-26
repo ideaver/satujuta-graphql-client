@@ -1,0 +1,8 @@
+mutation ProgramDeleteManyParticipants(
+  $data: ProgramUpdateInput!
+  $where: ProgramWhereUniqueInput!
+) {
+  programUpdateOne(data: $data, where: $where) {
+    updatedAt
+  }
+}

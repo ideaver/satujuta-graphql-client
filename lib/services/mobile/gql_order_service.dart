@@ -6,7 +6,7 @@ import '../graphql_service.dart';
 class GqlOrderService {
   // static Future<QueryResult<Query$OrderFindMany>> orderFindMany({
   //   int? skip = 0,
-  //   String? contains,
+  //   String contains = '',
   // }) async {
   //   return await GraphQLService.client.query(
   //     QueryOptions(

@@ -1,13 +1,16 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
 
-import '../../operations/mobile/generated/transaction_find_many.graphql.dart';
+import '../../operations/web/generated/transaction_find_many.graphql.dart';
+import '../../schema/generated/schema.graphql.dart';
 import '../graphql_service.dart';
 
 class GqlTransactionService {
   static Future<QueryResult<Query$TransactionFindManyByAccountId>> transactionFindManyByAccountId({
     required int accountId,
     int skip = 0,
-    String? contains,
+    Enum$TransactionStatus? status = Enum$TransactionStatus.COMPLETED,
+    Enum$SortOrder? sortBy = Enum$SortOrder.desc,
+    int? invoiceId,
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -25,7 +28,8 @@ class GqlTransactionService {
                 "toAccountId": {"equals": accountId}
               }
             ],
-            "status": {"equals": "COMPLETED"}
+            "status": {"equals": "COMPLETED"},
+            "invoiceId": {"in": invoiceId}
           },
           "orderBy": [
             {"createdAt": "asc"}
@@ -34,20 +38,4 @@ class GqlTransactionService {
       ),
     );
   }
-
-  // static Future<QueryResult<Mutation$TransactionCreateOne>> transactionCreateOne({
-  //   required Input$TransactionCreateInput transaction,
-  // }) async {
-  //   return await GraphQLService.client.query(
-  //     QueryOptions(
-  //       document: documentNodeMutationTransactionCreateOne,
-  //       parserFn: (data) => Mutation$TransactionCreateOne.fromJson(data),
-  //       variables: {
-  //         "transactionCreateArgs": {
-  //           "data": transaction.toJson(),
-  //         }
-  //       },
-  //     ),
-  //   );
-  // }
 }

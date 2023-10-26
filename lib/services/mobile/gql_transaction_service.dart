@@ -7,7 +7,7 @@ class GqlTransactionService {
   static Future<QueryResult<Query$TransactionFindManyByAccountId>> transactionFindManyByAccountId({
     required int accountId,
     int skip = 0,
-    String? contains,
+    String contains = '',
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(

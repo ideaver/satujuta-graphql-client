@@ -7,7 +7,7 @@ class GqlSchoolService {
   static Future<QueryResult<Query$SchoolFindManyByName>> schoolFindManyByName({
     required int cityId,
     int? skip = 0,
-    String? contains,
+    String contains = '',
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -17,7 +17,7 @@ class GqlSchoolService {
           "skip": skip,
           "take": 10,
           "where": {
-            "name": {"contains": contains ?? ""},
+            "name": {"contains": contains},
             "address": {
               "is": {
                 "subdistrict": {

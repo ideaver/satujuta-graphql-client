@@ -1,0 +1,41 @@
+query HotelFindMany(
+  $skip: Int
+  $take: Int
+  $orderBy: [HotelOrderByWithRelationInput!]
+) {
+  hotelFindMany(skip: $skip, take: $take, orderBy: $orderBy) {
+    id
+    name
+    description
+    images {
+      url
+    }
+    quota
+    rating
+    startDate
+    address {
+      id
+      name
+      subdistrict {
+        id
+        name
+        postalCode
+        district {
+          id
+          name
+          city {
+            id
+            name
+            province {
+              id
+              name
+            }
+          }
+        }
+      }
+    }
+    _count {
+      checkIns
+    }
+  }
+}

@@ -1,9 +1,12 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
 import 'package:satujuta_gql_client/operations/web/generated/get_user_growth.graphql.dart';
 import 'package:satujuta_gql_client/operations/web/generated/get_user_of_student_growth.graphql.dart';
+import 'package:satujuta_gql_client/schema/generated/schema.graphql.dart';
 
 import '../../operations/web/generated/user_delete.graphql.dart';
 import '../../operations/web/generated/user_find_many.graphql.dart';
+import '../../operations/web/generated/user_find_many_by_check_in_hotel_id.graphql.dart';
+import '../../operations/web/generated/user_find_many_by_program_id.graphql.dart';
 import '../../operations/web/generated/user_find_one.graphql.dart';
 import '../../operations/web/generated/user_update_one.graphql.dart';
 import '../graphql_service.dart';
@@ -11,7 +14,7 @@ import '../graphql_service.dart';
 class GqlUserService {
   static Future<QueryResult<Query$UserFindMany>> userFindMany({
     int skip = 0,
-    String? contains,
+    String contains = '',
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -84,6 +87,58 @@ class GqlUserService {
                 }
               }
             ]
+          }
+        },
+      ),
+    );
+  }
+
+  static Future<QueryResult<Query$UserFindManyByProgramParticipationId>> userFindManyByProgramParticipationId({
+    required int programId,
+    Enum$UserStatus status = Enum$UserStatus.ACTIVE,
+    int skip = 0,
+    String contains = '',
+  }) async {
+    return await GraphQLService.client.query(
+      QueryOptions(
+        document: documentNodeQueryUserFindManyByProgramParticipationId,
+        parserFn: (data) => Query$UserFindManyByProgramParticipationId.fromJson(data),
+        variables: {
+          "skip": skip,
+          "take": 20,
+          "where": {
+            "programsParticipation": {
+              "some": {
+                "id": {"equals": programId}
+              }
+            },
+            "status": {"equals": status.name}
+          }
+        },
+      ),
+    );
+  }
+
+  static Future<QueryResult<Query$UserFindManyByCheckinHotelId>> userFindManyByCheckinHotelId({
+    required int hotelId,
+    Enum$UserStatus status = Enum$UserStatus.ACTIVE,
+    int skip = 0,
+    String contains = '',
+  }) async {
+    return await GraphQLService.client.query(
+      QueryOptions(
+        document: documentNodeQueryUserFindManyByCheckinHotelId,
+        parserFn: (data) => Query$UserFindManyByCheckinHotelId.fromJson(data),
+        variables: {
+          "skip": skip,
+          "take": 20,
+          "where": {
+            "checkIns": {
+              "some": {
+                "hotelId": {"equals": hotelId}
+              }
+            },
+            "status": {"equals": status.name}
           }
         },
       ),

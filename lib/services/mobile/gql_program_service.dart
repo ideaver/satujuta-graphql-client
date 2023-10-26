@@ -8,7 +8,7 @@ import '../graphql_service.dart';
 class GqlProgramService {
   static Future<QueryResult<Query$ProgramFindMany>> programFindMany({
     int? skip,
-    String? contains,
+    String contains = '',
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -29,7 +29,7 @@ class GqlProgramService {
 
   static Future<QueryResult<Query$ProgramCategoryFindMany>> programCategoryFindMany({
     int? skip,
-    String? contains,
+    String contains = '',
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -49,7 +49,7 @@ class GqlProgramService {
   static Future<QueryResult<Query$ProgramFindMany>> programFindManyByCategoryId({
     required int programCategoryId,
     int? skip,
-    String? contains,
+    String contains = '',
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(

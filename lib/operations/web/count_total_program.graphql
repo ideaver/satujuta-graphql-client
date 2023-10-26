@@ -1,0 +1,3 @@
+query CountTotalProgram($where: ProgramWhereInput) {
+  programCount(where: $where)
+}

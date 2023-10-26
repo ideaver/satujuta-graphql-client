@@ -1,0 +1,3 @@
+mutation HotelDeleteMany($where: HotelWhereInput) {
+  hotelDeleteMany(where: $where)
+}

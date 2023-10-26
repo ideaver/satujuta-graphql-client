@@ -1,0 +1,15 @@
+query UserFindManyByCheckinHotelId(
+  $skip: Int
+  $take: Int
+  $orderBy: [UserOrderByWithRelationInput!]
+  $where: UserWhereInput
+) {
+  userFindMany(skip: $skip, take: $take, orderBy: $orderBy, where: $where) {
+    id
+    firstName
+    lastName
+    avatarUrl
+    status
+    createdAt
+  }
+}

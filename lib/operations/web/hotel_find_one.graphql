@@ -1,0 +1,53 @@
+query HotelFindOne($where: HotelWhereUniqueInput!) {
+  hotelFindOne(where: $where) {
+    id
+    name
+    description
+    rating
+    startDate
+    quota
+    createdById
+    createdAt
+    updatedAt
+    _count {
+      checkIns
+    }
+    images {
+      url
+    }
+    address {
+      id
+      name
+      subdistrict {
+        id
+        name
+        postalCode
+        district {
+          id
+          name
+          city {
+            id
+            name
+            province {
+              id
+              name
+            }
+          }
+        }
+      }
+    }
+    checkIns {
+      user {
+        id
+        firstName
+        lastName
+        avatarUrl
+      }
+      checkInAt
+      createdAt
+    }
+    _count {
+      checkIns
+    }
+  }
+}

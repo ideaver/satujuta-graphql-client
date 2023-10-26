@@ -1,0 +1,3 @@
+query CountTotalUserWithProgramsParticipation($where: UserWhereInput) {
+  userCount(where: $where)
+}

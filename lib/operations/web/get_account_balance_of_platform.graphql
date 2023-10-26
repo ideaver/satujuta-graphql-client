@@ -1,0 +1,10 @@
+query GetAccountBalanceOfPlatformByCustomPeriod(
+  $accountBalanceOfPlatformByCustomPeriod: AccountBalanceOfPlatformByCustomPeriod!
+) {
+  getAccountBalanceOfPlatformByCustomPeriod(
+    accountBalanceOfPlatformByCustomPeriod: $accountBalanceOfPlatformByCustomPeriod
+  ) {
+    period
+    totalBalance
+  }
+}

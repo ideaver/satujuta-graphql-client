@@ -11,7 +11,7 @@ import '../graphql_service.dart';
 class GqlMemberService {
   static Future<QueryResult<Query$UserFindMany>> memberFindMany({
     int skip = 0,
-    String? contains = "",
+    String contains = "",
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -56,7 +56,7 @@ class GqlMemberService {
   static Future<QueryResult<Query$UserFindMany>> memberFindManyByReferrerId({
     required String referrerId,
     int? skip = 0,
-    String? contains,
+    String contains = '',
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(

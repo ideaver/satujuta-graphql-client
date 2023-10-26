@@ -7,7 +7,7 @@ import '../graphql_service.dart';
 class GqlHotelService {
   static Future<QueryResult<Query$HotelFindMany>> hotelFindMany({
     int? skip = 0,
-    String? contains,
+    String contains = '',
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -21,7 +21,7 @@ class GqlHotelService {
               {"startDate": "desc"}
             ],
             "where": {
-              "name": {"contains": contains ?? ''},
+              "name": {"contains": contains},
             }
           }
         },
@@ -32,7 +32,7 @@ class GqlHotelService {
   static Future<QueryResult<Query$HotelFindMany>> hotelFindManyByProvinceId({
     required int provinceId,
     int? skip = 0,
-    String? contains,
+    String contains = '',
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -75,7 +75,7 @@ class GqlHotelService {
   static Future<QueryResult<Query$HotelFindMany>> hotelFindManyByCityId({
     required int cityId,
     int? skip = 0,
-    String? contains,
+    String contains = '',
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
