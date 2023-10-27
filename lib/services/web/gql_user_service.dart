@@ -6,7 +6,8 @@ import 'package:satujuta_gql_client/schema/generated/schema.graphql.dart';
 import '../../operations/web/generated/user_delete.graphql.dart';
 import '../../operations/web/generated/user_find_many.graphql.dart';
 import '../../operations/web/generated/user_find_many_by_check_in_hotel_id.graphql.dart';
-import '../../operations/web/generated/user_find_many_by_program_id.graphql.dart';
+import '../../operations/web/generated/user_find_many_by_program_participation_id.graphql.dart';
+import '../../operations/web/generated/user_find_many_by_project_item_id.graphql.dart';
 import '../../operations/web/generated/user_find_one.graphql.dart';
 import '../../operations/web/generated/user_update_one.graphql.dart';
 import '../graphql_service.dart';
@@ -136,6 +137,53 @@ class GqlUserService {
             "checkIns": {
               "some": {
                 "hotelId": {"equals": hotelId}
+              }
+            },
+            "status": {"equals": status.name}
+          }
+        },
+      ),
+    );
+  }
+
+  static Future<QueryResult<Query$UserFindManyByProjectItemId>> userFindManyByProjectItemId({
+    required int projectId,
+    Enum$UserStatus status = Enum$UserStatus.ACTIVE,
+    int skip = 0,
+    String contains = '',
+  }) async {
+    return await GraphQLService.client.query(
+      QueryOptions(
+        document: documentNodeQueryUserFindManyByProjectItemId,
+        parserFn: (data) => Query$UserFindManyByProjectItemId.fromJson(data),
+        variables: {
+          "skip": skip,
+          "take": 20,
+          "where": {
+            "orders": {
+              "some": {
+                "AND": [
+                  {
+                    "cart": {
+                      "some": {
+                        "projectItem": {
+                          "is": {
+                            "id": {
+                              "equals": projectId //enter the project id
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "invoice": {
+                      "is": {
+                        "transactions": {
+                          "some": {} //at least have one transaction
+                        }
+                      }
+                    }
+                  }
+                ]
               }
             },
             "status": {"equals": status.name}

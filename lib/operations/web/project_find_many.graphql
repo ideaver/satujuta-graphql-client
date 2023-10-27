@@ -1,0 +1,35 @@
+query ProjectFindMany(
+  $skip: Int
+  $take: Int
+  $orderBy: [ProjectOrderByWithRelationInput!]
+  $where: ProjectWhereInput
+) {
+  projectFindMany(skip: $skip, take: $take, orderBy: $orderBy, where: $where) {
+    id
+    name
+    description
+    projectCategory
+    startDate
+    endDate
+    _count {
+      orderCart
+    }
+    images {
+      url
+    }
+    minimumInvestment
+    goalAmount
+    maxInvestor
+    returnRate
+    orderCart {
+      cost
+      price
+      quantity
+      membershipItem {
+        _count {
+          cart
+        }
+      }
+    }
+  }
+}

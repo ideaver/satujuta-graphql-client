@@ -1,0 +1,19 @@
+mutation ProgramCreateOne($data: ProgramCreateInput!) {
+  programCreateOne(data: $data) {
+    id
+    name
+    description
+    category {
+      id
+      name
+    }
+    startDate
+    dueDate
+    createdBy {
+      id
+    }
+    Images {
+      url
+    }
+  }
+}

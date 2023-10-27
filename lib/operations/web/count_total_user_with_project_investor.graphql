@@ -1,0 +1,3 @@
+query CountTotalUserWithProjectsInvestor($where: UserWhereInput) {
+  userCount(where: $where)
+}

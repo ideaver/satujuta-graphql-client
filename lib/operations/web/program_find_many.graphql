@@ -1,5 +1,10 @@
-query ProgramFindMany($skip: Int, $take: Int, $where: ProgramWhereInput) {
-  programFindMany(skip: $skip, take: $take, where: $where) {
+query ProgramFindMany(
+  $skip: Int
+  $take: Int
+  $orderBy: [ProgramOrderByWithRelationInput!]
+  $where: ProgramWhereInput
+) {
+  programFindMany(skip: $skip, take: $take, orderBy: $orderBy, where: $where) {
     id
     name
     description
@@ -12,6 +17,14 @@ query ProgramFindMany($skip: Int, $take: Int, $where: ProgramWhereInput) {
     dueDate
     _count {
       participant
+    }
+    createdBy {
+      id
+      firstName
+      lastName
+      address {
+        name
+      }
     }
     Images {
       url

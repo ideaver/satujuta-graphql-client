@@ -1,0 +1,19 @@
+query UserFindManyByProjectItemId(
+  $skip: Int
+  $take: Int
+  $where: UserWhereInput
+) {
+  userFindMany(skip: $skip, take: $take, where: $where) {
+    id
+    firstName
+    lastName
+    status
+    userRole
+    userType
+    avatarUrl
+    _count {
+      referredUsers
+      claimedRewards
+    }
+  }
+}

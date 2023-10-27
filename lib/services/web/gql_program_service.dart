@@ -2,6 +2,7 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 
 import '../../operations/web/generated/count_total_program.graphql.dart';
 import '../../operations/web/generated/count_total_user_with_program_participation.graphql.dart';
+import '../../operations/web/generated/program_create_one.graphql.dart';
 import '../../operations/web/generated/program_delete.graphql.dart';
 import '../../operations/web/generated/program_delete_many_participants.graphql.dart';
 import '../../operations/web/generated/program_find_many.graphql.dart';
@@ -172,21 +173,43 @@ class GqlProgramService {
   //   );
   // }
 
-  // static Future<QueryResult<Mutation$ProgramCreate>> programCreateOne(
-  //   Input$ProgramCreateInput program,
-  // ) async {
-  //   return await GraphQLService.client.query(
-  //     QueryOptions(
-  //       document: documentNodeMutationProgramCreate,
-  //       parserFn: (data) => Mutation$ProgramCreate.fromJson(data),
-  //       variables: {
-  //         "programCreateArgs": {
-  //           "data": program.toJson(),
-  //         }
-  //       },
-  //     ),
-  //   );
-  // }
+  static Future<QueryResult<Mutation$ProgramCreateOne>> programCreateOne({
+    required Mutation$ProgramCreateOne$programCreateOne program,
+  }) async {
+    return await GraphQLService.client.query(
+      QueryOptions(
+        document: documentNodeMutationProgramCreateOne,
+        parserFn: (data) => Mutation$ProgramCreateOne.fromJson(data),
+        variables: {
+          "data": {
+            "name": program.name,
+            "description": program.description,
+            "startDate": program.startDate,
+            "dueDate": program.dueDate,
+            "category": {
+              "connectOrCreate": {
+                "where": {"id": program.category.id},
+                "create": {"name": program.category.name}
+              }
+            },
+            "Images": {
+              "createMany": {
+                "skipDuplicates": true,
+                "data": program.Images?.map(
+                  (e) => {
+                    "url": e.url,
+                  },
+                ).toList()
+              }
+            },
+            "createdBy": {
+              "connect": {"id": program.createdBy.id}
+            }
+          }
+        },
+      ),
+    );
+  }
 
   // static Future<QueryResult<Mutation$ProgramUpdateOne>> programUpdateOne(
   //   Mutation$ProgramUpdateOne program,

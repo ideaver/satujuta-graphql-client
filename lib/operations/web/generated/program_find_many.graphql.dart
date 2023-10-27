@@ -9,11 +9,13 @@ class Variables$Query$ProgramFindMany {
   factory Variables$Query$ProgramFindMany({
     int? skip,
     int? take,
+    List<Input$ProgramOrderByWithRelationInput>? orderBy,
     Input$ProgramWhereInput? where,
   }) =>
       Variables$Query$ProgramFindMany._({
         if (skip != null) r'skip': skip,
         if (take != null) r'take': take,
+        if (orderBy != null) r'orderBy': orderBy,
         if (where != null) r'where': where,
       });
 
@@ -29,6 +31,13 @@ class Variables$Query$ProgramFindMany {
       final l$take = data['take'];
       result$data['take'] = (l$take as int?);
     }
+    if (data.containsKey('orderBy')) {
+      final l$orderBy = data['orderBy'];
+      result$data['orderBy'] = (l$orderBy as List<dynamic>?)
+          ?.map((e) => Input$ProgramOrderByWithRelationInput.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList();
+    }
     if (data.containsKey('where')) {
       final l$where = data['where'];
       result$data['where'] = l$where == null
@@ -42,6 +51,8 @@ class Variables$Query$ProgramFindMany {
 
   int? get skip => (_$data['skip'] as int?);
   int? get take => (_$data['take'] as int?);
+  List<Input$ProgramOrderByWithRelationInput>? get orderBy =>
+      (_$data['orderBy'] as List<Input$ProgramOrderByWithRelationInput>?);
   Input$ProgramWhereInput? get where =>
       (_$data['where'] as Input$ProgramWhereInput?);
   Map<String, dynamic> toJson() {
@@ -53,6 +64,10 @@ class Variables$Query$ProgramFindMany {
     if (_$data.containsKey('take')) {
       final l$take = take;
       result$data['take'] = l$take;
+    }
+    if (_$data.containsKey('orderBy')) {
+      final l$orderBy = orderBy;
+      result$data['orderBy'] = l$orderBy?.map((e) => e.toJson()).toList();
     }
     if (_$data.containsKey('where')) {
       final l$where = where;
@@ -91,6 +106,25 @@ class Variables$Query$ProgramFindMany {
     if (l$take != lOther$take) {
       return false;
     }
+    final l$orderBy = orderBy;
+    final lOther$orderBy = other.orderBy;
+    if (_$data.containsKey('orderBy') != other._$data.containsKey('orderBy')) {
+      return false;
+    }
+    if (l$orderBy != null && lOther$orderBy != null) {
+      if (l$orderBy.length != lOther$orderBy.length) {
+        return false;
+      }
+      for (int i = 0; i < l$orderBy.length; i++) {
+        final l$orderBy$entry = l$orderBy[i];
+        final lOther$orderBy$entry = lOther$orderBy[i];
+        if (l$orderBy$entry != lOther$orderBy$entry) {
+          return false;
+        }
+      }
+    } else if (l$orderBy != lOther$orderBy) {
+      return false;
+    }
     final l$where = where;
     final lOther$where = other.where;
     if (_$data.containsKey('where') != other._$data.containsKey('where')) {
@@ -106,10 +140,16 @@ class Variables$Query$ProgramFindMany {
   int get hashCode {
     final l$skip = skip;
     final l$take = take;
+    final l$orderBy = orderBy;
     final l$where = where;
     return Object.hashAll([
       _$data.containsKey('skip') ? l$skip : const {},
       _$data.containsKey('take') ? l$take : const {},
+      _$data.containsKey('orderBy')
+          ? l$orderBy == null
+              ? null
+              : Object.hashAll(l$orderBy.map((v) => v))
+          : const {},
       _$data.containsKey('where') ? l$where : const {},
     ]);
   }
@@ -127,6 +167,7 @@ abstract class CopyWith$Variables$Query$ProgramFindMany<TRes> {
   TRes call({
     int? skip,
     int? take,
+    List<Input$ProgramOrderByWithRelationInput>? orderBy,
     Input$ProgramWhereInput? where,
   });
 }
@@ -147,12 +188,15 @@ class _CopyWithImpl$Variables$Query$ProgramFindMany<TRes>
   TRes call({
     Object? skip = _undefined,
     Object? take = _undefined,
+    Object? orderBy = _undefined,
     Object? where = _undefined,
   }) =>
       _then(Variables$Query$ProgramFindMany._({
         ..._instance._$data,
         if (skip != _undefined) 'skip': (skip as int?),
         if (take != _undefined) 'take': (take as int?),
+        if (orderBy != _undefined)
+          'orderBy': (orderBy as List<Input$ProgramOrderByWithRelationInput>?),
         if (where != _undefined) 'where': (where as Input$ProgramWhereInput?),
       }));
 }
@@ -166,6 +210,7 @@ class _CopyWithStubImpl$Variables$Query$ProgramFindMany<TRes>
   call({
     int? skip,
     int? take,
+    List<Input$ProgramOrderByWithRelationInput>? orderBy,
     Input$ProgramWhereInput? where,
   }) =>
       _res;
@@ -354,6 +399,18 @@ const documentNodeQueryProgramFindMany = DocumentNode(definitions: [
         directives: [],
       ),
       VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'orderBy')),
+        type: ListTypeNode(
+          type: NamedTypeNode(
+            name: NameNode(value: 'ProgramOrderByWithRelationInput'),
+            isNonNull: true,
+          ),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
+      VariableDefinitionNode(
         variable: VariableNode(name: NameNode(value: 'where')),
         type: NamedTypeNode(
           name: NameNode(value: 'ProgramWhereInput'),
@@ -376,6 +433,10 @@ const documentNodeQueryProgramFindMany = DocumentNode(definitions: [
           ArgumentNode(
             name: NameNode(value: 'take'),
             value: VariableNode(name: NameNode(value: 'take')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'orderBy'),
+            value: VariableNode(name: NameNode(value: 'orderBy')),
           ),
           ArgumentNode(
             name: NameNode(value: 'where'),
@@ -467,6 +528,64 @@ const documentNodeQueryProgramFindMany = DocumentNode(definitions: [
                 arguments: [],
                 directives: [],
                 selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: '__typename'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+            ]),
+          ),
+          FieldNode(
+            name: NameNode(value: 'createdBy'),
+            alias: null,
+            arguments: [],
+            directives: [],
+            selectionSet: SelectionSetNode(selections: [
+              FieldNode(
+                name: NameNode(value: 'id'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'firstName'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'lastName'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: null,
+              ),
+              FieldNode(
+                name: NameNode(value: 'address'),
+                alias: null,
+                arguments: [],
+                directives: [],
+                selectionSet: SelectionSetNode(selections: [
+                  FieldNode(
+                    name: NameNode(value: 'name'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                  FieldNode(
+                    name: NameNode(value: '__typename'),
+                    alias: null,
+                    arguments: [],
+                    directives: [],
+                    selectionSet: null,
+                  ),
+                ]),
               ),
               FieldNode(
                 name: NameNode(value: '__typename'),
@@ -682,6 +801,7 @@ class Query$ProgramFindMany$programFindMany {
     required this.startDate,
     this.dueDate,
     required this.$_count,
+    required this.createdBy,
     this.Images,
     this.$__typename = 'Program',
   });
@@ -695,6 +815,7 @@ class Query$ProgramFindMany$programFindMany {
     final l$startDate = json['startDate'];
     final l$dueDate = json['dueDate'];
     final l$$_count = json['_count'];
+    final l$createdBy = json['createdBy'];
     final l$Images = json['Images'];
     final l$$__typename = json['__typename'];
     return Query$ProgramFindMany$programFindMany(
@@ -707,6 +828,8 @@ class Query$ProgramFindMany$programFindMany {
       dueDate: (l$dueDate as String?),
       $_count: Query$ProgramFindMany$programFindMany$_count.fromJson(
           (l$$_count as Map<String, dynamic>)),
+      createdBy: Query$ProgramFindMany$programFindMany$createdBy.fromJson(
+          (l$createdBy as Map<String, dynamic>)),
       Images: (l$Images as List<dynamic>?)
           ?.map((e) => Query$ProgramFindMany$programFindMany$Images.fromJson(
               (e as Map<String, dynamic>)))
@@ -729,6 +852,8 @@ class Query$ProgramFindMany$programFindMany {
 
   final Query$ProgramFindMany$programFindMany$_count $_count;
 
+  final Query$ProgramFindMany$programFindMany$createdBy createdBy;
+
   final List<Query$ProgramFindMany$programFindMany$Images>? Images;
 
   final String $__typename;
@@ -749,6 +874,8 @@ class Query$ProgramFindMany$programFindMany {
     _resultData['dueDate'] = l$dueDate;
     final l$$_count = $_count;
     _resultData['_count'] = l$$_count.toJson();
+    final l$createdBy = createdBy;
+    _resultData['createdBy'] = l$createdBy.toJson();
     final l$Images = Images;
     _resultData['Images'] = l$Images?.map((e) => e.toJson()).toList();
     final l$$__typename = $__typename;
@@ -765,6 +892,7 @@ class Query$ProgramFindMany$programFindMany {
     final l$startDate = startDate;
     final l$dueDate = dueDate;
     final l$$_count = $_count;
+    final l$createdBy = createdBy;
     final l$Images = Images;
     final l$$__typename = $__typename;
     return Object.hashAll([
@@ -775,6 +903,7 @@ class Query$ProgramFindMany$programFindMany {
       l$startDate,
       l$dueDate,
       l$$_count,
+      l$createdBy,
       l$Images == null ? null : Object.hashAll(l$Images.map((v) => v)),
       l$$__typename,
     ]);
@@ -822,6 +951,11 @@ class Query$ProgramFindMany$programFindMany {
     final l$$_count = $_count;
     final lOther$$_count = other.$_count;
     if (l$$_count != lOther$$_count) {
+      return false;
+    }
+    final l$createdBy = createdBy;
+    final lOther$createdBy = other.createdBy;
+    if (l$createdBy != lOther$createdBy) {
       return false;
     }
     final l$Images = Images;
@@ -876,11 +1010,13 @@ abstract class CopyWith$Query$ProgramFindMany$programFindMany<TRes> {
     String? startDate,
     String? dueDate,
     Query$ProgramFindMany$programFindMany$_count? $_count,
+    Query$ProgramFindMany$programFindMany$createdBy? createdBy,
     List<Query$ProgramFindMany$programFindMany$Images>? Images,
     String? $__typename,
   });
   CopyWith$Query$ProgramFindMany$programFindMany$category<TRes> get category;
   CopyWith$Query$ProgramFindMany$programFindMany$_count<TRes> get $_count;
+  CopyWith$Query$ProgramFindMany$programFindMany$createdBy<TRes> get createdBy;
   TRes Images(
       Iterable<Query$ProgramFindMany$programFindMany$Images>? Function(
               Iterable<
@@ -910,6 +1046,7 @@ class _CopyWithImpl$Query$ProgramFindMany$programFindMany<TRes>
     Object? startDate = _undefined,
     Object? dueDate = _undefined,
     Object? $_count = _undefined,
+    Object? createdBy = _undefined,
     Object? Images = _undefined,
     Object? $__typename = _undefined,
   }) =>
@@ -932,6 +1069,9 @@ class _CopyWithImpl$Query$ProgramFindMany$programFindMany<TRes>
         $_count: $_count == _undefined || $_count == null
             ? _instance.$_count
             : ($_count as Query$ProgramFindMany$programFindMany$_count),
+        createdBy: createdBy == _undefined || createdBy == null
+            ? _instance.createdBy
+            : (createdBy as Query$ProgramFindMany$programFindMany$createdBy),
         Images: Images == _undefined
             ? _instance.Images
             : (Images as List<Query$ProgramFindMany$programFindMany$Images>?),
@@ -949,6 +1089,12 @@ class _CopyWithImpl$Query$ProgramFindMany$programFindMany<TRes>
     final local$$_count = _instance.$_count;
     return CopyWith$Query$ProgramFindMany$programFindMany$_count(
         local$$_count, (e) => call($_count: e));
+  }
+
+  CopyWith$Query$ProgramFindMany$programFindMany$createdBy<TRes> get createdBy {
+    final local$createdBy = _instance.createdBy;
+    return CopyWith$Query$ProgramFindMany$programFindMany$createdBy(
+        local$createdBy, (e) => call(createdBy: e));
   }
 
   TRes Images(
@@ -979,6 +1125,7 @@ class _CopyWithStubImpl$Query$ProgramFindMany$programFindMany<TRes>
     String? startDate,
     String? dueDate,
     Query$ProgramFindMany$programFindMany$_count? $_count,
+    Query$ProgramFindMany$programFindMany$createdBy? createdBy,
     List<Query$ProgramFindMany$programFindMany$Images>? Images,
     String? $__typename,
   }) =>
@@ -987,6 +1134,9 @@ class _CopyWithStubImpl$Query$ProgramFindMany$programFindMany<TRes>
       CopyWith$Query$ProgramFindMany$programFindMany$category.stub(_res);
   CopyWith$Query$ProgramFindMany$programFindMany$_count<TRes> get $_count =>
       CopyWith$Query$ProgramFindMany$programFindMany$_count.stub(_res);
+  CopyWith$Query$ProgramFindMany$programFindMany$createdBy<TRes>
+      get createdBy =>
+          CopyWith$Query$ProgramFindMany$programFindMany$createdBy.stub(_res);
   Images(_fn) => _res;
 }
 
@@ -1278,6 +1428,341 @@ class _CopyWithStubImpl$Query$ProgramFindMany$programFindMany$_count<TRes>
 
   call({
     int? participant,
+    String? $__typename,
+  }) =>
+      _res;
+}
+
+class Query$ProgramFindMany$programFindMany$createdBy {
+  Query$ProgramFindMany$programFindMany$createdBy({
+    required this.id,
+    required this.firstName,
+    this.lastName,
+    required this.address,
+    this.$__typename = 'User',
+  });
+
+  factory Query$ProgramFindMany$programFindMany$createdBy.fromJson(
+      Map<String, dynamic> json) {
+    final l$id = json['id'];
+    final l$firstName = json['firstName'];
+    final l$lastName = json['lastName'];
+    final l$address = json['address'];
+    final l$$__typename = json['__typename'];
+    return Query$ProgramFindMany$programFindMany$createdBy(
+      id: (l$id as String),
+      firstName: (l$firstName as String),
+      lastName: (l$lastName as String?),
+      address: Query$ProgramFindMany$programFindMany$createdBy$address.fromJson(
+          (l$address as Map<String, dynamic>)),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String id;
+
+  final String firstName;
+
+  final String? lastName;
+
+  final Query$ProgramFindMany$programFindMany$createdBy$address address;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$id = id;
+    _resultData['id'] = l$id;
+    final l$firstName = firstName;
+    _resultData['firstName'] = l$firstName;
+    final l$lastName = lastName;
+    _resultData['lastName'] = l$lastName;
+    final l$address = address;
+    _resultData['address'] = l$address.toJson();
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$id = id;
+    final l$firstName = firstName;
+    final l$lastName = lastName;
+    final l$address = address;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$id,
+      l$firstName,
+      l$lastName,
+      l$address,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$ProgramFindMany$programFindMany$createdBy) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$id = id;
+    final lOther$id = other.id;
+    if (l$id != lOther$id) {
+      return false;
+    }
+    final l$firstName = firstName;
+    final lOther$firstName = other.firstName;
+    if (l$firstName != lOther$firstName) {
+      return false;
+    }
+    final l$lastName = lastName;
+    final lOther$lastName = other.lastName;
+    if (l$lastName != lOther$lastName) {
+      return false;
+    }
+    final l$address = address;
+    final lOther$address = other.address;
+    if (l$address != lOther$address) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$ProgramFindMany$programFindMany$createdBy
+    on Query$ProgramFindMany$programFindMany$createdBy {
+  CopyWith$Query$ProgramFindMany$programFindMany$createdBy<
+          Query$ProgramFindMany$programFindMany$createdBy>
+      get copyWith => CopyWith$Query$ProgramFindMany$programFindMany$createdBy(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$ProgramFindMany$programFindMany$createdBy<TRes> {
+  factory CopyWith$Query$ProgramFindMany$programFindMany$createdBy(
+    Query$ProgramFindMany$programFindMany$createdBy instance,
+    TRes Function(Query$ProgramFindMany$programFindMany$createdBy) then,
+  ) = _CopyWithImpl$Query$ProgramFindMany$programFindMany$createdBy;
+
+  factory CopyWith$Query$ProgramFindMany$programFindMany$createdBy.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$ProgramFindMany$programFindMany$createdBy;
+
+  TRes call({
+    String? id,
+    String? firstName,
+    String? lastName,
+    Query$ProgramFindMany$programFindMany$createdBy$address? address,
+    String? $__typename,
+  });
+  CopyWith$Query$ProgramFindMany$programFindMany$createdBy$address<TRes>
+      get address;
+}
+
+class _CopyWithImpl$Query$ProgramFindMany$programFindMany$createdBy<TRes>
+    implements CopyWith$Query$ProgramFindMany$programFindMany$createdBy<TRes> {
+  _CopyWithImpl$Query$ProgramFindMany$programFindMany$createdBy(
+    this._instance,
+    this._then,
+  );
+
+  final Query$ProgramFindMany$programFindMany$createdBy _instance;
+
+  final TRes Function(Query$ProgramFindMany$programFindMany$createdBy) _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? id = _undefined,
+    Object? firstName = _undefined,
+    Object? lastName = _undefined,
+    Object? address = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$ProgramFindMany$programFindMany$createdBy(
+        id: id == _undefined || id == null ? _instance.id : (id as String),
+        firstName: firstName == _undefined || firstName == null
+            ? _instance.firstName
+            : (firstName as String),
+        lastName:
+            lastName == _undefined ? _instance.lastName : (lastName as String?),
+        address: address == _undefined || address == null
+            ? _instance.address
+            : (address
+                as Query$ProgramFindMany$programFindMany$createdBy$address),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+  CopyWith$Query$ProgramFindMany$programFindMany$createdBy$address<TRes>
+      get address {
+    final local$address = _instance.address;
+    return CopyWith$Query$ProgramFindMany$programFindMany$createdBy$address(
+        local$address, (e) => call(address: e));
+  }
+}
+
+class _CopyWithStubImpl$Query$ProgramFindMany$programFindMany$createdBy<TRes>
+    implements CopyWith$Query$ProgramFindMany$programFindMany$createdBy<TRes> {
+  _CopyWithStubImpl$Query$ProgramFindMany$programFindMany$createdBy(this._res);
+
+  TRes _res;
+
+  call({
+    String? id,
+    String? firstName,
+    String? lastName,
+    Query$ProgramFindMany$programFindMany$createdBy$address? address,
+    String? $__typename,
+  }) =>
+      _res;
+  CopyWith$Query$ProgramFindMany$programFindMany$createdBy$address<TRes>
+      get address =>
+          CopyWith$Query$ProgramFindMany$programFindMany$createdBy$address.stub(
+              _res);
+}
+
+class Query$ProgramFindMany$programFindMany$createdBy$address {
+  Query$ProgramFindMany$programFindMany$createdBy$address({
+    required this.name,
+    this.$__typename = 'Address',
+  });
+
+  factory Query$ProgramFindMany$programFindMany$createdBy$address.fromJson(
+      Map<String, dynamic> json) {
+    final l$name = json['name'];
+    final l$$__typename = json['__typename'];
+    return Query$ProgramFindMany$programFindMany$createdBy$address(
+      name: (l$name as String),
+      $__typename: (l$$__typename as String),
+    );
+  }
+
+  final String name;
+
+  final String $__typename;
+
+  Map<String, dynamic> toJson() {
+    final _resultData = <String, dynamic>{};
+    final l$name = name;
+    _resultData['name'] = l$name;
+    final l$$__typename = $__typename;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
+  }
+
+  @override
+  int get hashCode {
+    final l$name = name;
+    final l$$__typename = $__typename;
+    return Object.hashAll([
+      l$name,
+      l$$__typename,
+    ]);
+  }
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(this, other)) {
+      return true;
+    }
+    if (!(other is Query$ProgramFindMany$programFindMany$createdBy$address) ||
+        runtimeType != other.runtimeType) {
+      return false;
+    }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (l$name != lOther$name) {
+      return false;
+    }
+    final l$$__typename = $__typename;
+    final lOther$$__typename = other.$__typename;
+    if (l$$__typename != lOther$$__typename) {
+      return false;
+    }
+    return true;
+  }
+}
+
+extension UtilityExtension$Query$ProgramFindMany$programFindMany$createdBy$address
+    on Query$ProgramFindMany$programFindMany$createdBy$address {
+  CopyWith$Query$ProgramFindMany$programFindMany$createdBy$address<
+          Query$ProgramFindMany$programFindMany$createdBy$address>
+      get copyWith =>
+          CopyWith$Query$ProgramFindMany$programFindMany$createdBy$address(
+            this,
+            (i) => i,
+          );
+}
+
+abstract class CopyWith$Query$ProgramFindMany$programFindMany$createdBy$address<
+    TRes> {
+  factory CopyWith$Query$ProgramFindMany$programFindMany$createdBy$address(
+    Query$ProgramFindMany$programFindMany$createdBy$address instance,
+    TRes Function(Query$ProgramFindMany$programFindMany$createdBy$address) then,
+  ) = _CopyWithImpl$Query$ProgramFindMany$programFindMany$createdBy$address;
+
+  factory CopyWith$Query$ProgramFindMany$programFindMany$createdBy$address.stub(
+          TRes res) =
+      _CopyWithStubImpl$Query$ProgramFindMany$programFindMany$createdBy$address;
+
+  TRes call({
+    String? name,
+    String? $__typename,
+  });
+}
+
+class _CopyWithImpl$Query$ProgramFindMany$programFindMany$createdBy$address<
+        TRes>
+    implements
+        CopyWith$Query$ProgramFindMany$programFindMany$createdBy$address<TRes> {
+  _CopyWithImpl$Query$ProgramFindMany$programFindMany$createdBy$address(
+    this._instance,
+    this._then,
+  );
+
+  final Query$ProgramFindMany$programFindMany$createdBy$address _instance;
+
+  final TRes Function(Query$ProgramFindMany$programFindMany$createdBy$address)
+      _then;
+
+  static const _undefined = <dynamic, dynamic>{};
+
+  TRes call({
+    Object? name = _undefined,
+    Object? $__typename = _undefined,
+  }) =>
+      _then(Query$ProgramFindMany$programFindMany$createdBy$address(
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
+      ));
+}
+
+class _CopyWithStubImpl$Query$ProgramFindMany$programFindMany$createdBy$address<
+        TRes>
+    implements
+        CopyWith$Query$ProgramFindMany$programFindMany$createdBy$address<TRes> {
+  _CopyWithStubImpl$Query$ProgramFindMany$programFindMany$createdBy$address(
+      this._res);
+
+  TRes _res;
+
+  call({
+    String? name,
     String? $__typename,
   }) =>
       _res;

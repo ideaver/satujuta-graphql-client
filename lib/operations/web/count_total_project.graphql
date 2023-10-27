@@ -1,0 +1,3 @@
+query CountTotalProject($where: ProjectWhereInput) {
+  projectCount(where: $where)
+}
