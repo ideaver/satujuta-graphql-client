@@ -6,6 +6,7 @@ import '../../operations/web/generated/program_create_one.graphql.dart';
 import '../../operations/web/generated/program_delete.graphql.dart';
 import '../../operations/web/generated/program_delete_many_participants.graphql.dart';
 import '../../operations/web/generated/program_find_many.graphql.dart';
+import '../../operations/web/generated/program_update_one.graphql.dart';
 import '../graphql_service.dart';
 
 class GqlProgramService {
@@ -211,18 +212,47 @@ class GqlProgramService {
     );
   }
 
-  // static Future<QueryResult<Mutation$ProgramUpdateOne>> programUpdateOne(
-  //   Mutation$ProgramUpdateOne program,
-  // ) async {
-  //   return await GraphQLService.client.query(
-  //     QueryOptions(
-  //       document: documentNodeMutationProgramCreate,
-  //       variables: {
-  //         "programId": program.programRemove,
-  //       },
-  //     ),
-  //   );
-  // }
+  static Future<QueryResult<Mutation$ProgramUpdateOne>> programUpdateOne({
+    required Mutation$ProgramUpdateOne$programUpdateOne program,
+    List<String>? imagesToDelete,
+  }) async {
+    return await GraphQLService.client.query(
+      QueryOptions(
+        document: documentNodeMutationProgramUpdateOne,
+        variables: {
+          "data": {
+            "name": {
+              "set": program.name,
+            },
+            "description": {"set": program.description},
+            "startDate": {"set": program.startDate},
+            "dueDate": {"set": program.dueDate},
+            "category": {
+              "connectOrCreate": {
+                "where": {"id": program.category.id},
+                "create": {"name": program.category.name}
+              }
+            },
+            "Images": {
+              "deleteMany": [
+                {
+                  "url": {"in": imagesToDelete}
+                }
+              ],
+              "createMany": {
+                "data": program.Images?.map(
+                  (e) => {
+                    "url": e.url,
+                  },
+                ).toList()
+              }
+            }
+          },
+          "where": {"id": program.id}
+        },
+      ),
+    );
+  }
 
   static Future<QueryResult<Mutation$ProgramDelete>> programDelete({
     required int programId,
