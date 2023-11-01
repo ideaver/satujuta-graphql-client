@@ -2,7 +2,9 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 
 import '../../operations/web/generated/count_total_project.graphql.dart';
 import '../../operations/web/generated/count_total_user_with_project_investor.graphql.dart';
+import '../../operations/web/generated/project_create_one.graphql.dart';
 import '../../operations/web/generated/project_find_many.graphql.dart';
+import '../../operations/web/generated/project_update_one.graphql.dart';
 import '../graphql_service.dart';
 
 class GqlProjectService {
@@ -170,34 +172,78 @@ class GqlProjectService {
   //   );
   // }
 
-  // static Future<QueryResult<Mutation$ProjectCreate>> projectCreateOne(
-  //   Input$ProjectCreateInput project,
-  // ) async {
-  //   return await GraphQLService.client.query(
-  //     QueryOptions(
-  //       document: documentNodeMutationProjectCreate,
-  //       parserFn: (data) => Mutation$ProjectCreate.fromJson(data),
-  //       variables: {
-  //         "projectCreateArgs": {
-  //           "data": project.toJson(),
-  //         }
-  //       },
-  //     ),
-  //   );
-  // }
+  static Future<QueryResult<Mutation$ProjectCreateOne>> projectCreateOne({
+    required Mutation$ProjectCreateOne$projectCreateOne project,
+  }) async {
+    return await GraphQLService.client.query(
+      QueryOptions(
+        document: documentNodeMutationProjectCreateOne,
+        parserFn: (data) => Mutation$ProjectCreateOne.fromJson(data),
+        variables: {
+          "data": {
+            "name": project.name,
+            "description": project.description,
+            "startDate": project.startDate,
+            "endDate": project.endDate,
+            "returnRate": project.returnRate,
+            "goalAmount": project.goalAmount,
+            "maxInvestor": project.maxInvestor,
+            "minimumInvestment": project.minimumInvestment,
+            "projectCategory": project.projectCategory.name,
+            "images": {
+              "createMany": {
+                "data": project.images
+                    ?.map(
+                      (e) => {
+                        "url": e.url,
+                      },
+                    )
+                    .toList()
+              }
+            }
+          }
+        },
+      ),
+    );
+  }
 
-  // static Future<QueryResult<Mutation$ProjectUpdateOne>> projectUpdateOne(
-  //   Mutation$ProjectUpdateOne project,
-  // ) async {
-  //   return await GraphQLService.client.query(
-  //     QueryOptions(
-  //       document: documentNodeMutationProjectCreate,
-  //       variables: {
-  //         "projectId": project.projectRemove,
-  //       },
-  //     ),
-  //   );
-  // }
+  static Future<QueryResult<Mutation$ProjectUpdateOne>> projectUpdateOne({
+    required Mutation$ProjectUpdateOne$projectUpdateOne project,
+    List<String>? imagesToDelete,
+  }) async {
+    return await GraphQLService.client.query(
+      QueryOptions(
+        document: documentNodeMutationProjectUpdateOne,
+        variables: {
+          "where": {"id": project.id},
+          "data": {
+            "name": {"set": project.name},
+            "description": {"set": project.description},
+            "returnRate": {"set": project.returnRate},
+            "minimumInvestment": {"set": project.minimumInvestment},
+            "startDate": {"set": project.startDate},
+            "endDate": {"set": project.endDate},
+            "images": {
+              "deleteMany": [
+                {
+                  "url": {"in": imagesToDelete}
+                },
+              ],
+              "createMany": {
+                "data": project.images
+                    ?.map(
+                      (e) => {
+                        "url": e.url,
+                      },
+                    )
+                    .toList()
+              }
+            }
+          }
+        },
+      ),
+    );
+  }
 
   // static Future<QueryResult<Mutation$ProjectDelete>> projectDelete({
   //   required int projectId,

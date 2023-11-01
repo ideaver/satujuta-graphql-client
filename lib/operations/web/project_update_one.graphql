@@ -1,0 +1,20 @@
+mutation ProjectUpdateOne(
+  $data: ProjectUpdateInput!
+  $where: ProjectWhereUniqueInput!
+) {
+  projectUpdateOne(data: $data, where: $where) {
+    id
+    name
+    description
+    startDate
+    endDate
+    returnRate
+    goalAmount
+    maxInvestor
+    minimumInvestment
+    projectCategory
+    images {
+      url
+    }
+  }
+}

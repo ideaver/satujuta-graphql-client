@@ -1,0 +1,17 @@
+mutation ProjectCreateOne($data: ProjectCreateInput!) {
+  projectCreateOne(data: $data) {
+    id
+    name
+    description
+    startDate
+    endDate
+    returnRate
+    goalAmount
+    maxInvestor
+    minimumInvestment
+    projectCategory
+    images {
+      url
+    }
+  }
+}
