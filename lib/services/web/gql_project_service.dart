@@ -192,6 +192,7 @@ class GqlProjectService {
             "projectCategory": project.projectCategory.name,
             "images": {
               "createMany": {
+                "skipDuplicates": true,
                 "data": project.images
                     ?.map(
                       (e) => {
@@ -214,6 +215,7 @@ class GqlProjectService {
     return await GraphQLService.client.query(
       QueryOptions(
         document: documentNodeMutationProjectUpdateOne,
+        parserFn: (data) => Mutation$ProjectUpdateOne.fromJson(data),
         variables: {
           "where": {"id": project.id},
           "data": {
@@ -230,6 +232,7 @@ class GqlProjectService {
                 },
               ],
               "createMany": {
+                "skipDuplicates": true,
                 "data": project.images
                     ?.map(
                       (e) => {

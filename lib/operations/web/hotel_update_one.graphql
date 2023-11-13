@@ -1,0 +1,26 @@
+mutation HotelUpdateOne(
+  $data: HotelUpdateInput!
+  $where: HotelWhereUniqueInput!
+) {
+  hotelUpdateOne(data: $data, where: $where) {
+    id
+    name
+    addressId
+    description
+    rating
+    startDate
+    quota
+    createdById
+    images {
+      url
+    }
+    address {
+      id
+      name
+      subdistrict {
+        id
+        name
+      }
+    }
+  }
+}

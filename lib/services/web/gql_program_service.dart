@@ -219,6 +219,7 @@ class GqlProgramService {
     return await GraphQLService.client.query(
       QueryOptions(
         document: documentNodeMutationProgramUpdateOne,
+        parserFn: (data) => Mutation$ProgramUpdateOne.fromJson(data),
         variables: {
           "data": {
             "name": {
@@ -240,6 +241,7 @@ class GqlProgramService {
                 }
               ],
               "createMany": {
+                "skipDuplicates": true,
                 "data": program.Images?.map(
                   (e) => {
                     "url": e.url,

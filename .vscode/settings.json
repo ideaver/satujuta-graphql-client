@@ -1,72 +1,68 @@
 {
-    "workbench.iconTheme": "material-icon-theme",
-    "files.associations": {
-      "*.php": "php"
+  "workbench.iconTheme": "material-icon-theme",
+  "files.associations": {
+    "*.php": "php"
+  },
+  "files.autoSave": "off",
+  "php.validate.executablePath": "",
+  "dart.debugExternalLibraries": false,
+  "dart.debugSdkLibraries": false,
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  },
+  "editor.fontFamily": "Fira Code",
+  "editor.fontSize": 12,
+  "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
     },
-    "files.autoSave": "off",
-    "php.validate.executablePath": "",
-    "dart.debugExternalLibraries": false,
-    "dart.debugSdkLibraries": false,
-    "[cpp]": {
-      "editor.defaultFormatter": "ms-vscode.cpptools"
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": [],
+      "icon": "terminal-cmd"
     },
-    "editor.fontFamily": "Fira Code",
-    "editor.fontSize": 12,
-    "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
-    "terminal.integrated.profiles.windows": {
-      "PowerShell": {
-        "source": "PowerShell",
-        "icon": "terminal-powershell"
-      },
-      "Command Prompt": {
-        "path": [
-          "${env:windir}\\Sysnative\\cmd.exe",
-          "${env:windir}\\System32\\cmd.exe"
-        ],
-        "args": [],
-        "icon": "terminal-cmd"
-      },
-      "Git Bash": {
-        "source": "Git Bash"
-      },
-      "Windows PowerShell": {
-        "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
-      }
+    "Git Bash": {
+      "source": "Git Bash"
     },
-    "editor.formatOnSave": true,
-    "dart.lineLength": 150,
-    "[dart]": {
-      "editor.rulers": [150],
-      "editor.codeActionsOnSave": {
-        "source.fixAll": true,
-        "source.organizeImports": true
-      }
-    },
-    "window.zoomLevel": -1,
-    "workbench.colorCustomizations": {
-      "editor.background": "#010101",
-      "sideBar.background": "#060606",
-      "terminal.background": "#060606"
-    },
+    "Windows PowerShell": {
+      "path": "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+    }
+  },
+  "editor.formatOnSave": true,
+  "dart.lineLength": 150,
+  "[dart]": {
+    "editor.rulers": [150],
     "editor.codeActionsOnSave": {
       "source.fixAll": true,
       "source.organizeImports": true
-    },
-    "dartImport.fixOnSave": true,
-    "dartImport.excludeGeneratedFiles": [
-      "g.dart",
-      "freezed.dart"
-    ]
-  } // {
-  //     "dart.flutterSdkPath": "C:\\Program Files\\Dart\\flutter",
-  //     "dart.openDevTools": "flutter",
-  //     "window.zoomLevel": -2,
-  //     "workbench.activityBar.visible": true,
-  //     "workbench.sideBar.location": "left",
-  //     "workbench.iconTheme": "material-icon-theme",
-  //     "dart.previewFlutterUiGuides": true,
-  //     "dart.previewFlutterUiGuidesCustomTracking": true,
-  //     "editor.renderControlCharacters": false,
-  //     "intelephense.environment.phpVersion": "7.4.0"
-  // }
-  
+    }
+  },
+  "window.zoomLevel": -1,
+  "workbench.colorCustomizations": {
+    "editor.background": "#010101",
+    "sideBar.background": "#060606",
+    "terminal.background": "#060606"
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.organizeImports": true
+  },
+  "dartImport.fixOnSave": true,
+  "dartImport.excludeGeneratedFiles": ["g.dart", "freezed.dart"]
+} // {
+//     "dart.flutterSdkPath": "C:\\Program Files\\Dart\\flutter",
+//     "dart.openDevTools": "flutter",
+//     "window.zoomLevel": -2,
+//     "workbench.activityBar.visible": true,
+//     "workbench.sideBar.location": "left",
+//     "workbench.iconTheme": "material-icon-theme",
+//     "dart.previewFlutterUiGuides": true,
+//     "dart.previewFlutterUiGuidesCustomTracking": true,
+//     "editor.renderControlCharacters": false,
+//     "intelephense.environment.phpVersion": "7.4.0"
+// }

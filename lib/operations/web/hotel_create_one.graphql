@@ -1,0 +1,23 @@
+mutation HotelCreateOne($data: HotelCreateInput!) {
+  hotelCreateOne(data: $data) {
+    id
+    name
+    addressId
+    description
+    rating
+    startDate
+    quota
+    createdById
+    images {
+      url
+    }
+    address {
+      id
+      name
+      subdistrict {
+        id
+        name
+      }
+    }
+  }
+}
