@@ -1,6 +1,6 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:satujuta_gql_client/operations/web/generated/count_school.graphql.dart';
 
+import '../../operations/web/generated/count_school.graphql.dart';
 import '../graphql_service.dart';
 
 class GqlSchoolService {

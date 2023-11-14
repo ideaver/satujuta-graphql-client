@@ -1,8 +1,7 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:satujuta_gql_client/operations/web/generated/get_user_growth.graphql.dart';
-import 'package:satujuta_gql_client/operations/web/generated/get_user_of_student_growth.graphql.dart';
-import 'package:satujuta_gql_client/schema/generated/schema.graphql.dart';
 
+import '../../operations/web/generated/get_user_growth.graphql.dart';
+import '../../operations/web/generated/get_user_of_student_growth.graphql.dart';
 import '../../operations/web/generated/user_delete.graphql.dart';
 import '../../operations/web/generated/user_find_many.graphql.dart';
 import '../../operations/web/generated/user_find_many_by_check_in_hotel_id.graphql.dart';
@@ -10,6 +9,7 @@ import '../../operations/web/generated/user_find_many_by_program_participation_i
 import '../../operations/web/generated/user_find_many_by_project_item_id.graphql.dart';
 import '../../operations/web/generated/user_find_one.graphql.dart';
 import '../../operations/web/generated/user_update_one.graphql.dart';
+import '../../schema/generated/schema.graphql.dart';
 import '../graphql_service.dart';
 
 class GqlUserService {

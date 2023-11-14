@@ -1,7 +1,7 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:satujuta_gql_client/operations/web/generated/count_total_cart_quantity.graphql.dart';
-import 'package:satujuta_gql_client/operations/web/generated/get_total_revenue.graphql.dart';
 
+import '../../operations/web/generated/count_total_cart_quantity.graphql.dart';
+import '../../operations/web/generated/get_total_revenue.graphql.dart';
 import '../graphql_service.dart';
 
 class GqlOrderService {

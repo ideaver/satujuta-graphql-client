@@ -1,11 +1,11 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:satujuta_gql_client/operations/web/generated/count_total_member.graphql.dart';
-import 'package:satujuta_gql_client/schema/generated/schema.graphql.dart';
 
 import '../../operations/web/generated/count_total_affiliator.graphql.dart';
+import '../../operations/web/generated/count_total_member.graphql.dart';
 import '../../operations/web/generated/user_delete.graphql.dart';
 import '../../operations/web/generated/user_find_many.graphql.dart';
 import '../../operations/web/generated/user_find_one.graphql.dart';
+import '../../schema/generated/schema.graphql.dart';
 import '../graphql_service.dart';
 
 class GqlMemberService {
