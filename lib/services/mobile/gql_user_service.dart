@@ -4,6 +4,7 @@ import '../../operations/mobile/generated/count_referred_user_by_user_id.graphql
 import '../../operations/mobile/generated/count_user_of_student_within_referred_id.graphql.dart';
 import '../../operations/mobile/generated/get_account_balance_by_custom_period.graphql.dart';
 import '../../operations/mobile/generated/get_account_total_balance.graphql.dart';
+import '../../operations/mobile/generated/password_update_from_user_update_one.graphql.dart';
 import '../../operations/mobile/generated/reward_claim_find_many.graphql.dart';
 import '../../operations/mobile/generated/transaction_find_many.graphql.dart';
 import '../../operations/mobile/generated/user_create_one.graphql.dart';
@@ -75,7 +76,7 @@ class GqlUserService {
             {"firstName": "asc"}
           ],
           "skip": skip,
-          "take": contains,
+          "take": 10,
           "where": {
             "referredBy": {
               "is": {
@@ -192,7 +193,7 @@ class GqlUserService {
             "theme": {"set": user.theme.name},
             "userType": {"set": user.userType.name},
             "avatarUrl": {"set": user.avatarUrl},
-            "status": {"set": user.status.name},
+            // "status": {"set": user.status.name},
             "address": {
               "update": {
                 "data": {
@@ -239,19 +240,19 @@ class GqlUserService {
     );
   }
 
-  static Future<QueryResult<Mutation$UserUpdateOne>> passwordUpdateFromUserUpdatedOne({
+  static Future<QueryResult<Mutation$PasswordUpdateFromUserUpdatedOne>> passwordUpdateFromUserUpdatedOne({
     required String userId,
     required String currentPassword,
     required String newPassword,
   }) async {
     return await GraphQLService.client.mutate(
       MutationOptions(
-        document: documentNodeMutationUserUpdateOne,
-        parserFn: (data) => Mutation$UserUpdateOne.fromJson(data),
+        document: documentNodeMutationPasswordUpdateFromUserUpdatedOne,
+        parserFn: (data) => Mutation$PasswordUpdateFromUserUpdatedOne.fromJson(data),
         variables: {
           "where": {
             "id": userId,
-            "password": {"equals": currentPassword}
+            // "password": {"equals": currentPassword}
           },
           "data": {
             "password": {"set": newPassword}

@@ -38,8 +38,8 @@
   "[dart]": {
     "editor.rulers": [150],
     "editor.codeActionsOnSave": {
-      "source.fixAll": true,
-      "source.organizeImports": true
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
     }
   },
   "window.zoomLevel": -1,
@@ -49,8 +49,8 @@
     "terminal.background": "#060606"
   },
   "editor.codeActionsOnSave": {
-    "source.fixAll": true,
-    "source.organizeImports": true
+    "source.fixAll": "explicit",
+    "source.organizeImports": "explicit"
   },
   "dartImport.fixOnSave": true,
   "dartImport.excludeGeneratedFiles": ["g.dart", "freezed.dart"]

@@ -23,12 +23,10 @@ class GqlAccountService {
         document: documentNodeMutationAccountUpdateOne,
         parserFn: (data) => Mutation$AccountUpdateOne.fromJson(data),
         variables: {
-          "accountUpdateOneArgs": {
-            "where": {"id": account.id},
-            "data": {
-              "name": {"set": account.name},
-              "accountNumber": {"set": account.accountNumber}
-            }
+          "where": {"id": account.id},
+          "data": {
+            "name": {"set": account.name},
+            "accountNumber": {"set": account.accountNumber}
           }
         },
       ),
