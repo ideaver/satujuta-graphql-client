@@ -42,7 +42,7 @@
       "source.organizeImports": "explicit"
     }
   },
-  "window.zoomLevel": -1,
+  "window.zoomLevel": 0,
   "workbench.colorCustomizations": {
     "editor.background": "#010101",
     "sideBar.background": "#060606",

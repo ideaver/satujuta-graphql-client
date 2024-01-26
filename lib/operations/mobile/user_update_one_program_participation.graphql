@@ -1,12 +1,13 @@
-mutation UserUpdateOneOfAvatarUrl(
+mutation UserUpdateOneOfProgramParticipation(
   $data: UserUpdateInput!
   $where: UserWhereUniqueInput!
 ) {
   userUpdateOne(data: $data, where: $where) {
     id
     firstName
-    lastName
-    avatarUrl
-    updatedAt
+    programsParticipation {
+      id
+      name
+    }
   }
 }

@@ -1,4 +1,5 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:satujuta_gql_client/operations/mobile/generated/program_find_many_by_category_id.graphql.dart';
 
 import '../../operations/mobile/generated/program_category_find_many.graphql.dart';
 import '../../operations/mobile/generated/program_delete.graphql.dart';
@@ -46,6 +47,25 @@ class GqlProgramService {
     );
   }
 
+  static Future<QueryResult<Query$ProgramCategoryFindMany>> rogramCategoryFindManyWhereProgramNotNull({
+    int? skip,
+    String contains = '',
+  }) async {
+    return await GraphQLService.client.query(
+      QueryOptions(
+        document: documentNodeQueryProgramCategoryFindMany,
+        parserFn: (data) => Query$ProgramCategoryFindMany.fromJson(data),
+        variables: {
+          "skip": 0,
+          // "take": 10,
+          "orderBy": [
+            {"name": "asc"}
+          ]
+        },
+      ),
+    );
+  }
+
   static Future<QueryResult<Query$ProgramFindMany>> programFindManyByCategoryId({
     required int programCategoryId,
     int? skip,
@@ -53,7 +73,7 @@ class GqlProgramService {
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
-        document: documentNodeQueryProgramFindMany,
+        document: documentNodeQueryProgramFindManyByCategoryId,
         parserFn: (data) => Query$ProgramFindMany.fromJson(data),
         variables: {
           "orderBy": [

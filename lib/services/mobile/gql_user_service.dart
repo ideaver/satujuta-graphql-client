@@ -1,4 +1,6 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:satujuta_gql_client/operations/mobile/generated/user_update_one_avatar_url.graphql.dart';
+import 'package:satujuta_gql_client/operations/mobile/generated/user_update_one_program_participation.graphql.dart';
 
 import '../../operations/mobile/generated/count_referred_user_by_user_id.graphql.dart';
 import '../../operations/mobile/generated/count_user_of_student_within_referred_id.graphql.dart';
@@ -62,7 +64,7 @@ class GqlUserService {
     );
   }
 
-  static Future<QueryResult<Query$UserFindMany>> referredUserFindManyByReferrerId(
+  static Future<QueryResult<Query$UserFindMany>> userFindManyByReferrerId(
     String refererId, {
     int? skip = 0,
     String contains = '',
@@ -146,9 +148,11 @@ class GqlUserService {
                 }
               }
             },
-            "referredBy": {
-              "connect": {"referralCode": user.referredBy?.referralCode != "" ? user.referredBy?.referralCode : null}
-            },
+            "referredBy": user.referredBy?.referralCode != null && user.referredBy?.referralCode != ""
+                ? {
+                    "connect": {"referralCode": user.referredBy?.referralCode}
+                  }
+                : {},
             "school": {
               "connectOrCreate": {
                 "where": {"id": user.schoolId ?? 0},
@@ -210,21 +214,28 @@ class GqlUserService {
     );
   }
 
-  // static Future<QueryResult<Mutation$UserUpdateOneAvatarUrl>> userUpdateOneAvatarUrlAvatarUrl({
-  //   required String userId,
-  //   required MultipartFile multipartFile,
-  // }) async {
-  //   return await GraphQLService.client.mutate(
-  //     MutationOptions(
-  //       document: documentNodeMutationUserUpdateOneAvatarUrl,
-  //       parserFn: (data) => Mutation$UserUpdateOneAvatarUrl.fromJson(data),
-  //       variables: {
-  //         "file": multipartFile,
-  //         "userId": userId,
-  //       },
-  //     ),
-  //   );
-  // }
+  static Future<QueryResult<Mutation$UserUpdateOneOfAvatarUrl>> userUpdateOneAvatarUrl({
+    required String userId,
+    required String url,
+    // required MultipartFile multipartFile,
+  }) async {
+    return await GraphQLService.client.mutate(
+      MutationOptions(
+          document: documentNodeMutationUserUpdateOneOfAvatarUrl,
+          parserFn: (data) => Mutation$UserUpdateOneOfAvatarUrl.fromJson(data),
+          // TODO UNIMPLEMENTED
+          // variables: {
+          //   "file": multipartFile,
+          //   "userId": userId,
+          // },
+          variables: {
+            "data": {
+              "avatarUrl": {"set": url}
+            },
+            "where": {"id": userId}
+          }),
+    );
+  }
 
   static Future<QueryResult<Mutation$UserDelete>> userDelete({
     required String userId,
@@ -443,6 +454,28 @@ class GqlUserService {
           "orderBy": [
             {"createdAt": "desc"}
           ]
+        },
+      ),
+    );
+  }
+
+  static Future<QueryResult<Mutation$UserUpdateOneOfProgramParticipation>> userUpdateOneOfProgramParticipation({
+    required String userId,
+    required int programId,
+  }) async {
+    return await GraphQLService.client.query(
+      QueryOptions(
+        document: documentNodeMutationUserUpdateOneOfProgramParticipation,
+        parserFn: (data) => Mutation$UserUpdateOneOfProgramParticipation.fromJson(data),
+        variables: {
+          "data": {
+            "programsParticipation": {
+              "connect": [
+                {"id": programId}
+              ]
+            }
+          },
+          "where": {"id": userId}
         },
       ),
     );

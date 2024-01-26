@@ -1,0 +1,16 @@
+mutation RewardClaimCreateOne($data: RewardClaimCreateInput!) {
+  rewardClaimCreateOne(data: $data) {
+    id
+    user {
+      id
+      firstName
+      lastName
+    }
+    reward {
+      id
+      name
+      pointCost
+    }
+    createdAt
+  }
+}

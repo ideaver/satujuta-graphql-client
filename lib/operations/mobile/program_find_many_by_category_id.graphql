@@ -1,9 +1,10 @@
-query ProgramFindMany(
+query ProgramFindManyByCategoryId(
   $orderBy: [ProgramOrderByWithRelationInput!]
   $skip: Int
   $take: Int
+  $where: ProgramWhereInput
 ) {
-  programFindMany(orderBy: $orderBy, skip: $skip, take: $take) {
+  programFindMany(orderBy: $orderBy, skip: $skip, take: $take, where: $where) {
     id
     name
     description
@@ -16,9 +17,6 @@ query ProgramFindMany(
     dueDate
     _count {
       participant
-    }
-    participant {
-      id
     }
     Images {
       url

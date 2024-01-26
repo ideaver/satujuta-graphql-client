@@ -1,0 +1,18 @@
+query FileFindMany(
+  $where: FileWhereInput
+  $take: Int
+  $skip: Int
+  $orderBy: [FileOrderByWithRelationInput!]
+) {
+  fileFindMany(where: $where, take: $take, skip: $skip, orderBy: $orderBy) {
+    id
+    fileType
+    filesize
+    name
+    description
+    url
+    createdById
+    createdAt
+    updatedAt
+  }
+}

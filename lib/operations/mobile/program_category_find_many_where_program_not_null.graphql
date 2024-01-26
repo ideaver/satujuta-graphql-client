@@ -1,0 +1,16 @@
+query ProgramCategoryFindManyWhereProgramNotNull(
+  $skip: Int
+  $take: Int
+  $orderBy: [ProgramCategoryOrderByWithRelationInput!]
+  $where: ProgramCategoryWhereInput
+) {
+  programCategoryFindMany(
+    skip: $skip
+    take: $take
+    orderBy: $orderBy
+    where: $where
+  ) {
+    id
+    name
+  }
+}
