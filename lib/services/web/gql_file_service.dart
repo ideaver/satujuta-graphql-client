@@ -1,11 +1,12 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:satujuta_gql_client/operations/mobile/generated/file_find_many.graphql.dart';
+import 'package:satujuta_gql_client/operations/web/generated/file_find_many.graphql.dart';
 
 import '../graphql_service.dart';
 
 class GqlFileService {
   static Future<QueryResult<Query$FileFindMany>> fileFindMany({
     String? fileType,
+    String contains = '',
     int skip = 0,
   }) async {
     return await GraphQLService.client.query(
@@ -14,7 +15,14 @@ class GqlFileService {
         parserFn: (data) => Query$FileFindMany.fromJson(data),
         variables: {
           "where": {
-            "fileType": fileType == null ? {} : {"equals": fileType}
+            "AND": [
+              {
+                "fileType": fileType == null ? {} : {"equals": fileType}
+              },
+              {
+                "name": {"contains": contains}
+              }
+            ]
           },
           "take": 10,
           "skip": skip,
