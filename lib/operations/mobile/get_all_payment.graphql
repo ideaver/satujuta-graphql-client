@@ -1,0 +1,24 @@
+query GetAllPayment($getAllPaymentArgs: GetAllPaymentArgs!) {
+  getAllPayment(getAllPaymentArgs: $getAllPaymentArgs) {
+    total_data
+    data_per_page
+    total_page
+    page
+    data {
+      id
+      bill_link
+      bill_title
+      sender_name
+      sender_bank
+      sender_bank_type
+      virtual_account_number
+      amount
+      status
+      settlement_status
+      reference_id
+      payment_url
+      created_at
+      completed_at
+    }
+  }
+}

@@ -1,0 +1,5 @@
+query IsFlipMaintenance {
+  isMaintenance {
+    maintenance
+  }
+}

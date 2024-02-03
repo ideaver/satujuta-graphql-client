@@ -1,0 +1,32 @@
+query GetAllDisbursement($getAllDisbursementArgs: GetAllDisbursementArgs!) {
+  getAllDisbursement(getAllDisbursementArgs: $getAllDisbursementArgs) {
+    data_per_page
+    page
+    total_data
+    total_page
+    data {
+      id
+      user_id
+      amount
+      status
+      reason
+      timestamp
+      bank_code
+      account_number
+      recipient_name
+      sender_bank
+      remark
+      receipt
+      time_served
+      bundle_id
+      company_id
+      recipient_city
+      created_from
+      direction
+      sender
+      fee
+      beneficiary_email
+      idempotency_key
+    }
+  }
+}

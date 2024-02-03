@@ -1,0 +1,9 @@
+query GetAllBankInfo {
+  getBankInfo {
+    bank_code
+    name
+    fee
+    queue
+    status
+  }
+}

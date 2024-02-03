@@ -1,0 +1,28 @@
+query GetDisbursementById($getDisbursementByIdArgs: GetDisbursementByIdArgs!) {
+  getDisbursementById(getDisbursementByIdArgs: $getDisbursementByIdArgs) {
+    id
+    user_id
+    amount
+    status
+    reason
+    timestamp
+    bank_code
+    account_number
+    recipient_name
+    sender_bank
+    remark
+    receipt
+    time_served
+    bundle_id
+    company_id
+    recipient_city
+    created_from
+    direction
+    sender
+    fee
+    beneficiary_email
+    idempotency_key
+    createdAt
+    updatedAt
+  }
+}

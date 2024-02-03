@@ -1,0 +1,45 @@
+query GetBill($billId: String!) {
+  getBill(bill_id: $billId) {
+    link_id
+    link_url
+    title
+    type
+    amount
+    redirect_url
+    expired_date
+    created_from
+    status
+    step
+    is_address_required
+    is_phone_number_required
+    customer {
+      name
+      email
+      address
+      phone
+    }
+    bill_payment {
+      id
+      amount
+      unique_code
+      status
+      sender_bank
+      sender_bank_type
+      receiver_bank_account {
+        account_number
+        account_type
+        bank_code
+        account_holder
+        qr_code_data
+      }
+      user_address
+      user_phone
+      created_at
+    }
+    payment_url
+    payment_method {
+      sender_bank
+      sender_bank_type
+    }
+  }
+}
