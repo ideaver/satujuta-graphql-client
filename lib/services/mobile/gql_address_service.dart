@@ -9,7 +9,7 @@ import '../graphql_service.dart';
 class GqlAddressService {
   static Future<QueryResult<Query$ProvinceFindMany>> provinceFindMany({
     int skip = 0,
-    String contains = '',
+    String? contains,
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -20,9 +20,9 @@ class GqlAddressService {
           // "take": 10,
           "where": {
             "OR": [
-              // {
-              //   "id": {"equals": null}
-              // },
+              {
+                "id": {"equals": null}
+              },
               {
                 "name": {"contains": contains}
               }
@@ -39,7 +39,7 @@ class GqlAddressService {
   static Future<QueryResult<Query$CityFindMany>> cityFindMany({
     required int provinceId,
     int skip = 0,
-    String contains = '',
+    String? contains,
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -49,17 +49,17 @@ class GqlAddressService {
           "skip": skip,
           // "take": 10,
           "where": {
-            // "OR": [
-            // {
-            //   "id": {"equals": null}
-            // },
-            // {
-            "name": {"contains": contains},
-            // },
-            // {
-            "provinceId": {"equals": provinceId},
-            // }
-            // ]
+            "OR": [
+              {
+                "id": {"equals": null}
+              },
+              {
+                "name": {"contains": contains},
+              },
+              {
+                "provinceId": {"equals": provinceId},
+              }
+            ]
           },
           "orderBy": [
             {"name": "asc"}
@@ -72,7 +72,7 @@ class GqlAddressService {
   static Future<QueryResult<Query$DistrictFindMany>> districtFindMany({
     required int cityId,
     int skip = 0,
-    String contains = '',
+    String? contains,
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -82,17 +82,17 @@ class GqlAddressService {
           "skip": skip,
           // "take": 10,
           "where": {
-            // "OR": [
-            // {
-            //   "id": {"equals": null}
-            // },
-            // {
-            "name": {"contains": contains},
-            // },
-            // {
-            "cityId": {"equals": cityId},
-            // }
-            // ]
+            "OR": [
+              {
+                "id": {"equals": null}
+              },
+              {
+                "name": {"contains": contains},
+              },
+              {
+                "cityId": {"equals": cityId},
+              }
+            ]
           },
           "orderBy": [
             {"name": "asc"}
@@ -105,7 +105,7 @@ class GqlAddressService {
   static Future<QueryResult<Query$SubdistrictFindMany>> subdistrictFindMany({
     required int districtId,
     int skip = 0,
-    String contains = '',
+    String? contains,
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -115,17 +115,17 @@ class GqlAddressService {
           "skip": skip,
           // "take": 10,
           "where": {
-            // "OR": [
-            // {
-            //   "id": {"equals": null}
-            // },
-            // {
-            "name": {"contains": contains},
-            // },
-            // {
-            "districtId": {"equals": districtId},
-            // }
-            // ]
+            "OR": [
+              {
+                "id": {"equals": null}
+              },
+              {
+                "name": {"contains": contains},
+              },
+              {
+                "districtId": {"equals": districtId},
+              }
+            ]
           },
           "orderBy": [
             {"name": "asc"}

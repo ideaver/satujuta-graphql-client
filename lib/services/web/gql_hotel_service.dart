@@ -10,7 +10,7 @@ import '../graphql_service.dart';
 class GqlHotelService {
   static Future<QueryResult<Query$HotelFindMany>> hotelFindMany({
     int? skip = 0,
-    String contains = '',
+    String? contains,
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -193,8 +193,9 @@ class GqlHotelService {
                   },
                   "where": {
                     "url": {
-                      "in": hotel
-                          .images //beri beberapa string url yang ingin diupdate url nya dengan upload file sesuai jumlah string url. backend akan mengurus mapping url baru nya
+                      "in": hotel.images
+                          ?.map((e) => e.url)
+                          .toList() //beri beberapa string url yang ingin diupdate url nya dengan upload file sesuai jumlah string url. backend akan mengurus mapping url baru nya
                     }
                   }
                 }
