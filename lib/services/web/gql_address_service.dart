@@ -19,12 +19,15 @@ class GqlAddressService {
           "skip": skip,
           // "take": 10,
           "where": {
-            "OR": [
+            "AND": [
               {
                 "id": {"equals": null}
               },
               {
-                "name": {"contains": contains}
+                "name": {
+                  "contains": contains,
+                  "mode": "insensitive",
+                }
               }
             ]
           },
@@ -49,12 +52,15 @@ class GqlAddressService {
           "skip": skip,
           // "take": 10,
           "where": {
-            "OR": [
+            "AND": [
               {
                 "id": {"equals": null}
               },
               {
-                "name": {"contains": contains}
+                "name": {
+                  "contains": contains,
+                  "mode": "insensitive",
+                }
               },
               {
                 "provinceId": {"equals": provinceId},
@@ -82,12 +88,15 @@ class GqlAddressService {
           "skip": skip,
           // "take": 10,
           "where": {
-            "OR": [
+            "AND": [
               {
                 "id": {"equals": null}
               },
               {
-                "name": {"contains": contains}
+                "name": {
+                  "contains": contains,
+                  "mode": "insensitive",
+                }
               },
               {
                 "cityId": {"equals": cityId},
@@ -115,12 +124,15 @@ class GqlAddressService {
           "skip": skip,
           // "take": 10,
           "where": {
-            "OR": [
+            "AND": [
               {
                 "id": {"equals": null}
               },
               {
-                "name": {"contains": contains}
+                "name": {
+                  "contains": contains,
+                  "mode": "insensitive",
+                }
               },
               {
                 "districtId": {"equals": districtId},

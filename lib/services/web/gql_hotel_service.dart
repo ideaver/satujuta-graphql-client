@@ -17,15 +17,16 @@ class GqlHotelService {
         document: documentNodeQueryHotelFindMany,
         parserFn: (data) => Query$HotelFindMany.fromJson(data),
         variables: {
-          "hotelFindManyArgs": {
-            "skip": skip,
-            "take": 10,
-            "orderBy": [
-              {"startDate": "desc"}
-            ],
-            "where": {
-              "name": {"contains": contains},
-            }
+          "skip": skip,
+          "take": 10,
+          "orderBy": [
+            {"startDate": "desc"}
+          ],
+          "where": {
+            "name": {
+              "contains": contains ?? "",
+              "mode": "insensitive",
+            },
           }
         },
       ),
@@ -115,8 +116,8 @@ class GqlHotelService {
   static Future<QueryResult<Mutation$HotelCreateOne>> hotelCreateOne({
     required Mutation$HotelCreateOne$hotelCreateOne hotel,
   }) async {
-    return await GraphQLService.client.query(
-      QueryOptions(
+    return await GraphQLService.client.mutate(
+      MutationOptions(
         document: documentNodeMutationHotelCreateOne,
         parserFn: (data) => Mutation$HotelCreateOne.fromJson(data),
         variables: {
@@ -159,8 +160,8 @@ class GqlHotelService {
     required Mutation$HotelUpdateOne$hotelUpdateOne hotel,
     List<String>? imagesToDelete,
   }) async {
-    return await GraphQLService.client.query(
-      QueryOptions(
+    return await GraphQLService.client.mutate(
+      MutationOptions(
         document: documentNodeMutationHotelUpdateOne,
         parserFn: (data) => Mutation$HotelUpdateOne.fromJson(data),
         variables: {
@@ -224,9 +225,7 @@ class GqlHotelService {
         document: documentNodeQueryHotelFindOne,
         parserFn: (data) => Query$HotelFindOne.fromJson(data),
         variables: {
-          "hotelFindUniqueArgs": {
-            "where": {"id": hotelId},
-          }
+          "where": {"id": hotelId},
         },
       ),
     );

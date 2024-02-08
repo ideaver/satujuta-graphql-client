@@ -2,8 +2,9 @@ query HotelFindMany(
   $skip: Int
   $take: Int
   $orderBy: [HotelOrderByWithRelationInput!]
+  $where: HotelWhereInput
 ) {
-  hotelFindMany(skip: $skip, take: $take, orderBy: $orderBy) {
+  hotelFindMany(skip: $skip, take: $take, orderBy: $orderBy, where: $where) {
     id
     name
     description

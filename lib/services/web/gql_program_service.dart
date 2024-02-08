@@ -3,7 +3,6 @@ import 'package:graphql_flutter/graphql_flutter.dart';
 import '../../operations/web/generated/count_total_program.graphql.dart';
 import '../../operations/web/generated/count_total_user_with_program_participation.graphql.dart';
 import '../../operations/web/generated/program_create_one.graphql.dart';
-import '../../operations/web/generated/program_delete.graphql.dart';
 import '../../operations/web/generated/program_delete_many_participants.graphql.dart';
 import '../../operations/web/generated/program_find_many.graphql.dart';
 import '../../operations/web/generated/program_update_one.graphql.dart';
@@ -12,7 +11,7 @@ import '../graphql_service.dart';
 class GqlProgramService {
   static Future<QueryResult<Query$ProgramFindMany>> programFindMany({
     int? skip,
-    String contains = '',
+    String? contains,
   }) async {
     return await GraphQLService.client.query(
       QueryOptions(
@@ -21,14 +20,17 @@ class GqlProgramService {
         variables: {
           "skip": skip,
           "take": 10,
-          "where": {
-            "name": {"contains": contains}
-          },
           "orderBy": [
             {
               "dueDate": {"sort": "asc"}
             }
-          ]
+          ],
+          "where": {
+            "name": {
+              "contains": contains ?? "",
+              "mode": "insensitive",
+            }
+          },
         },
       ),
     );
@@ -57,15 +59,15 @@ class GqlProgramService {
     );
   }
 
-  // static Future<QueryResult<Query$CountTotalProgram>> countTotalProgram() async {
-  //   return await GraphQLService.client.query(
-  //     QueryOptions(
-  //       document: documentNodeQueryCountTotalProgram,
-  //       parserFn: (data) => Query$CountTotalProgram.fromJson(data),
-  //       variables: {},
-  //     ),
-  //   );
-  // }
+  static Future<QueryResult<Query$CountTotalProgram>> countTotalProgram() async {
+    return await GraphQLService.client.query(
+      QueryOptions(
+        document: documentNodeQueryCountTotalProgram,
+        parserFn: (data) => Query$CountTotalProgram.fromJson(data),
+        variables: {},
+      ),
+    );
+  }
 
   static Future<QueryResult<Query$CountTotalProgram>> countTotalProgramActive() async {
     return await GraphQLService.client.query(
@@ -74,6 +76,7 @@ class GqlProgramService {
         parserFn: (data) => Query$CountTotalProgram.fromJson(data),
         variables: {
           "where": {
+            "startDate": {"lte": DateTime.now().toIso8601String()},
             "dueDate": {"gte": DateTime.now().toIso8601String()}
           }
         },
@@ -88,7 +91,7 @@ class GqlProgramService {
         parserFn: (data) => Query$CountTotalProgram.fromJson(data),
         variables: {
           "where": {
-            "dueDate": {"lte": DateTime.now().toIso8601String()}
+            "dueDate": {"lt": DateTime.now().toIso8601String()}
           }
         },
       ),
@@ -256,19 +259,19 @@ class GqlProgramService {
     );
   }
 
-  static Future<QueryResult<Mutation$ProgramDelete>> programDelete({
-    required int programId,
-  }) async {
-    return await GraphQLService.client.query(
-      QueryOptions(
-        document: documentNodeMutationProgramDelete,
-        parserFn: (data) => Mutation$ProgramDelete.fromJson(data),
-        variables: {
-          "where": {"id": programId}
-        },
-      ),
-    );
-  }
+  // static Future<QueryResult<Mutation$ProgramDelete>> programDelete({
+  //   required int programId,
+  // }) async {
+  //   return await GraphQLService.client.query(
+  //     QueryOptions(
+  //       document: documentNodeMutationProgramDelete,
+  //       parserFn: (data) => Mutation$ProgramDelete.fromJson(data),
+  //       variables: {
+  //         "where": {"id": programId}
+  //       },
+  //     ),
+  //   );
+  // }
 
   static Future<QueryResult<Mutation$ProgramDeleteManyParticipants>> programDeleteManyParticipants({
     required int programId,

@@ -21,7 +21,10 @@ class GqlHotelService {
               {"startDate": "desc"}
             ],
             "where": {
-              "name": {"contains": contains},
+              "name": {
+                "contains": contains,
+                "mode": "insensitive",
+              },
             }
           }
         },

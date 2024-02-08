@@ -1,0 +1,13 @@
+mutation FileCreateOne($data: FileCreateInput!) {
+  fileCreateOne(data: $data) {
+    id
+    fileType
+    filesize
+    name
+    description
+    url
+    createdById
+    createdAt
+    updatedAt
+  }
+}

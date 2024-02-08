@@ -2822,6 +2822,63 @@ type Query {
   ): Float
 
   """
+  Deskripsinya ada disini loh
+  """
+  programFindOne(where: ProgramWhereUniqueInput!): Program
+
+  """
+  Deskripsinya ada disini loh
+  """
+  programFindMany(
+    where: ProgramWhereInput
+    orderBy: [ProgramOrderByWithRelationInput!]
+    cursor: ProgramWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [ProgramScalarFieldEnum!]
+  ): [Program!]
+
+  """
+  Deskripsinya ada disini loh
+  """
+  programFindFirst(
+    where: ProgramWhereInput
+    orderBy: [ProgramOrderByWithRelationInput!]
+    cursor: ProgramWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [ProgramScalarFieldEnum!]
+  ): Program
+
+  """
+  Deskripsinya ada disini loh
+  """
+  programAggregate(
+    where: ProgramWhereInput
+    orderBy: [ProgramOrderByWithRelationInput!]
+    cursor: ProgramWhereUniqueInput
+    take: Int
+    skip: Int
+    _count: ProgramCountAggregateInput
+    _avg: ProgramAvgAggregateInput
+    _sum: ProgramSumAggregateInput
+    _min: ProgramMinAggregateInput
+    _max: ProgramMaxAggregateInput
+  ): AggregateProgram
+
+  """
+  Deskripsinya ada disini loh
+  """
+  programCount(
+    where: ProgramWhereInput
+    orderBy: [ProgramOrderByWithRelationInput!]
+    cursor: ProgramWhereUniqueInput
+    take: Int
+    skip: Int
+    distinct: [ProgramScalarFieldEnum!]
+  ): Float
+
+  """
   Bersihkan file yang tidak terpakai di S3. Hanya untuk development
   """
   deleteOrphanedS3Objects: String
@@ -3009,9 +3066,9 @@ type Query {
   getAccountBalanceOfUserPointFromUserId(userId: String!): Float!
   transactionFindManyByUserPointFromUserId(
     userId: String!
-    skip: Float!
-    take: Float!
-  ): Float!
+    skip: Int!
+    take: Int!
+  ): [Transaction!]!
 
   """
   Deskripsinya ada disini loh
@@ -3241,63 +3298,6 @@ type Query {
     take: Int
     skip: Int
     distinct: [HotelScalarFieldEnum!]
-  ): Float
-
-  """
-  Deskripsinya ada disini loh
-  """
-  programFindOne(where: ProgramWhereUniqueInput!): Program
-
-  """
-  Deskripsinya ada disini loh
-  """
-  programFindMany(
-    where: ProgramWhereInput
-    orderBy: [ProgramOrderByWithRelationInput!]
-    cursor: ProgramWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ProgramScalarFieldEnum!]
-  ): [Program!]
-
-  """
-  Deskripsinya ada disini loh
-  """
-  programFindFirst(
-    where: ProgramWhereInput
-    orderBy: [ProgramOrderByWithRelationInput!]
-    cursor: ProgramWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ProgramScalarFieldEnum!]
-  ): Program
-
-  """
-  Deskripsinya ada disini loh
-  """
-  programAggregate(
-    where: ProgramWhereInput
-    orderBy: [ProgramOrderByWithRelationInput!]
-    cursor: ProgramWhereUniqueInput
-    take: Int
-    skip: Int
-    _count: ProgramCountAggregateInput
-    _avg: ProgramAvgAggregateInput
-    _sum: ProgramSumAggregateInput
-    _min: ProgramMinAggregateInput
-    _max: ProgramMaxAggregateInput
-  ): AggregateProgram
-
-  """
-  Deskripsinya ada disini loh
-  """
-  programCount(
-    where: ProgramWhereInput
-    orderBy: [ProgramOrderByWithRelationInput!]
-    cursor: ProgramWhereUniqueInput
-    take: Int
-    skip: Int
-    distinct: [ProgramScalarFieldEnum!]
   ): Float
 
   """
@@ -5900,6 +5900,84 @@ input ItemMaxAggregateInput {
   updatedAt: Boolean
 }
 
+input ProgramWhereUniqueInput {
+  id: Int
+  AND: [ProgramWhereInput!]
+  OR: [ProgramWhereInput!]
+  NOT: [ProgramWhereInput!]
+  name: StringFilter
+  startDate: DateTimeFilter
+  dueDate: DateTimeNullableFilter
+  description: StringFilter
+  createdById: StringFilter
+  categoryId: IntFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+  Images: ImagesListRelationFilter
+  createdBy: UserRelationFilter
+  participant: UserListRelationFilter
+  category: ProgramCategoryRelationFilter
+}
+
+enum ProgramScalarFieldEnum {
+  id
+  name
+  startDate
+  dueDate
+  description
+  createdById
+  categoryId
+  createdAt
+  updatedAt
+}
+
+input ProgramCountAggregateInput {
+  id: Boolean
+  name: Boolean
+  startDate: Boolean
+  dueDate: Boolean
+  description: Boolean
+  createdById: Boolean
+  categoryId: Boolean
+  createdAt: Boolean
+  updatedAt: Boolean
+  _all: Boolean
+}
+
+input ProgramAvgAggregateInput {
+  id: Boolean
+  categoryId: Boolean
+}
+
+input ProgramSumAggregateInput {
+  id: Boolean
+  categoryId: Boolean
+}
+
+input ProgramMinAggregateInput {
+  id: Boolean
+  name: Boolean
+  startDate: Boolean
+  dueDate: Boolean
+  description: Boolean
+  createdById: Boolean
+  categoryId: Boolean
+  createdAt: Boolean
+  updatedAt: Boolean
+}
+
+input ProgramMaxAggregateInput {
+  id: Boolean
+  name: Boolean
+  startDate: Boolean
+  dueDate: Boolean
+  description: Boolean
+  createdById: Boolean
+  categoryId: Boolean
+  createdAt: Boolean
+  updatedAt: Boolean
+}
+
 input TransactionWhereUniqueInput {
   id: Int
   installmentId: Int
@@ -6520,84 +6598,6 @@ input HotelMaxAggregateInput {
   createdById: Boolean
   createdAt: Boolean
   version: Boolean
-  updatedAt: Boolean
-}
-
-input ProgramWhereUniqueInput {
-  id: Int
-  AND: [ProgramWhereInput!]
-  OR: [ProgramWhereInput!]
-  NOT: [ProgramWhereInput!]
-  name: StringFilter
-  startDate: DateTimeFilter
-  dueDate: DateTimeNullableFilter
-  description: StringFilter
-  createdById: StringFilter
-  categoryId: IntFilter
-  createdAt: DateTimeFilter
-  updatedAt: DateTimeFilter
-  Images: ImagesListRelationFilter
-  createdBy: UserRelationFilter
-  participant: UserListRelationFilter
-  category: ProgramCategoryRelationFilter
-}
-
-enum ProgramScalarFieldEnum {
-  id
-  name
-  startDate
-  dueDate
-  description
-  createdById
-  categoryId
-  createdAt
-  updatedAt
-}
-
-input ProgramCountAggregateInput {
-  id: Boolean
-  name: Boolean
-  startDate: Boolean
-  dueDate: Boolean
-  description: Boolean
-  createdById: Boolean
-  categoryId: Boolean
-  createdAt: Boolean
-  updatedAt: Boolean
-  _all: Boolean
-}
-
-input ProgramAvgAggregateInput {
-  id: Boolean
-  categoryId: Boolean
-}
-
-input ProgramSumAggregateInput {
-  id: Boolean
-  categoryId: Boolean
-}
-
-input ProgramMinAggregateInput {
-  id: Boolean
-  name: Boolean
-  startDate: Boolean
-  dueDate: Boolean
-  description: Boolean
-  createdById: Boolean
-  categoryId: Boolean
-  createdAt: Boolean
-  updatedAt: Boolean
-}
-
-input ProgramMaxAggregateInput {
-  id: Boolean
-  name: Boolean
-  startDate: Boolean
-  dueDate: Boolean
-  description: Boolean
-  createdById: Boolean
-  categoryId: Boolean
-  createdAt: Boolean
   updatedAt: Boolean
 }
 
@@ -7966,6 +7966,45 @@ type Mutation {
   itemDeleteMany(where: ItemWhereInput): Boolean!
 
   """
+  Deskripsinya ada disini loh
+  """
+  programCreateOne(data: ProgramCreateInput!): Program
+
+  """
+  Deskripsinya ada disini loh
+  """
+  programCreateMany(
+    data: [ProgramCreateManyInput!]!
+    skipDuplicates: Boolean
+  ): BatchPayload
+
+  """
+  Deskripsinya ada disini loh
+  """
+  programUpdateOne(
+    data: ProgramUpdateInput!
+    where: ProgramWhereUniqueInput!
+  ): Program
+
+  """
+  Deskripsinya ada disini loh
+  """
+  programUpdateMany(
+    data: ProgramUpdateManyMutationInput!
+    where: ProgramWhereInput
+  ): Program
+
+  """
+  Deskripsinya ada disini loh
+  """
+  programDelete(where: ProgramWhereUniqueInput!): Boolean!
+
+  """
+  Deskripsinya ada disini loh
+  """
+  programDeleteMany(where: ProgramWhereInput): Boolean!
+
+  """
   Header wajib ada apollo-require-preflight = true agar tidak CSRF error. File JPG akan dicompress
   """
   uploadSingleFile(
@@ -8216,45 +8255,6 @@ type Mutation {
   """
   hotelDeleteMany(where: HotelWhereInput): Boolean!
   authLogin(loginArgs: LoginArgs!): LoginResponse
-
-  """
-  Deskripsinya ada disini loh
-  """
-  programCreateOne(data: ProgramCreateInput!): Program
-
-  """
-  Deskripsinya ada disini loh
-  """
-  programCreateMany(
-    data: [ProgramCreateManyInput!]!
-    skipDuplicates: Boolean
-  ): BatchPayload
-
-  """
-  Deskripsinya ada disini loh
-  """
-  programUpdateOne(
-    data: ProgramUpdateInput!
-    where: ProgramWhereUniqueInput!
-  ): Program
-
-  """
-  Deskripsinya ada disini loh
-  """
-  programUpdateMany(
-    data: ProgramUpdateManyMutationInput!
-    where: ProgramWhereInput
-  ): Program
-
-  """
-  Deskripsinya ada disini loh
-  """
-  programDelete(where: ProgramWhereUniqueInput!): Boolean!
-
-  """
-  Deskripsinya ada disini loh
-  """
-  programDeleteMany(where: ProgramWhereInput): Boolean!
 
   """
   Deskripsinya ada disini loh
@@ -11213,6 +11213,37 @@ input ItemUpdateManyMutationInput {
   updatedAt: DateTimeFieldUpdateOperationsInput
 }
 
+input ProgramCreateInput {
+  name: String!
+  startDate: DateTime!
+  dueDate: DateTime
+  description: String!
+  Images: ImagesCreateNestedManyWithoutProgramImageInput
+  createdBy: UserCreateNestedOneWithoutProgramsCreatedInput!
+  category: ProgramCategoryCreateNestedOneWithoutProgramsInput!
+}
+
+input ProgramCreateManyInput {
+  name: String!
+  startDate: DateTime!
+  dueDate: DateTime
+  description: String!
+  createdById: String!
+}
+
+input ProgramUpdateInput {
+  name: StringFieldUpdateOperationsInput
+  startDate: DateTimeFieldUpdateOperationsInput
+  dueDate: NullableDateTimeFieldUpdateOperationsInput
+  description: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+  Images: ImagesUpdateManyWithoutProgramImageNestedInput
+  createdBy: UserUpdateOneRequiredWithoutProgramsCreatedNestedInput
+  participant: UserUpdateManyWithoutProgramsParticipationNestedInput
+  category: ProgramCategoryUpdateOneRequiredWithoutProgramsNestedInput
+}
+
 """
 The `Upload` scalar type represents a file upload.
 """
@@ -11756,37 +11787,6 @@ input LoginArgs {
   Masukkan password
   """
   password: String!
-}
-
-input ProgramCreateInput {
-  name: String!
-  startDate: DateTime!
-  dueDate: DateTime
-  description: String!
-  Images: ImagesCreateNestedManyWithoutProgramImageInput
-  createdBy: UserCreateNestedOneWithoutProgramsCreatedInput!
-  category: ProgramCategoryCreateNestedOneWithoutProgramsInput!
-}
-
-input ProgramCreateManyInput {
-  name: String!
-  startDate: DateTime!
-  dueDate: DateTime
-  description: String!
-  createdById: String!
-}
-
-input ProgramUpdateInput {
-  name: StringFieldUpdateOperationsInput
-  startDate: DateTimeFieldUpdateOperationsInput
-  dueDate: NullableDateTimeFieldUpdateOperationsInput
-  description: StringFieldUpdateOperationsInput
-  createdAt: DateTimeFieldUpdateOperationsInput
-  updatedAt: DateTimeFieldUpdateOperationsInput
-  Images: ImagesUpdateManyWithoutProgramImageNestedInput
-  createdBy: UserUpdateOneRequiredWithoutProgramsCreatedNestedInput
-  participant: UserUpdateManyWithoutProgramsParticipationNestedInput
-  category: ProgramCategoryUpdateOneRequiredWithoutProgramsNestedInput
 }
 
 input ProgramCategoryCreateInput {

@@ -1,0 +1,3 @@
+mutation FileDeleteMany($where: FileWhereInput) {
+  fileDeleteMany(where: $where)
+}

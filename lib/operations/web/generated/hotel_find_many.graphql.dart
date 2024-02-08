@@ -10,11 +10,13 @@ class Variables$Query$HotelFindMany {
     int? skip,
     int? take,
     List<Input$HotelOrderByWithRelationInput>? orderBy,
+    Input$HotelWhereInput? where,
   }) =>
       Variables$Query$HotelFindMany._({
         if (skip != null) r'skip': skip,
         if (take != null) r'take': take,
         if (orderBy != null) r'orderBy': orderBy,
+        if (where != null) r'where': where,
       });
 
   Variables$Query$HotelFindMany._(this._$data);
@@ -36,6 +38,12 @@ class Variables$Query$HotelFindMany {
               (e as Map<String, dynamic>)))
           .toList();
     }
+    if (data.containsKey('where')) {
+      final l$where = data['where'];
+      result$data['where'] = l$where == null
+          ? null
+          : Input$HotelWhereInput.fromJson((l$where as Map<String, dynamic>));
+    }
     return Variables$Query$HotelFindMany._(result$data);
   }
 
@@ -45,6 +53,8 @@ class Variables$Query$HotelFindMany {
   int? get take => (_$data['take'] as int?);
   List<Input$HotelOrderByWithRelationInput>? get orderBy =>
       (_$data['orderBy'] as List<Input$HotelOrderByWithRelationInput>?);
+  Input$HotelWhereInput? get where =>
+      (_$data['where'] as Input$HotelWhereInput?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('skip')) {
@@ -58,6 +68,10 @@ class Variables$Query$HotelFindMany {
     if (_$data.containsKey('orderBy')) {
       final l$orderBy = orderBy;
       result$data['orderBy'] = l$orderBy?.map((e) => e.toJson()).toList();
+    }
+    if (_$data.containsKey('where')) {
+      final l$where = where;
+      result$data['where'] = l$where?.toJson();
     }
     return result$data;
   }
@@ -111,6 +125,14 @@ class Variables$Query$HotelFindMany {
     } else if (l$orderBy != lOther$orderBy) {
       return false;
     }
+    final l$where = where;
+    final lOther$where = other.where;
+    if (_$data.containsKey('where') != other._$data.containsKey('where')) {
+      return false;
+    }
+    if (l$where != lOther$where) {
+      return false;
+    }
     return true;
   }
 
@@ -119,6 +141,7 @@ class Variables$Query$HotelFindMany {
     final l$skip = skip;
     final l$take = take;
     final l$orderBy = orderBy;
+    final l$where = where;
     return Object.hashAll([
       _$data.containsKey('skip') ? l$skip : const {},
       _$data.containsKey('take') ? l$take : const {},
@@ -127,6 +150,7 @@ class Variables$Query$HotelFindMany {
               ? null
               : Object.hashAll(l$orderBy.map((v) => v))
           : const {},
+      _$data.containsKey('where') ? l$where : const {},
     ]);
   }
 }
@@ -144,6 +168,7 @@ abstract class CopyWith$Variables$Query$HotelFindMany<TRes> {
     int? skip,
     int? take,
     List<Input$HotelOrderByWithRelationInput>? orderBy,
+    Input$HotelWhereInput? where,
   });
 }
 
@@ -164,6 +189,7 @@ class _CopyWithImpl$Variables$Query$HotelFindMany<TRes>
     Object? skip = _undefined,
     Object? take = _undefined,
     Object? orderBy = _undefined,
+    Object? where = _undefined,
   }) =>
       _then(Variables$Query$HotelFindMany._({
         ..._instance._$data,
@@ -171,6 +197,7 @@ class _CopyWithImpl$Variables$Query$HotelFindMany<TRes>
         if (take != _undefined) 'take': (take as int?),
         if (orderBy != _undefined)
           'orderBy': (orderBy as List<Input$HotelOrderByWithRelationInput>?),
+        if (where != _undefined) 'where': (where as Input$HotelWhereInput?),
       }));
 }
 
@@ -184,6 +211,7 @@ class _CopyWithStubImpl$Variables$Query$HotelFindMany<TRes>
     int? skip,
     int? take,
     List<Input$HotelOrderByWithRelationInput>? orderBy,
+    Input$HotelWhereInput? where,
   }) =>
       _res;
 }
@@ -382,6 +410,15 @@ const documentNodeQueryHotelFindMany = DocumentNode(definitions: [
         defaultValue: DefaultValueNode(value: null),
         directives: [],
       ),
+      VariableDefinitionNode(
+        variable: VariableNode(name: NameNode(value: 'where')),
+        type: NamedTypeNode(
+          name: NameNode(value: 'HotelWhereInput'),
+          isNonNull: false,
+        ),
+        defaultValue: DefaultValueNode(value: null),
+        directives: [],
+      ),
     ],
     directives: [],
     selectionSet: SelectionSetNode(selections: [
@@ -400,6 +437,10 @@ const documentNodeQueryHotelFindMany = DocumentNode(definitions: [
           ArgumentNode(
             name: NameNode(value: 'orderBy'),
             value: VariableNode(name: NameNode(value: 'orderBy')),
+          ),
+          ArgumentNode(
+            name: NameNode(value: 'where'),
+            value: VariableNode(name: NameNode(value: 'where')),
           ),
         ],
         directives: [],
