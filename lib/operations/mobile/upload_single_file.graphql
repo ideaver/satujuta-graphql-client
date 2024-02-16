@@ -1,0 +1,7 @@
+mutation UploadSingleFile(
+  $file: Upload
+  $userId: String!
+  $ratioForImage: RatioEnum
+) {
+  uploadSingleFile(file: $file, userId: $userId, ratioForImage: $ratioForImage)
+}

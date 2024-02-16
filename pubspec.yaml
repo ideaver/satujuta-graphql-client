@@ -11,6 +11,7 @@ dependencies:
   gql_http_link: ^1.0.1
   # ferry: ^0.14.2+1
   graphql_flutter: ^5.1.2
+  http: ^0.13.6
 
 dev_dependencies:
   lints: ^2.0.0

@@ -29,7 +29,7 @@ class GqlPaymentService {
             "redirect_url": null,
             "is_address_required": null,
             "is_phone_number_required": null,
-            "step": 2,
+            "step": 3,
             "sender_name": senderName,
             "sender_email": senderEmail,
             "sender_phone_number": senderPhoneNumber,

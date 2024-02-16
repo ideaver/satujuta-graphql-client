@@ -1,5 +1,6 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
 
+import '../../operations/mobile/generated/school_create_one.graphql.dart';
 import '../../operations/mobile/generated/school_find_many.graphql.dart';
 import '../graphql_service.dart';
 
@@ -64,22 +65,29 @@ class GqlSchoolService {
   //   );
   // }
 
-  // static Future<QueryResult<Query$SchoolCreateOne>> schoolCreateOne({
-  //   int? skip = 0,
-  //   String contains,
-  // }) async {
-  //   return await GraphQLService.client.query(
-  //     QueryOptions(
-  //       document: documentNodeQuerySchoolCreateOne,
-  //       parserFn: (data) => Query$SchoolCreateOne.fromJson(data),
-  //       variables: {
-  //         "schoolCreateOneArgs": {
-  //           "data": {
-  //             "name": {"contains": contains ?? ''}
-  //           },
-  //         }
-  //       },
-  //     ),
-  //   );
-  // }
+  static Future<QueryResult<Mutation$SchoolCreateOne>> schoolCreateOne({
+    required String name,
+    required String address,
+    required int subdistrictId,
+  }) async {
+    return await GraphQLService.client.mutate(
+      MutationOptions(
+        document: documentNodeMutationSchoolCreateOne,
+        parserFn: (data) => Mutation$SchoolCreateOne.fromJson(data),
+        variables: {
+          "data": {
+            "name": name,
+            "address": {
+              "create": {
+                "name": address,
+                "subdistrict": {
+                  "connect": {"id": subdistrictId}
+                }
+              }
+            }
+          }
+        },
+      ),
+    );
+  }
 }

@@ -217,23 +217,18 @@ class GqlUserService {
   static Future<QueryResult<Mutation$UserUpdateOneOfAvatarUrl>> userUpdateOneAvatarUrl({
     required String userId,
     required String url,
-    // required MultipartFile multipartFile,
   }) async {
     return await GraphQLService.client.mutate(
       MutationOptions(
-          document: documentNodeMutationUserUpdateOneOfAvatarUrl,
-          parserFn: (data) => Mutation$UserUpdateOneOfAvatarUrl.fromJson(data),
-          // TODO UNIMPLEMENTED
-          // variables: {
-          //   "file": multipartFile,
-          //   "userId": userId,
-          // },
-          variables: {
-            "data": {
-              "avatarUrl": {"set": url}
-            },
-            "where": {"id": userId}
-          }),
+        document: documentNodeMutationUserUpdateOneOfAvatarUrl,
+        parserFn: (data) => Mutation$UserUpdateOneOfAvatarUrl.fromJson(data),
+        variables: {
+          "data": {
+            "avatarUrl": {"set": url}
+          },
+          "where": {"id": userId}
+        },
+      ),
     );
   }
 

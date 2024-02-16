@@ -1,0 +1,28 @@
+mutation SchoolCreateOne($data: SchoolCreateInput!) {
+  schoolCreateOne(data: $data) {
+    id
+    name
+    createdAt
+    address {
+      id
+      name
+      subdistrict {
+        id
+        name
+        postalCode
+        district {
+          id
+          name
+          city {
+            id
+            name
+            province {
+              id
+              name
+            }
+          }
+        }
+      }
+    }
+  }
+}

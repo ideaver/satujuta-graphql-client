@@ -1,0 +1,3 @@
+mutation UploadMultiFile($userId: String!, $files: [Upload!]) {
+  uploadMultiFile(userId: $userId, files: $files)
+}
