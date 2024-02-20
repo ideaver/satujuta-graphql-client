@@ -171,6 +171,7 @@ class GqlHotelService {
             "description": {"set": hotel.description},
             "quota": {"set": hotel.quota},
             "rating": {"set": hotel.rating},
+            "startDate": {"set": hotel.startDate},
             "address": {
               "update": {
                 "where": {
@@ -187,30 +188,40 @@ class GqlHotelService {
               }
             },
             "images": {
-              "updateMany": [
+              "deleteMany": [
                 {
-                  "data": {
-                    "url": null //biarkan null
-                  },
-                  "where": {
-                    "url": {
-                      "in": hotel.images
-                          ?.map((e) => e.url)
-                          .toList() //beri beberapa string url yang ingin diupdate url nya dengan upload file sesuai jumlah string url. backend akan mengurus mapping url baru nya
-                    }
-                  }
+                  "url": {"in": imagesToDelete}
                 }
               ],
               "createMany": {
-                "data": [
-                  {
-                    "url":
-                        "true" //berikan string true jika images merupakan createMany, bisa upload beberapa file. backend akan mengurus value nya. beri nilai null jika tidak memodifikasi ini.
-                  }
-                  //tidak perlu menambahkan value array baru disini
-                ]
+                "data": hotel.images?.map((e) => {"url": e.url}).toList()
               }
             }
+            // "images": {
+            //   "updateMany": [
+            //     {
+            //       "data": {
+            //         "url": null //biarkan null
+            //       },
+            //       "where": {
+            //         "url": {
+            //           "in": hotel.images
+            //               ?.map((e) => e.url)
+            //               .toList() //beri beberapa string url yang ingin diupdate url nya dengan upload file sesuai jumlah string url. backend akan mengurus mapping url baru nya
+            //         }
+            //       }
+            //     }
+            //   ],
+            //   "createMany": {
+            //     "data": [
+            //       {
+            //         "url":
+            //             "true" //berikan string true jika images merupakan createMany, bisa upload beberapa file. backend akan mengurus value nya. beri nilai null jika tidak memodifikasi ini.
+            //       }
+            //       //tidak perlu menambahkan value array baru disini
+            //     ]
+            //   }
+            // }
           }
         },
       ),

@@ -41,10 +41,16 @@ class GqlMemberService {
                 },
               },
               {
-                "firstName": {"contains": contains}
+                "firstName": {
+                  "contains": contains,
+                  "mode": "insensitive",
+                }
               },
               {
-                "lastName": {"contains": contains}
+                "lastName": {
+                  "contains": contains.contains(' ') && contains.split(' ').isNotEmpty ? contains.split(' ').last : "",
+                  "mode": "insensitive",
+                }
               },
             ]
           }

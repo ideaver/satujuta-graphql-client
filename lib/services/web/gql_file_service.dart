@@ -46,10 +46,10 @@ class GqlFileService {
         variables: {
           "data": {
             "name": file.name,
-            "url": null, //backend akan otomatis cek mimetype dan size, serta verifikasi link.
-            "description": null,
+            "url": file.url, //backend akan otomatis cek mimetype dan size, serta verifikasi link.
+            "description": file.description,
             "createdBy": {
-              "connect": {"id": null}
+              "connect": {"id": file.createdById}
             }
           }
         },
@@ -58,11 +58,11 @@ class GqlFileService {
   }
 
   static Future<QueryResult<Mutation$FileDeleteMany>> fileDeleteMany({
-    required List<String> fileIds,
+    required List<int> fileIds,
   }) async {
     return await GraphQLService.client.mutate(
       MutationOptions(
-        document: documentNodeMutationFileCreateOne,
+        document: documentNodeMutationFileDeleteMany,
         parserFn: (data) => Mutation$FileDeleteMany.fromJson(data),
         variables: {
           "where": {
