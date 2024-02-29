@@ -1,34 +1,31 @@
-import '../../../schema/generated/schema.graphql.dart';
 import 'dart:async';
+
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
+import '../../../schema/generated/schema.graphql.dart';
+
 class Variables$Query$CountTotalProject {
-  factory Variables$Query$CountTotalProject({Input$ProjectWhereInput? where}) =>
-      Variables$Query$CountTotalProject._({
+  factory Variables$Query$CountTotalProject({Input$ProjectWhereInput? where}) => Variables$Query$CountTotalProject._({
         if (where != null) r'where': where,
       });
 
   Variables$Query$CountTotalProject._(this._$data);
 
-  factory Variables$Query$CountTotalProject.fromJson(
-      Map<String, dynamic> data) {
+  factory Variables$Query$CountTotalProject.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('where')) {
       final l$where = data['where'];
-      result$data['where'] = l$where == null
-          ? null
-          : Input$ProjectWhereInput.fromJson((l$where as Map<String, dynamic>));
+      result$data['where'] = l$where == null ? null : Input$ProjectWhereInput.fromJson((l$where as Map<String, dynamic>));
     }
     return Variables$Query$CountTotalProject._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$ProjectWhereInput? get where =>
-      (_$data['where'] as Input$ProjectWhereInput?);
+  Input$ProjectWhereInput? get where => (_$data['where'] as Input$ProjectWhereInput?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('where')) {
@@ -38,18 +35,16 @@ class Variables$Query$CountTotalProject {
     return result$data;
   }
 
-  CopyWith$Variables$Query$CountTotalProject<Variables$Query$CountTotalProject>
-      get copyWith => CopyWith$Variables$Query$CountTotalProject(
-            this,
-            (i) => i,
-          );
+  CopyWith$Variables$Query$CountTotalProject<Variables$Query$CountTotalProject> get copyWith => CopyWith$Variables$Query$CountTotalProject(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$CountTotalProject) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Variables$Query$CountTotalProject) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$where = where;
@@ -76,14 +71,12 @@ abstract class CopyWith$Variables$Query$CountTotalProject<TRes> {
     TRes Function(Variables$Query$CountTotalProject) then,
   ) = _CopyWithImpl$Variables$Query$CountTotalProject;
 
-  factory CopyWith$Variables$Query$CountTotalProject.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Query$CountTotalProject;
+  factory CopyWith$Variables$Query$CountTotalProject.stub(TRes res) = _CopyWithStubImpl$Variables$Query$CountTotalProject;
 
   TRes call({Input$ProjectWhereInput? where});
 }
 
-class _CopyWithImpl$Variables$Query$CountTotalProject<TRes>
-    implements CopyWith$Variables$Query$CountTotalProject<TRes> {
+class _CopyWithImpl$Variables$Query$CountTotalProject<TRes> implements CopyWith$Variables$Query$CountTotalProject<TRes> {
   _CopyWithImpl$Variables$Query$CountTotalProject(
     this._instance,
     this._then,
@@ -95,15 +88,13 @@ class _CopyWithImpl$Variables$Query$CountTotalProject<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? where = _undefined}) =>
-      _then(Variables$Query$CountTotalProject._({
+  TRes call({Object? where = _undefined}) => _then(Variables$Query$CountTotalProject._({
         ..._instance._$data,
         if (where != _undefined) 'where': (where as Input$ProjectWhereInput?),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$CountTotalProject<TRes>
-    implements CopyWith$Variables$Query$CountTotalProject<TRes> {
+class _CopyWithStubImpl$Variables$Query$CountTotalProject<TRes> implements CopyWith$Variables$Query$CountTotalProject<TRes> {
   _CopyWithStubImpl$Variables$Query$CountTotalProject(this._res);
 
   TRes _res;
@@ -154,8 +145,7 @@ class Query$CountTotalProject {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$CountTotalProject) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Query$CountTotalProject) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$projectCount = projectCount;
@@ -173,8 +163,7 @@ class Query$CountTotalProject {
 }
 
 extension UtilityExtension$Query$CountTotalProject on Query$CountTotalProject {
-  CopyWith$Query$CountTotalProject<Query$CountTotalProject> get copyWith =>
-      CopyWith$Query$CountTotalProject(
+  CopyWith$Query$CountTotalProject<Query$CountTotalProject> get copyWith => CopyWith$Query$CountTotalProject(
         this,
         (i) => i,
       );
@@ -186,8 +175,7 @@ abstract class CopyWith$Query$CountTotalProject<TRes> {
     TRes Function(Query$CountTotalProject) then,
   ) = _CopyWithImpl$Query$CountTotalProject;
 
-  factory CopyWith$Query$CountTotalProject.stub(TRes res) =
-      _CopyWithStubImpl$Query$CountTotalProject;
+  factory CopyWith$Query$CountTotalProject.stub(TRes res) = _CopyWithStubImpl$Query$CountTotalProject;
 
   TRes call({
     double? projectCount,
@@ -195,8 +183,7 @@ abstract class CopyWith$Query$CountTotalProject<TRes> {
   });
 }
 
-class _CopyWithImpl$Query$CountTotalProject<TRes>
-    implements CopyWith$Query$CountTotalProject<TRes> {
+class _CopyWithImpl$Query$CountTotalProject<TRes> implements CopyWith$Query$CountTotalProject<TRes> {
   _CopyWithImpl$Query$CountTotalProject(
     this._instance,
     this._then,
@@ -213,17 +200,12 @@ class _CopyWithImpl$Query$CountTotalProject<TRes>
     Object? $__typename = _undefined,
   }) =>
       _then(Query$CountTotalProject(
-        projectCount: projectCount == _undefined
-            ? _instance.projectCount
-            : (projectCount as double?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
+        projectCount: projectCount == _undefined ? _instance.projectCount : (projectCount as double?),
+        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImpl$Query$CountTotalProject<TRes>
-    implements CopyWith$Query$CountTotalProject<TRes> {
+class _CopyWithStubImpl$Query$CountTotalProject<TRes> implements CopyWith$Query$CountTotalProject<TRes> {
   _CopyWithStubImpl$Query$CountTotalProject(this._res);
 
   TRes _res;
@@ -274,16 +256,13 @@ const documentNodeQueryCountTotalProject = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Query$CountTotalProject _parserFn$Query$CountTotalProject(
-        Map<String, dynamic> data) =>
-    Query$CountTotalProject.fromJson(data);
+Query$CountTotalProject _parserFn$Query$CountTotalProject(Map<String, dynamic> data) => Query$CountTotalProject.fromJson(data);
 typedef OnQueryComplete$Query$CountTotalProject = FutureOr<void> Function(
   Map<String, dynamic>?,
   Query$CountTotalProject?,
 );
 
-class Options$Query$CountTotalProject
-    extends graphql.QueryOptions<Query$CountTotalProject> {
+class Options$Query$CountTotalProject extends graphql.QueryOptions<Query$CountTotalProject> {
   Options$Query$CountTotalProject({
     String? operationName,
     Variables$Query$CountTotalProject? variables,
@@ -310,9 +289,7 @@ class Options$Query$CountTotalProject
               ? null
               : (data) => onComplete(
                     data,
-                    data == null
-                        ? null
-                        : _parserFn$Query$CountTotalProject(data),
+                    data == null ? null : _parserFn$Query$CountTotalProject(data),
                   ),
           onError: onError,
           document: documentNodeQueryCountTotalProject,
@@ -323,15 +300,12 @@ class Options$Query$CountTotalProject
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
-            ? super.properties
-            : super.properties.where((property) => property != onComplete),
+        ...super.onComplete == null ? super.properties : super.properties.where((property) => property != onComplete),
         onCompleteWithParsed,
       ];
 }
 
-class WatchOptions$Query$CountTotalProject
-    extends graphql.WatchQueryOptions<Query$CountTotalProject> {
+class WatchOptions$Query$CountTotalProject extends graphql.WatchQueryOptions<Query$CountTotalProject> {
   WatchOptions$Query$CountTotalProject({
     String? operationName,
     Variables$Query$CountTotalProject? variables,
@@ -362,8 +336,7 @@ class WatchOptions$Query$CountTotalProject
         );
 }
 
-class FetchMoreOptions$Query$CountTotalProject
-    extends graphql.FetchMoreOptions {
+class FetchMoreOptions$Query$CountTotalProject extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$CountTotalProject({
     required graphql.UpdateQuery updateQuery,
     Variables$Query$CountTotalProject? variables,
@@ -375,11 +348,9 @@ class FetchMoreOptions$Query$CountTotalProject
 }
 
 extension ClientExtension$Query$CountTotalProject on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$CountTotalProject>> query$CountTotalProject(
-          [Options$Query$CountTotalProject? options]) async =>
+  Future<graphql.QueryResult<Query$CountTotalProject>> query$CountTotalProject([Options$Query$CountTotalProject? options]) async =>
       await this.query(options ?? Options$Query$CountTotalProject());
-  graphql.ObservableQuery<Query$CountTotalProject> watchQuery$CountTotalProject(
-          [WatchOptions$Query$CountTotalProject? options]) =>
+  graphql.ObservableQuery<Query$CountTotalProject> watchQuery$CountTotalProject([WatchOptions$Query$CountTotalProject? options]) =>
       this.watchQuery(options ?? WatchOptions$Query$CountTotalProject());
   void writeQuery$CountTotalProject({
     required Query$CountTotalProject data,
@@ -388,8 +359,7 @@ extension ClientExtension$Query$CountTotalProject on graphql.GraphQLClient {
   }) =>
       this.writeQuery(
         graphql.Request(
-          operation:
-              graphql.Operation(document: documentNodeQueryCountTotalProject),
+          operation: graphql.Operation(document: documentNodeQueryCountTotalProject),
           variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
@@ -401,8 +371,7 @@ extension ClientExtension$Query$CountTotalProject on graphql.GraphQLClient {
   }) {
     final result = this.readQuery(
       graphql.Request(
-        operation:
-            graphql.Operation(document: documentNodeQueryCountTotalProject),
+        operation: graphql.Operation(document: documentNodeQueryCountTotalProject),
         variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
@@ -411,17 +380,12 @@ extension ClientExtension$Query$CountTotalProject on graphql.GraphQLClient {
   }
 }
 
-graphql_flutter.QueryHookResult<Query$CountTotalProject>
-    useQuery$CountTotalProject([Options$Query$CountTotalProject? options]) =>
-        graphql_flutter.useQuery(options ?? Options$Query$CountTotalProject());
-graphql.ObservableQuery<Query$CountTotalProject>
-    useWatchQuery$CountTotalProject(
-            [WatchOptions$Query$CountTotalProject? options]) =>
-        graphql_flutter
-            .useWatchQuery(options ?? WatchOptions$Query$CountTotalProject());
+graphql_flutter.QueryHookResult<Query$CountTotalProject> useQuery$CountTotalProject([Options$Query$CountTotalProject? options]) =>
+    graphql_flutter.useQuery(options ?? Options$Query$CountTotalProject());
+graphql.ObservableQuery<Query$CountTotalProject> useWatchQuery$CountTotalProject([WatchOptions$Query$CountTotalProject? options]) =>
+    graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$CountTotalProject());
 
-class Query$CountTotalProject$Widget
-    extends graphql_flutter.Query<Query$CountTotalProject> {
+class Query$CountTotalProject$Widget extends graphql_flutter.Query<Query$CountTotalProject> {
   Query$CountTotalProject$Widget({
     widgets.Key? key,
     Options$Query$CountTotalProject? options,

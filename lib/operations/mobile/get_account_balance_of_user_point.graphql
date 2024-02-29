@@ -1,0 +1,3 @@
+query GetAccountBalanceOfUserPointFromUserId($userId: String!) {
+  getAccountBalanceOfUserPointFromUserId(userId: $userId)
+}

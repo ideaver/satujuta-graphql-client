@@ -1,7 +1,7 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:satujuta_gql_client/operations/mobile/generated/reward_find_many_scalar.graphql.dart';
 
 import '../../operations/mobile/generated/reward_claim_create_one.graphql.dart';
+import '../../operations/mobile/generated/reward_find_many_scalar.graphql.dart';
 import '../graphql_service.dart';
 
 class GqlRewardService {

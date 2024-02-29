@@ -1,9 +1,11 @@
-import '../../../schema/generated/schema.graphql.dart';
 import 'dart:async';
+
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
+
+import '../../../schema/generated/schema.graphql.dart';
 
 class Variables$Mutation$UploadSingleFile {
   factory Variables$Mutation$UploadSingleFile({
@@ -19,8 +21,7 @@ class Variables$Mutation$UploadSingleFile {
 
   Variables$Mutation$UploadSingleFile._(this._$data);
 
-  factory Variables$Mutation$UploadSingleFile.fromJson(
-      Map<String, dynamic> data) {
+  factory Variables$Mutation$UploadSingleFile.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('file')) {
       final l$file = data['file'];
@@ -30,9 +31,7 @@ class Variables$Mutation$UploadSingleFile {
     result$data['userId'] = (l$userId as String);
     if (data.containsKey('ratioForImage')) {
       final l$ratioForImage = data['ratioForImage'];
-      result$data['ratioForImage'] = l$ratioForImage == null
-          ? null
-          : fromJson$Enum$RatioEnum((l$ratioForImage as String));
+      result$data['ratioForImage'] = l$ratioForImage == null ? null : fromJson$Enum$RatioEnum((l$ratioForImage as String));
     }
     return Variables$Mutation$UploadSingleFile._(result$data);
   }
@@ -41,8 +40,7 @@ class Variables$Mutation$UploadSingleFile {
 
   String? get file => (_$data['file'] as String?);
   String get userId => (_$data['userId'] as String);
-  Enum$RatioEnum? get ratioForImage =>
-      (_$data['ratioForImage'] as Enum$RatioEnum?);
+  Enum$RatioEnum? get ratioForImage => (_$data['ratioForImage'] as Enum$RatioEnum?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('file')) {
@@ -53,26 +51,21 @@ class Variables$Mutation$UploadSingleFile {
     result$data['userId'] = l$userId;
     if (_$data.containsKey('ratioForImage')) {
       final l$ratioForImage = ratioForImage;
-      result$data['ratioForImage'] = l$ratioForImage == null
-          ? null
-          : toJson$Enum$RatioEnum(l$ratioForImage);
+      result$data['ratioForImage'] = l$ratioForImage == null ? null : toJson$Enum$RatioEnum(l$ratioForImage);
     }
     return result$data;
   }
 
-  CopyWith$Variables$Mutation$UploadSingleFile<
-          Variables$Mutation$UploadSingleFile>
-      get copyWith => CopyWith$Variables$Mutation$UploadSingleFile(
-            this,
-            (i) => i,
-          );
+  CopyWith$Variables$Mutation$UploadSingleFile<Variables$Mutation$UploadSingleFile> get copyWith => CopyWith$Variables$Mutation$UploadSingleFile(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Mutation$UploadSingleFile) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Variables$Mutation$UploadSingleFile) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$file = file;
@@ -90,8 +83,7 @@ class Variables$Mutation$UploadSingleFile {
     }
     final l$ratioForImage = ratioForImage;
     final lOther$ratioForImage = other.ratioForImage;
-    if (_$data.containsKey('ratioForImage') !=
-        other._$data.containsKey('ratioForImage')) {
+    if (_$data.containsKey('ratioForImage') != other._$data.containsKey('ratioForImage')) {
       return false;
     }
     if (l$ratioForImage != lOther$ratioForImage) {
@@ -119,8 +111,7 @@ abstract class CopyWith$Variables$Mutation$UploadSingleFile<TRes> {
     TRes Function(Variables$Mutation$UploadSingleFile) then,
   ) = _CopyWithImpl$Variables$Mutation$UploadSingleFile;
 
-  factory CopyWith$Variables$Mutation$UploadSingleFile.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Mutation$UploadSingleFile;
+  factory CopyWith$Variables$Mutation$UploadSingleFile.stub(TRes res) = _CopyWithStubImpl$Variables$Mutation$UploadSingleFile;
 
   TRes call({
     String? file,
@@ -129,8 +120,7 @@ abstract class CopyWith$Variables$Mutation$UploadSingleFile<TRes> {
   });
 }
 
-class _CopyWithImpl$Variables$Mutation$UploadSingleFile<TRes>
-    implements CopyWith$Variables$Mutation$UploadSingleFile<TRes> {
+class _CopyWithImpl$Variables$Mutation$UploadSingleFile<TRes> implements CopyWith$Variables$Mutation$UploadSingleFile<TRes> {
   _CopyWithImpl$Variables$Mutation$UploadSingleFile(
     this._instance,
     this._then,
@@ -150,15 +140,12 @@ class _CopyWithImpl$Variables$Mutation$UploadSingleFile<TRes>
       _then(Variables$Mutation$UploadSingleFile._({
         ..._instance._$data,
         if (file != _undefined) 'file': (file as String?),
-        if (userId != _undefined && userId != null)
-          'userId': (userId as String),
-        if (ratioForImage != _undefined)
-          'ratioForImage': (ratioForImage as Enum$RatioEnum?),
+        if (userId != _undefined && userId != null) 'userId': (userId as String),
+        if (ratioForImage != _undefined) 'ratioForImage': (ratioForImage as Enum$RatioEnum?),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Mutation$UploadSingleFile<TRes>
-    implements CopyWith$Variables$Mutation$UploadSingleFile<TRes> {
+class _CopyWithStubImpl$Variables$Mutation$UploadSingleFile<TRes> implements CopyWith$Variables$Mutation$UploadSingleFile<TRes> {
   _CopyWithStubImpl$Variables$Mutation$UploadSingleFile(this._res);
 
   TRes _res;
@@ -214,8 +201,7 @@ class Mutation$UploadSingleFile {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$UploadSingleFile) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Mutation$UploadSingleFile) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$uploadSingleFile = uploadSingleFile;
@@ -232,10 +218,8 @@ class Mutation$UploadSingleFile {
   }
 }
 
-extension UtilityExtension$Mutation$UploadSingleFile
-    on Mutation$UploadSingleFile {
-  CopyWith$Mutation$UploadSingleFile<Mutation$UploadSingleFile> get copyWith =>
-      CopyWith$Mutation$UploadSingleFile(
+extension UtilityExtension$Mutation$UploadSingleFile on Mutation$UploadSingleFile {
+  CopyWith$Mutation$UploadSingleFile<Mutation$UploadSingleFile> get copyWith => CopyWith$Mutation$UploadSingleFile(
         this,
         (i) => i,
       );
@@ -247,8 +231,7 @@ abstract class CopyWith$Mutation$UploadSingleFile<TRes> {
     TRes Function(Mutation$UploadSingleFile) then,
   ) = _CopyWithImpl$Mutation$UploadSingleFile;
 
-  factory CopyWith$Mutation$UploadSingleFile.stub(TRes res) =
-      _CopyWithStubImpl$Mutation$UploadSingleFile;
+  factory CopyWith$Mutation$UploadSingleFile.stub(TRes res) = _CopyWithStubImpl$Mutation$UploadSingleFile;
 
   TRes call({
     String? uploadSingleFile,
@@ -256,8 +239,7 @@ abstract class CopyWith$Mutation$UploadSingleFile<TRes> {
   });
 }
 
-class _CopyWithImpl$Mutation$UploadSingleFile<TRes>
-    implements CopyWith$Mutation$UploadSingleFile<TRes> {
+class _CopyWithImpl$Mutation$UploadSingleFile<TRes> implements CopyWith$Mutation$UploadSingleFile<TRes> {
   _CopyWithImpl$Mutation$UploadSingleFile(
     this._instance,
     this._then,
@@ -274,17 +256,12 @@ class _CopyWithImpl$Mutation$UploadSingleFile<TRes>
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$UploadSingleFile(
-        uploadSingleFile: uploadSingleFile == _undefined
-            ? _instance.uploadSingleFile
-            : (uploadSingleFile as String?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
+        uploadSingleFile: uploadSingleFile == _undefined ? _instance.uploadSingleFile : (uploadSingleFile as String?),
+        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImpl$Mutation$UploadSingleFile<TRes>
-    implements CopyWith$Mutation$UploadSingleFile<TRes> {
+class _CopyWithStubImpl$Mutation$UploadSingleFile<TRes> implements CopyWith$Mutation$UploadSingleFile<TRes> {
   _CopyWithStubImpl$Mutation$UploadSingleFile(this._res);
 
   TRes _res;
@@ -361,16 +338,13 @@ const documentNodeMutationUploadSingleFile = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Mutation$UploadSingleFile _parserFn$Mutation$UploadSingleFile(
-        Map<String, dynamic> data) =>
-    Mutation$UploadSingleFile.fromJson(data);
+Mutation$UploadSingleFile _parserFn$Mutation$UploadSingleFile(Map<String, dynamic> data) => Mutation$UploadSingleFile.fromJson(data);
 typedef OnMutationCompleted$Mutation$UploadSingleFile = FutureOr<void> Function(
   Map<String, dynamic>?,
   Mutation$UploadSingleFile?,
 );
 
-class Options$Mutation$UploadSingleFile
-    extends graphql.MutationOptions<Mutation$UploadSingleFile> {
+class Options$Mutation$UploadSingleFile extends graphql.MutationOptions<Mutation$UploadSingleFile> {
   Options$Mutation$UploadSingleFile({
     String? operationName,
     required Variables$Mutation$UploadSingleFile variables,
@@ -396,9 +370,7 @@ class Options$Mutation$UploadSingleFile
               ? null
               : (data) => onCompleted(
                     data,
-                    data == null
-                        ? null
-                        : _parserFn$Mutation$UploadSingleFile(data),
+                    data == null ? null : _parserFn$Mutation$UploadSingleFile(data),
                   ),
           update: update,
           onError: onError,
@@ -410,15 +382,12 @@ class Options$Mutation$UploadSingleFile
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null
-            ? super.properties
-            : super.properties.where((property) => property != onCompleted),
+        ...super.onCompleted == null ? super.properties : super.properties.where((property) => property != onCompleted),
         onCompletedWithParsed,
       ];
 }
 
-class WatchOptions$Mutation$UploadSingleFile
-    extends graphql.WatchQueryOptions<Mutation$UploadSingleFile> {
+class WatchOptions$Mutation$UploadSingleFile extends graphql.WatchQueryOptions<Mutation$UploadSingleFile> {
   WatchOptions$Mutation$UploadSingleFile({
     String? operationName,
     required Variables$Mutation$UploadSingleFile variables,
@@ -450,14 +419,10 @@ class WatchOptions$Mutation$UploadSingleFile
 }
 
 extension ClientExtension$Mutation$UploadSingleFile on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Mutation$UploadSingleFile>>
-      mutate$UploadSingleFile(
-              Options$Mutation$UploadSingleFile options) async =>
-          await this.mutate(options);
-  graphql.ObservableQuery<Mutation$UploadSingleFile>
-      watchMutation$UploadSingleFile(
-              WatchOptions$Mutation$UploadSingleFile options) =>
-          this.watchMutation(options);
+  Future<graphql.QueryResult<Mutation$UploadSingleFile>> mutate$UploadSingleFile(Options$Mutation$UploadSingleFile options) async =>
+      await this.mutate(options);
+  graphql.ObservableQuery<Mutation$UploadSingleFile> watchMutation$UploadSingleFile(WatchOptions$Mutation$UploadSingleFile options) =>
+      this.watchMutation(options);
 }
 
 class Mutation$UploadSingleFile$HookResult {
@@ -471,13 +436,10 @@ class Mutation$UploadSingleFile$HookResult {
   final graphql.QueryResult<Mutation$UploadSingleFile> result;
 }
 
-Mutation$UploadSingleFile$HookResult useMutation$UploadSingleFile(
-    [WidgetOptions$Mutation$UploadSingleFile? options]) {
-  final result = graphql_flutter
-      .useMutation(options ?? WidgetOptions$Mutation$UploadSingleFile());
+Mutation$UploadSingleFile$HookResult useMutation$UploadSingleFile([WidgetOptions$Mutation$UploadSingleFile? options]) {
+  final result = graphql_flutter.useMutation(options ?? WidgetOptions$Mutation$UploadSingleFile());
   return Mutation$UploadSingleFile$HookResult(
-    (variables, {optimisticResult, typedOptimisticResult}) =>
-        result.runMutation(
+    (variables, {optimisticResult, typedOptimisticResult}) => result.runMutation(
       variables.toJson(),
       optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
     ),
@@ -485,13 +447,10 @@ Mutation$UploadSingleFile$HookResult useMutation$UploadSingleFile(
   );
 }
 
-graphql.ObservableQuery<Mutation$UploadSingleFile>
-    useWatchMutation$UploadSingleFile(
-            WatchOptions$Mutation$UploadSingleFile options) =>
-        graphql_flutter.useWatchMutation(options);
+graphql.ObservableQuery<Mutation$UploadSingleFile> useWatchMutation$UploadSingleFile(WatchOptions$Mutation$UploadSingleFile options) =>
+    graphql_flutter.useWatchMutation(options);
 
-class WidgetOptions$Mutation$UploadSingleFile
-    extends graphql.MutationOptions<Mutation$UploadSingleFile> {
+class WidgetOptions$Mutation$UploadSingleFile extends graphql.MutationOptions<Mutation$UploadSingleFile> {
   WidgetOptions$Mutation$UploadSingleFile({
     String? operationName,
     graphql.FetchPolicy? fetchPolicy,
@@ -515,9 +474,7 @@ class WidgetOptions$Mutation$UploadSingleFile
               ? null
               : (data) => onCompleted(
                     data,
-                    data == null
-                        ? null
-                        : _parserFn$Mutation$UploadSingleFile(data),
+                    data == null ? null : _parserFn$Mutation$UploadSingleFile(data),
                   ),
           update: update,
           onError: onError,
@@ -529,15 +486,12 @@ class WidgetOptions$Mutation$UploadSingleFile
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null
-            ? super.properties
-            : super.properties.where((property) => property != onCompleted),
+        ...super.onCompleted == null ? super.properties : super.properties.where((property) => property != onCompleted),
         onCompletedWithParsed,
       ];
 }
 
-typedef RunMutation$Mutation$UploadSingleFile
-    = graphql.MultiSourceResult<Mutation$UploadSingleFile> Function(
+typedef RunMutation$Mutation$UploadSingleFile = graphql.MultiSourceResult<Mutation$UploadSingleFile> Function(
   Variables$Mutation$UploadSingleFile, {
   Object? optimisticResult,
   Mutation$UploadSingleFile? typedOptimisticResult,
@@ -547,8 +501,7 @@ typedef Builder$Mutation$UploadSingleFile = widgets.Widget Function(
   graphql.QueryResult<Mutation$UploadSingleFile>?,
 );
 
-class Mutation$UploadSingleFile$Widget
-    extends graphql_flutter.Mutation<Mutation$UploadSingleFile> {
+class Mutation$UploadSingleFile$Widget extends graphql_flutter.Mutation<Mutation$UploadSingleFile> {
   Mutation$UploadSingleFile$Widget({
     widgets.Key? key,
     WidgetOptions$Mutation$UploadSingleFile? options,
@@ -568,8 +521,7 @@ class Mutation$UploadSingleFile$Widget
             }) =>
                 run(
               variables.toJson(),
-              optimisticResult:
-                  optimisticResult ?? typedOptimisticResult?.toJson(),
+              optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
             ),
             result,
           ),

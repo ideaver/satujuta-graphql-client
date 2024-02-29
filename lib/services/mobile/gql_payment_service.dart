@@ -1,7 +1,7 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:satujuta_gql_client/operations/mobile/generated/get_all_bank_info.graphql.dart';
 
 import '../../operations/mobile/generated/create_bill.graphql.dart';
+import '../../operations/mobile/generated/get_all_bank_info.graphql.dart';
 import '../../operations/mobile/generated/get_bill.graphql.dart';
 import '../graphql_service.dart';
 
@@ -13,8 +13,8 @@ class GqlPaymentService {
     required String senderEmail,
     required String senderPhoneNumber,
     required String senderAddress,
-    required String senderBank,
-    required String senderBankType,
+    String? senderBank,
+    String? senderBankType,
   }) async {
     return await GraphQLService.client.mutate(
       MutationOptions(
@@ -29,7 +29,7 @@ class GqlPaymentService {
             "redirect_url": null,
             "is_address_required": null,
             "is_phone_number_required": null,
-            "step": 3,
+            "step": 2,
             "sender_name": senderName,
             "sender_email": senderEmail,
             "sender_phone_number": senderPhoneNumber,

@@ -1,8 +1,8 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:satujuta_gql_client/operations/web/generated/file_create_one.graphql.dart';
-import 'package:satujuta_gql_client/operations/web/generated/file_delete_many.graphql.dart';
-import 'package:satujuta_gql_client/operations/web/generated/file_find_many.graphql.dart';
 
+import '../../operations/web/generated/file_create_one.graphql.dart';
+import '../../operations/web/generated/file_delete_many.graphql.dart';
+import '../../operations/web/generated/file_find_many.graphql.dart';
 import '../graphql_service.dart';
 
 class GqlFileService {

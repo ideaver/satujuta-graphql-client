@@ -1,19 +1,18 @@
 import 'dart:async';
+
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
 class Variables$Mutation$AuthPasswordReset {
-  factory Variables$Mutation$AuthPasswordReset({required String email}) =>
-      Variables$Mutation$AuthPasswordReset._({
+  factory Variables$Mutation$AuthPasswordReset({required String email}) => Variables$Mutation$AuthPasswordReset._({
         r'email': email,
       });
 
   Variables$Mutation$AuthPasswordReset._(this._$data);
 
-  factory Variables$Mutation$AuthPasswordReset.fromJson(
-      Map<String, dynamic> data) {
+  factory Variables$Mutation$AuthPasswordReset.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$email = data['email'];
     result$data['email'] = (l$email as String);
@@ -30,19 +29,16 @@ class Variables$Mutation$AuthPasswordReset {
     return result$data;
   }
 
-  CopyWith$Variables$Mutation$AuthPasswordReset<
-          Variables$Mutation$AuthPasswordReset>
-      get copyWith => CopyWith$Variables$Mutation$AuthPasswordReset(
-            this,
-            (i) => i,
-          );
+  CopyWith$Variables$Mutation$AuthPasswordReset<Variables$Mutation$AuthPasswordReset> get copyWith => CopyWith$Variables$Mutation$AuthPasswordReset(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Mutation$AuthPasswordReset) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Variables$Mutation$AuthPasswordReset) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$email = email;
@@ -66,14 +62,12 @@ abstract class CopyWith$Variables$Mutation$AuthPasswordReset<TRes> {
     TRes Function(Variables$Mutation$AuthPasswordReset) then,
   ) = _CopyWithImpl$Variables$Mutation$AuthPasswordReset;
 
-  factory CopyWith$Variables$Mutation$AuthPasswordReset.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Mutation$AuthPasswordReset;
+  factory CopyWith$Variables$Mutation$AuthPasswordReset.stub(TRes res) = _CopyWithStubImpl$Variables$Mutation$AuthPasswordReset;
 
   TRes call({String? email});
 }
 
-class _CopyWithImpl$Variables$Mutation$AuthPasswordReset<TRes>
-    implements CopyWith$Variables$Mutation$AuthPasswordReset<TRes> {
+class _CopyWithImpl$Variables$Mutation$AuthPasswordReset<TRes> implements CopyWith$Variables$Mutation$AuthPasswordReset<TRes> {
   _CopyWithImpl$Variables$Mutation$AuthPasswordReset(
     this._instance,
     this._then,
@@ -85,15 +79,13 @@ class _CopyWithImpl$Variables$Mutation$AuthPasswordReset<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? email = _undefined}) =>
-      _then(Variables$Mutation$AuthPasswordReset._({
+  TRes call({Object? email = _undefined}) => _then(Variables$Mutation$AuthPasswordReset._({
         ..._instance._$data,
         if (email != _undefined && email != null) 'email': (email as String),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Mutation$AuthPasswordReset<TRes>
-    implements CopyWith$Variables$Mutation$AuthPasswordReset<TRes> {
+class _CopyWithStubImpl$Variables$Mutation$AuthPasswordReset<TRes> implements CopyWith$Variables$Mutation$AuthPasswordReset<TRes> {
   _CopyWithStubImpl$Variables$Mutation$AuthPasswordReset(this._res);
 
   TRes _res;
@@ -144,8 +136,7 @@ class Mutation$AuthPasswordReset {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$AuthPasswordReset) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Mutation$AuthPasswordReset) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$authPasswordReset = authPasswordReset;
@@ -162,13 +153,11 @@ class Mutation$AuthPasswordReset {
   }
 }
 
-extension UtilityExtension$Mutation$AuthPasswordReset
-    on Mutation$AuthPasswordReset {
-  CopyWith$Mutation$AuthPasswordReset<Mutation$AuthPasswordReset>
-      get copyWith => CopyWith$Mutation$AuthPasswordReset(
-            this,
-            (i) => i,
-          );
+extension UtilityExtension$Mutation$AuthPasswordReset on Mutation$AuthPasswordReset {
+  CopyWith$Mutation$AuthPasswordReset<Mutation$AuthPasswordReset> get copyWith => CopyWith$Mutation$AuthPasswordReset(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Mutation$AuthPasswordReset<TRes> {
@@ -177,8 +166,7 @@ abstract class CopyWith$Mutation$AuthPasswordReset<TRes> {
     TRes Function(Mutation$AuthPasswordReset) then,
   ) = _CopyWithImpl$Mutation$AuthPasswordReset;
 
-  factory CopyWith$Mutation$AuthPasswordReset.stub(TRes res) =
-      _CopyWithStubImpl$Mutation$AuthPasswordReset;
+  factory CopyWith$Mutation$AuthPasswordReset.stub(TRes res) = _CopyWithStubImpl$Mutation$AuthPasswordReset;
 
   TRes call({
     String? authPasswordReset,
@@ -186,8 +174,7 @@ abstract class CopyWith$Mutation$AuthPasswordReset<TRes> {
   });
 }
 
-class _CopyWithImpl$Mutation$AuthPasswordReset<TRes>
-    implements CopyWith$Mutation$AuthPasswordReset<TRes> {
+class _CopyWithImpl$Mutation$AuthPasswordReset<TRes> implements CopyWith$Mutation$AuthPasswordReset<TRes> {
   _CopyWithImpl$Mutation$AuthPasswordReset(
     this._instance,
     this._then,
@@ -204,18 +191,12 @@ class _CopyWithImpl$Mutation$AuthPasswordReset<TRes>
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$AuthPasswordReset(
-        authPasswordReset:
-            authPasswordReset == _undefined || authPasswordReset == null
-                ? _instance.authPasswordReset
-                : (authPasswordReset as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
+        authPasswordReset: authPasswordReset == _undefined || authPasswordReset == null ? _instance.authPasswordReset : (authPasswordReset as String),
+        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImpl$Mutation$AuthPasswordReset<TRes>
-    implements CopyWith$Mutation$AuthPasswordReset<TRes> {
+class _CopyWithStubImpl$Mutation$AuthPasswordReset<TRes> implements CopyWith$Mutation$AuthPasswordReset<TRes> {
   _CopyWithStubImpl$Mutation$AuthPasswordReset(this._res);
 
   TRes _res;
@@ -266,17 +247,13 @@ const documentNodeMutationAuthPasswordReset = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Mutation$AuthPasswordReset _parserFn$Mutation$AuthPasswordReset(
-        Map<String, dynamic> data) =>
-    Mutation$AuthPasswordReset.fromJson(data);
-typedef OnMutationCompleted$Mutation$AuthPasswordReset = FutureOr<void>
-    Function(
+Mutation$AuthPasswordReset _parserFn$Mutation$AuthPasswordReset(Map<String, dynamic> data) => Mutation$AuthPasswordReset.fromJson(data);
+typedef OnMutationCompleted$Mutation$AuthPasswordReset = FutureOr<void> Function(
   Map<String, dynamic>?,
   Mutation$AuthPasswordReset?,
 );
 
-class Options$Mutation$AuthPasswordReset
-    extends graphql.MutationOptions<Mutation$AuthPasswordReset> {
+class Options$Mutation$AuthPasswordReset extends graphql.MutationOptions<Mutation$AuthPasswordReset> {
   Options$Mutation$AuthPasswordReset({
     String? operationName,
     required Variables$Mutation$AuthPasswordReset variables,
@@ -302,9 +279,7 @@ class Options$Mutation$AuthPasswordReset
               ? null
               : (data) => onCompleted(
                     data,
-                    data == null
-                        ? null
-                        : _parserFn$Mutation$AuthPasswordReset(data),
+                    data == null ? null : _parserFn$Mutation$AuthPasswordReset(data),
                   ),
           update: update,
           onError: onError,
@@ -316,15 +291,12 @@ class Options$Mutation$AuthPasswordReset
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null
-            ? super.properties
-            : super.properties.where((property) => property != onCompleted),
+        ...super.onCompleted == null ? super.properties : super.properties.where((property) => property != onCompleted),
         onCompletedWithParsed,
       ];
 }
 
-class WatchOptions$Mutation$AuthPasswordReset
-    extends graphql.WatchQueryOptions<Mutation$AuthPasswordReset> {
+class WatchOptions$Mutation$AuthPasswordReset extends graphql.WatchQueryOptions<Mutation$AuthPasswordReset> {
   WatchOptions$Mutation$AuthPasswordReset({
     String? operationName,
     required Variables$Mutation$AuthPasswordReset variables,
@@ -356,14 +328,10 @@ class WatchOptions$Mutation$AuthPasswordReset
 }
 
 extension ClientExtension$Mutation$AuthPasswordReset on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Mutation$AuthPasswordReset>>
-      mutate$AuthPasswordReset(
-              Options$Mutation$AuthPasswordReset options) async =>
-          await this.mutate(options);
-  graphql.ObservableQuery<Mutation$AuthPasswordReset>
-      watchMutation$AuthPasswordReset(
-              WatchOptions$Mutation$AuthPasswordReset options) =>
-          this.watchMutation(options);
+  Future<graphql.QueryResult<Mutation$AuthPasswordReset>> mutate$AuthPasswordReset(Options$Mutation$AuthPasswordReset options) async =>
+      await this.mutate(options);
+  graphql.ObservableQuery<Mutation$AuthPasswordReset> watchMutation$AuthPasswordReset(WatchOptions$Mutation$AuthPasswordReset options) =>
+      this.watchMutation(options);
 }
 
 class Mutation$AuthPasswordReset$HookResult {
@@ -377,13 +345,10 @@ class Mutation$AuthPasswordReset$HookResult {
   final graphql.QueryResult<Mutation$AuthPasswordReset> result;
 }
 
-Mutation$AuthPasswordReset$HookResult useMutation$AuthPasswordReset(
-    [WidgetOptions$Mutation$AuthPasswordReset? options]) {
-  final result = graphql_flutter
-      .useMutation(options ?? WidgetOptions$Mutation$AuthPasswordReset());
+Mutation$AuthPasswordReset$HookResult useMutation$AuthPasswordReset([WidgetOptions$Mutation$AuthPasswordReset? options]) {
+  final result = graphql_flutter.useMutation(options ?? WidgetOptions$Mutation$AuthPasswordReset());
   return Mutation$AuthPasswordReset$HookResult(
-    (variables, {optimisticResult, typedOptimisticResult}) =>
-        result.runMutation(
+    (variables, {optimisticResult, typedOptimisticResult}) => result.runMutation(
       variables.toJson(),
       optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
     ),
@@ -391,13 +356,10 @@ Mutation$AuthPasswordReset$HookResult useMutation$AuthPasswordReset(
   );
 }
 
-graphql.ObservableQuery<Mutation$AuthPasswordReset>
-    useWatchMutation$AuthPasswordReset(
-            WatchOptions$Mutation$AuthPasswordReset options) =>
-        graphql_flutter.useWatchMutation(options);
+graphql.ObservableQuery<Mutation$AuthPasswordReset> useWatchMutation$AuthPasswordReset(WatchOptions$Mutation$AuthPasswordReset options) =>
+    graphql_flutter.useWatchMutation(options);
 
-class WidgetOptions$Mutation$AuthPasswordReset
-    extends graphql.MutationOptions<Mutation$AuthPasswordReset> {
+class WidgetOptions$Mutation$AuthPasswordReset extends graphql.MutationOptions<Mutation$AuthPasswordReset> {
   WidgetOptions$Mutation$AuthPasswordReset({
     String? operationName,
     graphql.FetchPolicy? fetchPolicy,
@@ -421,9 +383,7 @@ class WidgetOptions$Mutation$AuthPasswordReset
               ? null
               : (data) => onCompleted(
                     data,
-                    data == null
-                        ? null
-                        : _parserFn$Mutation$AuthPasswordReset(data),
+                    data == null ? null : _parserFn$Mutation$AuthPasswordReset(data),
                   ),
           update: update,
           onError: onError,
@@ -435,15 +395,12 @@ class WidgetOptions$Mutation$AuthPasswordReset
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null
-            ? super.properties
-            : super.properties.where((property) => property != onCompleted),
+        ...super.onCompleted == null ? super.properties : super.properties.where((property) => property != onCompleted),
         onCompletedWithParsed,
       ];
 }
 
-typedef RunMutation$Mutation$AuthPasswordReset
-    = graphql.MultiSourceResult<Mutation$AuthPasswordReset> Function(
+typedef RunMutation$Mutation$AuthPasswordReset = graphql.MultiSourceResult<Mutation$AuthPasswordReset> Function(
   Variables$Mutation$AuthPasswordReset, {
   Object? optimisticResult,
   Mutation$AuthPasswordReset? typedOptimisticResult,
@@ -453,8 +410,7 @@ typedef Builder$Mutation$AuthPasswordReset = widgets.Widget Function(
   graphql.QueryResult<Mutation$AuthPasswordReset>?,
 );
 
-class Mutation$AuthPasswordReset$Widget
-    extends graphql_flutter.Mutation<Mutation$AuthPasswordReset> {
+class Mutation$AuthPasswordReset$Widget extends graphql_flutter.Mutation<Mutation$AuthPasswordReset> {
   Mutation$AuthPasswordReset$Widget({
     widgets.Key? key,
     WidgetOptions$Mutation$AuthPasswordReset? options,
@@ -474,8 +430,7 @@ class Mutation$AuthPasswordReset$Widget
             }) =>
                 run(
               variables.toJson(),
-              optimisticResult:
-                  optimisticResult ?? typedOptimisticResult?.toJson(),
+              optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
             ),
             result,
           ),

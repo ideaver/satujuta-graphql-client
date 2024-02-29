@@ -1,26 +1,24 @@
-import '../../../schema/generated/schema.graphql.dart';
 import 'dart:async';
+
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
+import '../../../schema/generated/schema.graphql.dart';
+
 class Variables$Query$CountUserByStatus {
-  factory Variables$Query$CountUserByStatus({Input$UserWhereInput? where}) =>
-      Variables$Query$CountUserByStatus._({
+  factory Variables$Query$CountUserByStatus({Input$UserWhereInput? where}) => Variables$Query$CountUserByStatus._({
         if (where != null) r'where': where,
       });
 
   Variables$Query$CountUserByStatus._(this._$data);
 
-  factory Variables$Query$CountUserByStatus.fromJson(
-      Map<String, dynamic> data) {
+  factory Variables$Query$CountUserByStatus.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('where')) {
       final l$where = data['where'];
-      result$data['where'] = l$where == null
-          ? null
-          : Input$UserWhereInput.fromJson((l$where as Map<String, dynamic>));
+      result$data['where'] = l$where == null ? null : Input$UserWhereInput.fromJson((l$where as Map<String, dynamic>));
     }
     return Variables$Query$CountUserByStatus._(result$data);
   }
@@ -37,18 +35,16 @@ class Variables$Query$CountUserByStatus {
     return result$data;
   }
 
-  CopyWith$Variables$Query$CountUserByStatus<Variables$Query$CountUserByStatus>
-      get copyWith => CopyWith$Variables$Query$CountUserByStatus(
-            this,
-            (i) => i,
-          );
+  CopyWith$Variables$Query$CountUserByStatus<Variables$Query$CountUserByStatus> get copyWith => CopyWith$Variables$Query$CountUserByStatus(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$CountUserByStatus) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Variables$Query$CountUserByStatus) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$where = where;
@@ -75,14 +71,12 @@ abstract class CopyWith$Variables$Query$CountUserByStatus<TRes> {
     TRes Function(Variables$Query$CountUserByStatus) then,
   ) = _CopyWithImpl$Variables$Query$CountUserByStatus;
 
-  factory CopyWith$Variables$Query$CountUserByStatus.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Query$CountUserByStatus;
+  factory CopyWith$Variables$Query$CountUserByStatus.stub(TRes res) = _CopyWithStubImpl$Variables$Query$CountUserByStatus;
 
   TRes call({Input$UserWhereInput? where});
 }
 
-class _CopyWithImpl$Variables$Query$CountUserByStatus<TRes>
-    implements CopyWith$Variables$Query$CountUserByStatus<TRes> {
+class _CopyWithImpl$Variables$Query$CountUserByStatus<TRes> implements CopyWith$Variables$Query$CountUserByStatus<TRes> {
   _CopyWithImpl$Variables$Query$CountUserByStatus(
     this._instance,
     this._then,
@@ -94,15 +88,13 @@ class _CopyWithImpl$Variables$Query$CountUserByStatus<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? where = _undefined}) =>
-      _then(Variables$Query$CountUserByStatus._({
+  TRes call({Object? where = _undefined}) => _then(Variables$Query$CountUserByStatus._({
         ..._instance._$data,
         if (where != _undefined) 'where': (where as Input$UserWhereInput?),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$CountUserByStatus<TRes>
-    implements CopyWith$Variables$Query$CountUserByStatus<TRes> {
+class _CopyWithStubImpl$Variables$Query$CountUserByStatus<TRes> implements CopyWith$Variables$Query$CountUserByStatus<TRes> {
   _CopyWithStubImpl$Variables$Query$CountUserByStatus(this._res);
 
   TRes _res;
@@ -153,8 +145,7 @@ class Query$CountUserByStatus {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$CountUserByStatus) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Query$CountUserByStatus) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$userCount = userCount;
@@ -172,8 +163,7 @@ class Query$CountUserByStatus {
 }
 
 extension UtilityExtension$Query$CountUserByStatus on Query$CountUserByStatus {
-  CopyWith$Query$CountUserByStatus<Query$CountUserByStatus> get copyWith =>
-      CopyWith$Query$CountUserByStatus(
+  CopyWith$Query$CountUserByStatus<Query$CountUserByStatus> get copyWith => CopyWith$Query$CountUserByStatus(
         this,
         (i) => i,
       );
@@ -185,8 +175,7 @@ abstract class CopyWith$Query$CountUserByStatus<TRes> {
     TRes Function(Query$CountUserByStatus) then,
   ) = _CopyWithImpl$Query$CountUserByStatus;
 
-  factory CopyWith$Query$CountUserByStatus.stub(TRes res) =
-      _CopyWithStubImpl$Query$CountUserByStatus;
+  factory CopyWith$Query$CountUserByStatus.stub(TRes res) = _CopyWithStubImpl$Query$CountUserByStatus;
 
   TRes call({
     double? userCount,
@@ -194,8 +183,7 @@ abstract class CopyWith$Query$CountUserByStatus<TRes> {
   });
 }
 
-class _CopyWithImpl$Query$CountUserByStatus<TRes>
-    implements CopyWith$Query$CountUserByStatus<TRes> {
+class _CopyWithImpl$Query$CountUserByStatus<TRes> implements CopyWith$Query$CountUserByStatus<TRes> {
   _CopyWithImpl$Query$CountUserByStatus(
     this._instance,
     this._then,
@@ -212,17 +200,12 @@ class _CopyWithImpl$Query$CountUserByStatus<TRes>
     Object? $__typename = _undefined,
   }) =>
       _then(Query$CountUserByStatus(
-        userCount: userCount == _undefined
-            ? _instance.userCount
-            : (userCount as double?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
+        userCount: userCount == _undefined ? _instance.userCount : (userCount as double?),
+        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImpl$Query$CountUserByStatus<TRes>
-    implements CopyWith$Query$CountUserByStatus<TRes> {
+class _CopyWithStubImpl$Query$CountUserByStatus<TRes> implements CopyWith$Query$CountUserByStatus<TRes> {
   _CopyWithStubImpl$Query$CountUserByStatus(this._res);
 
   TRes _res;
@@ -273,16 +256,13 @@ const documentNodeQueryCountUserByStatus = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Query$CountUserByStatus _parserFn$Query$CountUserByStatus(
-        Map<String, dynamic> data) =>
-    Query$CountUserByStatus.fromJson(data);
+Query$CountUserByStatus _parserFn$Query$CountUserByStatus(Map<String, dynamic> data) => Query$CountUserByStatus.fromJson(data);
 typedef OnQueryComplete$Query$CountUserByStatus = FutureOr<void> Function(
   Map<String, dynamic>?,
   Query$CountUserByStatus?,
 );
 
-class Options$Query$CountUserByStatus
-    extends graphql.QueryOptions<Query$CountUserByStatus> {
+class Options$Query$CountUserByStatus extends graphql.QueryOptions<Query$CountUserByStatus> {
   Options$Query$CountUserByStatus({
     String? operationName,
     Variables$Query$CountUserByStatus? variables,
@@ -309,9 +289,7 @@ class Options$Query$CountUserByStatus
               ? null
               : (data) => onComplete(
                     data,
-                    data == null
-                        ? null
-                        : _parserFn$Query$CountUserByStatus(data),
+                    data == null ? null : _parserFn$Query$CountUserByStatus(data),
                   ),
           onError: onError,
           document: documentNodeQueryCountUserByStatus,
@@ -322,15 +300,12 @@ class Options$Query$CountUserByStatus
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
-            ? super.properties
-            : super.properties.where((property) => property != onComplete),
+        ...super.onComplete == null ? super.properties : super.properties.where((property) => property != onComplete),
         onCompleteWithParsed,
       ];
 }
 
-class WatchOptions$Query$CountUserByStatus
-    extends graphql.WatchQueryOptions<Query$CountUserByStatus> {
+class WatchOptions$Query$CountUserByStatus extends graphql.WatchQueryOptions<Query$CountUserByStatus> {
   WatchOptions$Query$CountUserByStatus({
     String? operationName,
     Variables$Query$CountUserByStatus? variables,
@@ -361,8 +336,7 @@ class WatchOptions$Query$CountUserByStatus
         );
 }
 
-class FetchMoreOptions$Query$CountUserByStatus
-    extends graphql.FetchMoreOptions {
+class FetchMoreOptions$Query$CountUserByStatus extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$CountUserByStatus({
     required graphql.UpdateQuery updateQuery,
     Variables$Query$CountUserByStatus? variables,
@@ -374,11 +348,9 @@ class FetchMoreOptions$Query$CountUserByStatus
 }
 
 extension ClientExtension$Query$CountUserByStatus on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$CountUserByStatus>> query$CountUserByStatus(
-          [Options$Query$CountUserByStatus? options]) async =>
+  Future<graphql.QueryResult<Query$CountUserByStatus>> query$CountUserByStatus([Options$Query$CountUserByStatus? options]) async =>
       await this.query(options ?? Options$Query$CountUserByStatus());
-  graphql.ObservableQuery<Query$CountUserByStatus> watchQuery$CountUserByStatus(
-          [WatchOptions$Query$CountUserByStatus? options]) =>
+  graphql.ObservableQuery<Query$CountUserByStatus> watchQuery$CountUserByStatus([WatchOptions$Query$CountUserByStatus? options]) =>
       this.watchQuery(options ?? WatchOptions$Query$CountUserByStatus());
   void writeQuery$CountUserByStatus({
     required Query$CountUserByStatus data,
@@ -387,8 +359,7 @@ extension ClientExtension$Query$CountUserByStatus on graphql.GraphQLClient {
   }) =>
       this.writeQuery(
         graphql.Request(
-          operation:
-              graphql.Operation(document: documentNodeQueryCountUserByStatus),
+          operation: graphql.Operation(document: documentNodeQueryCountUserByStatus),
           variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
@@ -400,8 +371,7 @@ extension ClientExtension$Query$CountUserByStatus on graphql.GraphQLClient {
   }) {
     final result = this.readQuery(
       graphql.Request(
-        operation:
-            graphql.Operation(document: documentNodeQueryCountUserByStatus),
+        operation: graphql.Operation(document: documentNodeQueryCountUserByStatus),
         variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
@@ -410,17 +380,12 @@ extension ClientExtension$Query$CountUserByStatus on graphql.GraphQLClient {
   }
 }
 
-graphql_flutter.QueryHookResult<Query$CountUserByStatus>
-    useQuery$CountUserByStatus([Options$Query$CountUserByStatus? options]) =>
-        graphql_flutter.useQuery(options ?? Options$Query$CountUserByStatus());
-graphql.ObservableQuery<Query$CountUserByStatus>
-    useWatchQuery$CountUserByStatus(
-            [WatchOptions$Query$CountUserByStatus? options]) =>
-        graphql_flutter
-            .useWatchQuery(options ?? WatchOptions$Query$CountUserByStatus());
+graphql_flutter.QueryHookResult<Query$CountUserByStatus> useQuery$CountUserByStatus([Options$Query$CountUserByStatus? options]) =>
+    graphql_flutter.useQuery(options ?? Options$Query$CountUserByStatus());
+graphql.ObservableQuery<Query$CountUserByStatus> useWatchQuery$CountUserByStatus([WatchOptions$Query$CountUserByStatus? options]) =>
+    graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$CountUserByStatus());
 
-class Query$CountUserByStatus$Widget
-    extends graphql_flutter.Query<Query$CountUserByStatus> {
+class Query$CountUserByStatus$Widget extends graphql_flutter.Query<Query$CountUserByStatus> {
   Query$CountUserByStatus$Widget({
     widgets.Key? key,
     Options$Query$CountUserByStatus? options,

@@ -1,32 +1,29 @@
-import '../../../schema/generated/schema.graphql.dart';
 import 'dart:async';
+
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
+import '../../../schema/generated/schema.graphql.dart';
+
 class Variables$Mutation$ProjectCreateOne {
-  factory Variables$Mutation$ProjectCreateOne(
-          {required Input$ProjectCreateInput data}) =>
-      Variables$Mutation$ProjectCreateOne._({
+  factory Variables$Mutation$ProjectCreateOne({required Input$ProjectCreateInput data}) => Variables$Mutation$ProjectCreateOne._({
         r'data': data,
       });
 
   Variables$Mutation$ProjectCreateOne._(this._$data);
 
-  factory Variables$Mutation$ProjectCreateOne.fromJson(
-      Map<String, dynamic> data) {
+  factory Variables$Mutation$ProjectCreateOne.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$data = data['data'];
-    result$data['data'] =
-        Input$ProjectCreateInput.fromJson((l$data as Map<String, dynamic>));
+    result$data['data'] = Input$ProjectCreateInput.fromJson((l$data as Map<String, dynamic>));
     return Variables$Mutation$ProjectCreateOne._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$ProjectCreateInput get data =>
-      (_$data['data'] as Input$ProjectCreateInput);
+  Input$ProjectCreateInput get data => (_$data['data'] as Input$ProjectCreateInput);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$data = data;
@@ -34,19 +31,16 @@ class Variables$Mutation$ProjectCreateOne {
     return result$data;
   }
 
-  CopyWith$Variables$Mutation$ProjectCreateOne<
-          Variables$Mutation$ProjectCreateOne>
-      get copyWith => CopyWith$Variables$Mutation$ProjectCreateOne(
-            this,
-            (i) => i,
-          );
+  CopyWith$Variables$Mutation$ProjectCreateOne<Variables$Mutation$ProjectCreateOne> get copyWith => CopyWith$Variables$Mutation$ProjectCreateOne(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Mutation$ProjectCreateOne) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Variables$Mutation$ProjectCreateOne) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$data = data;
@@ -70,14 +64,12 @@ abstract class CopyWith$Variables$Mutation$ProjectCreateOne<TRes> {
     TRes Function(Variables$Mutation$ProjectCreateOne) then,
   ) = _CopyWithImpl$Variables$Mutation$ProjectCreateOne;
 
-  factory CopyWith$Variables$Mutation$ProjectCreateOne.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Mutation$ProjectCreateOne;
+  factory CopyWith$Variables$Mutation$ProjectCreateOne.stub(TRes res) = _CopyWithStubImpl$Variables$Mutation$ProjectCreateOne;
 
   TRes call({Input$ProjectCreateInput? data});
 }
 
-class _CopyWithImpl$Variables$Mutation$ProjectCreateOne<TRes>
-    implements CopyWith$Variables$Mutation$ProjectCreateOne<TRes> {
+class _CopyWithImpl$Variables$Mutation$ProjectCreateOne<TRes> implements CopyWith$Variables$Mutation$ProjectCreateOne<TRes> {
   _CopyWithImpl$Variables$Mutation$ProjectCreateOne(
     this._instance,
     this._then,
@@ -89,16 +81,13 @@ class _CopyWithImpl$Variables$Mutation$ProjectCreateOne<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? data = _undefined}) =>
-      _then(Variables$Mutation$ProjectCreateOne._({
+  TRes call({Object? data = _undefined}) => _then(Variables$Mutation$ProjectCreateOne._({
         ..._instance._$data,
-        if (data != _undefined && data != null)
-          'data': (data as Input$ProjectCreateInput),
+        if (data != _undefined && data != null) 'data': (data as Input$ProjectCreateInput),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Mutation$ProjectCreateOne<TRes>
-    implements CopyWith$Variables$Mutation$ProjectCreateOne<TRes> {
+class _CopyWithStubImpl$Variables$Mutation$ProjectCreateOne<TRes> implements CopyWith$Variables$Mutation$ProjectCreateOne<TRes> {
   _CopyWithStubImpl$Variables$Mutation$ProjectCreateOne(this._res);
 
   TRes _res;
@@ -116,10 +105,8 @@ class Mutation$ProjectCreateOne {
     final l$projectCreateOne = json['projectCreateOne'];
     final l$$__typename = json['__typename'];
     return Mutation$ProjectCreateOne(
-      projectCreateOne: l$projectCreateOne == null
-          ? null
-          : Mutation$ProjectCreateOne$projectCreateOne.fromJson(
-              (l$projectCreateOne as Map<String, dynamic>)),
+      projectCreateOne:
+          l$projectCreateOne == null ? null : Mutation$ProjectCreateOne$projectCreateOne.fromJson((l$projectCreateOne as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -152,8 +139,7 @@ class Mutation$ProjectCreateOne {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$ProjectCreateOne) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Mutation$ProjectCreateOne) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$projectCreateOne = projectCreateOne;
@@ -170,10 +156,8 @@ class Mutation$ProjectCreateOne {
   }
 }
 
-extension UtilityExtension$Mutation$ProjectCreateOne
-    on Mutation$ProjectCreateOne {
-  CopyWith$Mutation$ProjectCreateOne<Mutation$ProjectCreateOne> get copyWith =>
-      CopyWith$Mutation$ProjectCreateOne(
+extension UtilityExtension$Mutation$ProjectCreateOne on Mutation$ProjectCreateOne {
+  CopyWith$Mutation$ProjectCreateOne<Mutation$ProjectCreateOne> get copyWith => CopyWith$Mutation$ProjectCreateOne(
         this,
         (i) => i,
       );
@@ -185,19 +169,16 @@ abstract class CopyWith$Mutation$ProjectCreateOne<TRes> {
     TRes Function(Mutation$ProjectCreateOne) then,
   ) = _CopyWithImpl$Mutation$ProjectCreateOne;
 
-  factory CopyWith$Mutation$ProjectCreateOne.stub(TRes res) =
-      _CopyWithStubImpl$Mutation$ProjectCreateOne;
+  factory CopyWith$Mutation$ProjectCreateOne.stub(TRes res) = _CopyWithStubImpl$Mutation$ProjectCreateOne;
 
   TRes call({
     Mutation$ProjectCreateOne$projectCreateOne? projectCreateOne,
     String? $__typename,
   });
-  CopyWith$Mutation$ProjectCreateOne$projectCreateOne<TRes>
-      get projectCreateOne;
+  CopyWith$Mutation$ProjectCreateOne$projectCreateOne<TRes> get projectCreateOne;
 }
 
-class _CopyWithImpl$Mutation$ProjectCreateOne<TRes>
-    implements CopyWith$Mutation$ProjectCreateOne<TRes> {
+class _CopyWithImpl$Mutation$ProjectCreateOne<TRes> implements CopyWith$Mutation$ProjectCreateOne<TRes> {
   _CopyWithImpl$Mutation$ProjectCreateOne(
     this._instance,
     this._then,
@@ -214,26 +195,19 @@ class _CopyWithImpl$Mutation$ProjectCreateOne<TRes>
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$ProjectCreateOne(
-        projectCreateOne: projectCreateOne == _undefined
-            ? _instance.projectCreateOne
-            : (projectCreateOne as Mutation$ProjectCreateOne$projectCreateOne?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
+        projectCreateOne:
+            projectCreateOne == _undefined ? _instance.projectCreateOne : (projectCreateOne as Mutation$ProjectCreateOne$projectCreateOne?),
+        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
       ));
-  CopyWith$Mutation$ProjectCreateOne$projectCreateOne<TRes>
-      get projectCreateOne {
+  CopyWith$Mutation$ProjectCreateOne$projectCreateOne<TRes> get projectCreateOne {
     final local$projectCreateOne = _instance.projectCreateOne;
     return local$projectCreateOne == null
-        ? CopyWith$Mutation$ProjectCreateOne$projectCreateOne.stub(
-            _then(_instance))
-        : CopyWith$Mutation$ProjectCreateOne$projectCreateOne(
-            local$projectCreateOne, (e) => call(projectCreateOne: e));
+        ? CopyWith$Mutation$ProjectCreateOne$projectCreateOne.stub(_then(_instance))
+        : CopyWith$Mutation$ProjectCreateOne$projectCreateOne(local$projectCreateOne, (e) => call(projectCreateOne: e));
   }
 }
 
-class _CopyWithStubImpl$Mutation$ProjectCreateOne<TRes>
-    implements CopyWith$Mutation$ProjectCreateOne<TRes> {
+class _CopyWithStubImpl$Mutation$ProjectCreateOne<TRes> implements CopyWith$Mutation$ProjectCreateOne<TRes> {
   _CopyWithStubImpl$Mutation$ProjectCreateOne(this._res);
 
   TRes _res;
@@ -243,9 +217,7 @@ class _CopyWithStubImpl$Mutation$ProjectCreateOne<TRes>
     String? $__typename,
   }) =>
       _res;
-  CopyWith$Mutation$ProjectCreateOne$projectCreateOne<TRes>
-      get projectCreateOne =>
-          CopyWith$Mutation$ProjectCreateOne$projectCreateOne.stub(_res);
+  CopyWith$Mutation$ProjectCreateOne$projectCreateOne<TRes> get projectCreateOne => CopyWith$Mutation$ProjectCreateOne$projectCreateOne.stub(_res);
 }
 
 const documentNodeMutationProjectCreateOne = DocumentNode(definitions: [
@@ -387,16 +359,13 @@ const documentNodeMutationProjectCreateOne = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Mutation$ProjectCreateOne _parserFn$Mutation$ProjectCreateOne(
-        Map<String, dynamic> data) =>
-    Mutation$ProjectCreateOne.fromJson(data);
+Mutation$ProjectCreateOne _parserFn$Mutation$ProjectCreateOne(Map<String, dynamic> data) => Mutation$ProjectCreateOne.fromJson(data);
 typedef OnMutationCompleted$Mutation$ProjectCreateOne = FutureOr<void> Function(
   Map<String, dynamic>?,
   Mutation$ProjectCreateOne?,
 );
 
-class Options$Mutation$ProjectCreateOne
-    extends graphql.MutationOptions<Mutation$ProjectCreateOne> {
+class Options$Mutation$ProjectCreateOne extends graphql.MutationOptions<Mutation$ProjectCreateOne> {
   Options$Mutation$ProjectCreateOne({
     String? operationName,
     required Variables$Mutation$ProjectCreateOne variables,
@@ -422,9 +391,7 @@ class Options$Mutation$ProjectCreateOne
               ? null
               : (data) => onCompleted(
                     data,
-                    data == null
-                        ? null
-                        : _parserFn$Mutation$ProjectCreateOne(data),
+                    data == null ? null : _parserFn$Mutation$ProjectCreateOne(data),
                   ),
           update: update,
           onError: onError,
@@ -436,15 +403,12 @@ class Options$Mutation$ProjectCreateOne
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null
-            ? super.properties
-            : super.properties.where((property) => property != onCompleted),
+        ...super.onCompleted == null ? super.properties : super.properties.where((property) => property != onCompleted),
         onCompletedWithParsed,
       ];
 }
 
-class WatchOptions$Mutation$ProjectCreateOne
-    extends graphql.WatchQueryOptions<Mutation$ProjectCreateOne> {
+class WatchOptions$Mutation$ProjectCreateOne extends graphql.WatchQueryOptions<Mutation$ProjectCreateOne> {
   WatchOptions$Mutation$ProjectCreateOne({
     String? operationName,
     required Variables$Mutation$ProjectCreateOne variables,
@@ -476,14 +440,10 @@ class WatchOptions$Mutation$ProjectCreateOne
 }
 
 extension ClientExtension$Mutation$ProjectCreateOne on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Mutation$ProjectCreateOne>>
-      mutate$ProjectCreateOne(
-              Options$Mutation$ProjectCreateOne options) async =>
-          await this.mutate(options);
-  graphql.ObservableQuery<Mutation$ProjectCreateOne>
-      watchMutation$ProjectCreateOne(
-              WatchOptions$Mutation$ProjectCreateOne options) =>
-          this.watchMutation(options);
+  Future<graphql.QueryResult<Mutation$ProjectCreateOne>> mutate$ProjectCreateOne(Options$Mutation$ProjectCreateOne options) async =>
+      await this.mutate(options);
+  graphql.ObservableQuery<Mutation$ProjectCreateOne> watchMutation$ProjectCreateOne(WatchOptions$Mutation$ProjectCreateOne options) =>
+      this.watchMutation(options);
 }
 
 class Mutation$ProjectCreateOne$HookResult {
@@ -497,13 +457,10 @@ class Mutation$ProjectCreateOne$HookResult {
   final graphql.QueryResult<Mutation$ProjectCreateOne> result;
 }
 
-Mutation$ProjectCreateOne$HookResult useMutation$ProjectCreateOne(
-    [WidgetOptions$Mutation$ProjectCreateOne? options]) {
-  final result = graphql_flutter
-      .useMutation(options ?? WidgetOptions$Mutation$ProjectCreateOne());
+Mutation$ProjectCreateOne$HookResult useMutation$ProjectCreateOne([WidgetOptions$Mutation$ProjectCreateOne? options]) {
+  final result = graphql_flutter.useMutation(options ?? WidgetOptions$Mutation$ProjectCreateOne());
   return Mutation$ProjectCreateOne$HookResult(
-    (variables, {optimisticResult, typedOptimisticResult}) =>
-        result.runMutation(
+    (variables, {optimisticResult, typedOptimisticResult}) => result.runMutation(
       variables.toJson(),
       optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
     ),
@@ -511,13 +468,10 @@ Mutation$ProjectCreateOne$HookResult useMutation$ProjectCreateOne(
   );
 }
 
-graphql.ObservableQuery<Mutation$ProjectCreateOne>
-    useWatchMutation$ProjectCreateOne(
-            WatchOptions$Mutation$ProjectCreateOne options) =>
-        graphql_flutter.useWatchMutation(options);
+graphql.ObservableQuery<Mutation$ProjectCreateOne> useWatchMutation$ProjectCreateOne(WatchOptions$Mutation$ProjectCreateOne options) =>
+    graphql_flutter.useWatchMutation(options);
 
-class WidgetOptions$Mutation$ProjectCreateOne
-    extends graphql.MutationOptions<Mutation$ProjectCreateOne> {
+class WidgetOptions$Mutation$ProjectCreateOne extends graphql.MutationOptions<Mutation$ProjectCreateOne> {
   WidgetOptions$Mutation$ProjectCreateOne({
     String? operationName,
     graphql.FetchPolicy? fetchPolicy,
@@ -541,9 +495,7 @@ class WidgetOptions$Mutation$ProjectCreateOne
               ? null
               : (data) => onCompleted(
                     data,
-                    data == null
-                        ? null
-                        : _parserFn$Mutation$ProjectCreateOne(data),
+                    data == null ? null : _parserFn$Mutation$ProjectCreateOne(data),
                   ),
           update: update,
           onError: onError,
@@ -555,15 +507,12 @@ class WidgetOptions$Mutation$ProjectCreateOne
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null
-            ? super.properties
-            : super.properties.where((property) => property != onCompleted),
+        ...super.onCompleted == null ? super.properties : super.properties.where((property) => property != onCompleted),
         onCompletedWithParsed,
       ];
 }
 
-typedef RunMutation$Mutation$ProjectCreateOne
-    = graphql.MultiSourceResult<Mutation$ProjectCreateOne> Function(
+typedef RunMutation$Mutation$ProjectCreateOne = graphql.MultiSourceResult<Mutation$ProjectCreateOne> Function(
   Variables$Mutation$ProjectCreateOne, {
   Object? optimisticResult,
   Mutation$ProjectCreateOne? typedOptimisticResult,
@@ -573,8 +522,7 @@ typedef Builder$Mutation$ProjectCreateOne = widgets.Widget Function(
   graphql.QueryResult<Mutation$ProjectCreateOne>?,
 );
 
-class Mutation$ProjectCreateOne$Widget
-    extends graphql_flutter.Mutation<Mutation$ProjectCreateOne> {
+class Mutation$ProjectCreateOne$Widget extends graphql_flutter.Mutation<Mutation$ProjectCreateOne> {
   Mutation$ProjectCreateOne$Widget({
     widgets.Key? key,
     WidgetOptions$Mutation$ProjectCreateOne? options,
@@ -594,8 +542,7 @@ class Mutation$ProjectCreateOne$Widget
             }) =>
                 run(
               variables.toJson(),
-              optimisticResult:
-                  optimisticResult ?? typedOptimisticResult?.toJson(),
+              optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
             ),
             result,
           ),
@@ -618,8 +565,7 @@ class Mutation$ProjectCreateOne$projectCreateOne {
     this.$__typename = 'Project',
   });
 
-  factory Mutation$ProjectCreateOne$projectCreateOne.fromJson(
-      Map<String, dynamic> json) {
+  factory Mutation$ProjectCreateOne$projectCreateOne.fromJson(Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$description = json['description'];
@@ -642,13 +588,9 @@ class Mutation$ProjectCreateOne$projectCreateOne {
       goalAmount: (l$goalAmount as num).toDouble(),
       maxInvestor: (l$maxInvestor as int),
       minimumInvestment: (l$minimumInvestment as num).toDouble(),
-      projectCategory:
-          fromJson$Enum$ProjectCategory((l$projectCategory as String)),
-      images: (l$images as List<dynamic>?)
-          ?.map((e) =>
-              Mutation$ProjectCreateOne$projectCreateOne$images.fromJson(
-                  (e as Map<String, dynamic>)))
-          .toList(),
+      projectCategory: fromJson$Enum$ProjectCategory((l$projectCategory as String)),
+      images:
+          (l$images as List<dynamic>?)?.map((e) => Mutation$ProjectCreateOne$projectCreateOne$images.fromJson((e as Map<String, dynamic>))).toList(),
       $__typename: (l$$__typename as String),
     );
   }
@@ -698,8 +640,7 @@ class Mutation$ProjectCreateOne$projectCreateOne {
     final l$minimumInvestment = minimumInvestment;
     _resultData['minimumInvestment'] = l$minimumInvestment;
     final l$projectCategory = projectCategory;
-    _resultData['projectCategory'] =
-        toJson$Enum$ProjectCategory(l$projectCategory);
+    _resultData['projectCategory'] = toJson$Enum$ProjectCategory(l$projectCategory);
     final l$images = images;
     _resultData['images'] = l$images?.map((e) => e.toJson()).toList();
     final l$$__typename = $__typename;
@@ -742,8 +683,7 @@ class Mutation$ProjectCreateOne$projectCreateOne {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$ProjectCreateOne$projectCreateOne) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Mutation$ProjectCreateOne$projectCreateOne) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -821,14 +761,12 @@ class Mutation$ProjectCreateOne$projectCreateOne {
   }
 }
 
-extension UtilityExtension$Mutation$ProjectCreateOne$projectCreateOne
-    on Mutation$ProjectCreateOne$projectCreateOne {
-  CopyWith$Mutation$ProjectCreateOne$projectCreateOne<
-          Mutation$ProjectCreateOne$projectCreateOne>
-      get copyWith => CopyWith$Mutation$ProjectCreateOne$projectCreateOne(
-            this,
-            (i) => i,
-          );
+extension UtilityExtension$Mutation$ProjectCreateOne$projectCreateOne on Mutation$ProjectCreateOne$projectCreateOne {
+  CopyWith$Mutation$ProjectCreateOne$projectCreateOne<Mutation$ProjectCreateOne$projectCreateOne> get copyWith =>
+      CopyWith$Mutation$ProjectCreateOne$projectCreateOne(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Mutation$ProjectCreateOne$projectCreateOne<TRes> {
@@ -837,8 +775,7 @@ abstract class CopyWith$Mutation$ProjectCreateOne$projectCreateOne<TRes> {
     TRes Function(Mutation$ProjectCreateOne$projectCreateOne) then,
   ) = _CopyWithImpl$Mutation$ProjectCreateOne$projectCreateOne;
 
-  factory CopyWith$Mutation$ProjectCreateOne$projectCreateOne.stub(TRes res) =
-      _CopyWithStubImpl$Mutation$ProjectCreateOne$projectCreateOne;
+  factory CopyWith$Mutation$ProjectCreateOne$projectCreateOne.stub(TRes res) = _CopyWithStubImpl$Mutation$ProjectCreateOne$projectCreateOne;
 
   TRes call({
     int? id,
@@ -856,14 +793,11 @@ abstract class CopyWith$Mutation$ProjectCreateOne$projectCreateOne<TRes> {
   });
   TRes images(
       Iterable<Mutation$ProjectCreateOne$projectCreateOne$images>? Function(
-              Iterable<
-                  CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images<
-                      Mutation$ProjectCreateOne$projectCreateOne$images>>?)
+              Iterable<CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images<Mutation$ProjectCreateOne$projectCreateOne$images>>?)
           _fn);
 }
 
-class _CopyWithImpl$Mutation$ProjectCreateOne$projectCreateOne<TRes>
-    implements CopyWith$Mutation$ProjectCreateOne$projectCreateOne<TRes> {
+class _CopyWithImpl$Mutation$ProjectCreateOne$projectCreateOne<TRes> implements CopyWith$Mutation$ProjectCreateOne$projectCreateOne<TRes> {
   _CopyWithImpl$Mutation$ProjectCreateOne$projectCreateOne(
     this._instance,
     this._then,
@@ -891,59 +825,31 @@ class _CopyWithImpl$Mutation$ProjectCreateOne$projectCreateOne<TRes>
   }) =>
       _then(Mutation$ProjectCreateOne$projectCreateOne(
         id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null
-            ? _instance.name
-            : (name as String),
-        description: description == _undefined || description == null
-            ? _instance.description
-            : (description as String),
-        startDate: startDate == _undefined || startDate == null
-            ? _instance.startDate
-            : (startDate as String),
-        endDate: endDate == _undefined || endDate == null
-            ? _instance.endDate
-            : (endDate as String),
-        returnRate: returnRate == _undefined || returnRate == null
-            ? _instance.returnRate
-            : (returnRate as double),
-        goalAmount: goalAmount == _undefined || goalAmount == null
-            ? _instance.goalAmount
-            : (goalAmount as double),
-        maxInvestor: maxInvestor == _undefined || maxInvestor == null
-            ? _instance.maxInvestor
-            : (maxInvestor as int),
-        minimumInvestment:
-            minimumInvestment == _undefined || minimumInvestment == null
-                ? _instance.minimumInvestment
-                : (minimumInvestment as double),
+        name: name == _undefined || name == null ? _instance.name : (name as String),
+        description: description == _undefined || description == null ? _instance.description : (description as String),
+        startDate: startDate == _undefined || startDate == null ? _instance.startDate : (startDate as String),
+        endDate: endDate == _undefined || endDate == null ? _instance.endDate : (endDate as String),
+        returnRate: returnRate == _undefined || returnRate == null ? _instance.returnRate : (returnRate as double),
+        goalAmount: goalAmount == _undefined || goalAmount == null ? _instance.goalAmount : (goalAmount as double),
+        maxInvestor: maxInvestor == _undefined || maxInvestor == null ? _instance.maxInvestor : (maxInvestor as int),
+        minimumInvestment: minimumInvestment == _undefined || minimumInvestment == null ? _instance.minimumInvestment : (minimumInvestment as double),
         projectCategory:
-            projectCategory == _undefined || projectCategory == null
-                ? _instance.projectCategory
-                : (projectCategory as Enum$ProjectCategory),
-        images: images == _undefined
-            ? _instance.images
-            : (images
-                as List<Mutation$ProjectCreateOne$projectCreateOne$images>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
+            projectCategory == _undefined || projectCategory == null ? _instance.projectCategory : (projectCategory as Enum$ProjectCategory),
+        images: images == _undefined ? _instance.images : (images as List<Mutation$ProjectCreateOne$projectCreateOne$images>?),
+        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
       ));
   TRes images(
           Iterable<Mutation$ProjectCreateOne$projectCreateOne$images>? Function(
-                  Iterable<
-                      CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images<
-                          Mutation$ProjectCreateOne$projectCreateOne$images>>?)
+                  Iterable<CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images<Mutation$ProjectCreateOne$projectCreateOne$images>>?)
               _fn) =>
       call(
-          images: _fn(_instance.images?.map(
-              (e) => CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images(
-                    e,
-                    (i) => i,
-                  )))?.toList());
+          images: _fn(_instance.images?.map((e) => CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images(
+                e,
+                (i) => i,
+              )))?.toList());
 }
 
-class _CopyWithStubImpl$Mutation$ProjectCreateOne$projectCreateOne<TRes>
-    implements CopyWith$Mutation$ProjectCreateOne$projectCreateOne<TRes> {
+class _CopyWithStubImpl$Mutation$ProjectCreateOne$projectCreateOne<TRes> implements CopyWith$Mutation$ProjectCreateOne$projectCreateOne<TRes> {
   _CopyWithStubImpl$Mutation$ProjectCreateOne$projectCreateOne(this._res);
 
   TRes _res;
@@ -972,8 +878,7 @@ class Mutation$ProjectCreateOne$projectCreateOne$images {
     this.$__typename = 'Images',
   });
 
-  factory Mutation$ProjectCreateOne$projectCreateOne$images.fromJson(
-      Map<String, dynamic> json) {
+  factory Mutation$ProjectCreateOne$projectCreateOne$images.fromJson(Map<String, dynamic> json) {
     final l$url = json['url'];
     final l$$__typename = json['__typename'];
     return Mutation$ProjectCreateOne$projectCreateOne$images(
@@ -1010,8 +915,7 @@ class Mutation$ProjectCreateOne$projectCreateOne$images {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$ProjectCreateOne$projectCreateOne$images) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Mutation$ProjectCreateOne$projectCreateOne$images) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$url = url;
@@ -1028,26 +932,21 @@ class Mutation$ProjectCreateOne$projectCreateOne$images {
   }
 }
 
-extension UtilityExtension$Mutation$ProjectCreateOne$projectCreateOne$images
-    on Mutation$ProjectCreateOne$projectCreateOne$images {
-  CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images<
-          Mutation$ProjectCreateOne$projectCreateOne$images>
-      get copyWith =>
-          CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images(
-            this,
-            (i) => i,
-          );
+extension UtilityExtension$Mutation$ProjectCreateOne$projectCreateOne$images on Mutation$ProjectCreateOne$projectCreateOne$images {
+  CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images<Mutation$ProjectCreateOne$projectCreateOne$images> get copyWith =>
+      CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images(
+        this,
+        (i) => i,
+      );
 }
 
-abstract class CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images<
-    TRes> {
+abstract class CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images<TRes> {
   factory CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images(
     Mutation$ProjectCreateOne$projectCreateOne$images instance,
     TRes Function(Mutation$ProjectCreateOne$projectCreateOne$images) then,
   ) = _CopyWithImpl$Mutation$ProjectCreateOne$projectCreateOne$images;
 
-  factory CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images.stub(
-          TRes res) =
+  factory CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images.stub(TRes res) =
       _CopyWithStubImpl$Mutation$ProjectCreateOne$projectCreateOne$images;
 
   TRes call({
@@ -1057,8 +956,7 @@ abstract class CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images<
 }
 
 class _CopyWithImpl$Mutation$ProjectCreateOne$projectCreateOne$images<TRes>
-    implements
-        CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images<TRes> {
+    implements CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images<TRes> {
   _CopyWithImpl$Mutation$ProjectCreateOne$projectCreateOne$images(
     this._instance,
     this._then,
@@ -1076,17 +974,13 @@ class _CopyWithImpl$Mutation$ProjectCreateOne$projectCreateOne$images<TRes>
   }) =>
       _then(Mutation$ProjectCreateOne$projectCreateOne$images(
         url: url == _undefined || url == null ? _instance.url : (url as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
+        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
       ));
 }
 
 class _CopyWithStubImpl$Mutation$ProjectCreateOne$projectCreateOne$images<TRes>
-    implements
-        CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images<TRes> {
-  _CopyWithStubImpl$Mutation$ProjectCreateOne$projectCreateOne$images(
-      this._res);
+    implements CopyWith$Mutation$ProjectCreateOne$projectCreateOne$images<TRes> {
+  _CopyWithStubImpl$Mutation$ProjectCreateOne$projectCreateOne$images(this._res);
 
   TRes _res;
 

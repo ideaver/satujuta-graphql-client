@@ -1,9 +1,9 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:satujuta_gql_client/operations/mobile/generated/program_find_many_by_category_id.graphql.dart';
 
 import '../../operations/mobile/generated/program_category_find_many.graphql.dart';
 import '../../operations/mobile/generated/program_delete.graphql.dart';
 import '../../operations/mobile/generated/program_find_many.graphql.dart';
+import '../../operations/mobile/generated/program_find_many_by_category_id.graphql.dart';
 import '../graphql_service.dart';
 
 class GqlProgramService {

@@ -1,65 +1,55 @@
-import '../../../schema/generated/schema.graphql.dart';
 import 'dart:async';
+
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
+import '../../../schema/generated/schema.graphql.dart';
+
 class Variables$Query$GetUserOfStudentGrowthByCustomPeriod {
-  factory Variables$Query$GetUserOfStudentGrowthByCustomPeriod(
-          {required Input$UserCreatedByCustomPeriodArgs
-              userCreatedByCustomPeriodArgs}) =>
+  factory Variables$Query$GetUserOfStudentGrowthByCustomPeriod({required Input$UserCreatedByCustomPeriodArgs userCreatedByCustomPeriodArgs}) =>
       Variables$Query$GetUserOfStudentGrowthByCustomPeriod._({
         r'userCreatedByCustomPeriodArgs': userCreatedByCustomPeriodArgs,
       });
 
   Variables$Query$GetUserOfStudentGrowthByCustomPeriod._(this._$data);
 
-  factory Variables$Query$GetUserOfStudentGrowthByCustomPeriod.fromJson(
-      Map<String, dynamic> data) {
+  factory Variables$Query$GetUserOfStudentGrowthByCustomPeriod.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
-    final l$userCreatedByCustomPeriodArgs =
-        data['userCreatedByCustomPeriodArgs'];
+    final l$userCreatedByCustomPeriodArgs = data['userCreatedByCustomPeriodArgs'];
     result$data['userCreatedByCustomPeriodArgs'] =
-        Input$UserCreatedByCustomPeriodArgs.fromJson(
-            (l$userCreatedByCustomPeriodArgs as Map<String, dynamic>));
+        Input$UserCreatedByCustomPeriodArgs.fromJson((l$userCreatedByCustomPeriodArgs as Map<String, dynamic>));
     return Variables$Query$GetUserOfStudentGrowthByCustomPeriod._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
   Input$UserCreatedByCustomPeriodArgs get userCreatedByCustomPeriodArgs =>
-      (_$data['userCreatedByCustomPeriodArgs']
-          as Input$UserCreatedByCustomPeriodArgs);
+      (_$data['userCreatedByCustomPeriodArgs'] as Input$UserCreatedByCustomPeriodArgs);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$userCreatedByCustomPeriodArgs = userCreatedByCustomPeriodArgs;
-    result$data['userCreatedByCustomPeriodArgs'] =
-        l$userCreatedByCustomPeriodArgs.toJson();
+    result$data['userCreatedByCustomPeriodArgs'] = l$userCreatedByCustomPeriodArgs.toJson();
     return result$data;
   }
 
-  CopyWith$Variables$Query$GetUserOfStudentGrowthByCustomPeriod<
-          Variables$Query$GetUserOfStudentGrowthByCustomPeriod>
-      get copyWith =>
-          CopyWith$Variables$Query$GetUserOfStudentGrowthByCustomPeriod(
-            this,
-            (i) => i,
-          );
+  CopyWith$Variables$Query$GetUserOfStudentGrowthByCustomPeriod<Variables$Query$GetUserOfStudentGrowthByCustomPeriod> get copyWith =>
+      CopyWith$Variables$Query$GetUserOfStudentGrowthByCustomPeriod(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$GetUserOfStudentGrowthByCustomPeriod) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Variables$Query$GetUserOfStudentGrowthByCustomPeriod || runtimeType != other.runtimeType) {
       return false;
     }
     final l$userCreatedByCustomPeriodArgs = userCreatedByCustomPeriodArgs;
-    final lOther$userCreatedByCustomPeriodArgs =
-        other.userCreatedByCustomPeriodArgs;
-    if (l$userCreatedByCustomPeriodArgs !=
-        lOther$userCreatedByCustomPeriodArgs) {
+    final lOther$userCreatedByCustomPeriodArgs = other.userCreatedByCustomPeriodArgs;
+    if (l$userCreatedByCustomPeriodArgs != lOther$userCreatedByCustomPeriodArgs) {
       return false;
     }
     return true;
@@ -72,24 +62,20 @@ class Variables$Query$GetUserOfStudentGrowthByCustomPeriod {
   }
 }
 
-abstract class CopyWith$Variables$Query$GetUserOfStudentGrowthByCustomPeriod<
-    TRes> {
+abstract class CopyWith$Variables$Query$GetUserOfStudentGrowthByCustomPeriod<TRes> {
   factory CopyWith$Variables$Query$GetUserOfStudentGrowthByCustomPeriod(
     Variables$Query$GetUserOfStudentGrowthByCustomPeriod instance,
     TRes Function(Variables$Query$GetUserOfStudentGrowthByCustomPeriod) then,
   ) = _CopyWithImpl$Variables$Query$GetUserOfStudentGrowthByCustomPeriod;
 
-  factory CopyWith$Variables$Query$GetUserOfStudentGrowthByCustomPeriod.stub(
-          TRes res) =
+  factory CopyWith$Variables$Query$GetUserOfStudentGrowthByCustomPeriod.stub(TRes res) =
       _CopyWithStubImpl$Variables$Query$GetUserOfStudentGrowthByCustomPeriod;
 
-  TRes call(
-      {Input$UserCreatedByCustomPeriodArgs? userCreatedByCustomPeriodArgs});
+  TRes call({Input$UserCreatedByCustomPeriodArgs? userCreatedByCustomPeriodArgs});
 }
 
 class _CopyWithImpl$Variables$Query$GetUserOfStudentGrowthByCustomPeriod<TRes>
-    implements
-        CopyWith$Variables$Query$GetUserOfStudentGrowthByCustomPeriod<TRes> {
+    implements CopyWith$Variables$Query$GetUserOfStudentGrowthByCustomPeriod<TRes> {
   _CopyWithImpl$Variables$Query$GetUserOfStudentGrowthByCustomPeriod(
     this._instance,
     this._then,
@@ -97,32 +83,26 @@ class _CopyWithImpl$Variables$Query$GetUserOfStudentGrowthByCustomPeriod<TRes>
 
   final Variables$Query$GetUserOfStudentGrowthByCustomPeriod _instance;
 
-  final TRes Function(Variables$Query$GetUserOfStudentGrowthByCustomPeriod)
-      _then;
+  final TRes Function(Variables$Query$GetUserOfStudentGrowthByCustomPeriod) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? userCreatedByCustomPeriodArgs = _undefined}) =>
-      _then(Variables$Query$GetUserOfStudentGrowthByCustomPeriod._({
+  @override
+  TRes call({Object? userCreatedByCustomPeriodArgs = _undefined}) => _then(Variables$Query$GetUserOfStudentGrowthByCustomPeriod._({
         ..._instance._$data,
-        if (userCreatedByCustomPeriodArgs != _undefined &&
-            userCreatedByCustomPeriodArgs != null)
-          'userCreatedByCustomPeriodArgs': (userCreatedByCustomPeriodArgs
-              as Input$UserCreatedByCustomPeriodArgs),
+        if (userCreatedByCustomPeriodArgs != _undefined && userCreatedByCustomPeriodArgs != null)
+          'userCreatedByCustomPeriodArgs': (userCreatedByCustomPeriodArgs as Input$UserCreatedByCustomPeriodArgs),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$GetUserOfStudentGrowthByCustomPeriod<
-        TRes>
-    implements
-        CopyWith$Variables$Query$GetUserOfStudentGrowthByCustomPeriod<TRes> {
-  _CopyWithStubImpl$Variables$Query$GetUserOfStudentGrowthByCustomPeriod(
-      this._res);
+class _CopyWithStubImpl$Variables$Query$GetUserOfStudentGrowthByCustomPeriod<TRes>
+    implements CopyWith$Variables$Query$GetUserOfStudentGrowthByCustomPeriod<TRes> {
+  _CopyWithStubImpl$Variables$Query$GetUserOfStudentGrowthByCustomPeriod(this._res);
 
-  TRes _res;
+  final TRes _res;
 
-  call({Input$UserCreatedByCustomPeriodArgs? userCreatedByCustomPeriodArgs}) =>
-      _res;
+  @override
+  call({Input$UserCreatedByCustomPeriodArgs? userCreatedByCustomPeriodArgs}) => _res;
 }
 
 class Query$GetUserOfStudentGrowthByCustomPeriod {
@@ -131,35 +111,28 @@ class Query$GetUserOfStudentGrowthByCustomPeriod {
     this.$__typename = 'Query',
   });
 
-  factory Query$GetUserOfStudentGrowthByCustomPeriod.fromJson(
-      Map<String, dynamic> json) {
+  factory Query$GetUserOfStudentGrowthByCustomPeriod.fromJson(Map<String, dynamic> json) {
     final l$getUserGrowthByCustomPeriod = json['getUserGrowthByCustomPeriod'];
     final l$$__typename = json['__typename'];
     return Query$GetUserOfStudentGrowthByCustomPeriod(
-      getUserGrowthByCustomPeriod: (l$getUserGrowthByCustomPeriod
-              as List<dynamic>)
-          .map((e) =>
-              Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod
-                  .fromJson((e as Map<String, dynamic>)))
+      getUserGrowthByCustomPeriod: (l$getUserGrowthByCustomPeriod as List<dynamic>)
+          .map((e) => Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod.fromJson((e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
   }
 
-  final List<
-          Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod>
-      getUserGrowthByCustomPeriod;
+  final List<Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod> getUserGrowthByCustomPeriod;
 
   final String $__typename;
 
   Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
+    final resultData = <String, dynamic>{};
     final l$getUserGrowthByCustomPeriod = getUserGrowthByCustomPeriod;
-    _resultData['getUserGrowthByCustomPeriod'] =
-        l$getUserGrowthByCustomPeriod.map((e) => e.toJson()).toList();
+    resultData['getUserGrowthByCustomPeriod'] = l$getUserGrowthByCustomPeriod.map((e) => e.toJson()).toList();
     final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
+    resultData['__typename'] = l$$__typename;
+    return resultData;
   }
 
   @override
@@ -177,24 +150,18 @@ class Query$GetUserOfStudentGrowthByCustomPeriod {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$GetUserOfStudentGrowthByCustomPeriod) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Query$GetUserOfStudentGrowthByCustomPeriod || runtimeType != other.runtimeType) {
       return false;
     }
     final l$getUserGrowthByCustomPeriod = getUserGrowthByCustomPeriod;
-    final lOther$getUserGrowthByCustomPeriod =
-        other.getUserGrowthByCustomPeriod;
-    if (l$getUserGrowthByCustomPeriod.length !=
-        lOther$getUserGrowthByCustomPeriod.length) {
+    final lOther$getUserGrowthByCustomPeriod = other.getUserGrowthByCustomPeriod;
+    if (l$getUserGrowthByCustomPeriod.length != lOther$getUserGrowthByCustomPeriod.length) {
       return false;
     }
     for (int i = 0; i < l$getUserGrowthByCustomPeriod.length; i++) {
-      final l$getUserGrowthByCustomPeriod$entry =
-          l$getUserGrowthByCustomPeriod[i];
-      final lOther$getUserGrowthByCustomPeriod$entry =
-          lOther$getUserGrowthByCustomPeriod[i];
-      if (l$getUserGrowthByCustomPeriod$entry !=
-          lOther$getUserGrowthByCustomPeriod$entry) {
+      final l$getUserGrowthByCustomPeriod$entry = l$getUserGrowthByCustomPeriod[i];
+      final lOther$getUserGrowthByCustomPeriod$entry = lOther$getUserGrowthByCustomPeriod[i];
+      if (l$getUserGrowthByCustomPeriod$entry != lOther$getUserGrowthByCustomPeriod$entry) {
         return false;
       }
     }
@@ -207,14 +174,12 @@ class Query$GetUserOfStudentGrowthByCustomPeriod {
   }
 }
 
-extension UtilityExtension$Query$GetUserOfStudentGrowthByCustomPeriod
-    on Query$GetUserOfStudentGrowthByCustomPeriod {
-  CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod<
-          Query$GetUserOfStudentGrowthByCustomPeriod>
-      get copyWith => CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod(
-            this,
-            (i) => i,
-          );
+extension UtilityExtension$Query$GetUserOfStudentGrowthByCustomPeriod on Query$GetUserOfStudentGrowthByCustomPeriod {
+  CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod<Query$GetUserOfStudentGrowthByCustomPeriod> get copyWith =>
+      CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod<TRes> {
@@ -223,12 +188,10 @@ abstract class CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod<TRes> {
     TRes Function(Query$GetUserOfStudentGrowthByCustomPeriod) then,
   ) = _CopyWithImpl$Query$GetUserOfStudentGrowthByCustomPeriod;
 
-  factory CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod.stub(TRes res) =
-      _CopyWithStubImpl$Query$GetUserOfStudentGrowthByCustomPeriod;
+  factory CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod.stub(TRes res) = _CopyWithStubImpl$Query$GetUserOfStudentGrowthByCustomPeriod;
 
   TRes call({
-    List<Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod>?
-        getUserGrowthByCustomPeriod,
+    List<Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod>? getUserGrowthByCustomPeriod,
     String? $__typename,
   });
   TRes getUserGrowthByCustomPeriod(
@@ -236,11 +199,10 @@ abstract class CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod<TRes> {
               Iterable<
                   CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod<
                       Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod>>)
-          _fn);
+          fn);
 }
 
-class _CopyWithImpl$Query$GetUserOfStudentGrowthByCustomPeriod<TRes>
-    implements CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod<TRes> {
+class _CopyWithImpl$Query$GetUserOfStudentGrowthByCustomPeriod<TRes> implements CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod<TRes> {
   _CopyWithImpl$Query$GetUserOfStudentGrowthByCustomPeriod(
     this._instance,
     this._then,
@@ -252,60 +214,54 @@ class _CopyWithImpl$Query$GetUserOfStudentGrowthByCustomPeriod<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
+  @override
   TRes call({
     Object? getUserGrowthByCustomPeriod = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Query$GetUserOfStudentGrowthByCustomPeriod(
-        getUserGrowthByCustomPeriod: getUserGrowthByCustomPeriod ==
-                    _undefined ||
-                getUserGrowthByCustomPeriod == null
+        getUserGrowthByCustomPeriod: getUserGrowthByCustomPeriod == _undefined || getUserGrowthByCustomPeriod == null
             ? _instance.getUserGrowthByCustomPeriod
-            : (getUserGrowthByCustomPeriod as List<
-                Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod>),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
+            : (getUserGrowthByCustomPeriod as List<Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod>),
+        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
       ));
+  @override
   TRes getUserGrowthByCustomPeriod(
           Iterable<Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod> Function(
                   Iterable<
                       CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod<
                           Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod>>)
-              _fn) =>
+              fn) =>
       call(
-          getUserGrowthByCustomPeriod: _fn(_instance.getUserGrowthByCustomPeriod
-              .map((e) =>
-                  CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod(
+          getUserGrowthByCustomPeriod:
+              fn(_instance.getUserGrowthByCustomPeriod.map((e) => CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod(
                     e,
                     (i) => i,
                   ))).toList());
 }
 
-class _CopyWithStubImpl$Query$GetUserOfStudentGrowthByCustomPeriod<TRes>
-    implements CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod<TRes> {
+class _CopyWithStubImpl$Query$GetUserOfStudentGrowthByCustomPeriod<TRes> implements CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod<TRes> {
   _CopyWithStubImpl$Query$GetUserOfStudentGrowthByCustomPeriod(this._res);
 
-  TRes _res;
+  final TRes _res;
 
+  @override
   call({
-    List<Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod>?
-        getUserGrowthByCustomPeriod,
+    List<Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod>? getUserGrowthByCustomPeriod,
     String? $__typename,
   }) =>
       _res;
-  getUserGrowthByCustomPeriod(_fn) => _res;
+  @override
+  getUserGrowthByCustomPeriod(fn) => _res;
 }
 
-const documentNodeQueryGetUserOfStudentGrowthByCustomPeriod =
-    DocumentNode(definitions: [
+const documentNodeQueryGetUserOfStudentGrowthByCustomPeriod = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.query,
     name: NameNode(value: 'GetUserOfStudentGrowthByCustomPeriod'),
     variableDefinitions: [
       VariableDefinitionNode(
-        variable: VariableNode(
-            name: NameNode(value: 'userCreatedByCustomPeriodArgs')),
+        variable: VariableNode(name: NameNode(value: 'userCreatedByCustomPeriodArgs')),
         type: NamedTypeNode(
           name: NameNode(value: 'UserCreatedByCustomPeriodArgs'),
           isNonNull: true,
@@ -322,8 +278,7 @@ const documentNodeQueryGetUserOfStudentGrowthByCustomPeriod =
         arguments: [
           ArgumentNode(
             name: NameNode(value: 'userCreatedByCustomPeriodArgs'),
-            value: VariableNode(
-                name: NameNode(value: 'userCreatedByCustomPeriodArgs')),
+            value: VariableNode(name: NameNode(value: 'userCreatedByCustomPeriodArgs')),
           )
         ],
         directives: [],
@@ -361,18 +316,14 @@ const documentNodeQueryGetUserOfStudentGrowthByCustomPeriod =
     ]),
   ),
 ]);
-Query$GetUserOfStudentGrowthByCustomPeriod
-    _parserFn$Query$GetUserOfStudentGrowthByCustomPeriod(
-            Map<String, dynamic> data) =>
-        Query$GetUserOfStudentGrowthByCustomPeriod.fromJson(data);
-typedef OnQueryComplete$Query$GetUserOfStudentGrowthByCustomPeriod
-    = FutureOr<void> Function(
+Query$GetUserOfStudentGrowthByCustomPeriod _parserFn$Query$GetUserOfStudentGrowthByCustomPeriod(Map<String, dynamic> data) =>
+    Query$GetUserOfStudentGrowthByCustomPeriod.fromJson(data);
+typedef OnQueryComplete$Query$GetUserOfStudentGrowthByCustomPeriod = FutureOr<void> Function(
   Map<String, dynamic>?,
   Query$GetUserOfStudentGrowthByCustomPeriod?,
 );
 
-class Options$Query$GetUserOfStudentGrowthByCustomPeriod
-    extends graphql.QueryOptions<Query$GetUserOfStudentGrowthByCustomPeriod> {
+class Options$Query$GetUserOfStudentGrowthByCustomPeriod extends graphql.QueryOptions<Query$GetUserOfStudentGrowthByCustomPeriod> {
   Options$Query$GetUserOfStudentGrowthByCustomPeriod({
     String? operationName,
     required Variables$Query$GetUserOfStudentGrowthByCustomPeriod variables,
@@ -399,30 +350,23 @@ class Options$Query$GetUserOfStudentGrowthByCustomPeriod
               ? null
               : (data) => onComplete(
                     data,
-                    data == null
-                        ? null
-                        : _parserFn$Query$GetUserOfStudentGrowthByCustomPeriod(
-                            data),
+                    data == null ? null : _parserFn$Query$GetUserOfStudentGrowthByCustomPeriod(data),
                   ),
           onError: onError,
           document: documentNodeQueryGetUserOfStudentGrowthByCustomPeriod,
           parserFn: _parserFn$Query$GetUserOfStudentGrowthByCustomPeriod,
         );
 
-  final OnQueryComplete$Query$GetUserOfStudentGrowthByCustomPeriod?
-      onCompleteWithParsed;
+  final OnQueryComplete$Query$GetUserOfStudentGrowthByCustomPeriod? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
-            ? super.properties
-            : super.properties.where((property) => property != onComplete),
+        ...super.onComplete == null ? super.properties : super.properties.where((property) => property != onComplete),
         onCompleteWithParsed,
       ];
 }
 
-class WatchOptions$Query$GetUserOfStudentGrowthByCustomPeriod extends graphql
-    .WatchQueryOptions<Query$GetUserOfStudentGrowthByCustomPeriod> {
+class WatchOptions$Query$GetUserOfStudentGrowthByCustomPeriod extends graphql.WatchQueryOptions<Query$GetUserOfStudentGrowthByCustomPeriod> {
   WatchOptions$Query$GetUserOfStudentGrowthByCustomPeriod({
     String? operationName,
     required Variables$Query$GetUserOfStudentGrowthByCustomPeriod variables,
@@ -453,8 +397,7 @@ class WatchOptions$Query$GetUserOfStudentGrowthByCustomPeriod extends graphql
         );
 }
 
-class FetchMoreOptions$Query$GetUserOfStudentGrowthByCustomPeriod
-    extends graphql.FetchMoreOptions {
+class FetchMoreOptions$Query$GetUserOfStudentGrowthByCustomPeriod extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$GetUserOfStudentGrowthByCustomPeriod({
     required graphql.UpdateQuery updateQuery,
     required Variables$Query$GetUserOfStudentGrowthByCustomPeriod variables,
@@ -465,68 +408,53 @@ class FetchMoreOptions$Query$GetUserOfStudentGrowthByCustomPeriod
         );
 }
 
-extension ClientExtension$Query$GetUserOfStudentGrowthByCustomPeriod
-    on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$GetUserOfStudentGrowthByCustomPeriod>>
-      query$GetUserOfStudentGrowthByCustomPeriod(
-              Options$Query$GetUserOfStudentGrowthByCustomPeriod
-                  options) async =>
-          await this.query(options);
-  graphql.ObservableQuery<Query$GetUserOfStudentGrowthByCustomPeriod>
-      watchQuery$GetUserOfStudentGrowthByCustomPeriod(
-              WatchOptions$Query$GetUserOfStudentGrowthByCustomPeriod
-                  options) =>
-          this.watchQuery(options);
+extension ClientExtension$Query$GetUserOfStudentGrowthByCustomPeriod on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$GetUserOfStudentGrowthByCustomPeriod>> query$GetUserOfStudentGrowthByCustomPeriod(
+          Options$Query$GetUserOfStudentGrowthByCustomPeriod options) async =>
+      await query(options);
+  graphql.ObservableQuery<Query$GetUserOfStudentGrowthByCustomPeriod> watchQuery$GetUserOfStudentGrowthByCustomPeriod(
+          WatchOptions$Query$GetUserOfStudentGrowthByCustomPeriod options) =>
+      watchQuery(options);
   void writeQuery$GetUserOfStudentGrowthByCustomPeriod({
     required Query$GetUserOfStudentGrowthByCustomPeriod data,
     required Variables$Query$GetUserOfStudentGrowthByCustomPeriod variables,
     bool broadcast = true,
   }) =>
-      this.writeQuery(
+      writeQuery(
         graphql.Request(
-          operation: graphql.Operation(
-              document: documentNodeQueryGetUserOfStudentGrowthByCustomPeriod),
+          operation: graphql.Operation(document: documentNodeQueryGetUserOfStudentGrowthByCustomPeriod),
           variables: variables.toJson(),
         ),
         data: data.toJson(),
         broadcast: broadcast,
       );
-  Query$GetUserOfStudentGrowthByCustomPeriod?
-      readQuery$GetUserOfStudentGrowthByCustomPeriod({
+  Query$GetUserOfStudentGrowthByCustomPeriod? readQuery$GetUserOfStudentGrowthByCustomPeriod({
     required Variables$Query$GetUserOfStudentGrowthByCustomPeriod variables,
     bool optimistic = true,
   }) {
-    final result = this.readQuery(
+    final result = readQuery(
       graphql.Request(
-        operation: graphql.Operation(
-            document: documentNodeQueryGetUserOfStudentGrowthByCustomPeriod),
+        operation: graphql.Operation(document: documentNodeQueryGetUserOfStudentGrowthByCustomPeriod),
         variables: variables.toJson(),
       ),
       optimistic: optimistic,
     );
-    return result == null
-        ? null
-        : Query$GetUserOfStudentGrowthByCustomPeriod.fromJson(result);
+    return result == null ? null : Query$GetUserOfStudentGrowthByCustomPeriod.fromJson(result);
   }
 }
 
-graphql_flutter.QueryHookResult<Query$GetUserOfStudentGrowthByCustomPeriod>
-    useQuery$GetUserOfStudentGrowthByCustomPeriod(
-            Options$Query$GetUserOfStudentGrowthByCustomPeriod options) =>
-        graphql_flutter.useQuery(options);
-graphql.ObservableQuery<Query$GetUserOfStudentGrowthByCustomPeriod>
-    useWatchQuery$GetUserOfStudentGrowthByCustomPeriod(
-            WatchOptions$Query$GetUserOfStudentGrowthByCustomPeriod options) =>
-        graphql_flutter.useWatchQuery(options);
+graphql_flutter.QueryHookResult<Query$GetUserOfStudentGrowthByCustomPeriod> useQuery$GetUserOfStudentGrowthByCustomPeriod(
+        Options$Query$GetUserOfStudentGrowthByCustomPeriod options) =>
+    graphql_flutter.useQuery(options);
+graphql.ObservableQuery<Query$GetUserOfStudentGrowthByCustomPeriod> useWatchQuery$GetUserOfStudentGrowthByCustomPeriod(
+        WatchOptions$Query$GetUserOfStudentGrowthByCustomPeriod options) =>
+    graphql_flutter.useWatchQuery(options);
 
-class Query$GetUserOfStudentGrowthByCustomPeriod$Widget
-    extends graphql_flutter.Query<Query$GetUserOfStudentGrowthByCustomPeriod> {
+class Query$GetUserOfStudentGrowthByCustomPeriod$Widget extends graphql_flutter.Query<Query$GetUserOfStudentGrowthByCustomPeriod> {
   Query$GetUserOfStudentGrowthByCustomPeriod$Widget({
     widgets.Key? key,
     required Options$Query$GetUserOfStudentGrowthByCustomPeriod options,
-    required graphql_flutter
-        .QueryBuilder<Query$GetUserOfStudentGrowthByCustomPeriod>
-        builder,
+    required graphql_flutter.QueryBuilder<Query$GetUserOfStudentGrowthByCustomPeriod> builder,
   }) : super(
           key: key,
           options: options,
@@ -541,8 +469,7 @@ class Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod {
     this.$__typename = 'UserCreatedByCustomPeriodQuery',
   });
 
-  factory Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod.fromJson(
-      Map<String, dynamic> json) {
+  factory Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod.fromJson(Map<String, dynamic> json) {
     final l$period = json['period'];
     final l$totalUser = json['totalUser'];
     final l$$__typename = json['__typename'];
@@ -560,14 +487,14 @@ class Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod {
   final String $__typename;
 
   Map<String, dynamic> toJson() {
-    final _resultData = <String, dynamic>{};
+    final resultData = <String, dynamic>{};
     final l$period = period;
-    _resultData['period'] = l$period;
+    resultData['period'] = l$period;
     final l$totalUser = totalUser;
-    _resultData['totalUser'] = l$totalUser;
+    resultData['totalUser'] = l$totalUser;
     final l$$__typename = $__typename;
-    _resultData['__typename'] = l$$__typename;
-    return _resultData;
+    resultData['__typename'] = l$$__typename;
+    return resultData;
   }
 
   @override
@@ -587,9 +514,7 @@ class Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other
-            is Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod) ||
-        runtimeType != other.runtimeType) {
+    if (other is! Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod || runtimeType != other.runtimeType) {
       return false;
     }
     final l$period = period;
@@ -615,25 +540,19 @@ extension UtilityExtension$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGro
     on Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod {
   CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod<
           Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod>
-      get copyWith =>
-          CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod(
+      get copyWith => CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod(
             this,
             (i) => i,
           );
 }
 
-abstract class CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod<
-    TRes> {
+abstract class CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod<TRes> {
   factory CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod(
-    Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod
-        instance,
-    TRes Function(
-            Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod)
-        then,
+    Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod instance,
+    TRes Function(Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod) then,
   ) = _CopyWithImpl$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod;
 
-  factory CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod.stub(
-          TRes res) =
+  factory CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod.stub(TRes res) =
       _CopyWithStubImpl$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod;
 
   TRes call({
@@ -643,52 +562,39 @@ abstract class CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowth
   });
 }
 
-class _CopyWithImpl$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod<
-        TRes>
-    implements
-        CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod<
-            TRes> {
+class _CopyWithImpl$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod<TRes>
+    implements CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod<TRes> {
   _CopyWithImpl$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod(
     this._instance,
     this._then,
   );
 
-  final Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod
-      _instance;
+  final Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod _instance;
 
-  final TRes Function(
-          Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod)
-      _then;
+  final TRes Function(Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
+  @override
   TRes call({
     Object? period = _undefined,
     Object? totalUser = _undefined,
     Object? $__typename = _undefined,
   }) =>
-      _then(
-          Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod(
+      _then(Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod(
         period: period == _undefined ? _instance.period : (period as String?),
-        totalUser: totalUser == _undefined
-            ? _instance.totalUser
-            : (totalUser as double?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
+        totalUser: totalUser == _undefined ? _instance.totalUser : (totalUser as double?),
+        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImpl$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod<
-        TRes>
-    implements
-        CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod<
-            TRes> {
-  _CopyWithStubImpl$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod(
-      this._res);
+class _CopyWithStubImpl$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod<TRes>
+    implements CopyWith$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod<TRes> {
+  _CopyWithStubImpl$Query$GetUserOfStudentGrowthByCustomPeriod$getUserGrowthByCustomPeriod(this._res);
 
-  TRes _res;
+  final TRes _res;
 
+  @override
   call({
     String? period,
     double? totalUser,

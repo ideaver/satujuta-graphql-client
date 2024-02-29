@@ -1,6 +1,6 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:satujuta_gql_client/operations/mobile/generated/order_find_first_by_user_id.graphql.dart';
 
+import '../../operations/mobile/generated/order_find_first_by_user_id.graphql.dart';
 import '../../operations/mobile/generated/order_find_one.graphql.dart';
 import '../graphql_service.dart';
 

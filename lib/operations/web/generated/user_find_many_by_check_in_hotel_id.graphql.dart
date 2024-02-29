@@ -1,9 +1,11 @@
-import '../../../schema/generated/schema.graphql.dart';
 import 'dart:async';
+
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
+
+import '../../../schema/generated/schema.graphql.dart';
 
 class Variables$Query$UserFindManyByCheckinHotelId {
   factory Variables$Query$UserFindManyByCheckinHotelId({
@@ -21,8 +23,7 @@ class Variables$Query$UserFindManyByCheckinHotelId {
 
   Variables$Query$UserFindManyByCheckinHotelId._(this._$data);
 
-  factory Variables$Query$UserFindManyByCheckinHotelId.fromJson(
-      Map<String, dynamic> data) {
+  factory Variables$Query$UserFindManyByCheckinHotelId.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('skip')) {
       final l$skip = data['skip'];
@@ -34,16 +35,12 @@ class Variables$Query$UserFindManyByCheckinHotelId {
     }
     if (data.containsKey('orderBy')) {
       final l$orderBy = data['orderBy'];
-      result$data['orderBy'] = (l$orderBy as List<dynamic>?)
-          ?.map((e) => Input$UserOrderByWithRelationInput.fromJson(
-              (e as Map<String, dynamic>)))
-          .toList();
+      result$data['orderBy'] =
+          (l$orderBy as List<dynamic>?)?.map((e) => Input$UserOrderByWithRelationInput.fromJson((e as Map<String, dynamic>))).toList();
     }
     if (data.containsKey('where')) {
       final l$where = data['where'];
-      result$data['where'] = l$where == null
-          ? null
-          : Input$UserWhereInput.fromJson((l$where as Map<String, dynamic>));
+      result$data['where'] = l$where == null ? null : Input$UserWhereInput.fromJson((l$where as Map<String, dynamic>));
     }
     return Variables$Query$UserFindManyByCheckinHotelId._(result$data);
   }
@@ -52,8 +49,7 @@ class Variables$Query$UserFindManyByCheckinHotelId {
 
   int? get skip => (_$data['skip'] as int?);
   int? get take => (_$data['take'] as int?);
-  List<Input$UserOrderByWithRelationInput>? get orderBy =>
-      (_$data['orderBy'] as List<Input$UserOrderByWithRelationInput>?);
+  List<Input$UserOrderByWithRelationInput>? get orderBy => (_$data['orderBy'] as List<Input$UserOrderByWithRelationInput>?);
   Input$UserWhereInput? get where => (_$data['where'] as Input$UserWhereInput?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -76,19 +72,17 @@ class Variables$Query$UserFindManyByCheckinHotelId {
     return result$data;
   }
 
-  CopyWith$Variables$Query$UserFindManyByCheckinHotelId<
-          Variables$Query$UserFindManyByCheckinHotelId>
-      get copyWith => CopyWith$Variables$Query$UserFindManyByCheckinHotelId(
-            this,
-            (i) => i,
-          );
+  CopyWith$Variables$Query$UserFindManyByCheckinHotelId<Variables$Query$UserFindManyByCheckinHotelId> get copyWith =>
+      CopyWith$Variables$Query$UserFindManyByCheckinHotelId(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$UserFindManyByCheckinHotelId) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Variables$Query$UserFindManyByCheckinHotelId) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$skip = skip;
@@ -162,8 +156,7 @@ abstract class CopyWith$Variables$Query$UserFindManyByCheckinHotelId<TRes> {
     TRes Function(Variables$Query$UserFindManyByCheckinHotelId) then,
   ) = _CopyWithImpl$Variables$Query$UserFindManyByCheckinHotelId;
 
-  factory CopyWith$Variables$Query$UserFindManyByCheckinHotelId.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Query$UserFindManyByCheckinHotelId;
+  factory CopyWith$Variables$Query$UserFindManyByCheckinHotelId.stub(TRes res) = _CopyWithStubImpl$Variables$Query$UserFindManyByCheckinHotelId;
 
   TRes call({
     int? skip,
@@ -173,8 +166,7 @@ abstract class CopyWith$Variables$Query$UserFindManyByCheckinHotelId<TRes> {
   });
 }
 
-class _CopyWithImpl$Variables$Query$UserFindManyByCheckinHotelId<TRes>
-    implements CopyWith$Variables$Query$UserFindManyByCheckinHotelId<TRes> {
+class _CopyWithImpl$Variables$Query$UserFindManyByCheckinHotelId<TRes> implements CopyWith$Variables$Query$UserFindManyByCheckinHotelId<TRes> {
   _CopyWithImpl$Variables$Query$UserFindManyByCheckinHotelId(
     this._instance,
     this._then,
@@ -196,14 +188,12 @@ class _CopyWithImpl$Variables$Query$UserFindManyByCheckinHotelId<TRes>
         ..._instance._$data,
         if (skip != _undefined) 'skip': (skip as int?),
         if (take != _undefined) 'take': (take as int?),
-        if (orderBy != _undefined)
-          'orderBy': (orderBy as List<Input$UserOrderByWithRelationInput>?),
+        if (orderBy != _undefined) 'orderBy': (orderBy as List<Input$UserOrderByWithRelationInput>?),
         if (where != _undefined) 'where': (where as Input$UserWhereInput?),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$UserFindManyByCheckinHotelId<TRes>
-    implements CopyWith$Variables$Query$UserFindManyByCheckinHotelId<TRes> {
+class _CopyWithStubImpl$Variables$Query$UserFindManyByCheckinHotelId<TRes> implements CopyWith$Variables$Query$UserFindManyByCheckinHotelId<TRes> {
   _CopyWithStubImpl$Variables$Query$UserFindManyByCheckinHotelId(this._res);
 
   TRes _res;
@@ -223,14 +213,12 @@ class Query$UserFindManyByCheckinHotelId {
     this.$__typename = 'Query',
   });
 
-  factory Query$UserFindManyByCheckinHotelId.fromJson(
-      Map<String, dynamic> json) {
+  factory Query$UserFindManyByCheckinHotelId.fromJson(Map<String, dynamic> json) {
     final l$userFindMany = json['userFindMany'];
     final l$$__typename = json['__typename'];
     return Query$UserFindManyByCheckinHotelId(
       userFindMany: (l$userFindMany as List<dynamic>?)
-          ?.map((e) => Query$UserFindManyByCheckinHotelId$userFindMany.fromJson(
-              (e as Map<String, dynamic>)))
+          ?.map((e) => Query$UserFindManyByCheckinHotelId$userFindMany.fromJson((e as Map<String, dynamic>)))
           .toList(),
       $__typename: (l$$__typename as String),
     );
@@ -243,8 +231,7 @@ class Query$UserFindManyByCheckinHotelId {
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
     final l$userFindMany = userFindMany;
-    _resultData['userFindMany'] =
-        l$userFindMany?.map((e) => e.toJson()).toList();
+    _resultData['userFindMany'] = l$userFindMany?.map((e) => e.toJson()).toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -255,9 +242,7 @@ class Query$UserFindManyByCheckinHotelId {
     final l$userFindMany = userFindMany;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$userFindMany == null
-          ? null
-          : Object.hashAll(l$userFindMany.map((v) => v)),
+      l$userFindMany == null ? null : Object.hashAll(l$userFindMany.map((v) => v)),
       l$$__typename,
     ]);
   }
@@ -267,8 +252,7 @@ class Query$UserFindManyByCheckinHotelId {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$UserFindManyByCheckinHotelId) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Query$UserFindManyByCheckinHotelId) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$userFindMany = userFindMany;
@@ -296,14 +280,11 @@ class Query$UserFindManyByCheckinHotelId {
   }
 }
 
-extension UtilityExtension$Query$UserFindManyByCheckinHotelId
-    on Query$UserFindManyByCheckinHotelId {
-  CopyWith$Query$UserFindManyByCheckinHotelId<
-          Query$UserFindManyByCheckinHotelId>
-      get copyWith => CopyWith$Query$UserFindManyByCheckinHotelId(
-            this,
-            (i) => i,
-          );
+extension UtilityExtension$Query$UserFindManyByCheckinHotelId on Query$UserFindManyByCheckinHotelId {
+  CopyWith$Query$UserFindManyByCheckinHotelId<Query$UserFindManyByCheckinHotelId> get copyWith => CopyWith$Query$UserFindManyByCheckinHotelId(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$UserFindManyByCheckinHotelId<TRes> {
@@ -312,8 +293,7 @@ abstract class CopyWith$Query$UserFindManyByCheckinHotelId<TRes> {
     TRes Function(Query$UserFindManyByCheckinHotelId) then,
   ) = _CopyWithImpl$Query$UserFindManyByCheckinHotelId;
 
-  factory CopyWith$Query$UserFindManyByCheckinHotelId.stub(TRes res) =
-      _CopyWithStubImpl$Query$UserFindManyByCheckinHotelId;
+  factory CopyWith$Query$UserFindManyByCheckinHotelId.stub(TRes res) = _CopyWithStubImpl$Query$UserFindManyByCheckinHotelId;
 
   TRes call({
     List<Query$UserFindManyByCheckinHotelId$userFindMany>? userFindMany,
@@ -321,14 +301,11 @@ abstract class CopyWith$Query$UserFindManyByCheckinHotelId<TRes> {
   });
   TRes userFindMany(
       Iterable<Query$UserFindManyByCheckinHotelId$userFindMany>? Function(
-              Iterable<
-                  CopyWith$Query$UserFindManyByCheckinHotelId$userFindMany<
-                      Query$UserFindManyByCheckinHotelId$userFindMany>>?)
+              Iterable<CopyWith$Query$UserFindManyByCheckinHotelId$userFindMany<Query$UserFindManyByCheckinHotelId$userFindMany>>?)
           _fn);
 }
 
-class _CopyWithImpl$Query$UserFindManyByCheckinHotelId<TRes>
-    implements CopyWith$Query$UserFindManyByCheckinHotelId<TRes> {
+class _CopyWithImpl$Query$UserFindManyByCheckinHotelId<TRes> implements CopyWith$Query$UserFindManyByCheckinHotelId<TRes> {
   _CopyWithImpl$Query$UserFindManyByCheckinHotelId(
     this._instance,
     this._then,
@@ -345,30 +322,21 @@ class _CopyWithImpl$Query$UserFindManyByCheckinHotelId<TRes>
     Object? $__typename = _undefined,
   }) =>
       _then(Query$UserFindManyByCheckinHotelId(
-        userFindMany: userFindMany == _undefined
-            ? _instance.userFindMany
-            : (userFindMany
-                as List<Query$UserFindManyByCheckinHotelId$userFindMany>?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
+        userFindMany: userFindMany == _undefined ? _instance.userFindMany : (userFindMany as List<Query$UserFindManyByCheckinHotelId$userFindMany>?),
+        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
       ));
   TRes userFindMany(
           Iterable<Query$UserFindManyByCheckinHotelId$userFindMany>? Function(
-                  Iterable<
-                      CopyWith$Query$UserFindManyByCheckinHotelId$userFindMany<
-                          Query$UserFindManyByCheckinHotelId$userFindMany>>?)
+                  Iterable<CopyWith$Query$UserFindManyByCheckinHotelId$userFindMany<Query$UserFindManyByCheckinHotelId$userFindMany>>?)
               _fn) =>
       call(
-          userFindMany: _fn(_instance.userFindMany?.map(
-              (e) => CopyWith$Query$UserFindManyByCheckinHotelId$userFindMany(
-                    e,
-                    (i) => i,
-                  )))?.toList());
+          userFindMany: _fn(_instance.userFindMany?.map((e) => CopyWith$Query$UserFindManyByCheckinHotelId$userFindMany(
+                e,
+                (i) => i,
+              )))?.toList());
 }
 
-class _CopyWithStubImpl$Query$UserFindManyByCheckinHotelId<TRes>
-    implements CopyWith$Query$UserFindManyByCheckinHotelId<TRes> {
+class _CopyWithStubImpl$Query$UserFindManyByCheckinHotelId<TRes> implements CopyWith$Query$UserFindManyByCheckinHotelId<TRes> {
   _CopyWithStubImpl$Query$UserFindManyByCheckinHotelId(this._res);
 
   TRes _res;
@@ -381,8 +349,7 @@ class _CopyWithStubImpl$Query$UserFindManyByCheckinHotelId<TRes>
   userFindMany(_fn) => _res;
 }
 
-const documentNodeQueryUserFindManyByCheckinHotelId =
-    DocumentNode(definitions: [
+const documentNodeQueryUserFindManyByCheckinHotelId = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.query,
     name: NameNode(value: 'UserFindManyByCheckinHotelId'),
@@ -513,17 +480,14 @@ const documentNodeQueryUserFindManyByCheckinHotelId =
     ]),
   ),
 ]);
-Query$UserFindManyByCheckinHotelId _parserFn$Query$UserFindManyByCheckinHotelId(
-        Map<String, dynamic> data) =>
+Query$UserFindManyByCheckinHotelId _parserFn$Query$UserFindManyByCheckinHotelId(Map<String, dynamic> data) =>
     Query$UserFindManyByCheckinHotelId.fromJson(data);
-typedef OnQueryComplete$Query$UserFindManyByCheckinHotelId = FutureOr<void>
-    Function(
+typedef OnQueryComplete$Query$UserFindManyByCheckinHotelId = FutureOr<void> Function(
   Map<String, dynamic>?,
   Query$UserFindManyByCheckinHotelId?,
 );
 
-class Options$Query$UserFindManyByCheckinHotelId
-    extends graphql.QueryOptions<Query$UserFindManyByCheckinHotelId> {
+class Options$Query$UserFindManyByCheckinHotelId extends graphql.QueryOptions<Query$UserFindManyByCheckinHotelId> {
   Options$Query$UserFindManyByCheckinHotelId({
     String? operationName,
     Variables$Query$UserFindManyByCheckinHotelId? variables,
@@ -550,29 +514,23 @@ class Options$Query$UserFindManyByCheckinHotelId
               ? null
               : (data) => onComplete(
                     data,
-                    data == null
-                        ? null
-                        : _parserFn$Query$UserFindManyByCheckinHotelId(data),
+                    data == null ? null : _parserFn$Query$UserFindManyByCheckinHotelId(data),
                   ),
           onError: onError,
           document: documentNodeQueryUserFindManyByCheckinHotelId,
           parserFn: _parserFn$Query$UserFindManyByCheckinHotelId,
         );
 
-  final OnQueryComplete$Query$UserFindManyByCheckinHotelId?
-      onCompleteWithParsed;
+  final OnQueryComplete$Query$UserFindManyByCheckinHotelId? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
-            ? super.properties
-            : super.properties.where((property) => property != onComplete),
+        ...super.onComplete == null ? super.properties : super.properties.where((property) => property != onComplete),
         onCompleteWithParsed,
       ];
 }
 
-class WatchOptions$Query$UserFindManyByCheckinHotelId
-    extends graphql.WatchQueryOptions<Query$UserFindManyByCheckinHotelId> {
+class WatchOptions$Query$UserFindManyByCheckinHotelId extends graphql.WatchQueryOptions<Query$UserFindManyByCheckinHotelId> {
   WatchOptions$Query$UserFindManyByCheckinHotelId({
     String? operationName,
     Variables$Query$UserFindManyByCheckinHotelId? variables,
@@ -603,8 +561,7 @@ class WatchOptions$Query$UserFindManyByCheckinHotelId
         );
 }
 
-class FetchMoreOptions$Query$UserFindManyByCheckinHotelId
-    extends graphql.FetchMoreOptions {
+class FetchMoreOptions$Query$UserFindManyByCheckinHotelId extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$UserFindManyByCheckinHotelId({
     required graphql.UpdateQuery updateQuery,
     Variables$Query$UserFindManyByCheckinHotelId? variables,
@@ -615,18 +572,13 @@ class FetchMoreOptions$Query$UserFindManyByCheckinHotelId
         );
 }
 
-extension ClientExtension$Query$UserFindManyByCheckinHotelId
-    on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$UserFindManyByCheckinHotelId>>
-      query$UserFindManyByCheckinHotelId(
-              [Options$Query$UserFindManyByCheckinHotelId? options]) async =>
-          await this
-              .query(options ?? Options$Query$UserFindManyByCheckinHotelId());
-  graphql.ObservableQuery<Query$UserFindManyByCheckinHotelId>
-      watchQuery$UserFindManyByCheckinHotelId(
-              [WatchOptions$Query$UserFindManyByCheckinHotelId? options]) =>
-          this.watchQuery(
-              options ?? WatchOptions$Query$UserFindManyByCheckinHotelId());
+extension ClientExtension$Query$UserFindManyByCheckinHotelId on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$UserFindManyByCheckinHotelId>> query$UserFindManyByCheckinHotelId(
+          [Options$Query$UserFindManyByCheckinHotelId? options]) async =>
+      await this.query(options ?? Options$Query$UserFindManyByCheckinHotelId());
+  graphql.ObservableQuery<Query$UserFindManyByCheckinHotelId> watchQuery$UserFindManyByCheckinHotelId(
+          [WatchOptions$Query$UserFindManyByCheckinHotelId? options]) =>
+      this.watchQuery(options ?? WatchOptions$Query$UserFindManyByCheckinHotelId());
   void writeQuery$UserFindManyByCheckinHotelId({
     required Query$UserFindManyByCheckinHotelId data,
     Variables$Query$UserFindManyByCheckinHotelId? variables,
@@ -634,8 +586,7 @@ extension ClientExtension$Query$UserFindManyByCheckinHotelId
   }) =>
       this.writeQuery(
         graphql.Request(
-          operation: graphql.Operation(
-              document: documentNodeQueryUserFindManyByCheckinHotelId),
+          operation: graphql.Operation(document: documentNodeQueryUserFindManyByCheckinHotelId),
           variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
@@ -647,36 +598,27 @@ extension ClientExtension$Query$UserFindManyByCheckinHotelId
   }) {
     final result = this.readQuery(
       graphql.Request(
-        operation: graphql.Operation(
-            document: documentNodeQueryUserFindManyByCheckinHotelId),
+        operation: graphql.Operation(document: documentNodeQueryUserFindManyByCheckinHotelId),
         variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
     );
-    return result == null
-        ? null
-        : Query$UserFindManyByCheckinHotelId.fromJson(result);
+    return result == null ? null : Query$UserFindManyByCheckinHotelId.fromJson(result);
   }
 }
 
-graphql_flutter.QueryHookResult<Query$UserFindManyByCheckinHotelId>
-    useQuery$UserFindManyByCheckinHotelId(
-            [Options$Query$UserFindManyByCheckinHotelId? options]) =>
-        graphql_flutter
-            .useQuery(options ?? Options$Query$UserFindManyByCheckinHotelId());
-graphql.ObservableQuery<Query$UserFindManyByCheckinHotelId>
-    useWatchQuery$UserFindManyByCheckinHotelId(
-            [WatchOptions$Query$UserFindManyByCheckinHotelId? options]) =>
-        graphql_flutter.useWatchQuery(
-            options ?? WatchOptions$Query$UserFindManyByCheckinHotelId());
+graphql_flutter.QueryHookResult<Query$UserFindManyByCheckinHotelId> useQuery$UserFindManyByCheckinHotelId(
+        [Options$Query$UserFindManyByCheckinHotelId? options]) =>
+    graphql_flutter.useQuery(options ?? Options$Query$UserFindManyByCheckinHotelId());
+graphql.ObservableQuery<Query$UserFindManyByCheckinHotelId> useWatchQuery$UserFindManyByCheckinHotelId(
+        [WatchOptions$Query$UserFindManyByCheckinHotelId? options]) =>
+    graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$UserFindManyByCheckinHotelId());
 
-class Query$UserFindManyByCheckinHotelId$Widget
-    extends graphql_flutter.Query<Query$UserFindManyByCheckinHotelId> {
+class Query$UserFindManyByCheckinHotelId$Widget extends graphql_flutter.Query<Query$UserFindManyByCheckinHotelId> {
   Query$UserFindManyByCheckinHotelId$Widget({
     widgets.Key? key,
     Options$Query$UserFindManyByCheckinHotelId? options,
-    required graphql_flutter.QueryBuilder<Query$UserFindManyByCheckinHotelId>
-        builder,
+    required graphql_flutter.QueryBuilder<Query$UserFindManyByCheckinHotelId> builder,
   }) : super(
           key: key,
           options: options ?? Options$Query$UserFindManyByCheckinHotelId(),
@@ -695,8 +637,7 @@ class Query$UserFindManyByCheckinHotelId$userFindMany {
     this.$__typename = 'User',
   });
 
-  factory Query$UserFindManyByCheckinHotelId$userFindMany.fromJson(
-      Map<String, dynamic> json) {
+  factory Query$UserFindManyByCheckinHotelId$userFindMany.fromJson(Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$firstName = json['firstName'];
     final l$lastName = json['lastName'];
@@ -773,8 +714,7 @@ class Query$UserFindManyByCheckinHotelId$userFindMany {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$UserFindManyByCheckinHotelId$userFindMany) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Query$UserFindManyByCheckinHotelId$userFindMany) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -816,14 +756,12 @@ class Query$UserFindManyByCheckinHotelId$userFindMany {
   }
 }
 
-extension UtilityExtension$Query$UserFindManyByCheckinHotelId$userFindMany
-    on Query$UserFindManyByCheckinHotelId$userFindMany {
-  CopyWith$Query$UserFindManyByCheckinHotelId$userFindMany<
-          Query$UserFindManyByCheckinHotelId$userFindMany>
-      get copyWith => CopyWith$Query$UserFindManyByCheckinHotelId$userFindMany(
-            this,
-            (i) => i,
-          );
+extension UtilityExtension$Query$UserFindManyByCheckinHotelId$userFindMany on Query$UserFindManyByCheckinHotelId$userFindMany {
+  CopyWith$Query$UserFindManyByCheckinHotelId$userFindMany<Query$UserFindManyByCheckinHotelId$userFindMany> get copyWith =>
+      CopyWith$Query$UserFindManyByCheckinHotelId$userFindMany(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$UserFindManyByCheckinHotelId$userFindMany<TRes> {
@@ -832,9 +770,7 @@ abstract class CopyWith$Query$UserFindManyByCheckinHotelId$userFindMany<TRes> {
     TRes Function(Query$UserFindManyByCheckinHotelId$userFindMany) then,
   ) = _CopyWithImpl$Query$UserFindManyByCheckinHotelId$userFindMany;
 
-  factory CopyWith$Query$UserFindManyByCheckinHotelId$userFindMany.stub(
-          TRes res) =
-      _CopyWithStubImpl$Query$UserFindManyByCheckinHotelId$userFindMany;
+  factory CopyWith$Query$UserFindManyByCheckinHotelId$userFindMany.stub(TRes res) = _CopyWithStubImpl$Query$UserFindManyByCheckinHotelId$userFindMany;
 
   TRes call({
     String? id,
@@ -847,8 +783,7 @@ abstract class CopyWith$Query$UserFindManyByCheckinHotelId$userFindMany<TRes> {
   });
 }
 
-class _CopyWithImpl$Query$UserFindManyByCheckinHotelId$userFindMany<TRes>
-    implements CopyWith$Query$UserFindManyByCheckinHotelId$userFindMany<TRes> {
+class _CopyWithImpl$Query$UserFindManyByCheckinHotelId$userFindMany<TRes> implements CopyWith$Query$UserFindManyByCheckinHotelId$userFindMany<TRes> {
   _CopyWithImpl$Query$UserFindManyByCheckinHotelId$userFindMany(
     this._instance,
     this._then,
@@ -871,23 +806,12 @@ class _CopyWithImpl$Query$UserFindManyByCheckinHotelId$userFindMany<TRes>
   }) =>
       _then(Query$UserFindManyByCheckinHotelId$userFindMany(
         id: id == _undefined || id == null ? _instance.id : (id as String),
-        firstName: firstName == _undefined || firstName == null
-            ? _instance.firstName
-            : (firstName as String),
-        lastName:
-            lastName == _undefined ? _instance.lastName : (lastName as String?),
-        avatarUrl: avatarUrl == _undefined
-            ? _instance.avatarUrl
-            : (avatarUrl as String?),
-        status: status == _undefined || status == null
-            ? _instance.status
-            : (status as Enum$UserStatus),
-        createdAt: createdAt == _undefined || createdAt == null
-            ? _instance.createdAt
-            : (createdAt as String),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
+        firstName: firstName == _undefined || firstName == null ? _instance.firstName : (firstName as String),
+        lastName: lastName == _undefined ? _instance.lastName : (lastName as String?),
+        avatarUrl: avatarUrl == _undefined ? _instance.avatarUrl : (avatarUrl as String?),
+        status: status == _undefined || status == null ? _instance.status : (status as Enum$UserStatus),
+        createdAt: createdAt == _undefined || createdAt == null ? _instance.createdAt : (createdAt as String),
+        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
       ));
 }
 

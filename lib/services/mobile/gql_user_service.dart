@@ -1,10 +1,9 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:satujuta_gql_client/operations/mobile/generated/user_update_one_avatar_url.graphql.dart';
-import 'package:satujuta_gql_client/operations/mobile/generated/user_update_one_program_participation.graphql.dart';
 
 import '../../operations/mobile/generated/count_referred_user_by_user_id.graphql.dart';
 import '../../operations/mobile/generated/count_user_of_student_within_referred_id.graphql.dart';
 import '../../operations/mobile/generated/get_account_balance_by_custom_period.graphql.dart';
+import '../../operations/mobile/generated/get_account_balance_of_user_point.graphql.dart';
 import '../../operations/mobile/generated/get_account_total_balance.graphql.dart';
 import '../../operations/mobile/generated/password_update_from_user_update_one.graphql.dart';
 import '../../operations/mobile/generated/reward_claim_find_many.graphql.dart';
@@ -14,6 +13,8 @@ import '../../operations/mobile/generated/user_delete.graphql.dart';
 import '../../operations/mobile/generated/user_find_many.graphql.dart';
 import '../../operations/mobile/generated/user_find_one.graphql.dart';
 import '../../operations/mobile/generated/user_update_one.graphql.dart';
+import '../../operations/mobile/generated/user_update_one_avatar_url.graphql.dart';
+import '../../operations/mobile/generated/user_update_one_program_participation.graphql.dart';
 import '../../schema/generated/schema.graphql.dart';
 import '../graphql_service.dart';
 
@@ -363,6 +364,20 @@ class GqlUserService {
         parserFn: (data) => Query$GetAccountBalanceByCustomPeriod.fromJson(data),
         variables: {
           "accountBalanceByCustomPeriodArgs": {"accountId": userAccountId, "start": startDate, "end": endDate, "period": period.name}
+        },
+      ),
+    );
+  }
+
+  static Future<QueryResult<Query$GetAccountBalanceOfUserPointFromUserId>> getAccountBalanceOfUserPointFromUserId({
+    required String userId,
+  }) async {
+    return await GraphQLService.client.query(
+      QueryOptions(
+        document: documentNodeQueryGetAccountBalanceOfUserPointFromUserId,
+        parserFn: (data) => Query$GetAccountBalanceOfUserPointFromUserId.fromJson(data),
+        variables: {
+          "userId": userId,
         },
       ),
     );

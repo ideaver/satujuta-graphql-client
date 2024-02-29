@@ -1,26 +1,24 @@
-import '../../../schema/generated/schema.graphql.dart';
 import 'dart:async';
+
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
+import '../../../schema/generated/schema.graphql.dart';
+
 class Variables$Mutation$FileDeleteMany {
-  factory Variables$Mutation$FileDeleteMany({Input$FileWhereInput? where}) =>
-      Variables$Mutation$FileDeleteMany._({
+  factory Variables$Mutation$FileDeleteMany({Input$FileWhereInput? where}) => Variables$Mutation$FileDeleteMany._({
         if (where != null) r'where': where,
       });
 
   Variables$Mutation$FileDeleteMany._(this._$data);
 
-  factory Variables$Mutation$FileDeleteMany.fromJson(
-      Map<String, dynamic> data) {
+  factory Variables$Mutation$FileDeleteMany.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('where')) {
       final l$where = data['where'];
-      result$data['where'] = l$where == null
-          ? null
-          : Input$FileWhereInput.fromJson((l$where as Map<String, dynamic>));
+      result$data['where'] = l$where == null ? null : Input$FileWhereInput.fromJson((l$where as Map<String, dynamic>));
     }
     return Variables$Mutation$FileDeleteMany._(result$data);
   }
@@ -37,18 +35,16 @@ class Variables$Mutation$FileDeleteMany {
     return result$data;
   }
 
-  CopyWith$Variables$Mutation$FileDeleteMany<Variables$Mutation$FileDeleteMany>
-      get copyWith => CopyWith$Variables$Mutation$FileDeleteMany(
-            this,
-            (i) => i,
-          );
+  CopyWith$Variables$Mutation$FileDeleteMany<Variables$Mutation$FileDeleteMany> get copyWith => CopyWith$Variables$Mutation$FileDeleteMany(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Mutation$FileDeleteMany) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Variables$Mutation$FileDeleteMany) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$where = where;
@@ -75,14 +71,12 @@ abstract class CopyWith$Variables$Mutation$FileDeleteMany<TRes> {
     TRes Function(Variables$Mutation$FileDeleteMany) then,
   ) = _CopyWithImpl$Variables$Mutation$FileDeleteMany;
 
-  factory CopyWith$Variables$Mutation$FileDeleteMany.stub(TRes res) =
-      _CopyWithStubImpl$Variables$Mutation$FileDeleteMany;
+  factory CopyWith$Variables$Mutation$FileDeleteMany.stub(TRes res) = _CopyWithStubImpl$Variables$Mutation$FileDeleteMany;
 
   TRes call({Input$FileWhereInput? where});
 }
 
-class _CopyWithImpl$Variables$Mutation$FileDeleteMany<TRes>
-    implements CopyWith$Variables$Mutation$FileDeleteMany<TRes> {
+class _CopyWithImpl$Variables$Mutation$FileDeleteMany<TRes> implements CopyWith$Variables$Mutation$FileDeleteMany<TRes> {
   _CopyWithImpl$Variables$Mutation$FileDeleteMany(
     this._instance,
     this._then,
@@ -94,15 +88,13 @@ class _CopyWithImpl$Variables$Mutation$FileDeleteMany<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? where = _undefined}) =>
-      _then(Variables$Mutation$FileDeleteMany._({
+  TRes call({Object? where = _undefined}) => _then(Variables$Mutation$FileDeleteMany._({
         ..._instance._$data,
         if (where != _undefined) 'where': (where as Input$FileWhereInput?),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Mutation$FileDeleteMany<TRes>
-    implements CopyWith$Variables$Mutation$FileDeleteMany<TRes> {
+class _CopyWithStubImpl$Variables$Mutation$FileDeleteMany<TRes> implements CopyWith$Variables$Mutation$FileDeleteMany<TRes> {
   _CopyWithStubImpl$Variables$Mutation$FileDeleteMany(this._res);
 
   TRes _res;
@@ -153,8 +145,7 @@ class Mutation$FileDeleteMany {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Mutation$FileDeleteMany) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Mutation$FileDeleteMany) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$fileDeleteMany = fileDeleteMany;
@@ -172,8 +163,7 @@ class Mutation$FileDeleteMany {
 }
 
 extension UtilityExtension$Mutation$FileDeleteMany on Mutation$FileDeleteMany {
-  CopyWith$Mutation$FileDeleteMany<Mutation$FileDeleteMany> get copyWith =>
-      CopyWith$Mutation$FileDeleteMany(
+  CopyWith$Mutation$FileDeleteMany<Mutation$FileDeleteMany> get copyWith => CopyWith$Mutation$FileDeleteMany(
         this,
         (i) => i,
       );
@@ -185,8 +175,7 @@ abstract class CopyWith$Mutation$FileDeleteMany<TRes> {
     TRes Function(Mutation$FileDeleteMany) then,
   ) = _CopyWithImpl$Mutation$FileDeleteMany;
 
-  factory CopyWith$Mutation$FileDeleteMany.stub(TRes res) =
-      _CopyWithStubImpl$Mutation$FileDeleteMany;
+  factory CopyWith$Mutation$FileDeleteMany.stub(TRes res) = _CopyWithStubImpl$Mutation$FileDeleteMany;
 
   TRes call({
     bool? fileDeleteMany,
@@ -194,8 +183,7 @@ abstract class CopyWith$Mutation$FileDeleteMany<TRes> {
   });
 }
 
-class _CopyWithImpl$Mutation$FileDeleteMany<TRes>
-    implements CopyWith$Mutation$FileDeleteMany<TRes> {
+class _CopyWithImpl$Mutation$FileDeleteMany<TRes> implements CopyWith$Mutation$FileDeleteMany<TRes> {
   _CopyWithImpl$Mutation$FileDeleteMany(
     this._instance,
     this._then,
@@ -212,17 +200,12 @@ class _CopyWithImpl$Mutation$FileDeleteMany<TRes>
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$FileDeleteMany(
-        fileDeleteMany: fileDeleteMany == _undefined || fileDeleteMany == null
-            ? _instance.fileDeleteMany
-            : (fileDeleteMany as bool),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
+        fileDeleteMany: fileDeleteMany == _undefined || fileDeleteMany == null ? _instance.fileDeleteMany : (fileDeleteMany as bool),
+        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImpl$Mutation$FileDeleteMany<TRes>
-    implements CopyWith$Mutation$FileDeleteMany<TRes> {
+class _CopyWithStubImpl$Mutation$FileDeleteMany<TRes> implements CopyWith$Mutation$FileDeleteMany<TRes> {
   _CopyWithStubImpl$Mutation$FileDeleteMany(this._res);
 
   TRes _res;
@@ -273,16 +256,13 @@ const documentNodeMutationFileDeleteMany = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Mutation$FileDeleteMany _parserFn$Mutation$FileDeleteMany(
-        Map<String, dynamic> data) =>
-    Mutation$FileDeleteMany.fromJson(data);
+Mutation$FileDeleteMany _parserFn$Mutation$FileDeleteMany(Map<String, dynamic> data) => Mutation$FileDeleteMany.fromJson(data);
 typedef OnMutationCompleted$Mutation$FileDeleteMany = FutureOr<void> Function(
   Map<String, dynamic>?,
   Mutation$FileDeleteMany?,
 );
 
-class Options$Mutation$FileDeleteMany
-    extends graphql.MutationOptions<Mutation$FileDeleteMany> {
+class Options$Mutation$FileDeleteMany extends graphql.MutationOptions<Mutation$FileDeleteMany> {
   Options$Mutation$FileDeleteMany({
     String? operationName,
     Variables$Mutation$FileDeleteMany? variables,
@@ -308,9 +288,7 @@ class Options$Mutation$FileDeleteMany
               ? null
               : (data) => onCompleted(
                     data,
-                    data == null
-                        ? null
-                        : _parserFn$Mutation$FileDeleteMany(data),
+                    data == null ? null : _parserFn$Mutation$FileDeleteMany(data),
                   ),
           update: update,
           onError: onError,
@@ -322,15 +300,12 @@ class Options$Mutation$FileDeleteMany
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null
-            ? super.properties
-            : super.properties.where((property) => property != onCompleted),
+        ...super.onCompleted == null ? super.properties : super.properties.where((property) => property != onCompleted),
         onCompletedWithParsed,
       ];
 }
 
-class WatchOptions$Mutation$FileDeleteMany
-    extends graphql.WatchQueryOptions<Mutation$FileDeleteMany> {
+class WatchOptions$Mutation$FileDeleteMany extends graphql.WatchQueryOptions<Mutation$FileDeleteMany> {
   WatchOptions$Mutation$FileDeleteMany({
     String? operationName,
     Variables$Mutation$FileDeleteMany? variables,
@@ -362,11 +337,9 @@ class WatchOptions$Mutation$FileDeleteMany
 }
 
 extension ClientExtension$Mutation$FileDeleteMany on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Mutation$FileDeleteMany>> mutate$FileDeleteMany(
-          [Options$Mutation$FileDeleteMany? options]) async =>
+  Future<graphql.QueryResult<Mutation$FileDeleteMany>> mutate$FileDeleteMany([Options$Mutation$FileDeleteMany? options]) async =>
       await this.mutate(options ?? Options$Mutation$FileDeleteMany());
-  graphql.ObservableQuery<Mutation$FileDeleteMany> watchMutation$FileDeleteMany(
-          [WatchOptions$Mutation$FileDeleteMany? options]) =>
+  graphql.ObservableQuery<Mutation$FileDeleteMany> watchMutation$FileDeleteMany([WatchOptions$Mutation$FileDeleteMany? options]) =>
       this.watchMutation(options ?? WatchOptions$Mutation$FileDeleteMany());
 }
 
@@ -381,13 +354,10 @@ class Mutation$FileDeleteMany$HookResult {
   final graphql.QueryResult<Mutation$FileDeleteMany> result;
 }
 
-Mutation$FileDeleteMany$HookResult useMutation$FileDeleteMany(
-    [WidgetOptions$Mutation$FileDeleteMany? options]) {
-  final result = graphql_flutter
-      .useMutation(options ?? WidgetOptions$Mutation$FileDeleteMany());
+Mutation$FileDeleteMany$HookResult useMutation$FileDeleteMany([WidgetOptions$Mutation$FileDeleteMany? options]) {
+  final result = graphql_flutter.useMutation(options ?? WidgetOptions$Mutation$FileDeleteMany());
   return Mutation$FileDeleteMany$HookResult(
-    ({variables, optimisticResult, typedOptimisticResult}) =>
-        result.runMutation(
+    ({variables, optimisticResult, typedOptimisticResult}) => result.runMutation(
       variables?.toJson() ?? const {},
       optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
     ),
@@ -395,14 +365,10 @@ Mutation$FileDeleteMany$HookResult useMutation$FileDeleteMany(
   );
 }
 
-graphql.ObservableQuery<Mutation$FileDeleteMany>
-    useWatchMutation$FileDeleteMany(
-            [WatchOptions$Mutation$FileDeleteMany? options]) =>
-        graphql_flutter.useWatchMutation(
-            options ?? WatchOptions$Mutation$FileDeleteMany());
+graphql.ObservableQuery<Mutation$FileDeleteMany> useWatchMutation$FileDeleteMany([WatchOptions$Mutation$FileDeleteMany? options]) =>
+    graphql_flutter.useWatchMutation(options ?? WatchOptions$Mutation$FileDeleteMany());
 
-class WidgetOptions$Mutation$FileDeleteMany
-    extends graphql.MutationOptions<Mutation$FileDeleteMany> {
+class WidgetOptions$Mutation$FileDeleteMany extends graphql.MutationOptions<Mutation$FileDeleteMany> {
   WidgetOptions$Mutation$FileDeleteMany({
     String? operationName,
     graphql.FetchPolicy? fetchPolicy,
@@ -426,9 +392,7 @@ class WidgetOptions$Mutation$FileDeleteMany
               ? null
               : (data) => onCompleted(
                     data,
-                    data == null
-                        ? null
-                        : _parserFn$Mutation$FileDeleteMany(data),
+                    data == null ? null : _parserFn$Mutation$FileDeleteMany(data),
                   ),
           update: update,
           onError: onError,
@@ -440,15 +404,12 @@ class WidgetOptions$Mutation$FileDeleteMany
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null
-            ? super.properties
-            : super.properties.where((property) => property != onCompleted),
+        ...super.onCompleted == null ? super.properties : super.properties.where((property) => property != onCompleted),
         onCompletedWithParsed,
       ];
 }
 
-typedef RunMutation$Mutation$FileDeleteMany
-    = graphql.MultiSourceResult<Mutation$FileDeleteMany> Function({
+typedef RunMutation$Mutation$FileDeleteMany = graphql.MultiSourceResult<Mutation$FileDeleteMany> Function({
   Variables$Mutation$FileDeleteMany? variables,
   Object? optimisticResult,
   Mutation$FileDeleteMany? typedOptimisticResult,
@@ -458,8 +419,7 @@ typedef Builder$Mutation$FileDeleteMany = widgets.Widget Function(
   graphql.QueryResult<Mutation$FileDeleteMany>?,
 );
 
-class Mutation$FileDeleteMany$Widget
-    extends graphql_flutter.Mutation<Mutation$FileDeleteMany> {
+class Mutation$FileDeleteMany$Widget extends graphql_flutter.Mutation<Mutation$FileDeleteMany> {
   Mutation$FileDeleteMany$Widget({
     widgets.Key? key,
     WidgetOptions$Mutation$FileDeleteMany? options,
@@ -479,8 +439,7 @@ class Mutation$FileDeleteMany$Widget
             }) =>
                 run(
               variables?.toJson() ?? const {},
-              optimisticResult:
-                  optimisticResult ?? typedOptimisticResult?.toJson(),
+              optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
             ),
             result,
           ),

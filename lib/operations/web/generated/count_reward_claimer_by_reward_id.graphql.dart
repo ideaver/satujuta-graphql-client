@@ -1,36 +1,31 @@
-import '../../../schema/generated/schema.graphql.dart';
 import 'dart:async';
+
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
+import '../../../schema/generated/schema.graphql.dart';
+
 class Variables$Query$CountRewardClaimersByRewardId {
-  factory Variables$Query$CountRewardClaimersByRewardId(
-          {Input$RewardClaimWhereInput? where}) =>
-      Variables$Query$CountRewardClaimersByRewardId._({
+  factory Variables$Query$CountRewardClaimersByRewardId({Input$RewardClaimWhereInput? where}) => Variables$Query$CountRewardClaimersByRewardId._({
         if (where != null) r'where': where,
       });
 
   Variables$Query$CountRewardClaimersByRewardId._(this._$data);
 
-  factory Variables$Query$CountRewardClaimersByRewardId.fromJson(
-      Map<String, dynamic> data) {
+  factory Variables$Query$CountRewardClaimersByRewardId.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('where')) {
       final l$where = data['where'];
-      result$data['where'] = l$where == null
-          ? null
-          : Input$RewardClaimWhereInput.fromJson(
-              (l$where as Map<String, dynamic>));
+      result$data['where'] = l$where == null ? null : Input$RewardClaimWhereInput.fromJson((l$where as Map<String, dynamic>));
     }
     return Variables$Query$CountRewardClaimersByRewardId._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$RewardClaimWhereInput? get where =>
-      (_$data['where'] as Input$RewardClaimWhereInput?);
+  Input$RewardClaimWhereInput? get where => (_$data['where'] as Input$RewardClaimWhereInput?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('where')) {
@@ -40,19 +35,17 @@ class Variables$Query$CountRewardClaimersByRewardId {
     return result$data;
   }
 
-  CopyWith$Variables$Query$CountRewardClaimersByRewardId<
-          Variables$Query$CountRewardClaimersByRewardId>
-      get copyWith => CopyWith$Variables$Query$CountRewardClaimersByRewardId(
-            this,
-            (i) => i,
-          );
+  CopyWith$Variables$Query$CountRewardClaimersByRewardId<Variables$Query$CountRewardClaimersByRewardId> get copyWith =>
+      CopyWith$Variables$Query$CountRewardClaimersByRewardId(
+        this,
+        (i) => i,
+      );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$CountRewardClaimersByRewardId) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Variables$Query$CountRewardClaimersByRewardId) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$where = where;
@@ -79,15 +72,12 @@ abstract class CopyWith$Variables$Query$CountRewardClaimersByRewardId<TRes> {
     TRes Function(Variables$Query$CountRewardClaimersByRewardId) then,
   ) = _CopyWithImpl$Variables$Query$CountRewardClaimersByRewardId;
 
-  factory CopyWith$Variables$Query$CountRewardClaimersByRewardId.stub(
-          TRes res) =
-      _CopyWithStubImpl$Variables$Query$CountRewardClaimersByRewardId;
+  factory CopyWith$Variables$Query$CountRewardClaimersByRewardId.stub(TRes res) = _CopyWithStubImpl$Variables$Query$CountRewardClaimersByRewardId;
 
   TRes call({Input$RewardClaimWhereInput? where});
 }
 
-class _CopyWithImpl$Variables$Query$CountRewardClaimersByRewardId<TRes>
-    implements CopyWith$Variables$Query$CountRewardClaimersByRewardId<TRes> {
+class _CopyWithImpl$Variables$Query$CountRewardClaimersByRewardId<TRes> implements CopyWith$Variables$Query$CountRewardClaimersByRewardId<TRes> {
   _CopyWithImpl$Variables$Query$CountRewardClaimersByRewardId(
     this._instance,
     this._then,
@@ -99,16 +89,13 @@ class _CopyWithImpl$Variables$Query$CountRewardClaimersByRewardId<TRes>
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? where = _undefined}) =>
-      _then(Variables$Query$CountRewardClaimersByRewardId._({
+  TRes call({Object? where = _undefined}) => _then(Variables$Query$CountRewardClaimersByRewardId._({
         ..._instance._$data,
-        if (where != _undefined)
-          'where': (where as Input$RewardClaimWhereInput?),
+        if (where != _undefined) 'where': (where as Input$RewardClaimWhereInput?),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$CountRewardClaimersByRewardId<TRes>
-    implements CopyWith$Variables$Query$CountRewardClaimersByRewardId<TRes> {
+class _CopyWithStubImpl$Variables$Query$CountRewardClaimersByRewardId<TRes> implements CopyWith$Variables$Query$CountRewardClaimersByRewardId<TRes> {
   _CopyWithStubImpl$Variables$Query$CountRewardClaimersByRewardId(this._res);
 
   TRes _res;
@@ -122,8 +109,7 @@ class Query$CountRewardClaimersByRewardId {
     this.$__typename = 'Query',
   });
 
-  factory Query$CountRewardClaimersByRewardId.fromJson(
-      Map<String, dynamic> json) {
+  factory Query$CountRewardClaimersByRewardId.fromJson(Map<String, dynamic> json) {
     final l$rewardClaimCount = json['rewardClaimCount'];
     final l$$__typename = json['__typename'];
     return Query$CountRewardClaimersByRewardId(
@@ -160,8 +146,7 @@ class Query$CountRewardClaimersByRewardId {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$CountRewardClaimersByRewardId) ||
-        runtimeType != other.runtimeType) {
+    if (!(other is Query$CountRewardClaimersByRewardId) || runtimeType != other.runtimeType) {
       return false;
     }
     final l$rewardClaimCount = rewardClaimCount;
@@ -178,14 +163,11 @@ class Query$CountRewardClaimersByRewardId {
   }
 }
 
-extension UtilityExtension$Query$CountRewardClaimersByRewardId
-    on Query$CountRewardClaimersByRewardId {
-  CopyWith$Query$CountRewardClaimersByRewardId<
-          Query$CountRewardClaimersByRewardId>
-      get copyWith => CopyWith$Query$CountRewardClaimersByRewardId(
-            this,
-            (i) => i,
-          );
+extension UtilityExtension$Query$CountRewardClaimersByRewardId on Query$CountRewardClaimersByRewardId {
+  CopyWith$Query$CountRewardClaimersByRewardId<Query$CountRewardClaimersByRewardId> get copyWith => CopyWith$Query$CountRewardClaimersByRewardId(
+        this,
+        (i) => i,
+      );
 }
 
 abstract class CopyWith$Query$CountRewardClaimersByRewardId<TRes> {
@@ -194,8 +176,7 @@ abstract class CopyWith$Query$CountRewardClaimersByRewardId<TRes> {
     TRes Function(Query$CountRewardClaimersByRewardId) then,
   ) = _CopyWithImpl$Query$CountRewardClaimersByRewardId;
 
-  factory CopyWith$Query$CountRewardClaimersByRewardId.stub(TRes res) =
-      _CopyWithStubImpl$Query$CountRewardClaimersByRewardId;
+  factory CopyWith$Query$CountRewardClaimersByRewardId.stub(TRes res) = _CopyWithStubImpl$Query$CountRewardClaimersByRewardId;
 
   TRes call({
     double? rewardClaimCount,
@@ -203,8 +184,7 @@ abstract class CopyWith$Query$CountRewardClaimersByRewardId<TRes> {
   });
 }
 
-class _CopyWithImpl$Query$CountRewardClaimersByRewardId<TRes>
-    implements CopyWith$Query$CountRewardClaimersByRewardId<TRes> {
+class _CopyWithImpl$Query$CountRewardClaimersByRewardId<TRes> implements CopyWith$Query$CountRewardClaimersByRewardId<TRes> {
   _CopyWithImpl$Query$CountRewardClaimersByRewardId(
     this._instance,
     this._then,
@@ -221,17 +201,12 @@ class _CopyWithImpl$Query$CountRewardClaimersByRewardId<TRes>
     Object? $__typename = _undefined,
   }) =>
       _then(Query$CountRewardClaimersByRewardId(
-        rewardClaimCount: rewardClaimCount == _undefined
-            ? _instance.rewardClaimCount
-            : (rewardClaimCount as double?),
-        $__typename: $__typename == _undefined || $__typename == null
-            ? _instance.$__typename
-            : ($__typename as String),
+        rewardClaimCount: rewardClaimCount == _undefined ? _instance.rewardClaimCount : (rewardClaimCount as double?),
+        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImpl$Query$CountRewardClaimersByRewardId<TRes>
-    implements CopyWith$Query$CountRewardClaimersByRewardId<TRes> {
+class _CopyWithStubImpl$Query$CountRewardClaimersByRewardId<TRes> implements CopyWith$Query$CountRewardClaimersByRewardId<TRes> {
   _CopyWithStubImpl$Query$CountRewardClaimersByRewardId(this._res);
 
   TRes _res;
@@ -243,8 +218,7 @@ class _CopyWithStubImpl$Query$CountRewardClaimersByRewardId<TRes>
       _res;
 }
 
-const documentNodeQueryCountRewardClaimersByRewardId =
-    DocumentNode(definitions: [
+const documentNodeQueryCountRewardClaimersByRewardId = DocumentNode(definitions: [
   OperationDefinitionNode(
     type: OperationType.query,
     name: NameNode(value: 'CountRewardClaimersByRewardId'),
@@ -283,17 +257,14 @@ const documentNodeQueryCountRewardClaimersByRewardId =
     ]),
   ),
 ]);
-Query$CountRewardClaimersByRewardId
-    _parserFn$Query$CountRewardClaimersByRewardId(Map<String, dynamic> data) =>
-        Query$CountRewardClaimersByRewardId.fromJson(data);
-typedef OnQueryComplete$Query$CountRewardClaimersByRewardId = FutureOr<void>
-    Function(
+Query$CountRewardClaimersByRewardId _parserFn$Query$CountRewardClaimersByRewardId(Map<String, dynamic> data) =>
+    Query$CountRewardClaimersByRewardId.fromJson(data);
+typedef OnQueryComplete$Query$CountRewardClaimersByRewardId = FutureOr<void> Function(
   Map<String, dynamic>?,
   Query$CountRewardClaimersByRewardId?,
 );
 
-class Options$Query$CountRewardClaimersByRewardId
-    extends graphql.QueryOptions<Query$CountRewardClaimersByRewardId> {
+class Options$Query$CountRewardClaimersByRewardId extends graphql.QueryOptions<Query$CountRewardClaimersByRewardId> {
   Options$Query$CountRewardClaimersByRewardId({
     String? operationName,
     Variables$Query$CountRewardClaimersByRewardId? variables,
@@ -320,29 +291,23 @@ class Options$Query$CountRewardClaimersByRewardId
               ? null
               : (data) => onComplete(
                     data,
-                    data == null
-                        ? null
-                        : _parserFn$Query$CountRewardClaimersByRewardId(data),
+                    data == null ? null : _parserFn$Query$CountRewardClaimersByRewardId(data),
                   ),
           onError: onError,
           document: documentNodeQueryCountRewardClaimersByRewardId,
           parserFn: _parserFn$Query$CountRewardClaimersByRewardId,
         );
 
-  final OnQueryComplete$Query$CountRewardClaimersByRewardId?
-      onCompleteWithParsed;
+  final OnQueryComplete$Query$CountRewardClaimersByRewardId? onCompleteWithParsed;
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null
-            ? super.properties
-            : super.properties.where((property) => property != onComplete),
+        ...super.onComplete == null ? super.properties : super.properties.where((property) => property != onComplete),
         onCompleteWithParsed,
       ];
 }
 
-class WatchOptions$Query$CountRewardClaimersByRewardId
-    extends graphql.WatchQueryOptions<Query$CountRewardClaimersByRewardId> {
+class WatchOptions$Query$CountRewardClaimersByRewardId extends graphql.WatchQueryOptions<Query$CountRewardClaimersByRewardId> {
   WatchOptions$Query$CountRewardClaimersByRewardId({
     String? operationName,
     Variables$Query$CountRewardClaimersByRewardId? variables,
@@ -373,8 +338,7 @@ class WatchOptions$Query$CountRewardClaimersByRewardId
         );
 }
 
-class FetchMoreOptions$Query$CountRewardClaimersByRewardId
-    extends graphql.FetchMoreOptions {
+class FetchMoreOptions$Query$CountRewardClaimersByRewardId extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$CountRewardClaimersByRewardId({
     required graphql.UpdateQuery updateQuery,
     Variables$Query$CountRewardClaimersByRewardId? variables,
@@ -385,18 +349,13 @@ class FetchMoreOptions$Query$CountRewardClaimersByRewardId
         );
 }
 
-extension ClientExtension$Query$CountRewardClaimersByRewardId
-    on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$CountRewardClaimersByRewardId>>
-      query$CountRewardClaimersByRewardId(
-              [Options$Query$CountRewardClaimersByRewardId? options]) async =>
-          await this
-              .query(options ?? Options$Query$CountRewardClaimersByRewardId());
-  graphql.ObservableQuery<Query$CountRewardClaimersByRewardId>
-      watchQuery$CountRewardClaimersByRewardId(
-              [WatchOptions$Query$CountRewardClaimersByRewardId? options]) =>
-          this.watchQuery(
-              options ?? WatchOptions$Query$CountRewardClaimersByRewardId());
+extension ClientExtension$Query$CountRewardClaimersByRewardId on graphql.GraphQLClient {
+  Future<graphql.QueryResult<Query$CountRewardClaimersByRewardId>> query$CountRewardClaimersByRewardId(
+          [Options$Query$CountRewardClaimersByRewardId? options]) async =>
+      await this.query(options ?? Options$Query$CountRewardClaimersByRewardId());
+  graphql.ObservableQuery<Query$CountRewardClaimersByRewardId> watchQuery$CountRewardClaimersByRewardId(
+          [WatchOptions$Query$CountRewardClaimersByRewardId? options]) =>
+      this.watchQuery(options ?? WatchOptions$Query$CountRewardClaimersByRewardId());
   void writeQuery$CountRewardClaimersByRewardId({
     required Query$CountRewardClaimersByRewardId data,
     Variables$Query$CountRewardClaimersByRewardId? variables,
@@ -404,8 +363,7 @@ extension ClientExtension$Query$CountRewardClaimersByRewardId
   }) =>
       this.writeQuery(
         graphql.Request(
-          operation: graphql.Operation(
-              document: documentNodeQueryCountRewardClaimersByRewardId),
+          operation: graphql.Operation(document: documentNodeQueryCountRewardClaimersByRewardId),
           variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
@@ -417,36 +375,27 @@ extension ClientExtension$Query$CountRewardClaimersByRewardId
   }) {
     final result = this.readQuery(
       graphql.Request(
-        operation: graphql.Operation(
-            document: documentNodeQueryCountRewardClaimersByRewardId),
+        operation: graphql.Operation(document: documentNodeQueryCountRewardClaimersByRewardId),
         variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
     );
-    return result == null
-        ? null
-        : Query$CountRewardClaimersByRewardId.fromJson(result);
+    return result == null ? null : Query$CountRewardClaimersByRewardId.fromJson(result);
   }
 }
 
-graphql_flutter.QueryHookResult<Query$CountRewardClaimersByRewardId>
-    useQuery$CountRewardClaimersByRewardId(
-            [Options$Query$CountRewardClaimersByRewardId? options]) =>
-        graphql_flutter
-            .useQuery(options ?? Options$Query$CountRewardClaimersByRewardId());
-graphql.ObservableQuery<Query$CountRewardClaimersByRewardId>
-    useWatchQuery$CountRewardClaimersByRewardId(
-            [WatchOptions$Query$CountRewardClaimersByRewardId? options]) =>
-        graphql_flutter.useWatchQuery(
-            options ?? WatchOptions$Query$CountRewardClaimersByRewardId());
+graphql_flutter.QueryHookResult<Query$CountRewardClaimersByRewardId> useQuery$CountRewardClaimersByRewardId(
+        [Options$Query$CountRewardClaimersByRewardId? options]) =>
+    graphql_flutter.useQuery(options ?? Options$Query$CountRewardClaimersByRewardId());
+graphql.ObservableQuery<Query$CountRewardClaimersByRewardId> useWatchQuery$CountRewardClaimersByRewardId(
+        [WatchOptions$Query$CountRewardClaimersByRewardId? options]) =>
+    graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$CountRewardClaimersByRewardId());
 
-class Query$CountRewardClaimersByRewardId$Widget
-    extends graphql_flutter.Query<Query$CountRewardClaimersByRewardId> {
+class Query$CountRewardClaimersByRewardId$Widget extends graphql_flutter.Query<Query$CountRewardClaimersByRewardId> {
   Query$CountRewardClaimersByRewardId$Widget({
     widgets.Key? key,
     Options$Query$CountRewardClaimersByRewardId? options,
-    required graphql_flutter.QueryBuilder<Query$CountRewardClaimersByRewardId>
-        builder,
+    required graphql_flutter.QueryBuilder<Query$CountRewardClaimersByRewardId> builder,
   }) : super(
           key: key,
           options: options ?? Options$Query$CountRewardClaimersByRewardId(),
