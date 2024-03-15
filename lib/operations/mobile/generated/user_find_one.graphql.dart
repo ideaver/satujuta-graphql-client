@@ -2858,9 +2858,9 @@ class Query$UserFindOne$userFindOne$accounts$bankAccount {
   Query$UserFindOne$userFindOne$accounts$bankAccount({
     required this.id,
     required this.name,
-    required this.logoUrl,
-    required this.accountId,
-    required this.accountNumber,
+    this.logoUrl,
+    this.accountId,
+    this.accountNumber,
     this.$__typename = 'Bank',
   });
 
@@ -2875,9 +2875,9 @@ class Query$UserFindOne$userFindOne$accounts$bankAccount {
     return Query$UserFindOne$userFindOne$accounts$bankAccount(
       id: (l$id as int),
       name: (l$name as String),
-      logoUrl: (l$logoUrl as String),
-      accountId: (l$accountId as int),
-      accountNumber: (l$accountNumber as num).toDouble(),
+      logoUrl: (l$logoUrl as String?),
+      accountId: (l$accountId as int?),
+      accountNumber: (l$accountNumber as num?)?.toDouble(),
       $__typename: (l$$__typename as String),
     );
   }
@@ -2886,11 +2886,11 @@ class Query$UserFindOne$userFindOne$accounts$bankAccount {
 
   final String name;
 
-  final String logoUrl;
+  final String? logoUrl;
 
-  final int accountId;
+  final int? accountId;
 
-  final double accountNumber;
+  final double? accountNumber;
 
   final String $__typename;
 
@@ -3031,15 +3031,13 @@ class _CopyWithImpl$Query$UserFindOne$userFindOne$accounts$bankAccount<TRes>
         name: name == _undefined || name == null
             ? _instance.name
             : (name as String),
-        logoUrl: logoUrl == _undefined || logoUrl == null
-            ? _instance.logoUrl
-            : (logoUrl as String),
-        accountId: accountId == _undefined || accountId == null
-            ? _instance.accountId
-            : (accountId as int),
-        accountNumber: accountNumber == _undefined || accountNumber == null
+        logoUrl:
+            logoUrl == _undefined ? _instance.logoUrl : (logoUrl as String?),
+        accountId:
+            accountId == _undefined ? _instance.accountId : (accountId as int?),
+        accountNumber: accountNumber == _undefined
             ? _instance.accountNumber
-            : (accountNumber as double),
+            : (accountNumber as double?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),

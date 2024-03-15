@@ -1,11 +1,9 @@
+import '../../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
-
-import '../../../schema/generated/schema.graphql.dart';
 
 class Variables$Query$ProvinceFindMany {
   factory Variables$Query$ProvinceFindMany({
@@ -35,12 +33,17 @@ class Variables$Query$ProvinceFindMany {
     }
     if (data.containsKey('where')) {
       final l$where = data['where'];
-      result$data['where'] = l$where == null ? null : Input$ProvinceWhereInput.fromJson((l$where as Map<String, dynamic>));
+      result$data['where'] = l$where == null
+          ? null
+          : Input$ProvinceWhereInput.fromJson(
+              (l$where as Map<String, dynamic>));
     }
     if (data.containsKey('orderBy')) {
       final l$orderBy = data['orderBy'];
-      result$data['orderBy'] =
-          (l$orderBy as List<dynamic>?)?.map((e) => Input$ProvinceOrderByWithRelationInput.fromJson((e as Map<String, dynamic>))).toList();
+      result$data['orderBy'] = (l$orderBy as List<dynamic>?)
+          ?.map((e) => Input$ProvinceOrderByWithRelationInput.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList();
     }
     return Variables$Query$ProvinceFindMany._(result$data);
   }
@@ -49,8 +52,10 @@ class Variables$Query$ProvinceFindMany {
 
   int? get skip => (_$data['skip'] as int?);
   int? get take => (_$data['take'] as int?);
-  Input$ProvinceWhereInput? get where => (_$data['where'] as Input$ProvinceWhereInput?);
-  List<Input$ProvinceOrderByWithRelationInput>? get orderBy => (_$data['orderBy'] as List<Input$ProvinceOrderByWithRelationInput>?);
+  Input$ProvinceWhereInput? get where =>
+      (_$data['where'] as Input$ProvinceWhereInput?);
+  List<Input$ProvinceOrderByWithRelationInput>? get orderBy =>
+      (_$data['orderBy'] as List<Input$ProvinceOrderByWithRelationInput>?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('skip')) {
@@ -72,16 +77,18 @@ class Variables$Query$ProvinceFindMany {
     return result$data;
   }
 
-  CopyWith$Variables$Query$ProvinceFindMany<Variables$Query$ProvinceFindMany> get copyWith => CopyWith$Variables$Query$ProvinceFindMany(
-        this,
-        (i) => i,
-      );
+  CopyWith$Variables$Query$ProvinceFindMany<Variables$Query$ProvinceFindMany>
+      get copyWith => CopyWith$Variables$Query$ProvinceFindMany(
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$ProvinceFindMany) || runtimeType != other.runtimeType) {
+    if (!(other is Variables$Query$ProvinceFindMany) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$skip = skip;
@@ -155,7 +162,8 @@ abstract class CopyWith$Variables$Query$ProvinceFindMany<TRes> {
     TRes Function(Variables$Query$ProvinceFindMany) then,
   ) = _CopyWithImpl$Variables$Query$ProvinceFindMany;
 
-  factory CopyWith$Variables$Query$ProvinceFindMany.stub(TRes res) = _CopyWithStubImpl$Variables$Query$ProvinceFindMany;
+  factory CopyWith$Variables$Query$ProvinceFindMany.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$ProvinceFindMany;
 
   TRes call({
     int? skip,
@@ -165,7 +173,8 @@ abstract class CopyWith$Variables$Query$ProvinceFindMany<TRes> {
   });
 }
 
-class _CopyWithImpl$Variables$Query$ProvinceFindMany<TRes> implements CopyWith$Variables$Query$ProvinceFindMany<TRes> {
+class _CopyWithImpl$Variables$Query$ProvinceFindMany<TRes>
+    implements CopyWith$Variables$Query$ProvinceFindMany<TRes> {
   _CopyWithImpl$Variables$Query$ProvinceFindMany(
     this._instance,
     this._then,
@@ -188,11 +197,13 @@ class _CopyWithImpl$Variables$Query$ProvinceFindMany<TRes> implements CopyWith$V
         if (skip != _undefined) 'skip': (skip as int?),
         if (take != _undefined) 'take': (take as int?),
         if (where != _undefined) 'where': (where as Input$ProvinceWhereInput?),
-        if (orderBy != _undefined) 'orderBy': (orderBy as List<Input$ProvinceOrderByWithRelationInput>?),
+        if (orderBy != _undefined)
+          'orderBy': (orderBy as List<Input$ProvinceOrderByWithRelationInput>?),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$ProvinceFindMany<TRes> implements CopyWith$Variables$Query$ProvinceFindMany<TRes> {
+class _CopyWithStubImpl$Variables$Query$ProvinceFindMany<TRes>
+    implements CopyWith$Variables$Query$ProvinceFindMany<TRes> {
   _CopyWithStubImpl$Variables$Query$ProvinceFindMany(this._res);
 
   TRes _res;
@@ -216,8 +227,10 @@ class Query$ProvinceFindMany {
     final l$provinceFindMany = json['provinceFindMany'];
     final l$$__typename = json['__typename'];
     return Query$ProvinceFindMany(
-      provinceFindMany:
-          (l$provinceFindMany as List<dynamic>?)?.map((e) => Query$ProvinceFindMany$provinceFindMany.fromJson((e as Map<String, dynamic>))).toList(),
+      provinceFindMany: (l$provinceFindMany as List<dynamic>?)
+          ?.map((e) => Query$ProvinceFindMany$provinceFindMany.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList(),
       $__typename: (l$$__typename as String),
     );
   }
@@ -229,7 +242,8 @@ class Query$ProvinceFindMany {
   Map<String, dynamic> toJson() {
     final _resultData = <String, dynamic>{};
     final l$provinceFindMany = provinceFindMany;
-    _resultData['provinceFindMany'] = l$provinceFindMany?.map((e) => e.toJson()).toList();
+    _resultData['provinceFindMany'] =
+        l$provinceFindMany?.map((e) => e.toJson()).toList();
     final l$$__typename = $__typename;
     _resultData['__typename'] = l$$__typename;
     return _resultData;
@@ -240,7 +254,9 @@ class Query$ProvinceFindMany {
     final l$provinceFindMany = provinceFindMany;
     final l$$__typename = $__typename;
     return Object.hashAll([
-      l$provinceFindMany == null ? null : Object.hashAll(l$provinceFindMany.map((v) => v)),
+      l$provinceFindMany == null
+          ? null
+          : Object.hashAll(l$provinceFindMany.map((v) => v)),
       l$$__typename,
     ]);
   }
@@ -250,7 +266,8 @@ class Query$ProvinceFindMany {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$ProvinceFindMany) || runtimeType != other.runtimeType) {
+    if (!(other is Query$ProvinceFindMany) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$provinceFindMany = provinceFindMany;
@@ -279,7 +296,8 @@ class Query$ProvinceFindMany {
 }
 
 extension UtilityExtension$Query$ProvinceFindMany on Query$ProvinceFindMany {
-  CopyWith$Query$ProvinceFindMany<Query$ProvinceFindMany> get copyWith => CopyWith$Query$ProvinceFindMany(
+  CopyWith$Query$ProvinceFindMany<Query$ProvinceFindMany> get copyWith =>
+      CopyWith$Query$ProvinceFindMany(
         this,
         (i) => i,
       );
@@ -291,7 +309,8 @@ abstract class CopyWith$Query$ProvinceFindMany<TRes> {
     TRes Function(Query$ProvinceFindMany) then,
   ) = _CopyWithImpl$Query$ProvinceFindMany;
 
-  factory CopyWith$Query$ProvinceFindMany.stub(TRes res) = _CopyWithStubImpl$Query$ProvinceFindMany;
+  factory CopyWith$Query$ProvinceFindMany.stub(TRes res) =
+      _CopyWithStubImpl$Query$ProvinceFindMany;
 
   TRes call({
     List<Query$ProvinceFindMany$provinceFindMany>? provinceFindMany,
@@ -299,11 +318,14 @@ abstract class CopyWith$Query$ProvinceFindMany<TRes> {
   });
   TRes provinceFindMany(
       Iterable<Query$ProvinceFindMany$provinceFindMany>? Function(
-              Iterable<CopyWith$Query$ProvinceFindMany$provinceFindMany<Query$ProvinceFindMany$provinceFindMany>>?)
+              Iterable<
+                  CopyWith$Query$ProvinceFindMany$provinceFindMany<
+                      Query$ProvinceFindMany$provinceFindMany>>?)
           _fn);
 }
 
-class _CopyWithImpl$Query$ProvinceFindMany<TRes> implements CopyWith$Query$ProvinceFindMany<TRes> {
+class _CopyWithImpl$Query$ProvinceFindMany<TRes>
+    implements CopyWith$Query$ProvinceFindMany<TRes> {
   _CopyWithImpl$Query$ProvinceFindMany(
     this._instance,
     this._then,
@@ -320,22 +342,30 @@ class _CopyWithImpl$Query$ProvinceFindMany<TRes> implements CopyWith$Query$Provi
     Object? $__typename = _undefined,
   }) =>
       _then(Query$ProvinceFindMany(
-        provinceFindMany:
-            provinceFindMany == _undefined ? _instance.provinceFindMany : (provinceFindMany as List<Query$ProvinceFindMany$provinceFindMany>?),
-        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
+        provinceFindMany: provinceFindMany == _undefined
+            ? _instance.provinceFindMany
+            : (provinceFindMany
+                as List<Query$ProvinceFindMany$provinceFindMany>?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
       ));
   TRes provinceFindMany(
           Iterable<Query$ProvinceFindMany$provinceFindMany>? Function(
-                  Iterable<CopyWith$Query$ProvinceFindMany$provinceFindMany<Query$ProvinceFindMany$provinceFindMany>>?)
+                  Iterable<
+                      CopyWith$Query$ProvinceFindMany$provinceFindMany<
+                          Query$ProvinceFindMany$provinceFindMany>>?)
               _fn) =>
       call(
-          provinceFindMany: _fn(_instance.provinceFindMany?.map((e) => CopyWith$Query$ProvinceFindMany$provinceFindMany(
-                e,
-                (i) => i,
-              )))?.toList());
+          provinceFindMany: _fn(_instance.provinceFindMany
+              ?.map((e) => CopyWith$Query$ProvinceFindMany$provinceFindMany(
+                    e,
+                    (i) => i,
+                  )))?.toList());
 }
 
-class _CopyWithStubImpl$Query$ProvinceFindMany<TRes> implements CopyWith$Query$ProvinceFindMany<TRes> {
+class _CopyWithStubImpl$Query$ProvinceFindMany<TRes>
+    implements CopyWith$Query$ProvinceFindMany<TRes> {
   _CopyWithStubImpl$Query$ProvinceFindMany(this._res);
 
   TRes _res;
@@ -451,13 +481,16 @@ const documentNodeQueryProvinceFindMany = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Query$ProvinceFindMany _parserFn$Query$ProvinceFindMany(Map<String, dynamic> data) => Query$ProvinceFindMany.fromJson(data);
+Query$ProvinceFindMany _parserFn$Query$ProvinceFindMany(
+        Map<String, dynamic> data) =>
+    Query$ProvinceFindMany.fromJson(data);
 typedef OnQueryComplete$Query$ProvinceFindMany = FutureOr<void> Function(
   Map<String, dynamic>?,
   Query$ProvinceFindMany?,
 );
 
-class Options$Query$ProvinceFindMany extends graphql.QueryOptions<Query$ProvinceFindMany> {
+class Options$Query$ProvinceFindMany
+    extends graphql.QueryOptions<Query$ProvinceFindMany> {
   Options$Query$ProvinceFindMany({
     String? operationName,
     Variables$Query$ProvinceFindMany? variables,
@@ -484,7 +517,9 @@ class Options$Query$ProvinceFindMany extends graphql.QueryOptions<Query$Province
               ? null
               : (data) => onComplete(
                     data,
-                    data == null ? null : _parserFn$Query$ProvinceFindMany(data),
+                    data == null
+                        ? null
+                        : _parserFn$Query$ProvinceFindMany(data),
                   ),
           onError: onError,
           document: documentNodeQueryProvinceFindMany,
@@ -495,12 +530,15 @@ class Options$Query$ProvinceFindMany extends graphql.QueryOptions<Query$Province
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null ? super.properties : super.properties.where((property) => property != onComplete),
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
         onCompleteWithParsed,
       ];
 }
 
-class WatchOptions$Query$ProvinceFindMany extends graphql.WatchQueryOptions<Query$ProvinceFindMany> {
+class WatchOptions$Query$ProvinceFindMany
+    extends graphql.WatchQueryOptions<Query$ProvinceFindMany> {
   WatchOptions$Query$ProvinceFindMany({
     String? operationName,
     Variables$Query$ProvinceFindMany? variables,
@@ -543,9 +581,11 @@ class FetchMoreOptions$Query$ProvinceFindMany extends graphql.FetchMoreOptions {
 }
 
 extension ClientExtension$Query$ProvinceFindMany on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$ProvinceFindMany>> query$ProvinceFindMany([Options$Query$ProvinceFindMany? options]) async =>
+  Future<graphql.QueryResult<Query$ProvinceFindMany>> query$ProvinceFindMany(
+          [Options$Query$ProvinceFindMany? options]) async =>
       await this.query(options ?? Options$Query$ProvinceFindMany());
-  graphql.ObservableQuery<Query$ProvinceFindMany> watchQuery$ProvinceFindMany([WatchOptions$Query$ProvinceFindMany? options]) =>
+  graphql.ObservableQuery<Query$ProvinceFindMany> watchQuery$ProvinceFindMany(
+          [WatchOptions$Query$ProvinceFindMany? options]) =>
       this.watchQuery(options ?? WatchOptions$Query$ProvinceFindMany());
   void writeQuery$ProvinceFindMany({
     required Query$ProvinceFindMany data,
@@ -554,7 +594,8 @@ extension ClientExtension$Query$ProvinceFindMany on graphql.GraphQLClient {
   }) =>
       this.writeQuery(
         graphql.Request(
-          operation: graphql.Operation(document: documentNodeQueryProvinceFindMany),
+          operation:
+              graphql.Operation(document: documentNodeQueryProvinceFindMany),
           variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
@@ -566,7 +607,8 @@ extension ClientExtension$Query$ProvinceFindMany on graphql.GraphQLClient {
   }) {
     final result = this.readQuery(
       graphql.Request(
-        operation: graphql.Operation(document: documentNodeQueryProvinceFindMany),
+        operation:
+            graphql.Operation(document: documentNodeQueryProvinceFindMany),
         variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
@@ -575,12 +617,16 @@ extension ClientExtension$Query$ProvinceFindMany on graphql.GraphQLClient {
   }
 }
 
-graphql_flutter.QueryHookResult<Query$ProvinceFindMany> useQuery$ProvinceFindMany([Options$Query$ProvinceFindMany? options]) =>
-    graphql_flutter.useQuery(options ?? Options$Query$ProvinceFindMany());
-graphql.ObservableQuery<Query$ProvinceFindMany> useWatchQuery$ProvinceFindMany([WatchOptions$Query$ProvinceFindMany? options]) =>
-    graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$ProvinceFindMany());
+graphql_flutter.QueryHookResult<Query$ProvinceFindMany>
+    useQuery$ProvinceFindMany([Options$Query$ProvinceFindMany? options]) =>
+        graphql_flutter.useQuery(options ?? Options$Query$ProvinceFindMany());
+graphql.ObservableQuery<Query$ProvinceFindMany> useWatchQuery$ProvinceFindMany(
+        [WatchOptions$Query$ProvinceFindMany? options]) =>
+    graphql_flutter
+        .useWatchQuery(options ?? WatchOptions$Query$ProvinceFindMany());
 
-class Query$ProvinceFindMany$Widget extends graphql_flutter.Query<Query$ProvinceFindMany> {
+class Query$ProvinceFindMany$Widget
+    extends graphql_flutter.Query<Query$ProvinceFindMany> {
   Query$ProvinceFindMany$Widget({
     widgets.Key? key,
     Options$Query$ProvinceFindMany? options,
@@ -599,7 +645,8 @@ class Query$ProvinceFindMany$provinceFindMany {
     this.$__typename = 'Province',
   });
 
-  factory Query$ProvinceFindMany$provinceFindMany.fromJson(Map<String, dynamic> json) {
+  factory Query$ProvinceFindMany$provinceFindMany.fromJson(
+      Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$$__typename = json['__typename'];
@@ -644,7 +691,8 @@ class Query$ProvinceFindMany$provinceFindMany {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$ProvinceFindMany$provinceFindMany) || runtimeType != other.runtimeType) {
+    if (!(other is Query$ProvinceFindMany$provinceFindMany) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -666,12 +714,14 @@ class Query$ProvinceFindMany$provinceFindMany {
   }
 }
 
-extension UtilityExtension$Query$ProvinceFindMany$provinceFindMany on Query$ProvinceFindMany$provinceFindMany {
-  CopyWith$Query$ProvinceFindMany$provinceFindMany<Query$ProvinceFindMany$provinceFindMany> get copyWith =>
-      CopyWith$Query$ProvinceFindMany$provinceFindMany(
-        this,
-        (i) => i,
-      );
+extension UtilityExtension$Query$ProvinceFindMany$provinceFindMany
+    on Query$ProvinceFindMany$provinceFindMany {
+  CopyWith$Query$ProvinceFindMany$provinceFindMany<
+          Query$ProvinceFindMany$provinceFindMany>
+      get copyWith => CopyWith$Query$ProvinceFindMany$provinceFindMany(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$ProvinceFindMany$provinceFindMany<TRes> {
@@ -680,7 +730,8 @@ abstract class CopyWith$Query$ProvinceFindMany$provinceFindMany<TRes> {
     TRes Function(Query$ProvinceFindMany$provinceFindMany) then,
   ) = _CopyWithImpl$Query$ProvinceFindMany$provinceFindMany;
 
-  factory CopyWith$Query$ProvinceFindMany$provinceFindMany.stub(TRes res) = _CopyWithStubImpl$Query$ProvinceFindMany$provinceFindMany;
+  factory CopyWith$Query$ProvinceFindMany$provinceFindMany.stub(TRes res) =
+      _CopyWithStubImpl$Query$ProvinceFindMany$provinceFindMany;
 
   TRes call({
     int? id,
@@ -689,7 +740,8 @@ abstract class CopyWith$Query$ProvinceFindMany$provinceFindMany<TRes> {
   });
 }
 
-class _CopyWithImpl$Query$ProvinceFindMany$provinceFindMany<TRes> implements CopyWith$Query$ProvinceFindMany$provinceFindMany<TRes> {
+class _CopyWithImpl$Query$ProvinceFindMany$provinceFindMany<TRes>
+    implements CopyWith$Query$ProvinceFindMany$provinceFindMany<TRes> {
   _CopyWithImpl$Query$ProvinceFindMany$provinceFindMany(
     this._instance,
     this._then,
@@ -708,12 +760,17 @@ class _CopyWithImpl$Query$ProvinceFindMany$provinceFindMany<TRes> implements Cop
   }) =>
       _then(Query$ProvinceFindMany$provinceFindMany(
         id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null ? _instance.name : (name as String),
-        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImpl$Query$ProvinceFindMany$provinceFindMany<TRes> implements CopyWith$Query$ProvinceFindMany$provinceFindMany<TRes> {
+class _CopyWithStubImpl$Query$ProvinceFindMany$provinceFindMany<TRes>
+    implements CopyWith$Query$ProvinceFindMany$provinceFindMany<TRes> {
   _CopyWithStubImpl$Query$ProvinceFindMany$provinceFindMany(this._res);
 
   TRes _res;

@@ -1,23 +1,25 @@
+import '../../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../../schema/generated/schema.graphql.dart';
-
 class Variables$Mutation$HotelCreateOne {
-  factory Variables$Mutation$HotelCreateOne({required Input$HotelCreateInput data}) => Variables$Mutation$HotelCreateOne._({
+  factory Variables$Mutation$HotelCreateOne(
+          {required Input$HotelCreateInput data}) =>
+      Variables$Mutation$HotelCreateOne._({
         r'data': data,
       });
 
   Variables$Mutation$HotelCreateOne._(this._$data);
 
-  factory Variables$Mutation$HotelCreateOne.fromJson(Map<String, dynamic> data) {
+  factory Variables$Mutation$HotelCreateOne.fromJson(
+      Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$data = data['data'];
-    result$data['data'] = Input$HotelCreateInput.fromJson((l$data as Map<String, dynamic>));
+    result$data['data'] =
+        Input$HotelCreateInput.fromJson((l$data as Map<String, dynamic>));
     return Variables$Mutation$HotelCreateOne._(result$data);
   }
 
@@ -31,16 +33,18 @@ class Variables$Mutation$HotelCreateOne {
     return result$data;
   }
 
-  CopyWith$Variables$Mutation$HotelCreateOne<Variables$Mutation$HotelCreateOne> get copyWith => CopyWith$Variables$Mutation$HotelCreateOne(
-        this,
-        (i) => i,
-      );
+  CopyWith$Variables$Mutation$HotelCreateOne<Variables$Mutation$HotelCreateOne>
+      get copyWith => CopyWith$Variables$Mutation$HotelCreateOne(
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (other is! Variables$Mutation$HotelCreateOne || runtimeType != other.runtimeType) {
+    if (!(other is Variables$Mutation$HotelCreateOne) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$data = data;
@@ -64,12 +68,14 @@ abstract class CopyWith$Variables$Mutation$HotelCreateOne<TRes> {
     TRes Function(Variables$Mutation$HotelCreateOne) then,
   ) = _CopyWithImpl$Variables$Mutation$HotelCreateOne;
 
-  factory CopyWith$Variables$Mutation$HotelCreateOne.stub(TRes res) = _CopyWithStubImpl$Variables$Mutation$HotelCreateOne;
+  factory CopyWith$Variables$Mutation$HotelCreateOne.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$HotelCreateOne;
 
   TRes call({Input$HotelCreateInput? data});
 }
 
-class _CopyWithImpl$Variables$Mutation$HotelCreateOne<TRes> implements CopyWith$Variables$Mutation$HotelCreateOne<TRes> {
+class _CopyWithImpl$Variables$Mutation$HotelCreateOne<TRes>
+    implements CopyWith$Variables$Mutation$HotelCreateOne<TRes> {
   _CopyWithImpl$Variables$Mutation$HotelCreateOne(
     this._instance,
     this._then,
@@ -81,19 +87,20 @@ class _CopyWithImpl$Variables$Mutation$HotelCreateOne<TRes> implements CopyWith$
 
   static const _undefined = <dynamic, dynamic>{};
 
-  @override
-  TRes call({Object? data = _undefined}) => _then(Variables$Mutation$HotelCreateOne._({
+  TRes call({Object? data = _undefined}) =>
+      _then(Variables$Mutation$HotelCreateOne._({
         ..._instance._$data,
-        if (data != _undefined && data != null) 'data': (data as Input$HotelCreateInput),
+        if (data != _undefined && data != null)
+          'data': (data as Input$HotelCreateInput),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Mutation$HotelCreateOne<TRes> implements CopyWith$Variables$Mutation$HotelCreateOne<TRes> {
+class _CopyWithStubImpl$Variables$Mutation$HotelCreateOne<TRes>
+    implements CopyWith$Variables$Mutation$HotelCreateOne<TRes> {
   _CopyWithStubImpl$Variables$Mutation$HotelCreateOne(this._res);
 
-  final TRes _res;
+  TRes _res;
 
-  @override
   call({Input$HotelCreateInput? data}) => _res;
 }
 
@@ -107,7 +114,10 @@ class Mutation$HotelCreateOne {
     final l$hotelCreateOne = json['hotelCreateOne'];
     final l$$__typename = json['__typename'];
     return Mutation$HotelCreateOne(
-      hotelCreateOne: l$hotelCreateOne == null ? null : Mutation$HotelCreateOne$hotelCreateOne.fromJson((l$hotelCreateOne as Map<String, dynamic>)),
+      hotelCreateOne: l$hotelCreateOne == null
+          ? null
+          : Mutation$HotelCreateOne$hotelCreateOne.fromJson(
+              (l$hotelCreateOne as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -117,12 +127,12 @@ class Mutation$HotelCreateOne {
   final String $__typename;
 
   Map<String, dynamic> toJson() {
-    final resultData = <String, dynamic>{};
+    final _resultData = <String, dynamic>{};
     final l$hotelCreateOne = hotelCreateOne;
-    resultData['hotelCreateOne'] = l$hotelCreateOne?.toJson();
+    _resultData['hotelCreateOne'] = l$hotelCreateOne?.toJson();
     final l$$__typename = $__typename;
-    resultData['__typename'] = l$$__typename;
-    return resultData;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
   }
 
   @override
@@ -140,7 +150,8 @@ class Mutation$HotelCreateOne {
     if (identical(this, other)) {
       return true;
     }
-    if (other is! Mutation$HotelCreateOne || runtimeType != other.runtimeType) {
+    if (!(other is Mutation$HotelCreateOne) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$hotelCreateOne = hotelCreateOne;
@@ -158,7 +169,8 @@ class Mutation$HotelCreateOne {
 }
 
 extension UtilityExtension$Mutation$HotelCreateOne on Mutation$HotelCreateOne {
-  CopyWith$Mutation$HotelCreateOne<Mutation$HotelCreateOne> get copyWith => CopyWith$Mutation$HotelCreateOne(
+  CopyWith$Mutation$HotelCreateOne<Mutation$HotelCreateOne> get copyWith =>
+      CopyWith$Mutation$HotelCreateOne(
         this,
         (i) => i,
       );
@@ -170,7 +182,8 @@ abstract class CopyWith$Mutation$HotelCreateOne<TRes> {
     TRes Function(Mutation$HotelCreateOne) then,
   ) = _CopyWithImpl$Mutation$HotelCreateOne;
 
-  factory CopyWith$Mutation$HotelCreateOne.stub(TRes res) = _CopyWithStubImpl$Mutation$HotelCreateOne;
+  factory CopyWith$Mutation$HotelCreateOne.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$HotelCreateOne;
 
   TRes call({
     Mutation$HotelCreateOne$hotelCreateOne? hotelCreateOne,
@@ -179,7 +192,8 @@ abstract class CopyWith$Mutation$HotelCreateOne<TRes> {
   CopyWith$Mutation$HotelCreateOne$hotelCreateOne<TRes> get hotelCreateOne;
 }
 
-class _CopyWithImpl$Mutation$HotelCreateOne<TRes> implements CopyWith$Mutation$HotelCreateOne<TRes> {
+class _CopyWithImpl$Mutation$HotelCreateOne<TRes>
+    implements CopyWith$Mutation$HotelCreateOne<TRes> {
   _CopyWithImpl$Mutation$HotelCreateOne(
     this._instance,
     this._then,
@@ -191,37 +205,40 @@ class _CopyWithImpl$Mutation$HotelCreateOne<TRes> implements CopyWith$Mutation$H
 
   static const _undefined = <dynamic, dynamic>{};
 
-  @override
   TRes call({
     Object? hotelCreateOne = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$HotelCreateOne(
-        hotelCreateOne: hotelCreateOne == _undefined ? _instance.hotelCreateOne : (hotelCreateOne as Mutation$HotelCreateOne$hotelCreateOne?),
-        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
+        hotelCreateOne: hotelCreateOne == _undefined
+            ? _instance.hotelCreateOne
+            : (hotelCreateOne as Mutation$HotelCreateOne$hotelCreateOne?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
       ));
-  @override
   CopyWith$Mutation$HotelCreateOne$hotelCreateOne<TRes> get hotelCreateOne {
     final local$hotelCreateOne = _instance.hotelCreateOne;
     return local$hotelCreateOne == null
         ? CopyWith$Mutation$HotelCreateOne$hotelCreateOne.stub(_then(_instance))
-        : CopyWith$Mutation$HotelCreateOne$hotelCreateOne(local$hotelCreateOne, (e) => call(hotelCreateOne: e));
+        : CopyWith$Mutation$HotelCreateOne$hotelCreateOne(
+            local$hotelCreateOne, (e) => call(hotelCreateOne: e));
   }
 }
 
-class _CopyWithStubImpl$Mutation$HotelCreateOne<TRes> implements CopyWith$Mutation$HotelCreateOne<TRes> {
+class _CopyWithStubImpl$Mutation$HotelCreateOne<TRes>
+    implements CopyWith$Mutation$HotelCreateOne<TRes> {
   _CopyWithStubImpl$Mutation$HotelCreateOne(this._res);
 
-  final TRes _res;
+  TRes _res;
 
-  @override
   call({
     Mutation$HotelCreateOne$hotelCreateOne? hotelCreateOne,
     String? $__typename,
   }) =>
       _res;
-  @override
-  CopyWith$Mutation$HotelCreateOne$hotelCreateOne<TRes> get hotelCreateOne => CopyWith$Mutation$HotelCreateOne$hotelCreateOne.stub(_res);
+  CopyWith$Mutation$HotelCreateOne$hotelCreateOne<TRes> get hotelCreateOne =>
+      CopyWith$Mutation$HotelCreateOne$hotelCreateOne.stub(_res);
 }
 
 const documentNodeMutationHotelCreateOne = DocumentNode(definitions: [
@@ -407,13 +424,16 @@ const documentNodeMutationHotelCreateOne = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Mutation$HotelCreateOne _parserFn$Mutation$HotelCreateOne(Map<String, dynamic> data) => Mutation$HotelCreateOne.fromJson(data);
+Mutation$HotelCreateOne _parserFn$Mutation$HotelCreateOne(
+        Map<String, dynamic> data) =>
+    Mutation$HotelCreateOne.fromJson(data);
 typedef OnMutationCompleted$Mutation$HotelCreateOne = FutureOr<void> Function(
   Map<String, dynamic>?,
   Mutation$HotelCreateOne?,
 );
 
-class Options$Mutation$HotelCreateOne extends graphql.MutationOptions<Mutation$HotelCreateOne> {
+class Options$Mutation$HotelCreateOne
+    extends graphql.MutationOptions<Mutation$HotelCreateOne> {
   Options$Mutation$HotelCreateOne({
     String? operationName,
     required Variables$Mutation$HotelCreateOne variables,
@@ -439,7 +459,9 @@ class Options$Mutation$HotelCreateOne extends graphql.MutationOptions<Mutation$H
               ? null
               : (data) => onCompleted(
                     data,
-                    data == null ? null : _parserFn$Mutation$HotelCreateOne(data),
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$HotelCreateOne(data),
                   ),
           update: update,
           onError: onError,
@@ -451,12 +473,15 @@ class Options$Mutation$HotelCreateOne extends graphql.MutationOptions<Mutation$H
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null ? super.properties : super.properties.where((property) => property != onCompleted),
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
         onCompletedWithParsed,
       ];
 }
 
-class WatchOptions$Mutation$HotelCreateOne extends graphql.WatchQueryOptions<Mutation$HotelCreateOne> {
+class WatchOptions$Mutation$HotelCreateOne
+    extends graphql.WatchQueryOptions<Mutation$HotelCreateOne> {
   WatchOptions$Mutation$HotelCreateOne({
     String? operationName,
     required Variables$Mutation$HotelCreateOne variables,
@@ -488,9 +513,12 @@ class WatchOptions$Mutation$HotelCreateOne extends graphql.WatchQueryOptions<Mut
 }
 
 extension ClientExtension$Mutation$HotelCreateOne on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Mutation$HotelCreateOne>> mutate$HotelCreateOne(Options$Mutation$HotelCreateOne options) async => await mutate(options);
-  graphql.ObservableQuery<Mutation$HotelCreateOne> watchMutation$HotelCreateOne(WatchOptions$Mutation$HotelCreateOne options) =>
-      watchMutation(options);
+  Future<graphql.QueryResult<Mutation$HotelCreateOne>> mutate$HotelCreateOne(
+          Options$Mutation$HotelCreateOne options) async =>
+      await this.mutate(options);
+  graphql.ObservableQuery<Mutation$HotelCreateOne> watchMutation$HotelCreateOne(
+          WatchOptions$Mutation$HotelCreateOne options) =>
+      this.watchMutation(options);
 }
 
 class Mutation$HotelCreateOne$HookResult {
@@ -504,10 +532,13 @@ class Mutation$HotelCreateOne$HookResult {
   final graphql.QueryResult<Mutation$HotelCreateOne> result;
 }
 
-Mutation$HotelCreateOne$HookResult useMutation$HotelCreateOne([WidgetOptions$Mutation$HotelCreateOne? options]) {
-  final result = graphql_flutter.useMutation(options ?? WidgetOptions$Mutation$HotelCreateOne());
+Mutation$HotelCreateOne$HookResult useMutation$HotelCreateOne(
+    [WidgetOptions$Mutation$HotelCreateOne? options]) {
+  final result = graphql_flutter
+      .useMutation(options ?? WidgetOptions$Mutation$HotelCreateOne());
   return Mutation$HotelCreateOne$HookResult(
-    (variables, {optimisticResult, typedOptimisticResult}) => result.runMutation(
+    (variables, {optimisticResult, typedOptimisticResult}) =>
+        result.runMutation(
       variables.toJson(),
       optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
     ),
@@ -515,10 +546,13 @@ Mutation$HotelCreateOne$HookResult useMutation$HotelCreateOne([WidgetOptions$Mut
   );
 }
 
-graphql.ObservableQuery<Mutation$HotelCreateOne> useWatchMutation$HotelCreateOne(WatchOptions$Mutation$HotelCreateOne options) =>
-    graphql_flutter.useWatchMutation(options);
+graphql.ObservableQuery<Mutation$HotelCreateOne>
+    useWatchMutation$HotelCreateOne(
+            WatchOptions$Mutation$HotelCreateOne options) =>
+        graphql_flutter.useWatchMutation(options);
 
-class WidgetOptions$Mutation$HotelCreateOne extends graphql.MutationOptions<Mutation$HotelCreateOne> {
+class WidgetOptions$Mutation$HotelCreateOne
+    extends graphql.MutationOptions<Mutation$HotelCreateOne> {
   WidgetOptions$Mutation$HotelCreateOne({
     String? operationName,
     graphql.FetchPolicy? fetchPolicy,
@@ -542,7 +576,9 @@ class WidgetOptions$Mutation$HotelCreateOne extends graphql.MutationOptions<Muta
               ? null
               : (data) => onCompleted(
                     data,
-                    data == null ? null : _parserFn$Mutation$HotelCreateOne(data),
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$HotelCreateOne(data),
                   ),
           update: update,
           onError: onError,
@@ -554,12 +590,15 @@ class WidgetOptions$Mutation$HotelCreateOne extends graphql.MutationOptions<Muta
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null ? super.properties : super.properties.where((property) => property != onCompleted),
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
         onCompletedWithParsed,
       ];
 }
 
-typedef RunMutation$Mutation$HotelCreateOne = graphql.MultiSourceResult<Mutation$HotelCreateOne> Function(
+typedef RunMutation$Mutation$HotelCreateOne
+    = graphql.MultiSourceResult<Mutation$HotelCreateOne> Function(
   Variables$Mutation$HotelCreateOne, {
   Object? optimisticResult,
   Mutation$HotelCreateOne? typedOptimisticResult,
@@ -569,7 +608,8 @@ typedef Builder$Mutation$HotelCreateOne = widgets.Widget Function(
   graphql.QueryResult<Mutation$HotelCreateOne>?,
 );
 
-class Mutation$HotelCreateOne$Widget extends graphql_flutter.Mutation<Mutation$HotelCreateOne> {
+class Mutation$HotelCreateOne$Widget
+    extends graphql_flutter.Mutation<Mutation$HotelCreateOne> {
   Mutation$HotelCreateOne$Widget({
     widgets.Key? key,
     WidgetOptions$Mutation$HotelCreateOne? options,
@@ -589,7 +629,8 @@ class Mutation$HotelCreateOne$Widget extends graphql_flutter.Mutation<Mutation$H
             }) =>
                 run(
               variables.toJson(),
-              optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+              optimisticResult:
+                  optimisticResult ?? typedOptimisticResult?.toJson(),
             ),
             result,
           ),
@@ -611,7 +652,8 @@ class Mutation$HotelCreateOne$hotelCreateOne {
     this.$__typename = 'Hotel',
   });
 
-  factory Mutation$HotelCreateOne$hotelCreateOne.fromJson(Map<String, dynamic> json) {
+  factory Mutation$HotelCreateOne$hotelCreateOne.fromJson(
+      Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$addressId = json['addressId'];
@@ -632,8 +674,12 @@ class Mutation$HotelCreateOne$hotelCreateOne {
       startDate: (l$startDate as String),
       quota: (l$quota as int),
       createdById: (l$createdById as String),
-      images: (l$images as List<dynamic>?)?.map((e) => Mutation$HotelCreateOne$hotelCreateOne$images.fromJson((e as Map<String, dynamic>))).toList(),
-      address: Mutation$HotelCreateOne$hotelCreateOne$address.fromJson((l$address as Map<String, dynamic>)),
+      images: (l$images as List<dynamic>?)
+          ?.map((e) => Mutation$HotelCreateOne$hotelCreateOne$images.fromJson(
+              (e as Map<String, dynamic>)))
+          .toList(),
+      address: Mutation$HotelCreateOne$hotelCreateOne$address.fromJson(
+          (l$address as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -661,30 +707,30 @@ class Mutation$HotelCreateOne$hotelCreateOne {
   final String $__typename;
 
   Map<String, dynamic> toJson() {
-    final resultData = <String, dynamic>{};
+    final _resultData = <String, dynamic>{};
     final l$id = id;
-    resultData['id'] = l$id;
+    _resultData['id'] = l$id;
     final l$name = name;
-    resultData['name'] = l$name;
+    _resultData['name'] = l$name;
     final l$addressId = addressId;
-    resultData['addressId'] = l$addressId;
+    _resultData['addressId'] = l$addressId;
     final l$description = description;
-    resultData['description'] = l$description;
+    _resultData['description'] = l$description;
     final l$rating = rating;
-    resultData['rating'] = l$rating;
+    _resultData['rating'] = l$rating;
     final l$startDate = startDate;
-    resultData['startDate'] = l$startDate;
+    _resultData['startDate'] = l$startDate;
     final l$quota = quota;
-    resultData['quota'] = l$quota;
+    _resultData['quota'] = l$quota;
     final l$createdById = createdById;
-    resultData['createdById'] = l$createdById;
+    _resultData['createdById'] = l$createdById;
     final l$images = images;
-    resultData['images'] = l$images?.map((e) => e.toJson()).toList();
+    _resultData['images'] = l$images?.map((e) => e.toJson()).toList();
     final l$address = address;
-    resultData['address'] = l$address.toJson();
+    _resultData['address'] = l$address.toJson();
     final l$$__typename = $__typename;
-    resultData['__typename'] = l$$__typename;
-    return resultData;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
   }
 
   @override
@@ -720,7 +766,8 @@ class Mutation$HotelCreateOne$hotelCreateOne {
     if (identical(this, other)) {
       return true;
     }
-    if (other is! Mutation$HotelCreateOne$hotelCreateOne || runtimeType != other.runtimeType) {
+    if (!(other is Mutation$HotelCreateOne$hotelCreateOne) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -793,12 +840,14 @@ class Mutation$HotelCreateOne$hotelCreateOne {
   }
 }
 
-extension UtilityExtension$Mutation$HotelCreateOne$hotelCreateOne on Mutation$HotelCreateOne$hotelCreateOne {
-  CopyWith$Mutation$HotelCreateOne$hotelCreateOne<Mutation$HotelCreateOne$hotelCreateOne> get copyWith =>
-      CopyWith$Mutation$HotelCreateOne$hotelCreateOne(
-        this,
-        (i) => i,
-      );
+extension UtilityExtension$Mutation$HotelCreateOne$hotelCreateOne
+    on Mutation$HotelCreateOne$hotelCreateOne {
+  CopyWith$Mutation$HotelCreateOne$hotelCreateOne<
+          Mutation$HotelCreateOne$hotelCreateOne>
+      get copyWith => CopyWith$Mutation$HotelCreateOne$hotelCreateOne(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Mutation$HotelCreateOne$hotelCreateOne<TRes> {
@@ -807,7 +856,8 @@ abstract class CopyWith$Mutation$HotelCreateOne$hotelCreateOne<TRes> {
     TRes Function(Mutation$HotelCreateOne$hotelCreateOne) then,
   ) = _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne;
 
-  factory CopyWith$Mutation$HotelCreateOne$hotelCreateOne.stub(TRes res) = _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne;
+  factory CopyWith$Mutation$HotelCreateOne$hotelCreateOne.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne;
 
   TRes call({
     int? id,
@@ -824,12 +874,15 @@ abstract class CopyWith$Mutation$HotelCreateOne$hotelCreateOne<TRes> {
   });
   TRes images(
       Iterable<Mutation$HotelCreateOne$hotelCreateOne$images>? Function(
-              Iterable<CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images<Mutation$HotelCreateOne$hotelCreateOne$images>>?)
-          fn);
+              Iterable<
+                  CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images<
+                      Mutation$HotelCreateOne$hotelCreateOne$images>>?)
+          _fn);
   CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address<TRes> get address;
 }
 
-class _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne<TRes> implements CopyWith$Mutation$HotelCreateOne$hotelCreateOne<TRes> {
+class _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne<TRes>
+    implements CopyWith$Mutation$HotelCreateOne$hotelCreateOne<TRes> {
   _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne(
     this._instance,
     this._then,
@@ -841,7 +894,6 @@ class _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne<TRes> implements Copy
 
   static const _undefined = <dynamic, dynamic>{};
 
-  @override
   TRes call({
     Object? id = _undefined,
     Object? name = _undefined,
@@ -857,40 +909,62 @@ class _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne<TRes> implements Copy
   }) =>
       _then(Mutation$HotelCreateOne$hotelCreateOne(
         id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null ? _instance.name : (name as String),
-        addressId: addressId == _undefined || addressId == null ? _instance.addressId : (addressId as int),
-        description: description == _undefined || description == null ? _instance.description : (description as String),
-        rating: rating == _undefined || rating == null ? _instance.rating : (rating as double),
-        startDate: startDate == _undefined || startDate == null ? _instance.startDate : (startDate as String),
-        quota: quota == _undefined || quota == null ? _instance.quota : (quota as int),
-        createdById: createdById == _undefined || createdById == null ? _instance.createdById : (createdById as String),
-        images: images == _undefined ? _instance.images : (images as List<Mutation$HotelCreateOne$hotelCreateOne$images>?),
-        address: address == _undefined || address == null ? _instance.address : (address as Mutation$HotelCreateOne$hotelCreateOne$address),
-        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        addressId: addressId == _undefined || addressId == null
+            ? _instance.addressId
+            : (addressId as int),
+        description: description == _undefined || description == null
+            ? _instance.description
+            : (description as String),
+        rating: rating == _undefined || rating == null
+            ? _instance.rating
+            : (rating as double),
+        startDate: startDate == _undefined || startDate == null
+            ? _instance.startDate
+            : (startDate as String),
+        quota: quota == _undefined || quota == null
+            ? _instance.quota
+            : (quota as int),
+        createdById: createdById == _undefined || createdById == null
+            ? _instance.createdById
+            : (createdById as String),
+        images: images == _undefined
+            ? _instance.images
+            : (images as List<Mutation$HotelCreateOne$hotelCreateOne$images>?),
+        address: address == _undefined || address == null
+            ? _instance.address
+            : (address as Mutation$HotelCreateOne$hotelCreateOne$address),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
       ));
-  @override
   TRes images(
           Iterable<Mutation$HotelCreateOne$hotelCreateOne$images>? Function(
-                  Iterable<CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images<Mutation$HotelCreateOne$hotelCreateOne$images>>?)
-              fn) =>
+                  Iterable<
+                      CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images<
+                          Mutation$HotelCreateOne$hotelCreateOne$images>>?)
+              _fn) =>
       call(
-          images: fn(_instance.images?.map((e) => CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images(
-                e,
-                (i) => i,
-              )))?.toList());
-  @override
+          images: _fn(_instance.images?.map(
+              (e) => CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images(
+                    e,
+                    (i) => i,
+                  )))?.toList());
   CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address<TRes> get address {
     final local$address = _instance.address;
-    return CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address(local$address, (e) => call(address: e));
+    return CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address(
+        local$address, (e) => call(address: e));
   }
 }
 
-class _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne<TRes> implements CopyWith$Mutation$HotelCreateOne$hotelCreateOne<TRes> {
+class _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne<TRes>
+    implements CopyWith$Mutation$HotelCreateOne$hotelCreateOne<TRes> {
   _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne(this._res);
 
-  final TRes _res;
+  TRes _res;
 
-  @override
   call({
     int? id,
     String? name,
@@ -905,10 +979,9 @@ class _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne<TRes> implements 
     String? $__typename,
   }) =>
       _res;
-  @override
-  images(fn) => _res;
-  @override
-  CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address<TRes> get address => CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address.stub(_res);
+  images(_fn) => _res;
+  CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address<TRes> get address =>
+      CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address.stub(_res);
 }
 
 class Mutation$HotelCreateOne$hotelCreateOne$images {
@@ -917,7 +990,8 @@ class Mutation$HotelCreateOne$hotelCreateOne$images {
     this.$__typename = 'Images',
   });
 
-  factory Mutation$HotelCreateOne$hotelCreateOne$images.fromJson(Map<String, dynamic> json) {
+  factory Mutation$HotelCreateOne$hotelCreateOne$images.fromJson(
+      Map<String, dynamic> json) {
     final l$url = json['url'];
     final l$$__typename = json['__typename'];
     return Mutation$HotelCreateOne$hotelCreateOne$images(
@@ -931,12 +1005,12 @@ class Mutation$HotelCreateOne$hotelCreateOne$images {
   final String $__typename;
 
   Map<String, dynamic> toJson() {
-    final resultData = <String, dynamic>{};
+    final _resultData = <String, dynamic>{};
     final l$url = url;
-    resultData['url'] = l$url;
+    _resultData['url'] = l$url;
     final l$$__typename = $__typename;
-    resultData['__typename'] = l$$__typename;
-    return resultData;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
   }
 
   @override
@@ -954,7 +1028,8 @@ class Mutation$HotelCreateOne$hotelCreateOne$images {
     if (identical(this, other)) {
       return true;
     }
-    if (other is! Mutation$HotelCreateOne$hotelCreateOne$images || runtimeType != other.runtimeType) {
+    if (!(other is Mutation$HotelCreateOne$hotelCreateOne$images) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$url = url;
@@ -971,12 +1046,14 @@ class Mutation$HotelCreateOne$hotelCreateOne$images {
   }
 }
 
-extension UtilityExtension$Mutation$HotelCreateOne$hotelCreateOne$images on Mutation$HotelCreateOne$hotelCreateOne$images {
-  CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images<Mutation$HotelCreateOne$hotelCreateOne$images> get copyWith =>
-      CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images(
-        this,
-        (i) => i,
-      );
+extension UtilityExtension$Mutation$HotelCreateOne$hotelCreateOne$images
+    on Mutation$HotelCreateOne$hotelCreateOne$images {
+  CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images<
+          Mutation$HotelCreateOne$hotelCreateOne$images>
+      get copyWith => CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images<TRes> {
@@ -985,7 +1062,9 @@ abstract class CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images<TRes> {
     TRes Function(Mutation$HotelCreateOne$hotelCreateOne$images) then,
   ) = _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne$images;
 
-  factory CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images.stub(TRes res) = _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne$images;
+  factory CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne$images;
 
   TRes call({
     String? url,
@@ -993,7 +1072,8 @@ abstract class CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images<TRes> {
   });
 }
 
-class _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne$images<TRes> implements CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images<TRes> {
+class _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne$images<TRes>
+    implements CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images<TRes> {
   _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne$images(
     this._instance,
     this._then,
@@ -1005,23 +1085,24 @@ class _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne$images<TRes> implemen
 
   static const _undefined = <dynamic, dynamic>{};
 
-  @override
   TRes call({
     Object? url = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$HotelCreateOne$hotelCreateOne$images(
         url: url == _undefined || url == null ? _instance.url : (url as String),
-        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne$images<TRes> implements CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images<TRes> {
+class _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne$images<TRes>
+    implements CopyWith$Mutation$HotelCreateOne$hotelCreateOne$images<TRes> {
   _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne$images(this._res);
 
-  final TRes _res;
+  TRes _res;
 
-  @override
   call({
     String? url,
     String? $__typename,
@@ -1037,7 +1118,8 @@ class Mutation$HotelCreateOne$hotelCreateOne$address {
     this.$__typename = 'Address',
   });
 
-  factory Mutation$HotelCreateOne$hotelCreateOne$address.fromJson(Map<String, dynamic> json) {
+  factory Mutation$HotelCreateOne$hotelCreateOne$address.fromJson(
+      Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$subdistrict = json['subdistrict'];
@@ -1045,7 +1127,9 @@ class Mutation$HotelCreateOne$hotelCreateOne$address {
     return Mutation$HotelCreateOne$hotelCreateOne$address(
       id: (l$id as int),
       name: (l$name as String),
-      subdistrict: Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict.fromJson((l$subdistrict as Map<String, dynamic>)),
+      subdistrict:
+          Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict.fromJson(
+              (l$subdistrict as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -1059,16 +1143,16 @@ class Mutation$HotelCreateOne$hotelCreateOne$address {
   final String $__typename;
 
   Map<String, dynamic> toJson() {
-    final resultData = <String, dynamic>{};
+    final _resultData = <String, dynamic>{};
     final l$id = id;
-    resultData['id'] = l$id;
+    _resultData['id'] = l$id;
     final l$name = name;
-    resultData['name'] = l$name;
+    _resultData['name'] = l$name;
     final l$subdistrict = subdistrict;
-    resultData['subdistrict'] = l$subdistrict.toJson();
+    _resultData['subdistrict'] = l$subdistrict.toJson();
     final l$$__typename = $__typename;
-    resultData['__typename'] = l$$__typename;
-    return resultData;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
   }
 
   @override
@@ -1090,7 +1174,8 @@ class Mutation$HotelCreateOne$hotelCreateOne$address {
     if (identical(this, other)) {
       return true;
     }
-    if (other is! Mutation$HotelCreateOne$hotelCreateOne$address || runtimeType != other.runtimeType) {
+    if (!(other is Mutation$HotelCreateOne$hotelCreateOne$address) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -1117,12 +1202,14 @@ class Mutation$HotelCreateOne$hotelCreateOne$address {
   }
 }
 
-extension UtilityExtension$Mutation$HotelCreateOne$hotelCreateOne$address on Mutation$HotelCreateOne$hotelCreateOne$address {
-  CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address<Mutation$HotelCreateOne$hotelCreateOne$address> get copyWith =>
-      CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address(
-        this,
-        (i) => i,
-      );
+extension UtilityExtension$Mutation$HotelCreateOne$hotelCreateOne$address
+    on Mutation$HotelCreateOne$hotelCreateOne$address {
+  CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address<
+          Mutation$HotelCreateOne$hotelCreateOne$address>
+      get copyWith => CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address<TRes> {
@@ -1131,7 +1218,9 @@ abstract class CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address<TRes> {
     TRes Function(Mutation$HotelCreateOne$hotelCreateOne$address) then,
   ) = _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne$address;
 
-  factory CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address.stub(TRes res) = _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne$address;
+  factory CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address.stub(
+          TRes res) =
+      _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne$address;
 
   TRes call({
     int? id,
@@ -1139,10 +1228,12 @@ abstract class CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address<TRes> {
     Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict? subdistrict,
     String? $__typename,
   });
-  CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<TRes> get subdistrict;
+  CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<TRes>
+      get subdistrict;
 }
 
-class _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne$address<TRes> implements CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address<TRes> {
+class _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne$address<TRes>
+    implements CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address<TRes> {
   _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne$address(
     this._instance,
     this._then,
@@ -1154,7 +1245,6 @@ class _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne$address<TRes> impleme
 
   static const _undefined = <dynamic, dynamic>{};
 
-  @override
   TRes call({
     Object? id = _undefined,
     Object? name = _undefined,
@@ -1163,16 +1253,22 @@ class _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne$address<TRes> impleme
   }) =>
       _then(Mutation$HotelCreateOne$hotelCreateOne$address(
         id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null ? _instance.name : (name as String),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
         subdistrict: subdistrict == _undefined || subdistrict == null
             ? _instance.subdistrict
-            : (subdistrict as Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict),
-        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
+            : (subdistrict
+                as Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
       ));
-  @override
-  CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<TRes> get subdistrict {
+  CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<TRes>
+      get subdistrict {
     final local$subdistrict = _instance.subdistrict;
-    return CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict(local$subdistrict, (e) => call(subdistrict: e));
+    return CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict(
+        local$subdistrict, (e) => call(subdistrict: e));
   }
 }
 
@@ -1180,9 +1276,8 @@ class _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne$address<TRes>
     implements CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address<TRes> {
   _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne$address(this._res);
 
-  final TRes _res;
+  TRes _res;
 
-  @override
   call({
     int? id,
     String? name,
@@ -1190,9 +1285,10 @@ class _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne$address<TRes>
     String? $__typename,
   }) =>
       _res;
-  @override
-  CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<TRes> get subdistrict =>
-      CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict.stub(_res);
+  CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<TRes>
+      get subdistrict =>
+          CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict
+              .stub(_res);
 }
 
 class Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict {
@@ -1202,7 +1298,8 @@ class Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict {
     this.$__typename = 'Subdistrict',
   });
 
-  factory Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict.fromJson(Map<String, dynamic> json) {
+  factory Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict.fromJson(
+      Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$$__typename = json['__typename'];
@@ -1220,14 +1317,14 @@ class Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict {
   final String $__typename;
 
   Map<String, dynamic> toJson() {
-    final resultData = <String, dynamic>{};
+    final _resultData = <String, dynamic>{};
     final l$id = id;
-    resultData['id'] = l$id;
+    _resultData['id'] = l$id;
     final l$name = name;
-    resultData['name'] = l$name;
+    _resultData['name'] = l$name;
     final l$$__typename = $__typename;
-    resultData['__typename'] = l$$__typename;
-    return resultData;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
   }
 
   @override
@@ -1247,7 +1344,9 @@ class Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict {
     if (identical(this, other)) {
       return true;
     }
-    if (other is! Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict || runtimeType != other.runtimeType) {
+    if (!(other
+            is Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -1269,21 +1368,27 @@ class Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict {
   }
 }
 
-extension UtilityExtension$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict on Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict {
-  CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict> get copyWith =>
-      CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict(
-        this,
-        (i) => i,
-      );
+extension UtilityExtension$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict
+    on Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict {
+  CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<
+          Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict>
+      get copyWith =>
+          CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict(
+            this,
+            (i) => i,
+          );
 }
 
-abstract class CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<TRes> {
+abstract class CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<
+    TRes> {
   factory CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict(
     Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict instance,
-    TRes Function(Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict) then,
+    TRes Function(Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict)
+        then,
   ) = _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict;
 
-  factory CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict.stub(TRes res) =
+  factory CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict.stub(
+          TRes res) =
       _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict;
 
   TRes call({
@@ -1293,8 +1398,11 @@ abstract class CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistri
   });
 }
 
-class _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<TRes>
-    implements CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<TRes> {
+class _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<
+        TRes>
+    implements
+        CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<
+            TRes> {
   _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict(
     this._instance,
     this._then,
@@ -1302,11 +1410,11 @@ class _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<T
 
   final Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict _instance;
 
-  final TRes Function(Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict) _then;
+  final TRes Function(
+      Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict) _then;
 
   static const _undefined = <dynamic, dynamic>{};
 
-  @override
   TRes call({
     Object? id = _undefined,
     Object? name = _undefined,
@@ -1314,18 +1422,25 @@ class _CopyWithImpl$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<T
   }) =>
       _then(Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict(
         id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null ? _instance.name : (name as String),
-        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<TRes>
-    implements CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<TRes> {
-  _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict(this._res);
+class _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<
+        TRes>
+    implements
+        CopyWith$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict<
+            TRes> {
+  _CopyWithStubImpl$Mutation$HotelCreateOne$hotelCreateOne$address$subdistrict(
+      this._res);
 
-  final TRes _res;
+  TRes _res;
 
-  @override
   call({
     int? id,
     String? name,

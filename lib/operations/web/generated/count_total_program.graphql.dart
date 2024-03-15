@@ -1,31 +1,34 @@
+import '../../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../../schema/generated/schema.graphql.dart';
-
 class Variables$Query$CountTotalProgram {
-  factory Variables$Query$CountTotalProgram({Input$ProgramWhereInput? where}) => Variables$Query$CountTotalProgram._({
+  factory Variables$Query$CountTotalProgram({Input$ProgramWhereInput? where}) =>
+      Variables$Query$CountTotalProgram._({
         if (where != null) r'where': where,
       });
 
   Variables$Query$CountTotalProgram._(this._$data);
 
-  factory Variables$Query$CountTotalProgram.fromJson(Map<String, dynamic> data) {
+  factory Variables$Query$CountTotalProgram.fromJson(
+      Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('where')) {
       final l$where = data['where'];
-      result$data['where'] = l$where == null ? null : Input$ProgramWhereInput.fromJson((l$where as Map<String, dynamic>));
+      result$data['where'] = l$where == null
+          ? null
+          : Input$ProgramWhereInput.fromJson((l$where as Map<String, dynamic>));
     }
     return Variables$Query$CountTotalProgram._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$ProgramWhereInput? get where => (_$data['where'] as Input$ProgramWhereInput?);
+  Input$ProgramWhereInput? get where =>
+      (_$data['where'] as Input$ProgramWhereInput?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     if (_$data.containsKey('where')) {
@@ -35,16 +38,18 @@ class Variables$Query$CountTotalProgram {
     return result$data;
   }
 
-  CopyWith$Variables$Query$CountTotalProgram<Variables$Query$CountTotalProgram> get copyWith => CopyWith$Variables$Query$CountTotalProgram(
-        this,
-        (i) => i,
-      );
+  CopyWith$Variables$Query$CountTotalProgram<Variables$Query$CountTotalProgram>
+      get copyWith => CopyWith$Variables$Query$CountTotalProgram(
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$CountTotalProgram) || runtimeType != other.runtimeType) {
+    if (!(other is Variables$Query$CountTotalProgram) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$where = where;
@@ -71,12 +76,14 @@ abstract class CopyWith$Variables$Query$CountTotalProgram<TRes> {
     TRes Function(Variables$Query$CountTotalProgram) then,
   ) = _CopyWithImpl$Variables$Query$CountTotalProgram;
 
-  factory CopyWith$Variables$Query$CountTotalProgram.stub(TRes res) = _CopyWithStubImpl$Variables$Query$CountTotalProgram;
+  factory CopyWith$Variables$Query$CountTotalProgram.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$CountTotalProgram;
 
   TRes call({Input$ProgramWhereInput? where});
 }
 
-class _CopyWithImpl$Variables$Query$CountTotalProgram<TRes> implements CopyWith$Variables$Query$CountTotalProgram<TRes> {
+class _CopyWithImpl$Variables$Query$CountTotalProgram<TRes>
+    implements CopyWith$Variables$Query$CountTotalProgram<TRes> {
   _CopyWithImpl$Variables$Query$CountTotalProgram(
     this._instance,
     this._then,
@@ -88,13 +95,15 @@ class _CopyWithImpl$Variables$Query$CountTotalProgram<TRes> implements CopyWith$
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? where = _undefined}) => _then(Variables$Query$CountTotalProgram._({
+  TRes call({Object? where = _undefined}) =>
+      _then(Variables$Query$CountTotalProgram._({
         ..._instance._$data,
         if (where != _undefined) 'where': (where as Input$ProgramWhereInput?),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$CountTotalProgram<TRes> implements CopyWith$Variables$Query$CountTotalProgram<TRes> {
+class _CopyWithStubImpl$Variables$Query$CountTotalProgram<TRes>
+    implements CopyWith$Variables$Query$CountTotalProgram<TRes> {
   _CopyWithStubImpl$Variables$Query$CountTotalProgram(this._res);
 
   TRes _res;
@@ -145,7 +154,8 @@ class Query$CountTotalProgram {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$CountTotalProgram) || runtimeType != other.runtimeType) {
+    if (!(other is Query$CountTotalProgram) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$programCount = programCount;
@@ -163,7 +173,8 @@ class Query$CountTotalProgram {
 }
 
 extension UtilityExtension$Query$CountTotalProgram on Query$CountTotalProgram {
-  CopyWith$Query$CountTotalProgram<Query$CountTotalProgram> get copyWith => CopyWith$Query$CountTotalProgram(
+  CopyWith$Query$CountTotalProgram<Query$CountTotalProgram> get copyWith =>
+      CopyWith$Query$CountTotalProgram(
         this,
         (i) => i,
       );
@@ -175,7 +186,8 @@ abstract class CopyWith$Query$CountTotalProgram<TRes> {
     TRes Function(Query$CountTotalProgram) then,
   ) = _CopyWithImpl$Query$CountTotalProgram;
 
-  factory CopyWith$Query$CountTotalProgram.stub(TRes res) = _CopyWithStubImpl$Query$CountTotalProgram;
+  factory CopyWith$Query$CountTotalProgram.stub(TRes res) =
+      _CopyWithStubImpl$Query$CountTotalProgram;
 
   TRes call({
     double? programCount,
@@ -183,7 +195,8 @@ abstract class CopyWith$Query$CountTotalProgram<TRes> {
   });
 }
 
-class _CopyWithImpl$Query$CountTotalProgram<TRes> implements CopyWith$Query$CountTotalProgram<TRes> {
+class _CopyWithImpl$Query$CountTotalProgram<TRes>
+    implements CopyWith$Query$CountTotalProgram<TRes> {
   _CopyWithImpl$Query$CountTotalProgram(
     this._instance,
     this._then,
@@ -200,12 +213,17 @@ class _CopyWithImpl$Query$CountTotalProgram<TRes> implements CopyWith$Query$Coun
     Object? $__typename = _undefined,
   }) =>
       _then(Query$CountTotalProgram(
-        programCount: programCount == _undefined ? _instance.programCount : (programCount as double?),
-        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
+        programCount: programCount == _undefined
+            ? _instance.programCount
+            : (programCount as double?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImpl$Query$CountTotalProgram<TRes> implements CopyWith$Query$CountTotalProgram<TRes> {
+class _CopyWithStubImpl$Query$CountTotalProgram<TRes>
+    implements CopyWith$Query$CountTotalProgram<TRes> {
   _CopyWithStubImpl$Query$CountTotalProgram(this._res);
 
   TRes _res;
@@ -256,13 +274,16 @@ const documentNodeQueryCountTotalProgram = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Query$CountTotalProgram _parserFn$Query$CountTotalProgram(Map<String, dynamic> data) => Query$CountTotalProgram.fromJson(data);
+Query$CountTotalProgram _parserFn$Query$CountTotalProgram(
+        Map<String, dynamic> data) =>
+    Query$CountTotalProgram.fromJson(data);
 typedef OnQueryComplete$Query$CountTotalProgram = FutureOr<void> Function(
   Map<String, dynamic>?,
   Query$CountTotalProgram?,
 );
 
-class Options$Query$CountTotalProgram extends graphql.QueryOptions<Query$CountTotalProgram> {
+class Options$Query$CountTotalProgram
+    extends graphql.QueryOptions<Query$CountTotalProgram> {
   Options$Query$CountTotalProgram({
     String? operationName,
     Variables$Query$CountTotalProgram? variables,
@@ -289,7 +310,9 @@ class Options$Query$CountTotalProgram extends graphql.QueryOptions<Query$CountTo
               ? null
               : (data) => onComplete(
                     data,
-                    data == null ? null : _parserFn$Query$CountTotalProgram(data),
+                    data == null
+                        ? null
+                        : _parserFn$Query$CountTotalProgram(data),
                   ),
           onError: onError,
           document: documentNodeQueryCountTotalProgram,
@@ -300,12 +323,15 @@ class Options$Query$CountTotalProgram extends graphql.QueryOptions<Query$CountTo
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null ? super.properties : super.properties.where((property) => property != onComplete),
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
         onCompleteWithParsed,
       ];
 }
 
-class WatchOptions$Query$CountTotalProgram extends graphql.WatchQueryOptions<Query$CountTotalProgram> {
+class WatchOptions$Query$CountTotalProgram
+    extends graphql.WatchQueryOptions<Query$CountTotalProgram> {
   WatchOptions$Query$CountTotalProgram({
     String? operationName,
     Variables$Query$CountTotalProgram? variables,
@@ -336,7 +362,8 @@ class WatchOptions$Query$CountTotalProgram extends graphql.WatchQueryOptions<Que
         );
 }
 
-class FetchMoreOptions$Query$CountTotalProgram extends graphql.FetchMoreOptions {
+class FetchMoreOptions$Query$CountTotalProgram
+    extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$CountTotalProgram({
     required graphql.UpdateQuery updateQuery,
     Variables$Query$CountTotalProgram? variables,
@@ -348,9 +375,11 @@ class FetchMoreOptions$Query$CountTotalProgram extends graphql.FetchMoreOptions 
 }
 
 extension ClientExtension$Query$CountTotalProgram on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$CountTotalProgram>> query$CountTotalProgram([Options$Query$CountTotalProgram? options]) async =>
+  Future<graphql.QueryResult<Query$CountTotalProgram>> query$CountTotalProgram(
+          [Options$Query$CountTotalProgram? options]) async =>
       await this.query(options ?? Options$Query$CountTotalProgram());
-  graphql.ObservableQuery<Query$CountTotalProgram> watchQuery$CountTotalProgram([WatchOptions$Query$CountTotalProgram? options]) =>
+  graphql.ObservableQuery<Query$CountTotalProgram> watchQuery$CountTotalProgram(
+          [WatchOptions$Query$CountTotalProgram? options]) =>
       this.watchQuery(options ?? WatchOptions$Query$CountTotalProgram());
   void writeQuery$CountTotalProgram({
     required Query$CountTotalProgram data,
@@ -359,7 +388,8 @@ extension ClientExtension$Query$CountTotalProgram on graphql.GraphQLClient {
   }) =>
       this.writeQuery(
         graphql.Request(
-          operation: graphql.Operation(document: documentNodeQueryCountTotalProgram),
+          operation:
+              graphql.Operation(document: documentNodeQueryCountTotalProgram),
           variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
@@ -371,7 +401,8 @@ extension ClientExtension$Query$CountTotalProgram on graphql.GraphQLClient {
   }) {
     final result = this.readQuery(
       graphql.Request(
-        operation: graphql.Operation(document: documentNodeQueryCountTotalProgram),
+        operation:
+            graphql.Operation(document: documentNodeQueryCountTotalProgram),
         variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
@@ -380,12 +411,17 @@ extension ClientExtension$Query$CountTotalProgram on graphql.GraphQLClient {
   }
 }
 
-graphql_flutter.QueryHookResult<Query$CountTotalProgram> useQuery$CountTotalProgram([Options$Query$CountTotalProgram? options]) =>
-    graphql_flutter.useQuery(options ?? Options$Query$CountTotalProgram());
-graphql.ObservableQuery<Query$CountTotalProgram> useWatchQuery$CountTotalProgram([WatchOptions$Query$CountTotalProgram? options]) =>
-    graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$CountTotalProgram());
+graphql_flutter.QueryHookResult<Query$CountTotalProgram>
+    useQuery$CountTotalProgram([Options$Query$CountTotalProgram? options]) =>
+        graphql_flutter.useQuery(options ?? Options$Query$CountTotalProgram());
+graphql.ObservableQuery<Query$CountTotalProgram>
+    useWatchQuery$CountTotalProgram(
+            [WatchOptions$Query$CountTotalProgram? options]) =>
+        graphql_flutter
+            .useWatchQuery(options ?? WatchOptions$Query$CountTotalProgram());
 
-class Query$CountTotalProgram$Widget extends graphql_flutter.Query<Query$CountTotalProgram> {
+class Query$CountTotalProgram$Widget
+    extends graphql_flutter.Query<Query$CountTotalProgram> {
   Query$CountTotalProgram$Widget({
     widgets.Key? key,
     Options$Query$CountTotalProgram? options,

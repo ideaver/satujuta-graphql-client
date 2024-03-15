@@ -1,14 +1,13 @@
+import '../../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../../schema/generated/schema.graphql.dart';
-
 class Variables$Query$CountTotalMember {
-  factory Variables$Query$CountTotalMember({Input$UserWhereInput? where}) => Variables$Query$CountTotalMember._({
+  factory Variables$Query$CountTotalMember({Input$UserWhereInput? where}) =>
+      Variables$Query$CountTotalMember._({
         if (where != null) r'where': where,
       });
 
@@ -18,7 +17,9 @@ class Variables$Query$CountTotalMember {
     final result$data = <String, dynamic>{};
     if (data.containsKey('where')) {
       final l$where = data['where'];
-      result$data['where'] = l$where == null ? null : Input$UserWhereInput.fromJson((l$where as Map<String, dynamic>));
+      result$data['where'] = l$where == null
+          ? null
+          : Input$UserWhereInput.fromJson((l$where as Map<String, dynamic>));
     }
     return Variables$Query$CountTotalMember._(result$data);
   }
@@ -35,16 +36,18 @@ class Variables$Query$CountTotalMember {
     return result$data;
   }
 
-  CopyWith$Variables$Query$CountTotalMember<Variables$Query$CountTotalMember> get copyWith => CopyWith$Variables$Query$CountTotalMember(
-        this,
-        (i) => i,
-      );
+  CopyWith$Variables$Query$CountTotalMember<Variables$Query$CountTotalMember>
+      get copyWith => CopyWith$Variables$Query$CountTotalMember(
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$CountTotalMember) || runtimeType != other.runtimeType) {
+    if (!(other is Variables$Query$CountTotalMember) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$where = where;
@@ -71,12 +74,14 @@ abstract class CopyWith$Variables$Query$CountTotalMember<TRes> {
     TRes Function(Variables$Query$CountTotalMember) then,
   ) = _CopyWithImpl$Variables$Query$CountTotalMember;
 
-  factory CopyWith$Variables$Query$CountTotalMember.stub(TRes res) = _CopyWithStubImpl$Variables$Query$CountTotalMember;
+  factory CopyWith$Variables$Query$CountTotalMember.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$CountTotalMember;
 
   TRes call({Input$UserWhereInput? where});
 }
 
-class _CopyWithImpl$Variables$Query$CountTotalMember<TRes> implements CopyWith$Variables$Query$CountTotalMember<TRes> {
+class _CopyWithImpl$Variables$Query$CountTotalMember<TRes>
+    implements CopyWith$Variables$Query$CountTotalMember<TRes> {
   _CopyWithImpl$Variables$Query$CountTotalMember(
     this._instance,
     this._then,
@@ -88,13 +93,15 @@ class _CopyWithImpl$Variables$Query$CountTotalMember<TRes> implements CopyWith$V
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? where = _undefined}) => _then(Variables$Query$CountTotalMember._({
+  TRes call({Object? where = _undefined}) =>
+      _then(Variables$Query$CountTotalMember._({
         ..._instance._$data,
         if (where != _undefined) 'where': (where as Input$UserWhereInput?),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$CountTotalMember<TRes> implements CopyWith$Variables$Query$CountTotalMember<TRes> {
+class _CopyWithStubImpl$Variables$Query$CountTotalMember<TRes>
+    implements CopyWith$Variables$Query$CountTotalMember<TRes> {
   _CopyWithStubImpl$Variables$Query$CountTotalMember(this._res);
 
   TRes _res;
@@ -145,7 +152,8 @@ class Query$CountTotalMember {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$CountTotalMember) || runtimeType != other.runtimeType) {
+    if (!(other is Query$CountTotalMember) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$userCount = userCount;
@@ -163,7 +171,8 @@ class Query$CountTotalMember {
 }
 
 extension UtilityExtension$Query$CountTotalMember on Query$CountTotalMember {
-  CopyWith$Query$CountTotalMember<Query$CountTotalMember> get copyWith => CopyWith$Query$CountTotalMember(
+  CopyWith$Query$CountTotalMember<Query$CountTotalMember> get copyWith =>
+      CopyWith$Query$CountTotalMember(
         this,
         (i) => i,
       );
@@ -175,7 +184,8 @@ abstract class CopyWith$Query$CountTotalMember<TRes> {
     TRes Function(Query$CountTotalMember) then,
   ) = _CopyWithImpl$Query$CountTotalMember;
 
-  factory CopyWith$Query$CountTotalMember.stub(TRes res) = _CopyWithStubImpl$Query$CountTotalMember;
+  factory CopyWith$Query$CountTotalMember.stub(TRes res) =
+      _CopyWithStubImpl$Query$CountTotalMember;
 
   TRes call({
     double? userCount,
@@ -183,7 +193,8 @@ abstract class CopyWith$Query$CountTotalMember<TRes> {
   });
 }
 
-class _CopyWithImpl$Query$CountTotalMember<TRes> implements CopyWith$Query$CountTotalMember<TRes> {
+class _CopyWithImpl$Query$CountTotalMember<TRes>
+    implements CopyWith$Query$CountTotalMember<TRes> {
   _CopyWithImpl$Query$CountTotalMember(
     this._instance,
     this._then,
@@ -200,12 +211,17 @@ class _CopyWithImpl$Query$CountTotalMember<TRes> implements CopyWith$Query$Count
     Object? $__typename = _undefined,
   }) =>
       _then(Query$CountTotalMember(
-        userCount: userCount == _undefined ? _instance.userCount : (userCount as double?),
-        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
+        userCount: userCount == _undefined
+            ? _instance.userCount
+            : (userCount as double?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImpl$Query$CountTotalMember<TRes> implements CopyWith$Query$CountTotalMember<TRes> {
+class _CopyWithStubImpl$Query$CountTotalMember<TRes>
+    implements CopyWith$Query$CountTotalMember<TRes> {
   _CopyWithStubImpl$Query$CountTotalMember(this._res);
 
   TRes _res;
@@ -256,13 +272,16 @@ const documentNodeQueryCountTotalMember = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Query$CountTotalMember _parserFn$Query$CountTotalMember(Map<String, dynamic> data) => Query$CountTotalMember.fromJson(data);
+Query$CountTotalMember _parserFn$Query$CountTotalMember(
+        Map<String, dynamic> data) =>
+    Query$CountTotalMember.fromJson(data);
 typedef OnQueryComplete$Query$CountTotalMember = FutureOr<void> Function(
   Map<String, dynamic>?,
   Query$CountTotalMember?,
 );
 
-class Options$Query$CountTotalMember extends graphql.QueryOptions<Query$CountTotalMember> {
+class Options$Query$CountTotalMember
+    extends graphql.QueryOptions<Query$CountTotalMember> {
   Options$Query$CountTotalMember({
     String? operationName,
     Variables$Query$CountTotalMember? variables,
@@ -289,7 +308,9 @@ class Options$Query$CountTotalMember extends graphql.QueryOptions<Query$CountTot
               ? null
               : (data) => onComplete(
                     data,
-                    data == null ? null : _parserFn$Query$CountTotalMember(data),
+                    data == null
+                        ? null
+                        : _parserFn$Query$CountTotalMember(data),
                   ),
           onError: onError,
           document: documentNodeQueryCountTotalMember,
@@ -300,12 +321,15 @@ class Options$Query$CountTotalMember extends graphql.QueryOptions<Query$CountTot
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null ? super.properties : super.properties.where((property) => property != onComplete),
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
         onCompleteWithParsed,
       ];
 }
 
-class WatchOptions$Query$CountTotalMember extends graphql.WatchQueryOptions<Query$CountTotalMember> {
+class WatchOptions$Query$CountTotalMember
+    extends graphql.WatchQueryOptions<Query$CountTotalMember> {
   WatchOptions$Query$CountTotalMember({
     String? operationName,
     Variables$Query$CountTotalMember? variables,
@@ -348,9 +372,11 @@ class FetchMoreOptions$Query$CountTotalMember extends graphql.FetchMoreOptions {
 }
 
 extension ClientExtension$Query$CountTotalMember on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$CountTotalMember>> query$CountTotalMember([Options$Query$CountTotalMember? options]) async =>
+  Future<graphql.QueryResult<Query$CountTotalMember>> query$CountTotalMember(
+          [Options$Query$CountTotalMember? options]) async =>
       await this.query(options ?? Options$Query$CountTotalMember());
-  graphql.ObservableQuery<Query$CountTotalMember> watchQuery$CountTotalMember([WatchOptions$Query$CountTotalMember? options]) =>
+  graphql.ObservableQuery<Query$CountTotalMember> watchQuery$CountTotalMember(
+          [WatchOptions$Query$CountTotalMember? options]) =>
       this.watchQuery(options ?? WatchOptions$Query$CountTotalMember());
   void writeQuery$CountTotalMember({
     required Query$CountTotalMember data,
@@ -359,7 +385,8 @@ extension ClientExtension$Query$CountTotalMember on graphql.GraphQLClient {
   }) =>
       this.writeQuery(
         graphql.Request(
-          operation: graphql.Operation(document: documentNodeQueryCountTotalMember),
+          operation:
+              graphql.Operation(document: documentNodeQueryCountTotalMember),
           variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
@@ -371,7 +398,8 @@ extension ClientExtension$Query$CountTotalMember on graphql.GraphQLClient {
   }) {
     final result = this.readQuery(
       graphql.Request(
-        operation: graphql.Operation(document: documentNodeQueryCountTotalMember),
+        operation:
+            graphql.Operation(document: documentNodeQueryCountTotalMember),
         variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
@@ -380,12 +408,16 @@ extension ClientExtension$Query$CountTotalMember on graphql.GraphQLClient {
   }
 }
 
-graphql_flutter.QueryHookResult<Query$CountTotalMember> useQuery$CountTotalMember([Options$Query$CountTotalMember? options]) =>
-    graphql_flutter.useQuery(options ?? Options$Query$CountTotalMember());
-graphql.ObservableQuery<Query$CountTotalMember> useWatchQuery$CountTotalMember([WatchOptions$Query$CountTotalMember? options]) =>
-    graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$CountTotalMember());
+graphql_flutter.QueryHookResult<Query$CountTotalMember>
+    useQuery$CountTotalMember([Options$Query$CountTotalMember? options]) =>
+        graphql_flutter.useQuery(options ?? Options$Query$CountTotalMember());
+graphql.ObservableQuery<Query$CountTotalMember> useWatchQuery$CountTotalMember(
+        [WatchOptions$Query$CountTotalMember? options]) =>
+    graphql_flutter
+        .useWatchQuery(options ?? WatchOptions$Query$CountTotalMember());
 
-class Query$CountTotalMember$Widget extends graphql_flutter.Query<Query$CountTotalMember> {
+class Query$CountTotalMember$Widget
+    extends graphql_flutter.Query<Query$CountTotalMember> {
   Query$CountTotalMember$Widget({
     widgets.Key? key,
     Options$Query$CountTotalMember? options,

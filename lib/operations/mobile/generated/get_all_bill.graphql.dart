@@ -1447,7 +1447,7 @@ class Query$GetAllBill$getAllBill$bill_payment {
     final l$created_at = json['created_at'];
     final l$$__typename = json['__typename'];
     return Query$GetAllBill$getAllBill$bill_payment(
-      id: (l$id as num).toDouble(),
+      id: (l$id as String),
       amount: (l$amount as num).toDouble(),
       unique_code: (l$unique_code as num?)?.toDouble(),
       status: (l$status as String),
@@ -1463,7 +1463,7 @@ class Query$GetAllBill$getAllBill$bill_payment {
     );
   }
 
-  final double id;
+  final String id;
 
   final double amount;
 
@@ -1629,7 +1629,7 @@ abstract class CopyWith$Query$GetAllBill$getAllBill$bill_payment<TRes> {
       _CopyWithStubImpl$Query$GetAllBill$getAllBill$bill_payment;
 
   TRes call({
-    double? id,
+    String? id,
     double? amount,
     double? unique_code,
     String? status,
@@ -1673,7 +1673,7 @@ class _CopyWithImpl$Query$GetAllBill$getAllBill$bill_payment<TRes>
     Object? $__typename = _undefined,
   }) =>
       _then(Query$GetAllBill$getAllBill$bill_payment(
-        id: id == _undefined || id == null ? _instance.id : (id as double),
+        id: id == _undefined || id == null ? _instance.id : (id as String),
         amount: amount == _undefined || amount == null
             ? _instance.amount
             : (amount as double),
@@ -1722,7 +1722,7 @@ class _CopyWithStubImpl$Query$GetAllBill$getAllBill$bill_payment<TRes>
   TRes _res;
 
   call({
-    double? id,
+    String? id,
     double? amount,
     double? unique_code,
     String? status,

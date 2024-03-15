@@ -373,9 +373,9 @@ class Query$BankFindMany$bankFindMany {
   Query$BankFindMany$bankFindMany({
     required this.id,
     required this.name,
-    required this.logoUrl,
-    required this.accountNumber,
-    required this.accountId,
+    this.logoUrl,
+    this.accountNumber,
+    this.accountId,
     this.$__typename = 'Bank',
   });
 
@@ -389,9 +389,9 @@ class Query$BankFindMany$bankFindMany {
     return Query$BankFindMany$bankFindMany(
       id: (l$id as int),
       name: (l$name as String),
-      logoUrl: (l$logoUrl as String),
-      accountNumber: (l$accountNumber as num).toDouble(),
-      accountId: (l$accountId as int),
+      logoUrl: (l$logoUrl as String?),
+      accountNumber: (l$accountNumber as num?)?.toDouble(),
+      accountId: (l$accountId as int?),
       $__typename: (l$$__typename as String),
     );
   }
@@ -400,11 +400,11 @@ class Query$BankFindMany$bankFindMany {
 
   final String name;
 
-  final String logoUrl;
+  final String? logoUrl;
 
-  final double accountNumber;
+  final double? accountNumber;
 
-  final int accountId;
+  final int? accountId;
 
   final String $__typename;
 
@@ -540,15 +540,13 @@ class _CopyWithImpl$Query$BankFindMany$bankFindMany<TRes>
         name: name == _undefined || name == null
             ? _instance.name
             : (name as String),
-        logoUrl: logoUrl == _undefined || logoUrl == null
-            ? _instance.logoUrl
-            : (logoUrl as String),
-        accountNumber: accountNumber == _undefined || accountNumber == null
+        logoUrl:
+            logoUrl == _undefined ? _instance.logoUrl : (logoUrl as String?),
+        accountNumber: accountNumber == _undefined
             ? _instance.accountNumber
-            : (accountNumber as double),
-        accountId: accountId == _undefined || accountId == null
-            ? _instance.accountId
-            : (accountId as int),
+            : (accountNumber as double?),
+        accountId:
+            accountId == _undefined ? _instance.accountId : (accountId as int?),
         $__typename: $__typename == _undefined || $__typename == null
             ? _instance.$__typename
             : ($__typename as String),

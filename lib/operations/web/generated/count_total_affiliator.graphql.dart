@@ -1,24 +1,26 @@
+import '../../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../../schema/generated/schema.graphql.dart';
-
 class Variables$Query$CountTotalAffiliator {
-  factory Variables$Query$CountTotalAffiliator({Input$UserWhereInput? where}) => Variables$Query$CountTotalAffiliator._({
+  factory Variables$Query$CountTotalAffiliator({Input$UserWhereInput? where}) =>
+      Variables$Query$CountTotalAffiliator._({
         if (where != null) r'where': where,
       });
 
   Variables$Query$CountTotalAffiliator._(this._$data);
 
-  factory Variables$Query$CountTotalAffiliator.fromJson(Map<String, dynamic> data) {
+  factory Variables$Query$CountTotalAffiliator.fromJson(
+      Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     if (data.containsKey('where')) {
       final l$where = data['where'];
-      result$data['where'] = l$where == null ? null : Input$UserWhereInput.fromJson((l$where as Map<String, dynamic>));
+      result$data['where'] = l$where == null
+          ? null
+          : Input$UserWhereInput.fromJson((l$where as Map<String, dynamic>));
     }
     return Variables$Query$CountTotalAffiliator._(result$data);
   }
@@ -35,16 +37,19 @@ class Variables$Query$CountTotalAffiliator {
     return result$data;
   }
 
-  CopyWith$Variables$Query$CountTotalAffiliator<Variables$Query$CountTotalAffiliator> get copyWith => CopyWith$Variables$Query$CountTotalAffiliator(
-        this,
-        (i) => i,
-      );
+  CopyWith$Variables$Query$CountTotalAffiliator<
+          Variables$Query$CountTotalAffiliator>
+      get copyWith => CopyWith$Variables$Query$CountTotalAffiliator(
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Variables$Query$CountTotalAffiliator) || runtimeType != other.runtimeType) {
+    if (!(other is Variables$Query$CountTotalAffiliator) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$where = where;
@@ -71,12 +76,14 @@ abstract class CopyWith$Variables$Query$CountTotalAffiliator<TRes> {
     TRes Function(Variables$Query$CountTotalAffiliator) then,
   ) = _CopyWithImpl$Variables$Query$CountTotalAffiliator;
 
-  factory CopyWith$Variables$Query$CountTotalAffiliator.stub(TRes res) = _CopyWithStubImpl$Variables$Query$CountTotalAffiliator;
+  factory CopyWith$Variables$Query$CountTotalAffiliator.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Query$CountTotalAffiliator;
 
   TRes call({Input$UserWhereInput? where});
 }
 
-class _CopyWithImpl$Variables$Query$CountTotalAffiliator<TRes> implements CopyWith$Variables$Query$CountTotalAffiliator<TRes> {
+class _CopyWithImpl$Variables$Query$CountTotalAffiliator<TRes>
+    implements CopyWith$Variables$Query$CountTotalAffiliator<TRes> {
   _CopyWithImpl$Variables$Query$CountTotalAffiliator(
     this._instance,
     this._then,
@@ -88,13 +95,15 @@ class _CopyWithImpl$Variables$Query$CountTotalAffiliator<TRes> implements CopyWi
 
   static const _undefined = <dynamic, dynamic>{};
 
-  TRes call({Object? where = _undefined}) => _then(Variables$Query$CountTotalAffiliator._({
+  TRes call({Object? where = _undefined}) =>
+      _then(Variables$Query$CountTotalAffiliator._({
         ..._instance._$data,
         if (where != _undefined) 'where': (where as Input$UserWhereInput?),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Query$CountTotalAffiliator<TRes> implements CopyWith$Variables$Query$CountTotalAffiliator<TRes> {
+class _CopyWithStubImpl$Variables$Query$CountTotalAffiliator<TRes>
+    implements CopyWith$Variables$Query$CountTotalAffiliator<TRes> {
   _CopyWithStubImpl$Variables$Query$CountTotalAffiliator(this._res);
 
   TRes _res;
@@ -145,7 +154,8 @@ class Query$CountTotalAffiliator {
     if (identical(this, other)) {
       return true;
     }
-    if (!(other is Query$CountTotalAffiliator) || runtimeType != other.runtimeType) {
+    if (!(other is Query$CountTotalAffiliator) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$userCount = userCount;
@@ -162,11 +172,13 @@ class Query$CountTotalAffiliator {
   }
 }
 
-extension UtilityExtension$Query$CountTotalAffiliator on Query$CountTotalAffiliator {
-  CopyWith$Query$CountTotalAffiliator<Query$CountTotalAffiliator> get copyWith => CopyWith$Query$CountTotalAffiliator(
-        this,
-        (i) => i,
-      );
+extension UtilityExtension$Query$CountTotalAffiliator
+    on Query$CountTotalAffiliator {
+  CopyWith$Query$CountTotalAffiliator<Query$CountTotalAffiliator>
+      get copyWith => CopyWith$Query$CountTotalAffiliator(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Query$CountTotalAffiliator<TRes> {
@@ -175,7 +187,8 @@ abstract class CopyWith$Query$CountTotalAffiliator<TRes> {
     TRes Function(Query$CountTotalAffiliator) then,
   ) = _CopyWithImpl$Query$CountTotalAffiliator;
 
-  factory CopyWith$Query$CountTotalAffiliator.stub(TRes res) = _CopyWithStubImpl$Query$CountTotalAffiliator;
+  factory CopyWith$Query$CountTotalAffiliator.stub(TRes res) =
+      _CopyWithStubImpl$Query$CountTotalAffiliator;
 
   TRes call({
     double? userCount,
@@ -183,7 +196,8 @@ abstract class CopyWith$Query$CountTotalAffiliator<TRes> {
   });
 }
 
-class _CopyWithImpl$Query$CountTotalAffiliator<TRes> implements CopyWith$Query$CountTotalAffiliator<TRes> {
+class _CopyWithImpl$Query$CountTotalAffiliator<TRes>
+    implements CopyWith$Query$CountTotalAffiliator<TRes> {
   _CopyWithImpl$Query$CountTotalAffiliator(
     this._instance,
     this._then,
@@ -200,12 +214,17 @@ class _CopyWithImpl$Query$CountTotalAffiliator<TRes> implements CopyWith$Query$C
     Object? $__typename = _undefined,
   }) =>
       _then(Query$CountTotalAffiliator(
-        userCount: userCount == _undefined ? _instance.userCount : (userCount as double?),
-        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
+        userCount: userCount == _undefined
+            ? _instance.userCount
+            : (userCount as double?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImpl$Query$CountTotalAffiliator<TRes> implements CopyWith$Query$CountTotalAffiliator<TRes> {
+class _CopyWithStubImpl$Query$CountTotalAffiliator<TRes>
+    implements CopyWith$Query$CountTotalAffiliator<TRes> {
   _CopyWithStubImpl$Query$CountTotalAffiliator(this._res);
 
   TRes _res;
@@ -256,13 +275,16 @@ const documentNodeQueryCountTotalAffiliator = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Query$CountTotalAffiliator _parserFn$Query$CountTotalAffiliator(Map<String, dynamic> data) => Query$CountTotalAffiliator.fromJson(data);
+Query$CountTotalAffiliator _parserFn$Query$CountTotalAffiliator(
+        Map<String, dynamic> data) =>
+    Query$CountTotalAffiliator.fromJson(data);
 typedef OnQueryComplete$Query$CountTotalAffiliator = FutureOr<void> Function(
   Map<String, dynamic>?,
   Query$CountTotalAffiliator?,
 );
 
-class Options$Query$CountTotalAffiliator extends graphql.QueryOptions<Query$CountTotalAffiliator> {
+class Options$Query$CountTotalAffiliator
+    extends graphql.QueryOptions<Query$CountTotalAffiliator> {
   Options$Query$CountTotalAffiliator({
     String? operationName,
     Variables$Query$CountTotalAffiliator? variables,
@@ -289,7 +311,9 @@ class Options$Query$CountTotalAffiliator extends graphql.QueryOptions<Query$Coun
               ? null
               : (data) => onComplete(
                     data,
-                    data == null ? null : _parserFn$Query$CountTotalAffiliator(data),
+                    data == null
+                        ? null
+                        : _parserFn$Query$CountTotalAffiliator(data),
                   ),
           onError: onError,
           document: documentNodeQueryCountTotalAffiliator,
@@ -300,12 +324,15 @@ class Options$Query$CountTotalAffiliator extends graphql.QueryOptions<Query$Coun
 
   @override
   List<Object?> get properties => [
-        ...super.onComplete == null ? super.properties : super.properties.where((property) => property != onComplete),
+        ...super.onComplete == null
+            ? super.properties
+            : super.properties.where((property) => property != onComplete),
         onCompleteWithParsed,
       ];
 }
 
-class WatchOptions$Query$CountTotalAffiliator extends graphql.WatchQueryOptions<Query$CountTotalAffiliator> {
+class WatchOptions$Query$CountTotalAffiliator
+    extends graphql.WatchQueryOptions<Query$CountTotalAffiliator> {
   WatchOptions$Query$CountTotalAffiliator({
     String? operationName,
     Variables$Query$CountTotalAffiliator? variables,
@@ -336,7 +363,8 @@ class WatchOptions$Query$CountTotalAffiliator extends graphql.WatchQueryOptions<
         );
 }
 
-class FetchMoreOptions$Query$CountTotalAffiliator extends graphql.FetchMoreOptions {
+class FetchMoreOptions$Query$CountTotalAffiliator
+    extends graphql.FetchMoreOptions {
   FetchMoreOptions$Query$CountTotalAffiliator({
     required graphql.UpdateQuery updateQuery,
     Variables$Query$CountTotalAffiliator? variables,
@@ -348,10 +376,14 @@ class FetchMoreOptions$Query$CountTotalAffiliator extends graphql.FetchMoreOptio
 }
 
 extension ClientExtension$Query$CountTotalAffiliator on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Query$CountTotalAffiliator>> query$CountTotalAffiliator([Options$Query$CountTotalAffiliator? options]) async =>
-      await this.query(options ?? Options$Query$CountTotalAffiliator());
-  graphql.ObservableQuery<Query$CountTotalAffiliator> watchQuery$CountTotalAffiliator([WatchOptions$Query$CountTotalAffiliator? options]) =>
-      this.watchQuery(options ?? WatchOptions$Query$CountTotalAffiliator());
+  Future<graphql.QueryResult<Query$CountTotalAffiliator>>
+      query$CountTotalAffiliator(
+              [Options$Query$CountTotalAffiliator? options]) async =>
+          await this.query(options ?? Options$Query$CountTotalAffiliator());
+  graphql.ObservableQuery<Query$CountTotalAffiliator>
+      watchQuery$CountTotalAffiliator(
+              [WatchOptions$Query$CountTotalAffiliator? options]) =>
+          this.watchQuery(options ?? WatchOptions$Query$CountTotalAffiliator());
   void writeQuery$CountTotalAffiliator({
     required Query$CountTotalAffiliator data,
     Variables$Query$CountTotalAffiliator? variables,
@@ -359,7 +391,8 @@ extension ClientExtension$Query$CountTotalAffiliator on graphql.GraphQLClient {
   }) =>
       this.writeQuery(
         graphql.Request(
-          operation: graphql.Operation(document: documentNodeQueryCountTotalAffiliator),
+          operation: graphql.Operation(
+              document: documentNodeQueryCountTotalAffiliator),
           variables: variables?.toJson() ?? const {},
         ),
         data: data.toJson(),
@@ -371,7 +404,8 @@ extension ClientExtension$Query$CountTotalAffiliator on graphql.GraphQLClient {
   }) {
     final result = this.readQuery(
       graphql.Request(
-        operation: graphql.Operation(document: documentNodeQueryCountTotalAffiliator),
+        operation:
+            graphql.Operation(document: documentNodeQueryCountTotalAffiliator),
         variables: variables?.toJson() ?? const {},
       ),
       optimistic: optimistic,
@@ -380,12 +414,19 @@ extension ClientExtension$Query$CountTotalAffiliator on graphql.GraphQLClient {
   }
 }
 
-graphql_flutter.QueryHookResult<Query$CountTotalAffiliator> useQuery$CountTotalAffiliator([Options$Query$CountTotalAffiliator? options]) =>
-    graphql_flutter.useQuery(options ?? Options$Query$CountTotalAffiliator());
-graphql.ObservableQuery<Query$CountTotalAffiliator> useWatchQuery$CountTotalAffiliator([WatchOptions$Query$CountTotalAffiliator? options]) =>
-    graphql_flutter.useWatchQuery(options ?? WatchOptions$Query$CountTotalAffiliator());
+graphql_flutter.QueryHookResult<Query$CountTotalAffiliator>
+    useQuery$CountTotalAffiliator(
+            [Options$Query$CountTotalAffiliator? options]) =>
+        graphql_flutter
+            .useQuery(options ?? Options$Query$CountTotalAffiliator());
+graphql.ObservableQuery<Query$CountTotalAffiliator>
+    useWatchQuery$CountTotalAffiliator(
+            [WatchOptions$Query$CountTotalAffiliator? options]) =>
+        graphql_flutter.useWatchQuery(
+            options ?? WatchOptions$Query$CountTotalAffiliator());
 
-class Query$CountTotalAffiliator$Widget extends graphql_flutter.Query<Query$CountTotalAffiliator> {
+class Query$CountTotalAffiliator$Widget
+    extends graphql_flutter.Query<Query$CountTotalAffiliator> {
   Query$CountTotalAffiliator$Widget({
     widgets.Key? key,
     Options$Query$CountTotalAffiliator? options,

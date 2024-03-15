@@ -1,0 +1,16 @@
+query TransactionFindManyByUserPointFromUserId(
+  $userId: String!
+  $skip: Int!
+  $take: Int!
+) {
+  transactionFindManyByUserPointFromUserId(
+    userId: $userId
+    skip: $skip
+    take: $take
+  ) {
+    id
+    amount
+    transactionCategory
+    createdAt
+  }
+}

@@ -1,25 +1,23 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
+import 'package:satujuta_gql_client/operations/mobile/generated/withdrawal_request_create_one.graphql.dart';
 
-import '../../operations/mobile/generated/faq_find_many.graphql.dart';
 import '../graphql_service.dart';
 
 class GqlWithdrawalService {
-  static Future<QueryResult<Query$FaqFindMany>> faqFindMany({
+  static Future<QueryResult<Mutation$WithdrawalRequestCreateOne>> withdrawalRequestCreateOne({
     required String userId,
     required int amount,
   }) async {
-    return await GraphQLService.client.query(
-      QueryOptions(
-        document: documentNodeQueryFaqFindMany,
-        parserFn: (data) => Query$FaqFindMany.fromJson(data),
+    return await GraphQLService.client.mutate(
+      MutationOptions(
+        document: documentNodeMutationWithdrawalRequestCreateOne,
+        parserFn: (data) => Mutation$WithdrawalRequestCreateOne.fromJson(data),
         variables: {
-          "withdrawalRequestCreateArgs": {
-            "data": {
-              "user": {
-                "connect": {"id": userId}
-              },
-              "amount": amount
-            }
+          "data": {
+            "user": {
+              "connect": {"id": userId}
+            },
+            "amount": amount
           }
         },
       ),

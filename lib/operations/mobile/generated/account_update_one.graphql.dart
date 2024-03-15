@@ -1,11 +1,9 @@
+import '../../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
-
-import '../../../schema/generated/schema.graphql.dart';
 
 class Variables$Mutation$AccountUpdateOne {
   factory Variables$Mutation$AccountUpdateOne({
@@ -19,19 +17,24 @@ class Variables$Mutation$AccountUpdateOne {
 
   Variables$Mutation$AccountUpdateOne._(this._$data);
 
-  factory Variables$Mutation$AccountUpdateOne.fromJson(Map<String, dynamic> data) {
+  factory Variables$Mutation$AccountUpdateOne.fromJson(
+      Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$data = data['data'];
-    result$data['data'] = Input$AccountUpdateInput.fromJson((l$data as Map<String, dynamic>));
+    result$data['data'] =
+        Input$AccountUpdateInput.fromJson((l$data as Map<String, dynamic>));
     final l$where = data['where'];
-    result$data['where'] = Input$AccountWhereUniqueInput.fromJson((l$where as Map<String, dynamic>));
+    result$data['where'] = Input$AccountWhereUniqueInput.fromJson(
+        (l$where as Map<String, dynamic>));
     return Variables$Mutation$AccountUpdateOne._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$AccountUpdateInput get data => (_$data['data'] as Input$AccountUpdateInput);
-  Input$AccountWhereUniqueInput get where => (_$data['where'] as Input$AccountWhereUniqueInput);
+  Input$AccountUpdateInput get data =>
+      (_$data['data'] as Input$AccountUpdateInput);
+  Input$AccountWhereUniqueInput get where =>
+      (_$data['where'] as Input$AccountWhereUniqueInput);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$data = data;
@@ -41,16 +44,19 @@ class Variables$Mutation$AccountUpdateOne {
     return result$data;
   }
 
-  CopyWith$Variables$Mutation$AccountUpdateOne<Variables$Mutation$AccountUpdateOne> get copyWith => CopyWith$Variables$Mutation$AccountUpdateOne(
-        this,
-        (i) => i,
-      );
+  CopyWith$Variables$Mutation$AccountUpdateOne<
+          Variables$Mutation$AccountUpdateOne>
+      get copyWith => CopyWith$Variables$Mutation$AccountUpdateOne(
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (other is! Variables$Mutation$AccountUpdateOne || runtimeType != other.runtimeType) {
+    if (!(other is Variables$Mutation$AccountUpdateOne) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$data = data;
@@ -83,7 +89,8 @@ abstract class CopyWith$Variables$Mutation$AccountUpdateOne<TRes> {
     TRes Function(Variables$Mutation$AccountUpdateOne) then,
   ) = _CopyWithImpl$Variables$Mutation$AccountUpdateOne;
 
-  factory CopyWith$Variables$Mutation$AccountUpdateOne.stub(TRes res) = _CopyWithStubImpl$Variables$Mutation$AccountUpdateOne;
+  factory CopyWith$Variables$Mutation$AccountUpdateOne.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$AccountUpdateOne;
 
   TRes call({
     Input$AccountUpdateInput? data,
@@ -91,7 +98,8 @@ abstract class CopyWith$Variables$Mutation$AccountUpdateOne<TRes> {
   });
 }
 
-class _CopyWithImpl$Variables$Mutation$AccountUpdateOne<TRes> implements CopyWith$Variables$Mutation$AccountUpdateOne<TRes> {
+class _CopyWithImpl$Variables$Mutation$AccountUpdateOne<TRes>
+    implements CopyWith$Variables$Mutation$AccountUpdateOne<TRes> {
   _CopyWithImpl$Variables$Mutation$AccountUpdateOne(
     this._instance,
     this._then,
@@ -103,24 +111,25 @@ class _CopyWithImpl$Variables$Mutation$AccountUpdateOne<TRes> implements CopyWit
 
   static const _undefined = <dynamic, dynamic>{};
 
-  @override
   TRes call({
     Object? data = _undefined,
     Object? where = _undefined,
   }) =>
       _then(Variables$Mutation$AccountUpdateOne._({
         ..._instance._$data,
-        if (data != _undefined && data != null) 'data': (data as Input$AccountUpdateInput),
-        if (where != _undefined && where != null) 'where': (where as Input$AccountWhereUniqueInput),
+        if (data != _undefined && data != null)
+          'data': (data as Input$AccountUpdateInput),
+        if (where != _undefined && where != null)
+          'where': (where as Input$AccountWhereUniqueInput),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Mutation$AccountUpdateOne<TRes> implements CopyWith$Variables$Mutation$AccountUpdateOne<TRes> {
+class _CopyWithStubImpl$Variables$Mutation$AccountUpdateOne<TRes>
+    implements CopyWith$Variables$Mutation$AccountUpdateOne<TRes> {
   _CopyWithStubImpl$Variables$Mutation$AccountUpdateOne(this._res);
 
-  final TRes _res;
+  TRes _res;
 
-  @override
   call({
     Input$AccountUpdateInput? data,
     Input$AccountWhereUniqueInput? where,
@@ -138,8 +147,10 @@ class Mutation$AccountUpdateOne {
     final l$accountUpdateOne = json['accountUpdateOne'];
     final l$$__typename = json['__typename'];
     return Mutation$AccountUpdateOne(
-      accountUpdateOne:
-          l$accountUpdateOne == null ? null : Mutation$AccountUpdateOne$accountUpdateOne.fromJson((l$accountUpdateOne as Map<String, dynamic>)),
+      accountUpdateOne: l$accountUpdateOne == null
+          ? null
+          : Mutation$AccountUpdateOne$accountUpdateOne.fromJson(
+              (l$accountUpdateOne as Map<String, dynamic>)),
       $__typename: (l$$__typename as String),
     );
   }
@@ -149,12 +160,12 @@ class Mutation$AccountUpdateOne {
   final String $__typename;
 
   Map<String, dynamic> toJson() {
-    final resultData = <String, dynamic>{};
+    final _resultData = <String, dynamic>{};
     final l$accountUpdateOne = accountUpdateOne;
-    resultData['accountUpdateOne'] = l$accountUpdateOne?.toJson();
+    _resultData['accountUpdateOne'] = l$accountUpdateOne?.toJson();
     final l$$__typename = $__typename;
-    resultData['__typename'] = l$$__typename;
-    return resultData;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
   }
 
   @override
@@ -172,7 +183,8 @@ class Mutation$AccountUpdateOne {
     if (identical(this, other)) {
       return true;
     }
-    if (other is! Mutation$AccountUpdateOne || runtimeType != other.runtimeType) {
+    if (!(other is Mutation$AccountUpdateOne) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$accountUpdateOne = accountUpdateOne;
@@ -189,8 +201,10 @@ class Mutation$AccountUpdateOne {
   }
 }
 
-extension UtilityExtension$Mutation$AccountUpdateOne on Mutation$AccountUpdateOne {
-  CopyWith$Mutation$AccountUpdateOne<Mutation$AccountUpdateOne> get copyWith => CopyWith$Mutation$AccountUpdateOne(
+extension UtilityExtension$Mutation$AccountUpdateOne
+    on Mutation$AccountUpdateOne {
+  CopyWith$Mutation$AccountUpdateOne<Mutation$AccountUpdateOne> get copyWith =>
+      CopyWith$Mutation$AccountUpdateOne(
         this,
         (i) => i,
       );
@@ -202,16 +216,19 @@ abstract class CopyWith$Mutation$AccountUpdateOne<TRes> {
     TRes Function(Mutation$AccountUpdateOne) then,
   ) = _CopyWithImpl$Mutation$AccountUpdateOne;
 
-  factory CopyWith$Mutation$AccountUpdateOne.stub(TRes res) = _CopyWithStubImpl$Mutation$AccountUpdateOne;
+  factory CopyWith$Mutation$AccountUpdateOne.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$AccountUpdateOne;
 
   TRes call({
     Mutation$AccountUpdateOne$accountUpdateOne? accountUpdateOne,
     String? $__typename,
   });
-  CopyWith$Mutation$AccountUpdateOne$accountUpdateOne<TRes> get accountUpdateOne;
+  CopyWith$Mutation$AccountUpdateOne$accountUpdateOne<TRes>
+      get accountUpdateOne;
 }
 
-class _CopyWithImpl$Mutation$AccountUpdateOne<TRes> implements CopyWith$Mutation$AccountUpdateOne<TRes> {
+class _CopyWithImpl$Mutation$AccountUpdateOne<TRes>
+    implements CopyWith$Mutation$AccountUpdateOne<TRes> {
   _CopyWithImpl$Mutation$AccountUpdateOne(
     this._instance,
     this._then,
@@ -223,38 +240,43 @@ class _CopyWithImpl$Mutation$AccountUpdateOne<TRes> implements CopyWith$Mutation
 
   static const _undefined = <dynamic, dynamic>{};
 
-  @override
   TRes call({
     Object? accountUpdateOne = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$AccountUpdateOne(
-        accountUpdateOne:
-            accountUpdateOne == _undefined ? _instance.accountUpdateOne : (accountUpdateOne as Mutation$AccountUpdateOne$accountUpdateOne?),
-        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
+        accountUpdateOne: accountUpdateOne == _undefined
+            ? _instance.accountUpdateOne
+            : (accountUpdateOne as Mutation$AccountUpdateOne$accountUpdateOne?),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
       ));
-  @override
-  CopyWith$Mutation$AccountUpdateOne$accountUpdateOne<TRes> get accountUpdateOne {
+  CopyWith$Mutation$AccountUpdateOne$accountUpdateOne<TRes>
+      get accountUpdateOne {
     final local$accountUpdateOne = _instance.accountUpdateOne;
     return local$accountUpdateOne == null
-        ? CopyWith$Mutation$AccountUpdateOne$accountUpdateOne.stub(_then(_instance))
-        : CopyWith$Mutation$AccountUpdateOne$accountUpdateOne(local$accountUpdateOne, (e) => call(accountUpdateOne: e));
+        ? CopyWith$Mutation$AccountUpdateOne$accountUpdateOne.stub(
+            _then(_instance))
+        : CopyWith$Mutation$AccountUpdateOne$accountUpdateOne(
+            local$accountUpdateOne, (e) => call(accountUpdateOne: e));
   }
 }
 
-class _CopyWithStubImpl$Mutation$AccountUpdateOne<TRes> implements CopyWith$Mutation$AccountUpdateOne<TRes> {
+class _CopyWithStubImpl$Mutation$AccountUpdateOne<TRes>
+    implements CopyWith$Mutation$AccountUpdateOne<TRes> {
   _CopyWithStubImpl$Mutation$AccountUpdateOne(this._res);
 
-  final TRes _res;
+  TRes _res;
 
-  @override
   call({
     Mutation$AccountUpdateOne$accountUpdateOne? accountUpdateOne,
     String? $__typename,
   }) =>
       _res;
-  @override
-  CopyWith$Mutation$AccountUpdateOne$accountUpdateOne<TRes> get accountUpdateOne => CopyWith$Mutation$AccountUpdateOne$accountUpdateOne.stub(_res);
+  CopyWith$Mutation$AccountUpdateOne$accountUpdateOne<TRes>
+      get accountUpdateOne =>
+          CopyWith$Mutation$AccountUpdateOne$accountUpdateOne.stub(_res);
 }
 
 const documentNodeMutationAccountUpdateOne = DocumentNode(definitions: [
@@ -359,13 +381,16 @@ const documentNodeMutationAccountUpdateOne = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Mutation$AccountUpdateOne _parserFn$Mutation$AccountUpdateOne(Map<String, dynamic> data) => Mutation$AccountUpdateOne.fromJson(data);
+Mutation$AccountUpdateOne _parserFn$Mutation$AccountUpdateOne(
+        Map<String, dynamic> data) =>
+    Mutation$AccountUpdateOne.fromJson(data);
 typedef OnMutationCompleted$Mutation$AccountUpdateOne = FutureOr<void> Function(
   Map<String, dynamic>?,
   Mutation$AccountUpdateOne?,
 );
 
-class Options$Mutation$AccountUpdateOne extends graphql.MutationOptions<Mutation$AccountUpdateOne> {
+class Options$Mutation$AccountUpdateOne
+    extends graphql.MutationOptions<Mutation$AccountUpdateOne> {
   Options$Mutation$AccountUpdateOne({
     String? operationName,
     required Variables$Mutation$AccountUpdateOne variables,
@@ -391,7 +416,9 @@ class Options$Mutation$AccountUpdateOne extends graphql.MutationOptions<Mutation
               ? null
               : (data) => onCompleted(
                     data,
-                    data == null ? null : _parserFn$Mutation$AccountUpdateOne(data),
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$AccountUpdateOne(data),
                   ),
           update: update,
           onError: onError,
@@ -403,12 +430,15 @@ class Options$Mutation$AccountUpdateOne extends graphql.MutationOptions<Mutation
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null ? super.properties : super.properties.where((property) => property != onCompleted),
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
         onCompletedWithParsed,
       ];
 }
 
-class WatchOptions$Mutation$AccountUpdateOne extends graphql.WatchQueryOptions<Mutation$AccountUpdateOne> {
+class WatchOptions$Mutation$AccountUpdateOne
+    extends graphql.WatchQueryOptions<Mutation$AccountUpdateOne> {
   WatchOptions$Mutation$AccountUpdateOne({
     String? operationName,
     required Variables$Mutation$AccountUpdateOne variables,
@@ -440,10 +470,14 @@ class WatchOptions$Mutation$AccountUpdateOne extends graphql.WatchQueryOptions<M
 }
 
 extension ClientExtension$Mutation$AccountUpdateOne on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Mutation$AccountUpdateOne>> mutate$AccountUpdateOne(Options$Mutation$AccountUpdateOne options) async =>
-      await mutate(options);
-  graphql.ObservableQuery<Mutation$AccountUpdateOne> watchMutation$AccountUpdateOne(WatchOptions$Mutation$AccountUpdateOne options) =>
-      watchMutation(options);
+  Future<graphql.QueryResult<Mutation$AccountUpdateOne>>
+      mutate$AccountUpdateOne(
+              Options$Mutation$AccountUpdateOne options) async =>
+          await this.mutate(options);
+  graphql.ObservableQuery<Mutation$AccountUpdateOne>
+      watchMutation$AccountUpdateOne(
+              WatchOptions$Mutation$AccountUpdateOne options) =>
+          this.watchMutation(options);
 }
 
 class Mutation$AccountUpdateOne$HookResult {
@@ -457,10 +491,13 @@ class Mutation$AccountUpdateOne$HookResult {
   final graphql.QueryResult<Mutation$AccountUpdateOne> result;
 }
 
-Mutation$AccountUpdateOne$HookResult useMutation$AccountUpdateOne([WidgetOptions$Mutation$AccountUpdateOne? options]) {
-  final result = graphql_flutter.useMutation(options ?? WidgetOptions$Mutation$AccountUpdateOne());
+Mutation$AccountUpdateOne$HookResult useMutation$AccountUpdateOne(
+    [WidgetOptions$Mutation$AccountUpdateOne? options]) {
+  final result = graphql_flutter
+      .useMutation(options ?? WidgetOptions$Mutation$AccountUpdateOne());
   return Mutation$AccountUpdateOne$HookResult(
-    (variables, {optimisticResult, typedOptimisticResult}) => result.runMutation(
+    (variables, {optimisticResult, typedOptimisticResult}) =>
+        result.runMutation(
       variables.toJson(),
       optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
     ),
@@ -468,10 +505,13 @@ Mutation$AccountUpdateOne$HookResult useMutation$AccountUpdateOne([WidgetOptions
   );
 }
 
-graphql.ObservableQuery<Mutation$AccountUpdateOne> useWatchMutation$AccountUpdateOne(WatchOptions$Mutation$AccountUpdateOne options) =>
-    graphql_flutter.useWatchMutation(options);
+graphql.ObservableQuery<Mutation$AccountUpdateOne>
+    useWatchMutation$AccountUpdateOne(
+            WatchOptions$Mutation$AccountUpdateOne options) =>
+        graphql_flutter.useWatchMutation(options);
 
-class WidgetOptions$Mutation$AccountUpdateOne extends graphql.MutationOptions<Mutation$AccountUpdateOne> {
+class WidgetOptions$Mutation$AccountUpdateOne
+    extends graphql.MutationOptions<Mutation$AccountUpdateOne> {
   WidgetOptions$Mutation$AccountUpdateOne({
     String? operationName,
     graphql.FetchPolicy? fetchPolicy,
@@ -495,7 +535,9 @@ class WidgetOptions$Mutation$AccountUpdateOne extends graphql.MutationOptions<Mu
               ? null
               : (data) => onCompleted(
                     data,
-                    data == null ? null : _parserFn$Mutation$AccountUpdateOne(data),
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$AccountUpdateOne(data),
                   ),
           update: update,
           onError: onError,
@@ -507,12 +549,15 @@ class WidgetOptions$Mutation$AccountUpdateOne extends graphql.MutationOptions<Mu
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null ? super.properties : super.properties.where((property) => property != onCompleted),
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
         onCompletedWithParsed,
       ];
 }
 
-typedef RunMutation$Mutation$AccountUpdateOne = graphql.MultiSourceResult<Mutation$AccountUpdateOne> Function(
+typedef RunMutation$Mutation$AccountUpdateOne
+    = graphql.MultiSourceResult<Mutation$AccountUpdateOne> Function(
   Variables$Mutation$AccountUpdateOne, {
   Object? optimisticResult,
   Mutation$AccountUpdateOne? typedOptimisticResult,
@@ -522,7 +567,8 @@ typedef Builder$Mutation$AccountUpdateOne = widgets.Widget Function(
   graphql.QueryResult<Mutation$AccountUpdateOne>?,
 );
 
-class Mutation$AccountUpdateOne$Widget extends graphql_flutter.Mutation<Mutation$AccountUpdateOne> {
+class Mutation$AccountUpdateOne$Widget
+    extends graphql_flutter.Mutation<Mutation$AccountUpdateOne> {
   Mutation$AccountUpdateOne$Widget({
     widgets.Key? key,
     WidgetOptions$Mutation$AccountUpdateOne? options,
@@ -542,7 +588,8 @@ class Mutation$AccountUpdateOne$Widget extends graphql_flutter.Mutation<Mutation
             }) =>
                 run(
               variables.toJson(),
-              optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+              optimisticResult:
+                  optimisticResult ?? typedOptimisticResult?.toJson(),
             ),
             result,
           ),
@@ -560,7 +607,8 @@ class Mutation$AccountUpdateOne$accountUpdateOne {
     this.$__typename = 'Account',
   });
 
-  factory Mutation$AccountUpdateOne$accountUpdateOne.fromJson(Map<String, dynamic> json) {
+  factory Mutation$AccountUpdateOne$accountUpdateOne.fromJson(
+      Map<String, dynamic> json) {
     final l$id = json['id'];
     final l$name = json['name'];
     final l$accountNumber = json['accountNumber'];
@@ -572,7 +620,8 @@ class Mutation$AccountUpdateOne$accountUpdateOne {
       id: (l$id as int),
       name: (l$name as String),
       accountNumber: (l$accountNumber as num?)?.toDouble(),
-      accountCategory: fromJson$Enum$AccountCategory((l$accountCategory as String)),
+      accountCategory:
+          fromJson$Enum$AccountCategory((l$accountCategory as String)),
       createdAt: (l$createdAt as String),
       updatedAt: (l$updatedAt as String),
       $__typename: (l$$__typename as String),
@@ -594,22 +643,23 @@ class Mutation$AccountUpdateOne$accountUpdateOne {
   final String $__typename;
 
   Map<String, dynamic> toJson() {
-    final resultData = <String, dynamic>{};
+    final _resultData = <String, dynamic>{};
     final l$id = id;
-    resultData['id'] = l$id;
+    _resultData['id'] = l$id;
     final l$name = name;
-    resultData['name'] = l$name;
+    _resultData['name'] = l$name;
     final l$accountNumber = accountNumber;
-    resultData['accountNumber'] = l$accountNumber;
+    _resultData['accountNumber'] = l$accountNumber;
     final l$accountCategory = accountCategory;
-    resultData['accountCategory'] = toJson$Enum$AccountCategory(l$accountCategory);
+    _resultData['accountCategory'] =
+        toJson$Enum$AccountCategory(l$accountCategory);
     final l$createdAt = createdAt;
-    resultData['createdAt'] = l$createdAt;
+    _resultData['createdAt'] = l$createdAt;
     final l$updatedAt = updatedAt;
-    resultData['updatedAt'] = l$updatedAt;
+    _resultData['updatedAt'] = l$updatedAt;
     final l$$__typename = $__typename;
-    resultData['__typename'] = l$$__typename;
-    return resultData;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
   }
 
   @override
@@ -637,7 +687,8 @@ class Mutation$AccountUpdateOne$accountUpdateOne {
     if (identical(this, other)) {
       return true;
     }
-    if (other is! Mutation$AccountUpdateOne$accountUpdateOne || runtimeType != other.runtimeType) {
+    if (!(other is Mutation$AccountUpdateOne$accountUpdateOne) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$id = id;
@@ -679,12 +730,14 @@ class Mutation$AccountUpdateOne$accountUpdateOne {
   }
 }
 
-extension UtilityExtension$Mutation$AccountUpdateOne$accountUpdateOne on Mutation$AccountUpdateOne$accountUpdateOne {
-  CopyWith$Mutation$AccountUpdateOne$accountUpdateOne<Mutation$AccountUpdateOne$accountUpdateOne> get copyWith =>
-      CopyWith$Mutation$AccountUpdateOne$accountUpdateOne(
-        this,
-        (i) => i,
-      );
+extension UtilityExtension$Mutation$AccountUpdateOne$accountUpdateOne
+    on Mutation$AccountUpdateOne$accountUpdateOne {
+  CopyWith$Mutation$AccountUpdateOne$accountUpdateOne<
+          Mutation$AccountUpdateOne$accountUpdateOne>
+      get copyWith => CopyWith$Mutation$AccountUpdateOne$accountUpdateOne(
+            this,
+            (i) => i,
+          );
 }
 
 abstract class CopyWith$Mutation$AccountUpdateOne$accountUpdateOne<TRes> {
@@ -693,7 +746,8 @@ abstract class CopyWith$Mutation$AccountUpdateOne$accountUpdateOne<TRes> {
     TRes Function(Mutation$AccountUpdateOne$accountUpdateOne) then,
   ) = _CopyWithImpl$Mutation$AccountUpdateOne$accountUpdateOne;
 
-  factory CopyWith$Mutation$AccountUpdateOne$accountUpdateOne.stub(TRes res) = _CopyWithStubImpl$Mutation$AccountUpdateOne$accountUpdateOne;
+  factory CopyWith$Mutation$AccountUpdateOne$accountUpdateOne.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$AccountUpdateOne$accountUpdateOne;
 
   TRes call({
     int? id,
@@ -706,7 +760,8 @@ abstract class CopyWith$Mutation$AccountUpdateOne$accountUpdateOne<TRes> {
   });
 }
 
-class _CopyWithImpl$Mutation$AccountUpdateOne$accountUpdateOne<TRes> implements CopyWith$Mutation$AccountUpdateOne$accountUpdateOne<TRes> {
+class _CopyWithImpl$Mutation$AccountUpdateOne$accountUpdateOne<TRes>
+    implements CopyWith$Mutation$AccountUpdateOne$accountUpdateOne<TRes> {
   _CopyWithImpl$Mutation$AccountUpdateOne$accountUpdateOne(
     this._instance,
     this._then,
@@ -718,7 +773,6 @@ class _CopyWithImpl$Mutation$AccountUpdateOne$accountUpdateOne<TRes> implements 
 
   static const _undefined = <dynamic, dynamic>{};
 
-  @override
   TRes call({
     Object? id = _undefined,
     Object? name = _undefined,
@@ -730,22 +784,34 @@ class _CopyWithImpl$Mutation$AccountUpdateOne$accountUpdateOne<TRes> implements 
   }) =>
       _then(Mutation$AccountUpdateOne$accountUpdateOne(
         id: id == _undefined || id == null ? _instance.id : (id as int),
-        name: name == _undefined || name == null ? _instance.name : (name as String),
-        accountNumber: accountNumber == _undefined ? _instance.accountNumber : (accountNumber as double?),
+        name: name == _undefined || name == null
+            ? _instance.name
+            : (name as String),
+        accountNumber: accountNumber == _undefined
+            ? _instance.accountNumber
+            : (accountNumber as double?),
         accountCategory:
-            accountCategory == _undefined || accountCategory == null ? _instance.accountCategory : (accountCategory as Enum$AccountCategory),
-        createdAt: createdAt == _undefined || createdAt == null ? _instance.createdAt : (createdAt as String),
-        updatedAt: updatedAt == _undefined || updatedAt == null ? _instance.updatedAt : (updatedAt as String),
-        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
+            accountCategory == _undefined || accountCategory == null
+                ? _instance.accountCategory
+                : (accountCategory as Enum$AccountCategory),
+        createdAt: createdAt == _undefined || createdAt == null
+            ? _instance.createdAt
+            : (createdAt as String),
+        updatedAt: updatedAt == _undefined || updatedAt == null
+            ? _instance.updatedAt
+            : (updatedAt as String),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImpl$Mutation$AccountUpdateOne$accountUpdateOne<TRes> implements CopyWith$Mutation$AccountUpdateOne$accountUpdateOne<TRes> {
+class _CopyWithStubImpl$Mutation$AccountUpdateOne$accountUpdateOne<TRes>
+    implements CopyWith$Mutation$AccountUpdateOne$accountUpdateOne<TRes> {
   _CopyWithStubImpl$Mutation$AccountUpdateOne$accountUpdateOne(this._res);
 
-  final TRes _res;
+  TRes _res;
 
-  @override
   call({
     int? id,
     String? name,

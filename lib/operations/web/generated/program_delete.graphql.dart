@@ -1,14 +1,14 @@
+import '../../../schema/generated/schema.graphql.dart';
 import 'dart:async';
-
 import 'package:flutter/widgets.dart' as widgets;
 import 'package:gql/ast.dart';
 import 'package:graphql/client.dart' as graphql;
 import 'package:graphql_flutter/graphql_flutter.dart' as graphql_flutter;
 
-import '../../../schema/generated/schema.graphql.dart';
-
 class Variables$Mutation$ProgramDelete {
-  factory Variables$Mutation$ProgramDelete({required Input$ProgramWhereUniqueInput where}) => Variables$Mutation$ProgramDelete._({
+  factory Variables$Mutation$ProgramDelete(
+          {required Input$ProgramWhereUniqueInput where}) =>
+      Variables$Mutation$ProgramDelete._({
         r'where': where,
       });
 
@@ -17,13 +17,15 @@ class Variables$Mutation$ProgramDelete {
   factory Variables$Mutation$ProgramDelete.fromJson(Map<String, dynamic> data) {
     final result$data = <String, dynamic>{};
     final l$where = data['where'];
-    result$data['where'] = Input$ProgramWhereUniqueInput.fromJson((l$where as Map<String, dynamic>));
+    result$data['where'] = Input$ProgramWhereUniqueInput.fromJson(
+        (l$where as Map<String, dynamic>));
     return Variables$Mutation$ProgramDelete._(result$data);
   }
 
   Map<String, dynamic> _$data;
 
-  Input$ProgramWhereUniqueInput get where => (_$data['where'] as Input$ProgramWhereUniqueInput);
+  Input$ProgramWhereUniqueInput get where =>
+      (_$data['where'] as Input$ProgramWhereUniqueInput);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
     final l$where = where;
@@ -31,16 +33,18 @@ class Variables$Mutation$ProgramDelete {
     return result$data;
   }
 
-  CopyWith$Variables$Mutation$ProgramDelete<Variables$Mutation$ProgramDelete> get copyWith => CopyWith$Variables$Mutation$ProgramDelete(
-        this,
-        (i) => i,
-      );
+  CopyWith$Variables$Mutation$ProgramDelete<Variables$Mutation$ProgramDelete>
+      get copyWith => CopyWith$Variables$Mutation$ProgramDelete(
+            this,
+            (i) => i,
+          );
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) {
       return true;
     }
-    if (other is! Variables$Mutation$ProgramDelete || runtimeType != other.runtimeType) {
+    if (!(other is Variables$Mutation$ProgramDelete) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$where = where;
@@ -64,12 +68,14 @@ abstract class CopyWith$Variables$Mutation$ProgramDelete<TRes> {
     TRes Function(Variables$Mutation$ProgramDelete) then,
   ) = _CopyWithImpl$Variables$Mutation$ProgramDelete;
 
-  factory CopyWith$Variables$Mutation$ProgramDelete.stub(TRes res) = _CopyWithStubImpl$Variables$Mutation$ProgramDelete;
+  factory CopyWith$Variables$Mutation$ProgramDelete.stub(TRes res) =
+      _CopyWithStubImpl$Variables$Mutation$ProgramDelete;
 
   TRes call({Input$ProgramWhereUniqueInput? where});
 }
 
-class _CopyWithImpl$Variables$Mutation$ProgramDelete<TRes> implements CopyWith$Variables$Mutation$ProgramDelete<TRes> {
+class _CopyWithImpl$Variables$Mutation$ProgramDelete<TRes>
+    implements CopyWith$Variables$Mutation$ProgramDelete<TRes> {
   _CopyWithImpl$Variables$Mutation$ProgramDelete(
     this._instance,
     this._then,
@@ -81,19 +87,20 @@ class _CopyWithImpl$Variables$Mutation$ProgramDelete<TRes> implements CopyWith$V
 
   static const _undefined = <dynamic, dynamic>{};
 
-  @override
-  TRes call({Object? where = _undefined}) => _then(Variables$Mutation$ProgramDelete._({
+  TRes call({Object? where = _undefined}) =>
+      _then(Variables$Mutation$ProgramDelete._({
         ..._instance._$data,
-        if (where != _undefined && where != null) 'where': (where as Input$ProgramWhereUniqueInput),
+        if (where != _undefined && where != null)
+          'where': (where as Input$ProgramWhereUniqueInput),
       }));
 }
 
-class _CopyWithStubImpl$Variables$Mutation$ProgramDelete<TRes> implements CopyWith$Variables$Mutation$ProgramDelete<TRes> {
+class _CopyWithStubImpl$Variables$Mutation$ProgramDelete<TRes>
+    implements CopyWith$Variables$Mutation$ProgramDelete<TRes> {
   _CopyWithStubImpl$Variables$Mutation$ProgramDelete(this._res);
 
-  final TRes _res;
+  TRes _res;
 
-  @override
   call({Input$ProgramWhereUniqueInput? where}) => _res;
 }
 
@@ -117,12 +124,12 @@ class Mutation$ProgramDelete {
   final String $__typename;
 
   Map<String, dynamic> toJson() {
-    final resultData = <String, dynamic>{};
+    final _resultData = <String, dynamic>{};
     final l$programDelete = programDelete;
-    resultData['programDelete'] = l$programDelete;
+    _resultData['programDelete'] = l$programDelete;
     final l$$__typename = $__typename;
-    resultData['__typename'] = l$$__typename;
-    return resultData;
+    _resultData['__typename'] = l$$__typename;
+    return _resultData;
   }
 
   @override
@@ -140,7 +147,8 @@ class Mutation$ProgramDelete {
     if (identical(this, other)) {
       return true;
     }
-    if (other is! Mutation$ProgramDelete || runtimeType != other.runtimeType) {
+    if (!(other is Mutation$ProgramDelete) ||
+        runtimeType != other.runtimeType) {
       return false;
     }
     final l$programDelete = programDelete;
@@ -158,7 +166,8 @@ class Mutation$ProgramDelete {
 }
 
 extension UtilityExtension$Mutation$ProgramDelete on Mutation$ProgramDelete {
-  CopyWith$Mutation$ProgramDelete<Mutation$ProgramDelete> get copyWith => CopyWith$Mutation$ProgramDelete(
+  CopyWith$Mutation$ProgramDelete<Mutation$ProgramDelete> get copyWith =>
+      CopyWith$Mutation$ProgramDelete(
         this,
         (i) => i,
       );
@@ -170,7 +179,8 @@ abstract class CopyWith$Mutation$ProgramDelete<TRes> {
     TRes Function(Mutation$ProgramDelete) then,
   ) = _CopyWithImpl$Mutation$ProgramDelete;
 
-  factory CopyWith$Mutation$ProgramDelete.stub(TRes res) = _CopyWithStubImpl$Mutation$ProgramDelete;
+  factory CopyWith$Mutation$ProgramDelete.stub(TRes res) =
+      _CopyWithStubImpl$Mutation$ProgramDelete;
 
   TRes call({
     bool? programDelete,
@@ -178,7 +188,8 @@ abstract class CopyWith$Mutation$ProgramDelete<TRes> {
   });
 }
 
-class _CopyWithImpl$Mutation$ProgramDelete<TRes> implements CopyWith$Mutation$ProgramDelete<TRes> {
+class _CopyWithImpl$Mutation$ProgramDelete<TRes>
+    implements CopyWith$Mutation$ProgramDelete<TRes> {
   _CopyWithImpl$Mutation$ProgramDelete(
     this._instance,
     this._then,
@@ -190,23 +201,26 @@ class _CopyWithImpl$Mutation$ProgramDelete<TRes> implements CopyWith$Mutation$Pr
 
   static const _undefined = <dynamic, dynamic>{};
 
-  @override
   TRes call({
     Object? programDelete = _undefined,
     Object? $__typename = _undefined,
   }) =>
       _then(Mutation$ProgramDelete(
-        programDelete: programDelete == _undefined || programDelete == null ? _instance.programDelete : (programDelete as bool),
-        $__typename: $__typename == _undefined || $__typename == null ? _instance.$__typename : ($__typename as String),
+        programDelete: programDelete == _undefined || programDelete == null
+            ? _instance.programDelete
+            : (programDelete as bool),
+        $__typename: $__typename == _undefined || $__typename == null
+            ? _instance.$__typename
+            : ($__typename as String),
       ));
 }
 
-class _CopyWithStubImpl$Mutation$ProgramDelete<TRes> implements CopyWith$Mutation$ProgramDelete<TRes> {
+class _CopyWithStubImpl$Mutation$ProgramDelete<TRes>
+    implements CopyWith$Mutation$ProgramDelete<TRes> {
   _CopyWithStubImpl$Mutation$ProgramDelete(this._res);
 
-  final TRes _res;
+  TRes _res;
 
-  @override
   call({
     bool? programDelete,
     String? $__typename,
@@ -253,13 +267,16 @@ const documentNodeMutationProgramDelete = DocumentNode(definitions: [
     ]),
   ),
 ]);
-Mutation$ProgramDelete _parserFn$Mutation$ProgramDelete(Map<String, dynamic> data) => Mutation$ProgramDelete.fromJson(data);
+Mutation$ProgramDelete _parserFn$Mutation$ProgramDelete(
+        Map<String, dynamic> data) =>
+    Mutation$ProgramDelete.fromJson(data);
 typedef OnMutationCompleted$Mutation$ProgramDelete = FutureOr<void> Function(
   Map<String, dynamic>?,
   Mutation$ProgramDelete?,
 );
 
-class Options$Mutation$ProgramDelete extends graphql.MutationOptions<Mutation$ProgramDelete> {
+class Options$Mutation$ProgramDelete
+    extends graphql.MutationOptions<Mutation$ProgramDelete> {
   Options$Mutation$ProgramDelete({
     String? operationName,
     required Variables$Mutation$ProgramDelete variables,
@@ -285,7 +302,9 @@ class Options$Mutation$ProgramDelete extends graphql.MutationOptions<Mutation$Pr
               ? null
               : (data) => onCompleted(
                     data,
-                    data == null ? null : _parserFn$Mutation$ProgramDelete(data),
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$ProgramDelete(data),
                   ),
           update: update,
           onError: onError,
@@ -297,12 +316,15 @@ class Options$Mutation$ProgramDelete extends graphql.MutationOptions<Mutation$Pr
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null ? super.properties : super.properties.where((property) => property != onCompleted),
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
         onCompletedWithParsed,
       ];
 }
 
-class WatchOptions$Mutation$ProgramDelete extends graphql.WatchQueryOptions<Mutation$ProgramDelete> {
+class WatchOptions$Mutation$ProgramDelete
+    extends graphql.WatchQueryOptions<Mutation$ProgramDelete> {
   WatchOptions$Mutation$ProgramDelete({
     String? operationName,
     required Variables$Mutation$ProgramDelete variables,
@@ -334,8 +356,12 @@ class WatchOptions$Mutation$ProgramDelete extends graphql.WatchQueryOptions<Muta
 }
 
 extension ClientExtension$Mutation$ProgramDelete on graphql.GraphQLClient {
-  Future<graphql.QueryResult<Mutation$ProgramDelete>> mutate$ProgramDelete(Options$Mutation$ProgramDelete options) async => await mutate(options);
-  graphql.ObservableQuery<Mutation$ProgramDelete> watchMutation$ProgramDelete(WatchOptions$Mutation$ProgramDelete options) => watchMutation(options);
+  Future<graphql.QueryResult<Mutation$ProgramDelete>> mutate$ProgramDelete(
+          Options$Mutation$ProgramDelete options) async =>
+      await this.mutate(options);
+  graphql.ObservableQuery<Mutation$ProgramDelete> watchMutation$ProgramDelete(
+          WatchOptions$Mutation$ProgramDelete options) =>
+      this.watchMutation(options);
 }
 
 class Mutation$ProgramDelete$HookResult {
@@ -349,10 +375,13 @@ class Mutation$ProgramDelete$HookResult {
   final graphql.QueryResult<Mutation$ProgramDelete> result;
 }
 
-Mutation$ProgramDelete$HookResult useMutation$ProgramDelete([WidgetOptions$Mutation$ProgramDelete? options]) {
-  final result = graphql_flutter.useMutation(options ?? WidgetOptions$Mutation$ProgramDelete());
+Mutation$ProgramDelete$HookResult useMutation$ProgramDelete(
+    [WidgetOptions$Mutation$ProgramDelete? options]) {
+  final result = graphql_flutter
+      .useMutation(options ?? WidgetOptions$Mutation$ProgramDelete());
   return Mutation$ProgramDelete$HookResult(
-    (variables, {optimisticResult, typedOptimisticResult}) => result.runMutation(
+    (variables, {optimisticResult, typedOptimisticResult}) =>
+        result.runMutation(
       variables.toJson(),
       optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
     ),
@@ -360,10 +389,12 @@ Mutation$ProgramDelete$HookResult useMutation$ProgramDelete([WidgetOptions$Mutat
   );
 }
 
-graphql.ObservableQuery<Mutation$ProgramDelete> useWatchMutation$ProgramDelete(WatchOptions$Mutation$ProgramDelete options) =>
+graphql.ObservableQuery<Mutation$ProgramDelete> useWatchMutation$ProgramDelete(
+        WatchOptions$Mutation$ProgramDelete options) =>
     graphql_flutter.useWatchMutation(options);
 
-class WidgetOptions$Mutation$ProgramDelete extends graphql.MutationOptions<Mutation$ProgramDelete> {
+class WidgetOptions$Mutation$ProgramDelete
+    extends graphql.MutationOptions<Mutation$ProgramDelete> {
   WidgetOptions$Mutation$ProgramDelete({
     String? operationName,
     graphql.FetchPolicy? fetchPolicy,
@@ -387,7 +418,9 @@ class WidgetOptions$Mutation$ProgramDelete extends graphql.MutationOptions<Mutat
               ? null
               : (data) => onCompleted(
                     data,
-                    data == null ? null : _parserFn$Mutation$ProgramDelete(data),
+                    data == null
+                        ? null
+                        : _parserFn$Mutation$ProgramDelete(data),
                   ),
           update: update,
           onError: onError,
@@ -399,12 +432,15 @@ class WidgetOptions$Mutation$ProgramDelete extends graphql.MutationOptions<Mutat
 
   @override
   List<Object?> get properties => [
-        ...super.onCompleted == null ? super.properties : super.properties.where((property) => property != onCompleted),
+        ...super.onCompleted == null
+            ? super.properties
+            : super.properties.where((property) => property != onCompleted),
         onCompletedWithParsed,
       ];
 }
 
-typedef RunMutation$Mutation$ProgramDelete = graphql.MultiSourceResult<Mutation$ProgramDelete> Function(
+typedef RunMutation$Mutation$ProgramDelete
+    = graphql.MultiSourceResult<Mutation$ProgramDelete> Function(
   Variables$Mutation$ProgramDelete, {
   Object? optimisticResult,
   Mutation$ProgramDelete? typedOptimisticResult,
@@ -414,7 +450,8 @@ typedef Builder$Mutation$ProgramDelete = widgets.Widget Function(
   graphql.QueryResult<Mutation$ProgramDelete>?,
 );
 
-class Mutation$ProgramDelete$Widget extends graphql_flutter.Mutation<Mutation$ProgramDelete> {
+class Mutation$ProgramDelete$Widget
+    extends graphql_flutter.Mutation<Mutation$ProgramDelete> {
   Mutation$ProgramDelete$Widget({
     widgets.Key? key,
     WidgetOptions$Mutation$ProgramDelete? options,
@@ -434,7 +471,8 @@ class Mutation$ProgramDelete$Widget extends graphql_flutter.Mutation<Mutation$Pr
             }) =>
                 run(
               variables.toJson(),
-              optimisticResult: optimisticResult ?? typedOptimisticResult?.toJson(),
+              optimisticResult:
+                  optimisticResult ?? typedOptimisticResult?.toJson(),
             ),
             result,
           ),

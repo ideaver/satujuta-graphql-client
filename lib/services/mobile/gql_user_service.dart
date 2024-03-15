@@ -8,6 +8,7 @@ import '../../operations/mobile/generated/get_account_total_balance.graphql.dart
 import '../../operations/mobile/generated/password_update_from_user_update_one.graphql.dart';
 import '../../operations/mobile/generated/reward_claim_find_many.graphql.dart';
 import '../../operations/mobile/generated/transaction_find_many.graphql.dart';
+import '../../operations/mobile/generated/transaction_find_many_by_user_point_from_user_id.graphql.dart';
 import '../../operations/mobile/generated/user_create_one.graphql.dart';
 import '../../operations/mobile/generated/user_delete.graphql.dart';
 import '../../operations/mobile/generated/user_find_many.graphql.dart';
@@ -383,29 +384,22 @@ class GqlUserService {
     );
   }
 
-  // static Future<QueryResult<Query$PointTransactionFindMany>> pointTransactionFindMany({
-  //   required String userId,
-  //   int skip = 0,
-  // }) async {
-  //   return await GraphQLService.client.query(
-  //     QueryOptions(
-  //       document: documentNodeQueryPointTransactionFindMany,
-  //       parserFn: (data) => Query$PointTransactionFindMany.fromJson(data),
-  //       variables: {
-  //         "pointTransactionFindManyArgs": {
-  //           "where": {
-  //             "userId": {"equals": userId}
-  //           },
-  //           "orderBy": [
-  //             {"createdAt": "desc"}
-  //           ],
-  //           "skip": skip,
-  //           "take": 10,
-  //         }
-  //       },
-  //     ),
-  //   );
-  // }
+  static Future<QueryResult<Query$TransactionFindManyByUserPointFromUserId>> transactionFindManyByUserPointFromUserId({
+    required String userId,
+    int skip = 0,
+  }) async {
+    return await GraphQLService.client.query(
+      QueryOptions(
+        document: documentNodeQueryTransactionFindManyByUserPointFromUserId,
+        parserFn: (data) => Query$TransactionFindManyByUserPointFromUserId.fromJson(data),
+        variables: {
+          "userId": userId,
+          "skip": skip,
+          "take": 10,
+        },
+      ),
+    );
+  }
 
   static Future<QueryResult<Query$TransactionFindManyByAccountId>> transactionFindManyByAccountId({
     required int fromAccountId,
