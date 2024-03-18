@@ -1,0 +1,7 @@
+query CountUserReferralPercentage {
+  countUserReferralPercentage {
+    userReferralType
+    userCount
+    userPercentage
+  }
+}

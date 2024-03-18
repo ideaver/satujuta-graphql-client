@@ -1,0 +1,6 @@
+query GetUserPointDistribution {
+  getUserPointDistribution {
+    label
+    count
+  }
+}

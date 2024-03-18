@@ -1,0 +1,17 @@
+query RewardFindMany {
+  rewardFindMany {
+    id
+    name
+    pointCost
+    description
+    createdAt
+    updatedAt
+    _count {
+      RewardClaim
+    }
+    images {
+      id
+      url
+    }
+  }
+}

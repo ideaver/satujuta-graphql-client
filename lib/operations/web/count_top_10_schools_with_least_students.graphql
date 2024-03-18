@@ -1,0 +1,7 @@
+query CountTop10SchoolsWithLeastStudents {
+  countTop10SchoolsWithLeastStudents {
+    schoolId
+    schoolName
+    userCount
+  }
+}

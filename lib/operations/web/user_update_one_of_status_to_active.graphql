@@ -1,0 +1,8 @@
+mutation UserUpdateOneOfStatusToActive($userId: String!) {
+  userUpdateOneOfStatusToActive(userId: $userId) {
+    id
+    firstName
+    lastName
+    status
+  }
+}

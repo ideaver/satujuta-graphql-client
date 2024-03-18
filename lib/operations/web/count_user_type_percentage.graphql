@@ -1,0 +1,7 @@
+query CountUserTypePercentage {
+  countUserTypePercentage {
+    userCountType
+    userCount
+    userPercentage
+  }
+}

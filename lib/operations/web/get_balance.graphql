@@ -1,0 +1,5 @@
+query GetBalance {
+  getBalance {
+    balance
+  }
+}

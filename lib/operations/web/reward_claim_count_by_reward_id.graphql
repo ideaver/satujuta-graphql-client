@@ -1,0 +1,3 @@
+query rewardClaimCountByRewardId($where: RewardClaimWhereInput) {
+  rewardClaimCount(where: $where)
+}

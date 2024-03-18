@@ -1,0 +1,8 @@
+query CountTop10UsersWithHighestCommissionBonus {
+  countTop10UsersWithHighestCommissionBonus {
+    userId
+    userFirstName
+    userLastName
+    amount
+  }
+}

@@ -1,0 +1,12 @@
+mutation PasswordUpdateFromUserUpdatedOne(
+  $data: UserUpdateInput!
+  $where: UserWhereUniqueInput!
+) {
+  userUpdateOne(data: $data, where: $where) {
+    id
+    firstName
+    lastName
+    email
+    updatedAt
+  }
+}

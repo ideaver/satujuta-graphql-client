@@ -1,6 +1,6 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
-import 'package:satujuta_gql_client/operations/mobile/generated/withdrawal_request_create_one.graphql.dart';
 
+import '../../operations/mobile/generated/withdrawal_request_create_one.graphql.dart';
 import '../graphql_service.dart';
 
 class GqlWithdrawalService {

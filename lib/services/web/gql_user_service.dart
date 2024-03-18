@@ -1,5 +1,7 @@
 import 'package:graphql_flutter/graphql_flutter.dart';
 
+import '../../operations/web/generated/count_top_10_users_with_highest_commission_bunus.graphql.dart';
+import '../../operations/web/generated/count_user_type_percentage.graphql.dart';
 import '../../operations/web/generated/get_user_growth.graphql.dart';
 import '../../operations/web/generated/get_user_of_student_growth.graphql.dart';
 import '../../operations/web/generated/user_delete.graphql.dart';
@@ -9,6 +11,8 @@ import '../../operations/web/generated/user_find_many_by_program_participation_i
 import '../../operations/web/generated/user_find_many_by_project_item_id.graphql.dart';
 import '../../operations/web/generated/user_find_one.graphql.dart';
 import '../../operations/web/generated/user_update_one.graphql.dart';
+import '../../operations/web/generated/user_update_one_of_status_to_active.graphql.dart';
+import '../../operations/web/generated/user_update_one_of_status_to_inactive.graphql.dart';
 import '../../schema/generated/schema.graphql.dart';
 import '../graphql_service.dart';
 
@@ -257,6 +261,30 @@ class GqlUserService {
     );
   }
 
+  static Future<QueryResult<Mutation$UserUpdateOneOfStatusToInactive>> updateUserStatusToInactive({
+    required String userId,
+  }) async {
+    return await GraphQLService.client.mutate(
+      MutationOptions(
+        document: documentNodeMutationUserUpdateOneOfStatusToInactive,
+        parserFn: (data) => Mutation$UserUpdateOneOfStatusToInactive.fromJson(data),
+        variables: {"userId": userId},
+      ),
+    );
+  }
+
+  static Future<QueryResult<Mutation$UserUpdateOneOfStatusToActive>> updateUserStatusToActive({
+    required String userId,
+  }) async {
+    return await GraphQLService.client.mutate(
+      MutationOptions(
+        document: documentNodeMutationUserUpdateOneOfStatusToActive,
+        parserFn: (data) => Mutation$UserUpdateOneOfStatusToActive.fromJson(data),
+        variables: {"userId": userId},
+      ),
+    );
+  }
+
   static Future<QueryResult<Query$GetUserGrowthByCustomPeriod>> getUserGrowth({
     required String startDate,
     required String endDate,
@@ -304,6 +332,30 @@ class GqlUserService {
             }
           }
         },
+      ),
+    );
+  }
+
+  static Future<QueryResult<Query$CountUserTypePercentage>> countUserTypePercentage({
+    int skip = 0,
+  }) async {
+    return await GraphQLService.client.query(
+      QueryOptions(
+        document: documentNodeQueryCountUserTypePercentage,
+        parserFn: (data) => Query$CountUserTypePercentage.fromJson(data),
+        variables: {},
+      ),
+    );
+  }
+
+  static Future<QueryResult<Query$CountTop10UsersWithHighestCommissionBonus>> countTop10UsersWithHighestCommissionBonus({
+    int skip = 0,
+  }) async {
+    return await GraphQLService.client.query(
+      QueryOptions(
+        document: documentNodeQueryCountTop10UsersWithHighestCommissionBonus,
+        parserFn: (data) => Query$CountTop10UsersWithHighestCommissionBonus.fromJson(data),
+        variables: {},
       ),
     );
   }
